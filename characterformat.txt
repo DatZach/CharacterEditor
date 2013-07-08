@@ -1,0 +1,171 @@
+Charater Format
+
+Compressed Stream
+{
+	[ Camera information is not saved ]
+	[ Player direction is not saved ]
+
+	00 4	Version? (Always 1)
+	04 4	Unknown (Somewhat random)
+	0C 4	Unknown (Usually 0x00000080)
+	10 4	Unknown (Somewhat random)
+	14 4	Unknown (Usually 0x00000080)
+	18 4	Unknown (Always 0x00B1147A?)
+	1C 4	Unknown (Always 0? Resaving will set to 0)
+	20 4	Unknown
+	24 4	Unknown
+
+	28 4	Health
+	2C 4	Experience
+	30 4	Level
+	34 1	Class
+	35 1	Specialization
+	36 1	Unknown
+	37 1	Unknown
+	38 4	Unknown
+	3C 4	Unknown (Always 0?)
+
+	At 0x0D5E
+	{
+		[ Pet HP is not stored in the format ]
+		[ Anything other than these two values results in some weird shit happening
+			Given that it will cause you to carry random garbage, this might be the
+			pet food index ]
+		1	0x13 If you have a pet, 0x00 otherwise
+		1	Pet Index
+		1	Unknown
+		1	Unknown
+		4	Pet XP
+		4	Unknown (Always 0?)
+		4	Unknown (Randomish)
+		4	Pet Level
+	}
+
+	At 0x0E76
+	{
+		4	Length { Name }
+		4	Race
+		1	Gender (0 = Male, 1 = Female)
+		3	Unknown (Random every save? Possible CRC32)
+			[ Definitely some sort of checksum, if changed it will delete the inventory
+			  Completely random every save, if the inventory is changed and this isn't,
+		  	  inventory will again be cleared. ]
+		4	Face Index
+		4	Hair Index
+		4	Hair RGBX
+		4	InventoryCount				[ Can be set to 3 and the client doesn't crash ]
+		For InventoryCount
+		{
+			4 SlotCount
+			For SlotCount
+			{
+
+				[ To figure this out breakpoint on memcpy() after DecompressCharacterData() ]
+
+				[ This size changes, not sure depending on what though ]
+				0x011C	Unknown (Mostly)
+
+				[ Xaymar's work ]
+				x0;4B=Amount
+				x4;1B=Item Type
+				x5;1B=Item Sub Type
+				x6;2B=Unknown,Unused
+				x8;4B=Modifier ID
+				xC;4B=Unknown,Unused
+				x10;1B=Rarity
+				x11;1B=Material
+				x12;1B=Adapted(Bool)
+				x13;1B=Unknown,Unused
+				x14;2B=Level
+				x16;2B=Unknown,random?
+				x118;4B=Used Upgrade block
+
+				Block1:
+					x18;1B=XOffset
+					x19;1B=YOffset
+					x20;1B=ZOffset
+					x1A;1B=Type
+					x1C;4B=Level
+				Block2:
+					Same as above
+			}
+		}
+	}
+
+	at 0xEC89
+	{
+		4	Coins (Split into bronze, silver, gold and platinum ingame)
+		4	Unknown (0)
+		4	Unknown
+	}
+
+	At ???
+	{
+		4 Count
+		For Count
+		{
+			4	Seed
+			4	Length { Name }
+			8	X
+			8	Y
+			8	Z
+			4	Unknown
+			4	Seed
+			4	Length { Name }
+			4	Unknown (0?)
+			4	Unknown (11?)
+			4	Pet Master Skill Level
+			4	Pet Riding Level
+			4	Climbing Skill Level
+			4	Hang Gliding Skill Level
+			4	Swimming Skill Level
+			4	Sailing Skill Level
+			4	Special Skill 1 Level
+			4	Special Skill 2 Level
+			4	Special Skill 3 Level
+
+			[ I think that these are two extra skills to be added in a future update ]
+			4	Unknown (Always 0)
+			4	Unknown (Always 0)
+		}
+	}
+}
+
+Inventory Item Size = 0x011C
+
+Class Types
+	1	Warrior
+	2	Ranger
+	3	Mage
+	4	Rogue
+
+Race Types
+	0	Human
+	1	Elf
+	2	Dwarf
+	3	Orc
+	4	Goblin
+	5	Lizard
+	6	Undead
+	7	Frogman
+
+Memory Structure
+	[EAX+190]		Name
+	[EAX+140]		Type
+
+Iron Sword
+Dmg 4
+Hp 7.5
+Crit 0.6%
+
+01000000030010190000000000000000000100210100008000000
+00000000000000000000000000000000000000000000000000000
+00000000000000000000000000000000000000000000000000000
+00000000000000000000000000000000000000000000000000000
+00000000000000000000000000000000000000000000000000000
+00000000000000000000000000000000000000000000000000000
+00000000000000000000000000000000000000000000000000000
+00000000000000000000000000000000000000000000000000000
+00000000000000000000000000000000000000000000000000000
+00000000000000000000000000000000000000000000000000000
+00000000000000000000000000000000000000
