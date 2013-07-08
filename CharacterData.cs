@@ -1,5 +1,5 @@
-﻿using System.IO;
-using System.Windows.Forms;
+﻿using System.Collections.Generic;
+using System.IO;
 
 namespace CharacterEditor
 {
@@ -17,7 +17,7 @@ namespace CharacterEditor
 		public byte Specialization;
 
 		public byte PetIndex;
-		public int PetXp;
+		public int PetExperience;
 		public int PetLevel;
 
 		public int Race;
@@ -28,6 +28,12 @@ namespace CharacterEditor
 
 		// TODO Hack
 		private byte[] characterData;
+
+		// Entity IDs found at: https://docs.google.com/spreadsheet/lv?key=0As7kattQ9kwbdFp6ZTlzV0R1RVRaZklBbmZZb2lBZ2c&f=true&noheader=true&gid=5
+		public static readonly List<byte> PetKinds = new List<byte>
+		{
+			19, 20, 22, 23, 25, 26, 27, 28, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 50, 53, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 73, 74, 75, 85, 86, 87, 88, 89, 90, 91, 92, 93, 98, 99, 104, 105, 106, 151
+		};
 
 		public CharacterData(int index)
 		{
@@ -57,6 +63,15 @@ namespace CharacterEditor
 				Class = reader.ReadByte();
 				Specialization = reader.ReadByte();
 
+				reader.BaseStream.Seek(0x0D5E + 1, SeekOrigin.Begin);
+				PetIndex = reader.ReadByte();
+				reader.ReadByte();
+				reader.ReadByte();
+				PetExperience = reader.ReadInt32();
+				reader.ReadInt32();
+				reader.ReadInt32();
+				PetLevel = reader.ReadInt32();
+
 				reader.BaseStream.Seek(0x0E76, SeekOrigin.Begin);
 				Name = reader.ReadLongString();
 				Race = reader.ReadInt32();
@@ -80,7 +95,16 @@ namespace CharacterEditor
 				writer.Write(Level);
 				writer.Write(Class);
 				writer.Write(Specialization);
-				Mirror(writer, 0x0E76 - 0x36);
+				Mirror(writer, 0x0D5E - 0x36);
+				writer.Write(PetIndex != 0 ? (byte)0x13 : (byte)0x00);
+				writer.Write(PetKinds[PetIndex]);
+				writer.Write((byte)0);
+				writer.Write((byte)0);
+				writer.Write(PetExperience);
+				writer.Write(0);
+				writer.Write(0);
+				writer.Write(PetLevel);
+				Mirror(writer, 0xE76 - 0x0D5E - 20);
 				writer.ReadLongString(Name);
 				writer.Write(Race);
 				writer.Write(Gender);
@@ -91,10 +115,10 @@ namespace CharacterEditor
 
 				// TODO Shouldn't be a magic number
 				writer.Write(4);
-				for(int i = 0; i < 4; ++i)
+				for (int i = 0; i < 4; ++i)
 				{
 					writer.Write(0x32);
-					for(int j = 0; j < 0x32; ++j)
+					for (int j = 0; j < 0x32; ++j)
 						Mirror(writer, 0x11C);
 				}
 

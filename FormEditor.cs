@@ -45,6 +45,12 @@ namespace CharacterEditor
 			comboBoxRace.SelectedIndex = character.Race;
 			nudFace.Value = character.Face;
 			nudHair.Value = character.Hair;
+
+			comboBoxPetKind.SelectedIndex = CharacterData.PetKinds.IndexOf(character.PetIndex);
+			if (character.PetLevel > 0)
+				nudPetLevel.Value = character.PetLevel;
+
+			nudPetExperience.Value = character.PetExperience;
 		}
 
 		private void SyncGuiToCharacterData()
@@ -56,6 +62,10 @@ namespace CharacterEditor
 			character.Race = comboBoxRace.SelectedIndex;
 			character.Face = (int)nudFace.Value;
 			character.Hair = (int)nudHair.Value;
+
+			character.PetIndex = (byte)comboBoxPetKind.SelectedIndex;
+			character.PetLevel = (int)nudPetLevel.Value;
+			character.PetExperience = (int)nudPetExperience.Value;
 		}
 
 		private void ButtonSaveCharacterClick(object sender, EventArgs e)
