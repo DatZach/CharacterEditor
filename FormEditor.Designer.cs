@@ -248,6 +248,7 @@
             0,
             0,
             0});
+			this.nudLevel.ValueChanged += new System.EventHandler(this.NudLevelValueChanged);
 			// 
 			// labelExperience
 			// 

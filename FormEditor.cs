@@ -128,5 +128,10 @@ namespace CharacterEditor
 			nudFace.Maximum = faceMaximums[comboBoxRace.SelectedIndex, comboBoxGender.SelectedIndex];
 			nudHair.Maximum = haircutMaximums[comboBoxRace.SelectedIndex, comboBoxGender.SelectedIndex];
 		}
+
+		private void NudLevelValueChanged(object sender, EventArgs e)
+		{
+			nudPetLevel.Maximum = nudLevel.Value;
+		}
 	}
 }
