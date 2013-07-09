@@ -107,14 +107,10 @@
 			this.comboBoxClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboBoxClass.FormattingEnabled = true;
 			this.comboBoxClass.Items.AddRange(new object[] {
-            "Human",
-            "Elf",
-            "Dwarf",
-            "Orc",
-            "Goblin",
-            "Lizard",
-            "Undead",
-            "Frogman"});
+            "Warior",
+            "Ranger",
+            "Mage",
+            "Rogue"});
 			this.comboBoxClass.Location = new System.Drawing.Point(132, 75);
 			this.comboBoxClass.Name = "comboBoxClass";
 			this.comboBoxClass.Size = new System.Drawing.Size(121, 21);
@@ -192,6 +188,7 @@
 			this.comboBoxGender.Name = "comboBoxGender";
 			this.comboBoxGender.Size = new System.Drawing.Size(121, 21);
 			this.comboBoxGender.TabIndex = 2;
+			this.comboBoxGender.SelectedIndexChanged += new System.EventHandler(this.ComboBoxRaceSelectedIndexChanged);
 			// 
 			// comboBoxRace
 			// 
@@ -210,6 +207,7 @@
 			this.comboBoxRace.Name = "comboBoxRace";
 			this.comboBoxRace.Size = new System.Drawing.Size(121, 21);
 			this.comboBoxRace.TabIndex = 1;
+			this.comboBoxRace.SelectedIndexChanged += new System.EventHandler(this.ComboBoxRaceSelectedIndexChanged);
 			// 
 			// labelRace
 			// 

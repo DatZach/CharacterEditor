@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace CharacterEditor
@@ -8,6 +7,30 @@ namespace CharacterEditor
 	{
 		private readonly Database database;
 		private CharacterData character;
+
+		private static readonly int[,] faceMaximums = new[,]
+		{
+			{ 6, 6 },
+			{ 4, 6 },
+			{ 5, 5 },
+			{ 5, 4 },
+			{ 5, 6 },
+			{ 2, 5 },
+			{ 6, 6 },
+			{ 5, 4 }
+		};
+
+		private static readonly int[,] haircutMaximums = new[,]
+		{
+			{ 15, 7 },
+			{ 10, 10 },
+			{ 3, 5 },
+			{ 10, 4 },
+			{ 6, 6 },
+			{ 6, 6 },
+			{ 6, 6 },
+			{ 5, 4 }
+		};
 
 		public FormEditor()
 		{
@@ -32,6 +55,7 @@ namespace CharacterEditor
 				character = formLoadCharacter.SelectedCharacter;
 
 				SyncCharacterDataToGui();
+				ComboBoxRaceSelectedIndexChanged(null, null);
 			}
 			else
 				Close();
@@ -44,6 +68,7 @@ namespace CharacterEditor
 			nudExperience.Value = character.Experience;
 			comboBoxGender.SelectedIndex = character.Gender;
 			comboBoxRace.SelectedIndex = character.Race;
+			comboBoxClass.SelectedIndex = character.Class - 1;
 			nudFace.Value = character.Face;
 			nudHair.Value = character.Hair;
 
@@ -63,6 +88,7 @@ namespace CharacterEditor
 			character.Experience = (int)nudExperience.Value;
 			character.Gender = (byte)comboBoxGender.SelectedIndex;
 			character.Race = comboBoxRace.SelectedIndex;
+			character.Class = (byte)(comboBoxClass.SelectedIndex + 1);
 			character.Face = (int)nudFace.Value;
 			character.Hair = (int)nudHair.Value;
 			character.HairColor = Utility.ToAbgr(buttonHairColor.BackColor);
@@ -91,6 +117,15 @@ namespace CharacterEditor
 			colorDialog.ShowDialog(this);
 
 			buttonHairColor.BackColor = colorDialog.Color;
+		}
+
+		private void ComboBoxRaceSelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (comboBoxRace.SelectedIndex == -1 || comboBoxGender.SelectedIndex == -1)
+				return;
+
+			nudFace.Maximum = faceMaximums[comboBoxRace.SelectedIndex, comboBoxGender.SelectedIndex];
+			nudHair.Maximum = haircutMaximums[comboBoxRace.SelectedIndex, comboBoxGender.SelectedIndex];
 		}
 	}
 }
