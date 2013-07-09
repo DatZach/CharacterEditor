@@ -5,6 +5,9 @@ namespace CharacterEditor
 {
 	public partial class FormEditor : Form
 	{
+		// TODO "None" pet type
+		// TODO Load a new character (will be done with GUI redesign)
+
 		private readonly Database database;
 		private CharacterData character;
 

@@ -118,6 +118,8 @@
 			// buttonHairColor
 			// 
 			this.buttonHairColor.BackColor = System.Drawing.Color.Black;
+			this.buttonHairColor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+			this.buttonHairColor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
 			this.buttonHairColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.buttonHairColor.Location = new System.Drawing.Point(132, 156);
 			this.buttonHairColor.Name = "buttonHairColor";
@@ -371,7 +373,7 @@
             "Slime (Pink)",
             "Slime (Yellow)",
             "Slime (Blue)",
-            "Money",
+            "Monkey",
             "Hornet",
             "Crow",
             "Chicken",
