@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Text;
 using System.Windows.Forms;
 
 namespace CharacterEditor
 {
 	static class Program
 	{
-		/// <summary>
-		/// The main entry point for the application.
-		/// </summary>
+		public const string Version = "0.2";
+
 		[STAThread]
 		public static void Main()
 		{

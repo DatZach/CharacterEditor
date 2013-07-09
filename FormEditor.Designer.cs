@@ -30,7 +30,7 @@
 		{
 			this.textBoxName = new System.Windows.Forms.TextBox();
 			this.groupBoxMain = new System.Windows.Forms.GroupBox();
-			this.label2 = new System.Windows.Forms.Label();
+			this.labelClass = new System.Windows.Forms.Label();
 			this.comboBoxClass = new System.Windows.Forms.ComboBox();
 			this.buttonHairColor = new System.Windows.Forms.Button();
 			this.labelHairColor = new System.Windows.Forms.Label();
@@ -48,7 +48,7 @@
 			this.nudExperience = new System.Windows.Forms.NumericUpDown();
 			this.buttonSaveCharacter = new System.Windows.Forms.Button();
 			this.groupBoxPetInformation = new System.Windows.Forms.GroupBox();
-			this.label1 = new System.Windows.Forms.Label();
+			this.labelPetLevel = new System.Windows.Forms.Label();
 			this.nudPetLevel = new System.Windows.Forms.NumericUpDown();
 			this.labelPetXP = new System.Windows.Forms.Label();
 			this.nudPetExperience = new System.Windows.Forms.NumericUpDown();
@@ -74,7 +74,7 @@
 			// 
 			// groupBoxMain
 			// 
-			this.groupBoxMain.Controls.Add(this.label2);
+			this.groupBoxMain.Controls.Add(this.labelClass);
 			this.groupBoxMain.Controls.Add(this.comboBoxClass);
 			this.groupBoxMain.Controls.Add(this.buttonHairColor);
 			this.groupBoxMain.Controls.Add(this.labelHairColor);
@@ -93,14 +93,14 @@
 			this.groupBoxMain.TabStop = false;
 			this.groupBoxMain.Text = "Basic Information";
 			// 
-			// label2
+			// labelClass
 			// 
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(7, 78);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(35, 13);
-			this.label2.TabIndex = 11;
-			this.label2.Text = "Class:";
+			this.labelClass.AutoSize = true;
+			this.labelClass.Location = new System.Drawing.Point(7, 78);
+			this.labelClass.Name = "labelClass";
+			this.labelClass.Size = new System.Drawing.Size(35, 13);
+			this.labelClass.TabIndex = 11;
+			this.labelClass.Text = "Class:";
 			// 
 			// comboBoxClass
 			// 
@@ -282,7 +282,7 @@
 			// 
 			// groupBoxPetInformation
 			// 
-			this.groupBoxPetInformation.Controls.Add(this.label1);
+			this.groupBoxPetInformation.Controls.Add(this.labelPetLevel);
 			this.groupBoxPetInformation.Controls.Add(this.nudPetLevel);
 			this.groupBoxPetInformation.Controls.Add(this.labelPetXP);
 			this.groupBoxPetInformation.Controls.Add(this.nudPetExperience);
@@ -295,20 +295,20 @@
 			this.groupBoxPetInformation.TabStop = false;
 			this.groupBoxPetInformation.Text = "Pet Information";
 			// 
-			// label1
+			// labelPetLevel
 			// 
-			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(6, 48);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(36, 13);
-			this.label1.TabIndex = 5;
-			this.label1.Text = "Level:";
+			this.labelPetLevel.AutoSize = true;
+			this.labelPetLevel.Location = new System.Drawing.Point(6, 48);
+			this.labelPetLevel.Name = "labelPetLevel";
+			this.labelPetLevel.Size = new System.Drawing.Size(36, 13);
+			this.labelPetLevel.TabIndex = 5;
+			this.labelPetLevel.Text = "Level:";
 			// 
 			// nudPetLevel
 			// 
 			this.nudPetLevel.Location = new System.Drawing.Point(74, 46);
 			this.nudPetLevel.Maximum = new decimal(new int[] {
-            1073741822,
+            32767,
             0,
             0,
             0});
@@ -436,7 +436,7 @@
 			this.MaximizeBox = false;
 			this.Name = "FormEditor";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "Character Editor v0.1";
+			this.Text = "Character Editor";
 			this.Shown += new System.EventHandler(this.FormEditorShown);
 			this.groupBoxMain.ResumeLayout(false);
 			this.groupBoxMain.PerformLayout();
@@ -475,11 +475,11 @@
 		private System.Windows.Forms.GroupBox groupBoxPetInformation;
 		private System.Windows.Forms.Label labelPetKind;
 		private System.Windows.Forms.ComboBox comboBoxPetKind;
-		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label labelPetLevel;
 		private System.Windows.Forms.NumericUpDown nudPetLevel;
 		private System.Windows.Forms.Label labelPetXP;
 		private System.Windows.Forms.NumericUpDown nudPetExperience;
-		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.Label labelClass;
 		private System.Windows.Forms.ComboBox comboBoxClass;
 	}
 }

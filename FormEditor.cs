@@ -40,6 +40,7 @@ namespace CharacterEditor
 
 		private void FormEditorShown(object sender, EventArgs e)
 		{
+			Text = "Character Editor v" + Program.Version;
 			Enabled = false;
 
 			FormLoadCharacter formLoadCharacter = new FormLoadCharacter(database)
@@ -93,7 +94,7 @@ namespace CharacterEditor
 			character.Hair = (int)nudHair.Value;
 			character.HairColor = Utility.ToAbgr(buttonHairColor.BackColor);
 			character.PetIndex = (byte)comboBoxPetKind.SelectedIndex;
-			character.PetLevel = (int)nudPetLevel.Value;
+			character.PetLevel = (short)nudPetLevel.Value;
 			character.PetExperience = (int)nudPetExperience.Value;
 		}
 

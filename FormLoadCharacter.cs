@@ -39,6 +39,8 @@ namespace CharacterEditor
 			Characters.Clear();
 			listBoxCharacters.Items.Clear();
 
+			try
+			{
 			int characterCount = database.ReadBlobByKey("num")[0];
 			for(int i = 0; i < characterCount; ++i)
 			{
@@ -47,6 +49,12 @@ namespace CharacterEditor
 
 				Characters.Add(character);
 				listBoxCharacters.Items.Add(character.Name);
+			}
+			}
+			catch (Exception)
+			{
+				MessageBox.Show("Database appears to be corrupted!", "Character Editor", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				Application.Exit();
 			}
 		}
 

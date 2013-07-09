@@ -1,11 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Windows.Forms;
 
 namespace CharacterEditor
 {
 	public class CharacterData
 	{
 		// TODO There has to be a way to serialize this in a more proper .NET way
+		// TODO Fix crashes when saving some characters
+		// TODO Reorganize GUI to make it cleaner
 
 		public int DatabaseIndex { get; private set; }
 
@@ -18,7 +22,7 @@ namespace CharacterEditor
 
 		public byte PetIndex;
 		public int PetExperience;
-		public int PetLevel;
+		public short PetLevel;
 
 		public int Race;
 		public byte Gender;
@@ -70,7 +74,7 @@ namespace CharacterEditor
 				PetExperience = reader.ReadInt32();
 				reader.ReadInt32();
 				reader.ReadInt32();
-				PetLevel = reader.ReadInt32();
+				PetLevel = reader.ReadInt16();
 
 				reader.BaseStream.Seek(0x0E76, SeekOrigin.Begin);
 				Name = reader.ReadLongString();
@@ -104,6 +108,7 @@ namespace CharacterEditor
 				writer.Write(0);
 				writer.Write(0);
 				writer.Write(PetLevel);
+				writer.Write((short)0);
 				Mirror(writer, 0xE76 - 0x0D5E - 20);
 				writer.ReadLongString(Name);
 				writer.Write(Race);
@@ -113,7 +118,11 @@ namespace CharacterEditor
 				writer.Write(Hair);
 				writer.Write(HairColor);
 
+				// TODO We have to do this since inventory decides to be fucking stupid sometimes and just not exist
+				Mirror(writer, characterData.Length - (int)writer.BaseStream.Position);
+
 				// TODO Shouldn't be a magic number
+				/*
 				writer.Write(4);
 				for (int i = 0; i < 4; ++i)
 				{
@@ -123,6 +132,7 @@ namespace CharacterEditor
 				}
 
 				Mirror(writer, characterData.Length - 0xEC89 - 4);
+				*/
 			}
 
 			return database.WriteCharacterBlob(DatabaseIndex, saveDataStream.ToArray());
