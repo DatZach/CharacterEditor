@@ -59,35 +59,8 @@ Compressed Stream
 			4 SlotCount
 			For SlotCount
 			{
-
-				[ To figure this out breakpoint on memcpy() after DecompressCharacterData() ]
-
-				[ This size changes, not sure depending on what though ]
-				0x011C	Unknown (Mostly)
-
-				[ Xaymar's work ]
-				x0;4B=Amount
-				x4;1B=Item Type
-				x5;1B=Item Sub Type
-				x6;2B=Unknown,Unused
-				x8;4B=Modifier ID
-				xC;4B=Unknown,Unused
-				x10;1B=Rarity
-				x11;1B=Material
-				x12;1B=Adapted(Bool)
-				x13;1B=Unknown,Unused
-				x14;2B=Level
-				x16;2B=Unknown,random?
-				x118;4B=Used Upgrade block
-
-				Block1:
-					x18;1B=XOffset
-					x19;1B=YOffset
-					x20;1B=ZOffset
-					x1A;1B=Type
-					x1C;4B=Level
-				Block2:
-					Same as above
+				[ Thanks to the hard work of everyone at #ModCubeWorld @ irc.esper.net ]
+				
 			}
 		}
 	}

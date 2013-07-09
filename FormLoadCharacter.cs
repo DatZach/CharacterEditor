@@ -53,6 +53,7 @@ namespace CharacterEditor
 			}
 			catch (Exception)
 			{
+				// TODO More information
 				MessageBox.Show("Database appears to be corrupted!", "Character Editor", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				Application.Exit();
 			}

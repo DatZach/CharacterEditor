@@ -79,6 +79,9 @@ namespace CharacterEditor
 			buttonHairColor.BackColor = Utility.FromAbgr(character.HairColor);
 
 			comboBoxPetKind.SelectedIndex = CharacterData.PetKinds.IndexOf(character.PetIndex);
+			if (comboBoxPetKind.SelectedIndex == -1)
+				comboBoxPetKind.SelectedIndex = 0;
+
 			if (character.PetLevel > 0)
 				nudPetLevel.Value = character.PetLevel;
 

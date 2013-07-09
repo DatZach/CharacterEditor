@@ -26,6 +26,7 @@ namespace CharacterEditor
 			return value;
 		}
 
+		// TODO Refactor this
 		public static string GetCubeWorldDirectory()
 		{
 			string programFiles = Environment.GetEnvironmentVariable(

@@ -354,6 +354,7 @@
 			this.comboBoxPetKind.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboBoxPetKind.FormattingEnabled = true;
 			this.comboBoxPetKind.Items.AddRange(new object[] {
+            "None",
             "Collie",
             "Shepherd Dog",
             "Alpaca",
