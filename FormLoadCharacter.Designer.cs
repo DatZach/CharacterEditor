@@ -63,6 +63,7 @@
 			this.MaximizeBox = false;
 			this.Name = "FormLoadCharacter";
 			this.Text = "Open a database";
+			this.Load += new System.EventHandler(this.FormLoadCharacterLoad);
 			this.ResumeLayout(false);
 
 		}

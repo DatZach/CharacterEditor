@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text;
 using System.Windows.Forms;
 
 namespace CharacterEditor
@@ -19,13 +21,18 @@ namespace CharacterEditor
 			InitializeComponent();
 		}
 
+		private void FormLoadCharacterLoad(object sender, EventArgs e)
+		{
+			string databasePath = FindCubeWorldDirectory();
+			if (!String.IsNullOrEmpty(databasePath) && File.Exists(databasePath + @"\characters.db"))
+				DatabaseLoad(databasePath + @"\characters.db");
+		}
+
 		private void ButtonLoadDatabaseClick(object sender, EventArgs e)
 		{
 			OpenFileDialog dialog = new OpenFileDialog
 			{
-#if !DEBUG
-				InitialDirectory = Utility.GetCubeWorldDirectory(),
-#endif
+				InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86),
 				Filter = "Database|characters.db",
 				CheckFileExists = true,
 				CheckPathExists = true
@@ -35,7 +42,31 @@ namespace CharacterEditor
 			if (result == DialogResult.Cancel)
 				return;
 
-			database.Load(dialog.FileName);
+			DatabaseLoad(dialog.FileName);
+		}
+
+		private void ListBoxCharactersSelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (listBoxCharacters.SelectedIndex < 0 || listBoxCharacters.SelectedIndex >= Characters.Count)
+				return;
+
+			SelectedCharacter = Characters[listBoxCharacters.SelectedIndex];
+			DialogResult = DialogResult.OK;
+			Close();
+		}
+
+		private void DatabaseLoad(string filename)
+		{
+			try
+			{
+				database.Load(filename);
+			}
+			catch (Exception)
+			{
+				MessageBox.Show("Database appears to be corrupted!", "Character Editor", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
+
 			Characters.Clear();
 			listBoxCharacters.Items.Clear();
 
@@ -51,22 +82,37 @@ namespace CharacterEditor
 					listBoxCharacters.Items.Add(character.Name);
 				}
 			}
-			catch (Exception)
+			catch (Exception exception)
 			{
-				// TODO More information
-				MessageBox.Show("Database appears to be corrupted!", "Character Editor", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				Application.Exit();
+				StringBuilder message = new StringBuilder();
+				message.AppendLine("Database appears to be corrupted!");
+				message.AppendLine(exception.Message);
+				message.AppendLine(exception.Source);
+				message.AppendLine(exception.StackTrace);
+
+				MessageBox.Show(message.ToString(), "Character Editor", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+				Characters.Clear();
+				listBoxCharacters.Items.Clear();
 			}
 		}
 
-		private void ListBoxCharactersSelectedIndexChanged(object sender, EventArgs e)
+		private string FindCubeWorldDirectory()
 		{
-			if (listBoxCharacters.SelectedIndex < 0 || listBoxCharacters.SelectedIndex >= Characters.Count)
-				return;
+			const string cubeWorldSaveDirectory = @"\Cube World\Save";
 
-			SelectedCharacter = Characters[listBoxCharacters.SelectedIndex];
-			DialogResult = DialogResult.OK;
-			Close();
+			// Check if it exists in Program Files (32bit)
+			string programFiles = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86);
+			if (Directory.Exists(programFiles + cubeWorldSaveDirectory))
+				return programFiles + cubeWorldSaveDirectory;
+
+			// Check if it exists on the Desktop
+			string desktop = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+			if (Directory.Exists(desktop + cubeWorldSaveDirectory))
+				return desktop + cubeWorldSaveDirectory;
+
+			// Can't find it
+			return String.Empty;
 		}
 	}
 }

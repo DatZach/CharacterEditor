@@ -46,10 +46,7 @@ Compressed Stream
 		4	Length { Name }
 		4	Race
 		1	Gender (0 = Male, 1 = Female)
-		3	Unknown (Random every save? Possible CRC32)
-			[ Definitely some sort of checksum, if changed it will delete the inventory
-			  Completely random every save, if the inventory is changed and this isn't,
-		  	  inventory will again be cleared. ]
+		3	Padding
 		4	Face Index
 		4	Hair Index
 		4	Hair RGBX
