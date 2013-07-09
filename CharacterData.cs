@@ -24,7 +24,7 @@ namespace CharacterEditor
 		public byte Gender;
 		public int Face;
 		public int Hair;
-		public uint HairColor;
+		public int HairColor;
 
 		// TODO Hack
 		private byte[] characterData;
@@ -79,7 +79,7 @@ namespace CharacterEditor
 				reader.BaseStream.Seek(3, SeekOrigin.Current);
 				Face = reader.ReadInt32();
 				Hair = reader.ReadInt32();
-				HairColor = reader.ReadUInt32();
+				HairColor = reader.ReadInt32(); // ABGR
 			}
 		}
 

@@ -23,6 +23,9 @@ namespace CharacterEditor
 		{
 			OpenFileDialog dialog = new OpenFileDialog
 			{
+#if !DEBUG
+				InitialDirectory = Utility.GetCubeWorldDirectory(),
+#endif
 				Filter = "Database|characters.db",
 				CheckFileExists = true,
 				CheckPathExists = true

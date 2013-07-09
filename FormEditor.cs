@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace CharacterEditor
@@ -46,6 +47,8 @@ namespace CharacterEditor
 			nudFace.Value = character.Face;
 			nudHair.Value = character.Hair;
 
+			buttonHairColor.BackColor = Utility.FromAbgr(character.HairColor);
+
 			comboBoxPetKind.SelectedIndex = CharacterData.PetKinds.IndexOf(character.PetIndex);
 			if (character.PetLevel > 0)
 				nudPetLevel.Value = character.PetLevel;
@@ -62,7 +65,7 @@ namespace CharacterEditor
 			character.Race = comboBoxRace.SelectedIndex;
 			character.Face = (int)nudFace.Value;
 			character.Hair = (int)nudHair.Value;
-
+			character.HairColor = Utility.ToAbgr(buttonHairColor.BackColor);
 			character.PetIndex = (byte)comboBoxPetKind.SelectedIndex;
 			character.PetLevel = (int)nudPetLevel.Value;
 			character.PetExperience = (int)nudPetExperience.Value;
@@ -71,11 +74,23 @@ namespace CharacterEditor
 		private void ButtonSaveCharacterClick(object sender, EventArgs e)
 		{
 			SyncGuiToCharacterData();
-			MessageBox.Show(
-			                character.Save(database)
+			MessageBox.Show(character.Save(database)
 				                ? "Saved character to database successfully."
 				                : "Something went wrong trying to save your character to the database.", "Character Editor",
 			                MessageBoxButtons.OK);
+		}
+
+		private void ButtonHairColorClick(object sender, EventArgs e)
+		{
+			ColorDialog colorDialog = new ColorDialog
+			{
+				Color = buttonHairColor.BackColor,
+				FullOpen = true
+			};
+
+			colorDialog.ShowDialog(this);
+
+			buttonHairColor.BackColor = colorDialog.Color;
 		}
 	}
 }
