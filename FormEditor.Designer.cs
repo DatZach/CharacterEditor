@@ -29,9 +29,7 @@
 		private void InitializeComponent()
 		{
 			this.textBoxName = new System.Windows.Forms.TextBox();
-			this.groupBoxMain = new System.Windows.Forms.GroupBox();
-			this.labelClass = new System.Windows.Forms.Label();
-			this.comboBoxClass = new System.Windows.Forms.ComboBox();
+			this.groupBoxAppearance = new System.Windows.Forms.GroupBox();
 			this.buttonHairColor = new System.Windows.Forms.Button();
 			this.labelHairColor = new System.Windows.Forms.Label();
 			this.labelHair = new System.Windows.Forms.Label();
@@ -42,6 +40,8 @@
 			this.comboBoxGender = new System.Windows.Forms.ComboBox();
 			this.comboBoxRace = new System.Windows.Forms.ComboBox();
 			this.labelRace = new System.Windows.Forms.Label();
+			this.labelClass = new System.Windows.Forms.Label();
+			this.comboBoxClass = new System.Windows.Forms.ComboBox();
 			this.labelLevel = new System.Windows.Forms.Label();
 			this.nudLevel = new System.Windows.Forms.NumericUpDown();
 			this.labelExperience = new System.Windows.Forms.Label();
@@ -54,7 +54,19 @@
 			this.nudPetExperience = new System.Windows.Forms.NumericUpDown();
 			this.comboBoxPetKind = new System.Windows.Forms.ComboBox();
 			this.labelPetKind = new System.Windows.Forms.Label();
-			this.groupBoxMain.SuspendLayout();
+			this.splitContainerWorkspace = new System.Windows.Forms.SplitContainer();
+			this.tabControlWorkspace = new System.Windows.Forms.TabControl();
+			this.tabPageCharacter = new System.Windows.Forms.TabPage();
+			this.groupBoxSkills = new System.Windows.Forms.GroupBox();
+			this.labelCharacterName = new System.Windows.Forms.Label();
+			this.panelCharacterPreview = new System.Windows.Forms.Panel();
+			this.labelCharacterPreview = new System.Windows.Forms.Label();
+			this.groupBoxCharacterInformation = new System.Windows.Forms.GroupBox();
+			this.labelSpecialization = new System.Windows.Forms.Label();
+			this.comboBoxSpecialization = new System.Windows.Forms.ComboBox();
+			this.tabPagePets = new System.Windows.Forms.TabPage();
+			this.buttonLoadNewCharacter = new System.Windows.Forms.Button();
+			this.groupBoxAppearance.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nudHair)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudFace)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudLevel)).BeginInit();
@@ -62,58 +74,42 @@
 			this.groupBoxPetInformation.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nudPetLevel)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudPetExperience)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.splitContainerWorkspace)).BeginInit();
+			this.splitContainerWorkspace.Panel1.SuspendLayout();
+			this.splitContainerWorkspace.Panel2.SuspendLayout();
+			this.splitContainerWorkspace.SuspendLayout();
+			this.tabControlWorkspace.SuspendLayout();
+			this.tabPageCharacter.SuspendLayout();
+			this.panelCharacterPreview.SuspendLayout();
+			this.groupBoxCharacterInformation.SuspendLayout();
+			this.tabPagePets.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// textBoxName
 			// 
-			this.textBoxName.Location = new System.Drawing.Point(12, 12);
+			this.textBoxName.Location = new System.Drawing.Point(140, 19);
 			this.textBoxName.Name = "textBoxName";
-			this.textBoxName.Size = new System.Drawing.Size(200, 20);
+			this.textBoxName.Size = new System.Drawing.Size(121, 20);
 			this.textBoxName.TabIndex = 0;
 			// 
-			// groupBoxMain
+			// groupBoxAppearance
 			// 
-			this.groupBoxMain.Controls.Add(this.labelClass);
-			this.groupBoxMain.Controls.Add(this.comboBoxClass);
-			this.groupBoxMain.Controls.Add(this.buttonHairColor);
-			this.groupBoxMain.Controls.Add(this.labelHairColor);
-			this.groupBoxMain.Controls.Add(this.labelHair);
-			this.groupBoxMain.Controls.Add(this.nudHair);
-			this.groupBoxMain.Controls.Add(this.labelFace);
-			this.groupBoxMain.Controls.Add(this.nudFace);
-			this.groupBoxMain.Controls.Add(this.labelGender);
-			this.groupBoxMain.Controls.Add(this.comboBoxGender);
-			this.groupBoxMain.Controls.Add(this.comboBoxRace);
-			this.groupBoxMain.Controls.Add(this.labelRace);
-			this.groupBoxMain.Location = new System.Drawing.Point(12, 38);
-			this.groupBoxMain.Name = "groupBoxMain";
-			this.groupBoxMain.Size = new System.Drawing.Size(268, 191);
-			this.groupBoxMain.TabIndex = 1;
-			this.groupBoxMain.TabStop = false;
-			this.groupBoxMain.Text = "Basic Information";
-			// 
-			// labelClass
-			// 
-			this.labelClass.AutoSize = true;
-			this.labelClass.Location = new System.Drawing.Point(7, 78);
-			this.labelClass.Name = "labelClass";
-			this.labelClass.Size = new System.Drawing.Size(35, 13);
-			this.labelClass.TabIndex = 11;
-			this.labelClass.Text = "Class:";
-			// 
-			// comboBoxClass
-			// 
-			this.comboBoxClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.comboBoxClass.FormattingEnabled = true;
-			this.comboBoxClass.Items.AddRange(new object[] {
-            "Warior",
-            "Ranger",
-            "Mage",
-            "Rogue"});
-			this.comboBoxClass.Location = new System.Drawing.Point(132, 75);
-			this.comboBoxClass.Name = "comboBoxClass";
-			this.comboBoxClass.Size = new System.Drawing.Size(121, 21);
-			this.comboBoxClass.TabIndex = 10;
+			this.groupBoxAppearance.Controls.Add(this.buttonHairColor);
+			this.groupBoxAppearance.Controls.Add(this.labelHairColor);
+			this.groupBoxAppearance.Controls.Add(this.labelHair);
+			this.groupBoxAppearance.Controls.Add(this.nudHair);
+			this.groupBoxAppearance.Controls.Add(this.labelFace);
+			this.groupBoxAppearance.Controls.Add(this.nudFace);
+			this.groupBoxAppearance.Controls.Add(this.labelGender);
+			this.groupBoxAppearance.Controls.Add(this.comboBoxGender);
+			this.groupBoxAppearance.Controls.Add(this.comboBoxRace);
+			this.groupBoxAppearance.Controls.Add(this.labelRace);
+			this.groupBoxAppearance.Location = new System.Drawing.Point(280, 6);
+			this.groupBoxAppearance.Name = "groupBoxAppearance";
+			this.groupBoxAppearance.Size = new System.Drawing.Size(268, 191);
+			this.groupBoxAppearance.TabIndex = 1;
+			this.groupBoxAppearance.TabStop = false;
+			this.groupBoxAppearance.Text = "Appearance";
 			// 
 			// buttonHairColor
 			// 
@@ -121,7 +117,7 @@
 			this.buttonHairColor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
 			this.buttonHairColor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
 			this.buttonHairColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.buttonHairColor.Location = new System.Drawing.Point(132, 156);
+			this.buttonHairColor.Location = new System.Drawing.Point(133, 126);
 			this.buttonHairColor.Name = "buttonHairColor";
 			this.buttonHairColor.Size = new System.Drawing.Size(21, 21);
 			this.buttonHairColor.TabIndex = 9;
@@ -131,7 +127,7 @@
 			// labelHairColor
 			// 
 			this.labelHairColor.AutoSize = true;
-			this.labelHairColor.Location = new System.Drawing.Point(7, 160);
+			this.labelHairColor.Location = new System.Drawing.Point(8, 130);
 			this.labelHairColor.Name = "labelHairColor";
 			this.labelHairColor.Size = new System.Drawing.Size(56, 13);
 			this.labelHairColor.TabIndex = 8;
@@ -140,7 +136,7 @@
 			// labelHair
 			// 
 			this.labelHair.AutoSize = true;
-			this.labelHair.Location = new System.Drawing.Point(6, 132);
+			this.labelHair.Location = new System.Drawing.Point(7, 102);
 			this.labelHair.Name = "labelHair";
 			this.labelHair.Size = new System.Drawing.Size(29, 13);
 			this.labelHair.TabIndex = 7;
@@ -148,7 +144,7 @@
 			// 
 			// nudHair
 			// 
-			this.nudHair.Location = new System.Drawing.Point(132, 130);
+			this.nudHair.Location = new System.Drawing.Point(133, 100);
 			this.nudHair.Name = "nudHair";
 			this.nudHair.Size = new System.Drawing.Size(120, 20);
 			this.nudHair.TabIndex = 6;
@@ -156,7 +152,7 @@
 			// labelFace
 			// 
 			this.labelFace.AutoSize = true;
-			this.labelFace.Location = new System.Drawing.Point(6, 106);
+			this.labelFace.Location = new System.Drawing.Point(7, 76);
 			this.labelFace.Name = "labelFace";
 			this.labelFace.Size = new System.Drawing.Size(34, 13);
 			this.labelFace.TabIndex = 5;
@@ -164,7 +160,7 @@
 			// 
 			// nudFace
 			// 
-			this.nudFace.Location = new System.Drawing.Point(132, 104);
+			this.nudFace.Location = new System.Drawing.Point(133, 74);
 			this.nudFace.Name = "nudFace";
 			this.nudFace.Size = new System.Drawing.Size(120, 20);
 			this.nudFace.TabIndex = 4;
@@ -219,10 +215,33 @@
 			this.labelRace.TabIndex = 0;
 			this.labelRace.Text = "Race:";
 			// 
+			// labelClass
+			// 
+			this.labelClass.AutoSize = true;
+			this.labelClass.Location = new System.Drawing.Point(5, 48);
+			this.labelClass.Name = "labelClass";
+			this.labelClass.Size = new System.Drawing.Size(35, 13);
+			this.labelClass.TabIndex = 11;
+			this.labelClass.Text = "Class:";
+			// 
+			// comboBoxClass
+			// 
+			this.comboBoxClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboBoxClass.FormattingEnabled = true;
+			this.comboBoxClass.Items.AddRange(new object[] {
+            "Warrior",
+            "Ranger",
+            "Mage",
+            "Rogue"});
+			this.comboBoxClass.Location = new System.Drawing.Point(140, 45);
+			this.comboBoxClass.Name = "comboBoxClass";
+			this.comboBoxClass.Size = new System.Drawing.Size(121, 21);
+			this.comboBoxClass.TabIndex = 10;
+			// 
 			// labelLevel
 			// 
 			this.labelLevel.AutoSize = true;
-			this.labelLevel.Location = new System.Drawing.Point(218, 15);
+			this.labelLevel.Location = new System.Drawing.Point(5, 101);
 			this.labelLevel.Name = "labelLevel";
 			this.labelLevel.Size = new System.Drawing.Size(36, 13);
 			this.labelLevel.TabIndex = 2;
@@ -230,7 +249,7 @@
 			// 
 			// nudLevel
 			// 
-			this.nudLevel.Location = new System.Drawing.Point(260, 12);
+			this.nudLevel.Location = new System.Drawing.Point(140, 99);
 			this.nudLevel.Maximum = new decimal(new int[] {
             1073741822,
             0,
@@ -254,7 +273,7 @@
 			// labelExperience
 			// 
 			this.labelExperience.AutoSize = true;
-			this.labelExperience.Location = new System.Drawing.Point(386, 15);
+			this.labelExperience.Location = new System.Drawing.Point(5, 127);
 			this.labelExperience.Name = "labelExperience";
 			this.labelExperience.Size = new System.Drawing.Size(63, 13);
 			this.labelExperience.TabIndex = 4;
@@ -262,7 +281,7 @@
 			// 
 			// nudExperience
 			// 
-			this.nudExperience.Location = new System.Drawing.Point(455, 12);
+			this.nudExperience.Location = new System.Drawing.Point(140, 125);
 			this.nudExperience.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -274,7 +293,7 @@
 			// 
 			// buttonSaveCharacter
 			// 
-			this.buttonSaveCharacter.Location = new System.Drawing.Point(617, 407);
+			this.buttonSaveCharacter.Location = new System.Drawing.Point(617, 14);
 			this.buttonSaveCharacter.Name = "buttonSaveCharacter";
 			this.buttonSaveCharacter.Size = new System.Drawing.Size(75, 23);
 			this.buttonSaveCharacter.TabIndex = 6;
@@ -290,7 +309,7 @@
 			this.groupBoxPetInformation.Controls.Add(this.nudPetExperience);
 			this.groupBoxPetInformation.Controls.Add(this.comboBoxPetKind);
 			this.groupBoxPetInformation.Controls.Add(this.labelPetKind);
-			this.groupBoxPetInformation.Location = new System.Drawing.Point(286, 38);
+			this.groupBoxPetInformation.Location = new System.Drawing.Point(8, 6);
 			this.groupBoxPetInformation.Name = "groupBoxPetInformation";
 			this.groupBoxPetInformation.Size = new System.Drawing.Size(200, 104);
 			this.groupBoxPetInformation.TabIndex = 7;
@@ -422,27 +441,163 @@
 			this.labelPetKind.TabIndex = 0;
 			this.labelPetKind.Text = "Kind:";
 			// 
+			// splitContainerWorkspace
+			// 
+			this.splitContainerWorkspace.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.splitContainerWorkspace.IsSplitterFixed = true;
+			this.splitContainerWorkspace.Location = new System.Drawing.Point(0, 0);
+			this.splitContainerWorkspace.Name = "splitContainerWorkspace";
+			this.splitContainerWorkspace.Orientation = System.Windows.Forms.Orientation.Horizontal;
+			// 
+			// splitContainerWorkspace.Panel1
+			// 
+			this.splitContainerWorkspace.Panel1.Controls.Add(this.tabControlWorkspace);
+			// 
+			// splitContainerWorkspace.Panel2
+			// 
+			this.splitContainerWorkspace.Panel2.BackColor = System.Drawing.SystemColors.ControlLight;
+			this.splitContainerWorkspace.Panel2.Controls.Add(this.buttonLoadNewCharacter);
+			this.splitContainerWorkspace.Panel2.Controls.Add(this.buttonSaveCharacter);
+			this.splitContainerWorkspace.Size = new System.Drawing.Size(704, 442);
+			this.splitContainerWorkspace.SplitterDistance = 389;
+			this.splitContainerWorkspace.TabIndex = 8;
+			// 
+			// tabControlWorkspace
+			// 
+			this.tabControlWorkspace.Controls.Add(this.tabPageCharacter);
+			this.tabControlWorkspace.Controls.Add(this.tabPagePets);
+			this.tabControlWorkspace.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tabControlWorkspace.Location = new System.Drawing.Point(0, 0);
+			this.tabControlWorkspace.Name = "tabControlWorkspace";
+			this.tabControlWorkspace.SelectedIndex = 0;
+			this.tabControlWorkspace.Size = new System.Drawing.Size(704, 389);
+			this.tabControlWorkspace.TabIndex = 8;
+			// 
+			// tabPageCharacter
+			// 
+			this.tabPageCharacter.Controls.Add(this.groupBoxSkills);
+			this.tabPageCharacter.Controls.Add(this.panelCharacterPreview);
+			this.tabPageCharacter.Controls.Add(this.groupBoxCharacterInformation);
+			this.tabPageCharacter.Controls.Add(this.groupBoxAppearance);
+			this.tabPageCharacter.Location = new System.Drawing.Point(4, 22);
+			this.tabPageCharacter.Name = "tabPageCharacter";
+			this.tabPageCharacter.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPageCharacter.Size = new System.Drawing.Size(696, 363);
+			this.tabPageCharacter.TabIndex = 0;
+			this.tabPageCharacter.Text = "Character";
+			this.tabPageCharacter.UseVisualStyleBackColor = true;
+			// 
+			// groupBoxSkills
+			// 
+			this.groupBoxSkills.Location = new System.Drawing.Point(6, 203);
+			this.groupBoxSkills.Name = "groupBoxSkills";
+			this.groupBoxSkills.Size = new System.Drawing.Size(268, 154);
+			this.groupBoxSkills.TabIndex = 8;
+			this.groupBoxSkills.TabStop = false;
+			this.groupBoxSkills.Text = "Skills";
+			// 
+			// labelCharacterName
+			// 
+			this.labelCharacterName.AutoSize = true;
+			this.labelCharacterName.Location = new System.Drawing.Point(5, 22);
+			this.labelCharacterName.Name = "labelCharacterName";
+			this.labelCharacterName.Size = new System.Drawing.Size(38, 13);
+			this.labelCharacterName.TabIndex = 1;
+			this.labelCharacterName.Text = "Name:";
+			// 
+			// panelCharacterPreview
+			// 
+			this.panelCharacterPreview.BackColor = System.Drawing.Color.DarkGray;
+			this.panelCharacterPreview.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panelCharacterPreview.Controls.Add(this.labelCharacterPreview);
+			this.panelCharacterPreview.Location = new System.Drawing.Point(554, 6);
+			this.panelCharacterPreview.Name = "panelCharacterPreview";
+			this.panelCharacterPreview.Size = new System.Drawing.Size(136, 136);
+			this.panelCharacterPreview.TabIndex = 7;
+			// 
+			// labelCharacterPreview
+			// 
+			this.labelCharacterPreview.AutoSize = true;
+			this.labelCharacterPreview.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.labelCharacterPreview.ForeColor = System.Drawing.Color.White;
+			this.labelCharacterPreview.Location = new System.Drawing.Point(0, 0);
+			this.labelCharacterPreview.Name = "labelCharacterPreview";
+			this.labelCharacterPreview.Padding = new System.Windows.Forms.Padding(20, 60, 20, 60);
+			this.labelCharacterPreview.Size = new System.Drawing.Size(134, 133);
+			this.labelCharacterPreview.TabIndex = 0;
+			this.labelCharacterPreview.Text = "Character Preview";
+			// 
+			// groupBoxCharacterInformation
+			// 
+			this.groupBoxCharacterInformation.Controls.Add(this.labelCharacterName);
+			this.groupBoxCharacterInformation.Controls.Add(this.labelSpecialization);
+			this.groupBoxCharacterInformation.Controls.Add(this.textBoxName);
+			this.groupBoxCharacterInformation.Controls.Add(this.comboBoxSpecialization);
+			this.groupBoxCharacterInformation.Controls.Add(this.nudExperience);
+			this.groupBoxCharacterInformation.Controls.Add(this.labelExperience);
+			this.groupBoxCharacterInformation.Controls.Add(this.labelClass);
+			this.groupBoxCharacterInformation.Controls.Add(this.comboBoxClass);
+			this.groupBoxCharacterInformation.Controls.Add(this.labelLevel);
+			this.groupBoxCharacterInformation.Controls.Add(this.nudLevel);
+			this.groupBoxCharacterInformation.Location = new System.Drawing.Point(6, 6);
+			this.groupBoxCharacterInformation.Name = "groupBoxCharacterInformation";
+			this.groupBoxCharacterInformation.Size = new System.Drawing.Size(268, 191);
+			this.groupBoxCharacterInformation.TabIndex = 6;
+			this.groupBoxCharacterInformation.TabStop = false;
+			this.groupBoxCharacterInformation.Text = "Character Information";
+			// 
+			// labelSpecialization
+			// 
+			this.labelSpecialization.AutoSize = true;
+			this.labelSpecialization.Location = new System.Drawing.Point(5, 75);
+			this.labelSpecialization.Name = "labelSpecialization";
+			this.labelSpecialization.Size = new System.Drawing.Size(75, 13);
+			this.labelSpecialization.TabIndex = 13;
+			this.labelSpecialization.Text = "Specialization:";
+			// 
+			// comboBoxSpecialization
+			// 
+			this.comboBoxSpecialization.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboBoxSpecialization.FormattingEnabled = true;
+			this.comboBoxSpecialization.Location = new System.Drawing.Point(140, 72);
+			this.comboBoxSpecialization.Name = "comboBoxSpecialization";
+			this.comboBoxSpecialization.Size = new System.Drawing.Size(121, 21);
+			this.comboBoxSpecialization.TabIndex = 12;
+			// 
+			// tabPagePets
+			// 
+			this.tabPagePets.Controls.Add(this.groupBoxPetInformation);
+			this.tabPagePets.Location = new System.Drawing.Point(4, 22);
+			this.tabPagePets.Name = "tabPagePets";
+			this.tabPagePets.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPagePets.Size = new System.Drawing.Size(696, 363);
+			this.tabPagePets.TabIndex = 1;
+			this.tabPagePets.Text = "Pets";
+			this.tabPagePets.UseVisualStyleBackColor = true;
+			// 
+			// buttonLoadNewCharacter
+			// 
+			this.buttonLoadNewCharacter.Location = new System.Drawing.Point(492, 14);
+			this.buttonLoadNewCharacter.Name = "buttonLoadNewCharacter";
+			this.buttonLoadNewCharacter.Size = new System.Drawing.Size(119, 23);
+			this.buttonLoadNewCharacter.TabIndex = 7;
+			this.buttonLoadNewCharacter.Text = "Load new Character";
+			this.buttonLoadNewCharacter.UseVisualStyleBackColor = true;
+			// 
 			// FormEditor
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(704, 442);
-			this.Controls.Add(this.groupBoxPetInformation);
-			this.Controls.Add(this.buttonSaveCharacter);
-			this.Controls.Add(this.nudExperience);
-			this.Controls.Add(this.labelExperience);
-			this.Controls.Add(this.nudLevel);
-			this.Controls.Add(this.labelLevel);
-			this.Controls.Add(this.groupBoxMain);
-			this.Controls.Add(this.textBoxName);
+			this.Controls.Add(this.splitContainerWorkspace);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.MaximizeBox = false;
 			this.Name = "FormEditor";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Character Editor";
 			this.Shown += new System.EventHandler(this.FormEditorShown);
-			this.groupBoxMain.ResumeLayout(false);
-			this.groupBoxMain.PerformLayout();
+			this.groupBoxAppearance.ResumeLayout(false);
+			this.groupBoxAppearance.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nudHair)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudFace)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudLevel)).EndInit();
@@ -451,15 +606,25 @@
 			this.groupBoxPetInformation.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nudPetLevel)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudPetExperience)).EndInit();
+			this.splitContainerWorkspace.Panel1.ResumeLayout(false);
+			this.splitContainerWorkspace.Panel2.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.splitContainerWorkspace)).EndInit();
+			this.splitContainerWorkspace.ResumeLayout(false);
+			this.tabControlWorkspace.ResumeLayout(false);
+			this.tabPageCharacter.ResumeLayout(false);
+			this.panelCharacterPreview.ResumeLayout(false);
+			this.panelCharacterPreview.PerformLayout();
+			this.groupBoxCharacterInformation.ResumeLayout(false);
+			this.groupBoxCharacterInformation.PerformLayout();
+			this.tabPagePets.ResumeLayout(false);
 			this.ResumeLayout(false);
-			this.PerformLayout();
 
 		}
 
 		#endregion
 
 		private System.Windows.Forms.TextBox textBoxName;
-		private System.Windows.Forms.GroupBox groupBoxMain;
+		private System.Windows.Forms.GroupBox groupBoxAppearance;
 		private System.Windows.Forms.Label labelHair;
 		private System.Windows.Forms.NumericUpDown nudHair;
 		private System.Windows.Forms.Label labelFace;
@@ -484,5 +649,17 @@
 		private System.Windows.Forms.NumericUpDown nudPetExperience;
 		private System.Windows.Forms.Label labelClass;
 		private System.Windows.Forms.ComboBox comboBoxClass;
+		private System.Windows.Forms.SplitContainer splitContainerWorkspace;
+		private System.Windows.Forms.TabControl tabControlWorkspace;
+		private System.Windows.Forms.TabPage tabPageCharacter;
+		private System.Windows.Forms.TabPage tabPagePets;
+		private System.Windows.Forms.Button buttonLoadNewCharacter;
+		private System.Windows.Forms.GroupBox groupBoxCharacterInformation;
+		private System.Windows.Forms.Label labelSpecialization;
+		private System.Windows.Forms.ComboBox comboBoxSpecialization;
+		private System.Windows.Forms.Panel panelCharacterPreview;
+		private System.Windows.Forms.Label labelCharacterPreview;
+		private System.Windows.Forms.GroupBox groupBoxSkills;
+		private System.Windows.Forms.Label labelCharacterName;
 	}
 }

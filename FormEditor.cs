@@ -59,6 +59,8 @@ namespace CharacterEditor
 
 				SyncCharacterDataToGui();
 				ComboBoxRaceSelectedIndexChanged(null, null);
+
+				Text += " [" + character.Name + "]";
 			}
 			else
 				Close();

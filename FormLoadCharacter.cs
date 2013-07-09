@@ -8,6 +8,8 @@ namespace CharacterEditor
 {
 	public partial class FormLoadCharacter : Form
 	{
+		// TODO Backup database just in case
+
 		public List<CharacterData> Characters { get; private set; }
 		public CharacterData SelectedCharacter { get; private set; }
 		private readonly Database database;

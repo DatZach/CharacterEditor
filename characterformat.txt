@@ -20,8 +20,7 @@ Compressed Stream
 	30 4	Level
 	34 1	Class
 	35 1	Specialization
-	36 1	Unknown
-	37 1	Unknown
+	36 2	Padding (Or unknown)
 	38 4	Unknown
 	3C 4	Unknown (Always 0?)
 
