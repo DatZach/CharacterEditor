@@ -66,7 +66,6 @@
 			// 
 			// textBoxName
 			// 
-			this.textBoxName.Enabled = false;
 			this.textBoxName.Location = new System.Drawing.Point(12, 12);
 			this.textBoxName.Name = "textBoxName";
 			this.textBoxName.Size = new System.Drawing.Size(200, 20);
@@ -291,7 +290,7 @@
 			this.groupBoxPetInformation.Controls.Add(this.labelPetKind);
 			this.groupBoxPetInformation.Location = new System.Drawing.Point(286, 38);
 			this.groupBoxPetInformation.Name = "groupBoxPetInformation";
-			this.groupBoxPetInformation.Size = new System.Drawing.Size(200, 162);
+			this.groupBoxPetInformation.Size = new System.Drawing.Size(200, 104);
 			this.groupBoxPetInformation.TabIndex = 7;
 			this.groupBoxPetInformation.TabStop = false;
 			this.groupBoxPetInformation.Text = "Pet Information";

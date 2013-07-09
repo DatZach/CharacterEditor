@@ -38,7 +38,7 @@ Compressed Stream
 		4	Pet XP
 		4	Unknown (Always 0?)
 		4	Unknown (Randomish)
-		4	Pet Level
+		2	Pet Level
 	}
 
 	At 0x0E76

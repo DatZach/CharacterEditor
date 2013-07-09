@@ -41,15 +41,15 @@ namespace CharacterEditor
 
 			try
 			{
-			int characterCount = database.ReadBlobByKey("num")[0];
-			for(int i = 0; i < characterCount; ++i)
-			{
-				CharacterData character = new CharacterData(i);
-				character.Load(database);
+				int characterCount = database.ReadBlobByKey("num")[0];
+				for (int i = 0; i < characterCount; ++i)
+				{
+					CharacterData character = new CharacterData(i);
+					character.Load(database);
 
-				Characters.Add(character);
-				listBoxCharacters.Items.Add(character.Name);
-			}
+					Characters.Add(character);
+					listBoxCharacters.Items.Add(character.Name);
+				}
 			}
 			catch (Exception)
 			{
