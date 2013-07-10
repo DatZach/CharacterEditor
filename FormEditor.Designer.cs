@@ -194,7 +194,7 @@
             this.comboBoxRace.Items.AddRange(new object[] {
             "Human",
             "Elf",
-            "Dwaf",
+            "Dwarf",
             "Orc",
             "Goblin",
             "Lizard",
