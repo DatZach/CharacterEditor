@@ -211,7 +211,7 @@
 			this.comboBoxRace.Items.AddRange(new object[] {
             "Human",
             "Elf",
-            "Dwaf",
+            "Dwarf",
             "Orc",
             "Goblin",
             "Lizard",
@@ -441,6 +441,8 @@
             "Penguin",
             "Horse",
             "Camel",
+            "Beetle (Bark)",
+            "Beetle (Fire)",
             "Beetle (Snout)",
             "Beetle (Lemon)",
             "Crab",
