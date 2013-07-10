@@ -26,6 +26,9 @@ namespace CharacterEditor
 		public int Hair;
 		public int HairColor;
 
+		public int Coins;
+		public int PlatinumCoins;
+
 		// TODO Hack
 		private byte[] characterData;
 
@@ -80,6 +83,10 @@ namespace CharacterEditor
 				Face = reader.ReadInt32();
 				Hair = reader.ReadInt32();
 				HairColor = reader.ReadInt32(); // ABGR
+
+				// TODO Gotta parse the inventory to safely do this...
+				Coins = 0;
+				PlatinumCoins = 0;
 			}
 		}
 
