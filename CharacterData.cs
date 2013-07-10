@@ -6,7 +6,6 @@ namespace CharacterEditor
 	public class CharacterData
 	{
 		// TODO There has to be a way to serialize this in a more proper .NET way
-		// TODO Reorganize GUI to make it cleaner
 
 		public int DatabaseIndex { get; private set; }
 
@@ -153,4 +152,10 @@ namespace CharacterEditor
 			writer.Write(characterData, (int)writer.BaseStream.Position, count);
 		}
 	}
+
+    public interface ICharacterDataBlob
+    {
+        void Read(BinaryReader reader);
+        void Write(BinaryWriter writer);
+    }
 }

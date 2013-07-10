@@ -3,6 +3,8 @@ using System.Windows.Forms;
 
 namespace CharacterEditor
 {
+    // TODO Don't allow the program to run with cube world
+
 	public partial class FormEditor : Form
 	{
 		private readonly Database database;
@@ -31,6 +33,14 @@ namespace CharacterEditor
 			{ 6, 6 },
 			{ 5, 4 }
 		};
+
+        private static readonly string[][] specializations = new[]
+        {
+            new[] { "Berserker", "Guardian" },
+            new[] { "Sniper", "Scout" },
+            new[] { "Fire Mage", "Water Mage" },
+            new[] { "Assassin", "Ninja" }
+        };
 
 		public FormEditor()
 		{
@@ -73,6 +83,10 @@ namespace CharacterEditor
 				nudPetLevel.Value = character.PetLevel;
 
 			nudPetExperience.Value = character.PetExperience;
+
+            // TODO Find a cleaner way to do this, maybe?
+            ComboBoxRaceSelectedIndexChanged(null, null);
+            ComboBoxClassSelectedIndexChanged(null, null);
 		}
 
 		private void SyncGuiToCharacterData()
@@ -83,6 +97,7 @@ namespace CharacterEditor
 			character.Gender = (byte)comboBoxGender.SelectedIndex;
 			character.Race = comboBoxRace.SelectedIndex;
 			character.Class = (byte)(comboBoxClass.SelectedIndex + 1);
+            character.Specialization = (byte)comboBoxSpecialization.SelectedIndex;
 			character.Face = (int)nudFace.Value;
 			character.Hair = (int)nudHair.Value;
 			character.HairColor = Utility.ToAbgr(buttonHairColor.BackColor);
@@ -122,6 +137,17 @@ namespace CharacterEditor
 			nudHair.Maximum = haircutMaximums[comboBoxRace.SelectedIndex, comboBoxGender.SelectedIndex];
 		}
 
+        private void ComboBoxClassSelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxClass.SelectedIndex == -1)
+                return;
+
+            comboBoxSpecialization.Items.Clear();
+            comboBoxSpecialization.Items.AddRange(specializations[comboBoxClass.SelectedIndex]);
+
+            comboBoxSpecialization.SelectedIndex = character.Specialization;
+        }
+
 		private void NudLevelValueChanged(object sender, EventArgs e)
 		{
 			nudPetLevel.Maximum = nudLevel.Value;
@@ -149,7 +175,6 @@ namespace CharacterEditor
                 character = formLoadCharacter.SelectedCharacter;
 
                 SyncCharacterDataToGui();
-                ComboBoxRaceSelectedIndexChanged(null, null);
             }
 
             Enabled = character != null;
