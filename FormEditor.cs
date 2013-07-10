@@ -5,8 +5,6 @@ namespace CharacterEditor
 {
 	public partial class FormEditor : Form
 	{
-		// TODO Load a new character (will be done with GUI redesign)
-
 		private readonly Database database;
 		private CharacterData character;
 
@@ -42,28 +40,16 @@ namespace CharacterEditor
 
 		private void FormEditorShown(object sender, EventArgs e)
 		{
-			Text = "Character Editor v" + Program.Version;
-			Enabled = false;
+            Text = "Character Editor v" + Program.Version;
+            LoadCharacterDatabase();
 
-			FormLoadCharacter formLoadCharacter = new FormLoadCharacter(database)
-			{
-				StartPosition = FormStartPosition.CenterParent
-			};
+            if (character == null)
+            {
+                Close();
+                return;
+            }
 
-			DialogResult result = formLoadCharacter.ShowDialog(this);
-
-			if (result == DialogResult.OK)
-			{
-				Enabled = true;
-				character = formLoadCharacter.SelectedCharacter;
-
-				SyncCharacterDataToGui();
-				ComboBoxRaceSelectedIndexChanged(null, null);
-
-				Text += " [" + character.Name + "]";
-			}
-			else
-				Close();
+            Text += " [" + character.Name + "]";
 		}
 
 		private void SyncCharacterDataToGui()
@@ -140,5 +126,33 @@ namespace CharacterEditor
 		{
 			nudPetLevel.Maximum = nudLevel.Value;
 		}
+
+        private void ButtonLoadNewCharacterClick(object sender, EventArgs e)
+        {
+            LoadCharacterDatabase();
+            Text = "Character Editor v" + Program.Version + " [" + character.Name + "]";
+        }
+
+        private void LoadCharacterDatabase()
+        {
+            Enabled = false;
+
+            FormLoadCharacter formLoadCharacter = new FormLoadCharacter(database)
+            {
+                StartPosition = FormStartPosition.CenterParent
+            };
+
+            DialogResult result = formLoadCharacter.ShowDialog(this);
+
+            if (result == DialogResult.OK)
+            {
+                character = formLoadCharacter.SelectedCharacter;
+
+                SyncCharacterDataToGui();
+                ComboBoxRaceSelectedIndexChanged(null, null);
+            }
+
+            Enabled = character != null;
+        }
 	}
 }
