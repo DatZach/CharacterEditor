@@ -423,6 +423,8 @@
             "Penguin",
             "Horse",
             "Camel",
+            "Beetle (Bark)",
+            "Beetle (Fire)",
             "Beetle (Snout)",
             "Beetle (Lemon)",
             "Crab",
