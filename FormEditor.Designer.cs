@@ -66,6 +66,8 @@
             this.comboBoxSpecialization = new System.Windows.Forms.ComboBox();
             this.tabPagePets = new System.Windows.Forms.TabPage();
             this.buttonLoadNewCharacter = new System.Windows.Forms.Button();
+            this.labelPetPreview = new System.Windows.Forms.Label();
+            this.panelPetPreview = new System.Windows.Forms.Panel();
             this.groupBoxAppearance.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudHair)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudFace)).BeginInit();
@@ -83,6 +85,7 @@
             this.panelCharacterPreview.SuspendLayout();
             this.groupBoxCharacterInformation.SuspendLayout();
             this.tabPagePets.SuspendLayout();
+            this.panelPetPreview.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBoxName
@@ -117,7 +120,7 @@
             this.buttonHairColor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.buttonHairColor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buttonHairColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonHairColor.Location = new System.Drawing.Point(133, 126);
+            this.buttonHairColor.Location = new System.Drawing.Point(141, 125);
             this.buttonHairColor.Name = "buttonHairColor";
             this.buttonHairColor.Size = new System.Drawing.Size(21, 21);
             this.buttonHairColor.TabIndex = 9;
@@ -127,7 +130,7 @@
             // labelHairColor
             // 
             this.labelHairColor.AutoSize = true;
-            this.labelHairColor.Location = new System.Drawing.Point(8, 130);
+            this.labelHairColor.Location = new System.Drawing.Point(6, 129);
             this.labelHairColor.Name = "labelHairColor";
             this.labelHairColor.Size = new System.Drawing.Size(56, 13);
             this.labelHairColor.TabIndex = 8;
@@ -136,7 +139,7 @@
             // labelHair
             // 
             this.labelHair.AutoSize = true;
-            this.labelHair.Location = new System.Drawing.Point(7, 102);
+            this.labelHair.Location = new System.Drawing.Point(6, 101);
             this.labelHair.Name = "labelHair";
             this.labelHair.Size = new System.Drawing.Size(29, 13);
             this.labelHair.TabIndex = 7;
@@ -144,15 +147,15 @@
             // 
             // nudHair
             // 
-            this.nudHair.Location = new System.Drawing.Point(133, 100);
+            this.nudHair.Location = new System.Drawing.Point(141, 99);
             this.nudHair.Name = "nudHair";
-            this.nudHair.Size = new System.Drawing.Size(120, 20);
+            this.nudHair.Size = new System.Drawing.Size(121, 20);
             this.nudHair.TabIndex = 6;
             // 
             // labelFace
             // 
             this.labelFace.AutoSize = true;
-            this.labelFace.Location = new System.Drawing.Point(7, 76);
+            this.labelFace.Location = new System.Drawing.Point(6, 75);
             this.labelFace.Name = "labelFace";
             this.labelFace.Size = new System.Drawing.Size(34, 13);
             this.labelFace.TabIndex = 5;
@@ -160,15 +163,15 @@
             // 
             // nudFace
             // 
-            this.nudFace.Location = new System.Drawing.Point(133, 74);
+            this.nudFace.Location = new System.Drawing.Point(141, 73);
             this.nudFace.Name = "nudFace";
-            this.nudFace.Size = new System.Drawing.Size(120, 20);
+            this.nudFace.Size = new System.Drawing.Size(121, 20);
             this.nudFace.TabIndex = 4;
             // 
             // labelGender
             // 
             this.labelGender.AutoSize = true;
-            this.labelGender.Location = new System.Drawing.Point(7, 50);
+            this.labelGender.Location = new System.Drawing.Point(6, 49);
             this.labelGender.Name = "labelGender";
             this.labelGender.Size = new System.Drawing.Size(45, 13);
             this.labelGender.TabIndex = 3;
@@ -181,7 +184,7 @@
             this.comboBoxGender.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.comboBoxGender.Location = new System.Drawing.Point(132, 47);
+            this.comboBoxGender.Location = new System.Drawing.Point(141, 46);
             this.comboBoxGender.Name = "comboBoxGender";
             this.comboBoxGender.Size = new System.Drawing.Size(121, 21);
             this.comboBoxGender.TabIndex = 2;
@@ -200,7 +203,7 @@
             "Lizard",
             "Undead",
             "Frogman"});
-            this.comboBoxRace.Location = new System.Drawing.Point(132, 19);
+            this.comboBoxRace.Location = new System.Drawing.Point(141, 19);
             this.comboBoxRace.Name = "comboBoxRace";
             this.comboBoxRace.Size = new System.Drawing.Size(121, 21);
             this.comboBoxRace.TabIndex = 1;
@@ -218,7 +221,7 @@
             // labelClass
             // 
             this.labelClass.AutoSize = true;
-            this.labelClass.Location = new System.Drawing.Point(5, 48);
+            this.labelClass.Location = new System.Drawing.Point(6, 50);
             this.labelClass.Name = "labelClass";
             this.labelClass.Size = new System.Drawing.Size(35, 13);
             this.labelClass.TabIndex = 11;
@@ -242,7 +245,7 @@
             // labelLevel
             // 
             this.labelLevel.AutoSize = true;
-            this.labelLevel.Location = new System.Drawing.Point(5, 101);
+            this.labelLevel.Location = new System.Drawing.Point(6, 101);
             this.labelLevel.Name = "labelLevel";
             this.labelLevel.Size = new System.Drawing.Size(36, 13);
             this.labelLevel.TabIndex = 2;
@@ -262,7 +265,7 @@
             0,
             0});
             this.nudLevel.Name = "nudLevel";
-            this.nudLevel.Size = new System.Drawing.Size(120, 20);
+            this.nudLevel.Size = new System.Drawing.Size(121, 20);
             this.nudLevel.TabIndex = 3;
             this.nudLevel.Value = new decimal(new int[] {
             1,
@@ -274,7 +277,7 @@
             // labelExperience
             // 
             this.labelExperience.AutoSize = true;
-            this.labelExperience.Location = new System.Drawing.Point(5, 127);
+            this.labelExperience.Location = new System.Drawing.Point(6, 127);
             this.labelExperience.Name = "labelExperience";
             this.labelExperience.Size = new System.Drawing.Size(63, 13);
             this.labelExperience.TabIndex = 4;
@@ -289,7 +292,7 @@
             0,
             0});
             this.nudExperience.Name = "nudExperience";
-            this.nudExperience.Size = new System.Drawing.Size(120, 20);
+            this.nudExperience.Size = new System.Drawing.Size(121, 20);
             this.nudExperience.TabIndex = 5;
             // 
             // buttonSaveCharacter
@@ -312,7 +315,7 @@
             this.groupBoxPetInformation.Controls.Add(this.labelPetKind);
             this.groupBoxPetInformation.Location = new System.Drawing.Point(8, 6);
             this.groupBoxPetInformation.Name = "groupBoxPetInformation";
-            this.groupBoxPetInformation.Size = new System.Drawing.Size(200, 104);
+            this.groupBoxPetInformation.Size = new System.Drawing.Size(268, 191);
             this.groupBoxPetInformation.TabIndex = 7;
             this.groupBoxPetInformation.TabStop = false;
             this.groupBoxPetInformation.Text = "Pet Information";
@@ -328,7 +331,7 @@
             // 
             // nudPetLevel
             // 
-            this.nudPetLevel.Location = new System.Drawing.Point(74, 46);
+            this.nudPetLevel.Location = new System.Drawing.Point(141, 46);
             this.nudPetLevel.Maximum = new decimal(new int[] {
             32767,
             0,
@@ -340,7 +343,7 @@
             0,
             0});
             this.nudPetLevel.Name = "nudPetLevel";
-            this.nudPetLevel.Size = new System.Drawing.Size(120, 20);
+            this.nudPetLevel.Size = new System.Drawing.Size(121, 20);
             this.nudPetLevel.TabIndex = 4;
             this.nudPetLevel.Value = new decimal(new int[] {
             1,
@@ -359,14 +362,14 @@
             // 
             // nudPetExperience
             // 
-            this.nudPetExperience.Location = new System.Drawing.Point(74, 72);
+            this.nudPetExperience.Location = new System.Drawing.Point(141, 72);
             this.nudPetExperience.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
             this.nudPetExperience.Name = "nudPetExperience";
-            this.nudPetExperience.Size = new System.Drawing.Size(120, 20);
+            this.nudPetExperience.Size = new System.Drawing.Size(121, 20);
             this.nudPetExperience.TabIndex = 2;
             // 
             // comboBoxPetKind
@@ -428,7 +431,7 @@
             "Beetle (Lemon)",
             "Crab",
             "Bumblebee"});
-            this.comboBoxPetKind.Location = new System.Drawing.Point(73, 19);
+            this.comboBoxPetKind.Location = new System.Drawing.Point(141, 19);
             this.comboBoxPetKind.Name = "comboBoxPetKind";
             this.comboBoxPetKind.Size = new System.Drawing.Size(121, 21);
             this.comboBoxPetKind.TabIndex = 1;
@@ -541,7 +544,7 @@
             // labelCharacterName
             // 
             this.labelCharacterName.AutoSize = true;
-            this.labelCharacterName.Location = new System.Drawing.Point(5, 22);
+            this.labelCharacterName.Location = new System.Drawing.Point(6, 22);
             this.labelCharacterName.Name = "labelCharacterName";
             this.labelCharacterName.Size = new System.Drawing.Size(38, 13);
             this.labelCharacterName.TabIndex = 1;
@@ -550,7 +553,7 @@
             // labelSpecialization
             // 
             this.labelSpecialization.AutoSize = true;
-            this.labelSpecialization.Location = new System.Drawing.Point(5, 75);
+            this.labelSpecialization.Location = new System.Drawing.Point(6, 75);
             this.labelSpecialization.Name = "labelSpecialization";
             this.labelSpecialization.Size = new System.Drawing.Size(75, 13);
             this.labelSpecialization.TabIndex = 13;
@@ -567,6 +570,7 @@
             // 
             // tabPagePets
             // 
+            this.tabPagePets.Controls.Add(this.panelPetPreview);
             this.tabPagePets.Controls.Add(this.groupBoxPetInformation);
             this.tabPagePets.Location = new System.Drawing.Point(4, 22);
             this.tabPagePets.Name = "tabPagePets";
@@ -585,6 +589,28 @@
             this.buttonLoadNewCharacter.Text = "Load new Character";
             this.buttonLoadNewCharacter.UseVisualStyleBackColor = true;
             this.buttonLoadNewCharacter.Click += new System.EventHandler(this.ButtonLoadNewCharacterClick);
+            // 
+            // labelPetPreview
+            // 
+            this.labelPetPreview.AutoSize = true;
+            this.labelPetPreview.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelPetPreview.ForeColor = System.Drawing.Color.White;
+            this.labelPetPreview.Location = new System.Drawing.Point(0, 0);
+            this.labelPetPreview.Name = "labelPetPreview";
+            this.labelPetPreview.Padding = new System.Windows.Forms.Padding(20, 60, 20, 60);
+            this.labelPetPreview.Size = new System.Drawing.Size(134, 133);
+            this.labelPetPreview.TabIndex = 0;
+            this.labelPetPreview.Text = "Character Preview";
+            // 
+            // panelPetPreview
+            // 
+            this.panelPetPreview.BackColor = System.Drawing.Color.DarkGray;
+            this.panelPetPreview.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelPetPreview.Controls.Add(this.labelPetPreview);
+            this.panelPetPreview.Location = new System.Drawing.Point(554, 6);
+            this.panelPetPreview.Name = "panelPetPreview";
+            this.panelPetPreview.Size = new System.Drawing.Size(136, 136);
+            this.panelPetPreview.TabIndex = 8;
             // 
             // FormEditor
             // 
@@ -619,6 +645,8 @@
             this.groupBoxCharacterInformation.ResumeLayout(false);
             this.groupBoxCharacterInformation.PerformLayout();
             this.tabPagePets.ResumeLayout(false);
+            this.panelPetPreview.ResumeLayout(false);
+            this.panelPetPreview.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -663,5 +691,7 @@
 		private System.Windows.Forms.Label labelCharacterPreview;
 		private System.Windows.Forms.GroupBox groupBoxSkills;
 		private System.Windows.Forms.Label labelCharacterName;
+        private System.Windows.Forms.Panel panelPetPreview;
+        private System.Windows.Forms.Label labelPetPreview;
 	}
 }

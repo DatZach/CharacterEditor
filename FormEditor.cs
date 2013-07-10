@@ -3,6 +3,8 @@ using System.Windows.Forms;
 
 namespace CharacterEditor
 {
+    // TODO Dirty flag
+    // TODO Coins
     // TODO Add character delete and add?
     // TODO Add character.db merging?
 
