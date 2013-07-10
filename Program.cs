@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace CharacterEditor
 {
@@ -48,6 +49,11 @@ namespace CharacterEditor
 				}
 			};
 #endif
+            if (Process.GetProcessesByName("Cube").Length > 0)
+            {
+                MessageBox.Show("Please close Cube World before running the Character Editor.", "Character Editor", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);

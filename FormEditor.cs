@@ -3,7 +3,8 @@ using System.Windows.Forms;
 
 namespace CharacterEditor
 {
-    // TODO Don't allow the program to run with cube world
+    // TODO Add character delete and add?
+    // TODO Add character.db merging?
 
 	public partial class FormEditor : Form
 	{
