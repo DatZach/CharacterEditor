@@ -33,12 +33,10 @@ namespace CharacterEditor
 				return;
 			}
 
-			Text += " [" + character.Name + "]";
-
 			dirtyWatcher = new DirtyWatcher(this);
 			dirtyThread = new Thread(obj =>
 			{
-				bool previousDirty = dirtyWatcher.Dirty;
+				bool previousDirty = !dirtyWatcher.Dirty;
 
 				while (!IsDisposed)
 				{
@@ -145,6 +143,25 @@ namespace CharacterEditor
 
 		private void ButtonLoadNewCharacterClick(object sender, EventArgs e)
 		{
+			if (dirtyWatcher.Dirty)
+			{
+				DialogResult result = MessageBox.Show(this, "Would you like to save changes before loading a new character?", "Character Editor",
+											MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+				switch (result)
+				{
+					case DialogResult.Yes:
+						SyncGuiToCharacterData();
+						character.Save(database);
+						break;
+
+					case DialogResult.No:
+						break;
+
+					case DialogResult.Cancel:
+						return;
+				}
+			}
+
 			LoadCharacterDatabase();
 		}
 
