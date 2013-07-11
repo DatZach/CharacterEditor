@@ -1,68 +1,151 @@
 ﻿using System;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace CharacterEditor
 {
-    // TODO Dirty flag
-    // TODO Coins
-    // TODO Add character delete and add?
-    // TODO Add character.db merging?
+	// TODO Coins
+	// TODO Add character delete and add?
+	// TODO Add character.db merging?
 
 	public partial class FormEditor : Form
 	{
 		private readonly Database database;
 		private CharacterData character;
-
-		private static readonly int[,] faceMaximums = new[,]
-		{
-			{ 6, 6 },
-			{ 4, 6 },
-			{ 5, 5 },
-			{ 5, 4 },
-			{ 5, 6 },
-			{ 2, 5 },
-			{ 6, 6 },
-			{ 5, 4 }
-		};
-
-		private static readonly int[,] haircutMaximums = new[,]
-		{
-			{ 15, 7 },
-			{ 10, 10 },
-			{ 3, 5 },
-			{ 10, 4 },
-			{ 6, 6 },
-			{ 6, 6 },
-			{ 6, 6 },
-			{ 5, 4 }
-		};
-
-        private static readonly string[][] specializations = new[]
-        {
-            new[] { "Berserker", "Guardian" },
-            new[] { "Sniper", "Scout" },
-            new[] { "Fire Mage", "Water Mage" },
-            new[] { "Assassin", "Ninja" }
-        };
+		private DirtyWatcher dirtyWatcher;
+		private Thread dirtyThread;
 
 		public FormEditor()
 		{
 			database = new Database();
+
 			InitializeComponent();
 		}
 
 		private void FormEditorShown(object sender, EventArgs e)
 		{
-            Text = "Character Editor v" + Program.Version;
-            LoadCharacterDatabase();
+			Text = "Character Editor v" + Program.Version;
+			LoadCharacterDatabase();
 
-            if (character == null)
-            {
-                Close();
-                return;
-            }
+			if (character == null)
+			{
+				Close();
+				return;
+			}
 
-            Text += " [" + character.Name + "]";
+			Text += " [" + character.Name + "]";
+
+			dirtyWatcher = new DirtyWatcher(this);
+			dirtyThread = new Thread(obj =>
+			{
+				bool previousDirty = dirtyWatcher.Dirty;
+
+				while (!IsDisposed)
+				{
+					if (dirtyWatcher.Dirty != previousDirty)
+					{
+						string title = "Character Editor v" + Program.Version + " [" + character.Name + "]";
+
+						if (dirtyWatcher.Dirty)
+							title += " *";
+
+						if (InvokeRequired)
+							Invoke(new MethodInvoker(() => Text = title));
+						else
+							Text = title;
+
+						previousDirty = dirtyWatcher.Dirty;
+					}
+
+					Thread.Sleep(1);
+				}
+			});
+
+			dirtyThread.Start();
+		}
+
+		private void ButtonSaveCharacterClick(object sender, EventArgs e)
+		{
+			SyncGuiToCharacterData();
+
+			if (!character.Save(database))
+				MessageBox.Show(this, "Something went wrong trying to save your character to the database.", "Character Editor",
+								MessageBoxButtons.OK);
+		}
+
+		private void ButtonHairColorClick(object sender, EventArgs e)
+		{
+			ColorDialog colorDialog = new ColorDialog
+			{
+				Color = buttonHairColor.BackColor,
+				FullOpen = true
+			};
+
+			colorDialog.ShowDialog(this);
+
+			buttonHairColor.BackColor = colorDialog.Color;
+		}
+
+		private void ComboBoxRaceSelectedIndexChanged(object sender, EventArgs e)
+		{
+			int[,] faceMaximums = new[,]
+			{
+				{ 6, 6 },
+				{ 4, 6 },
+				{ 5, 5 },
+				{ 5, 4 },
+				{ 5, 6 },
+				{ 2, 5 },
+				{ 6, 6 },
+				{ 5, 4 }
+			};
+
+			int[,] haircutMaximums = new[,]
+			{
+				{ 15, 7 },
+				{ 10, 10 },
+				{ 3, 5 },
+				{ 10, 4 },
+				{ 6, 6 },
+				{ 6, 6 },
+				{ 6, 6 },
+				{ 5, 4 }
+			};
+
+			if (comboBoxRace.SelectedIndex == -1 || comboBoxGender.SelectedIndex == -1)
+				return;
+
+			nudFace.Maximum = faceMaximums[comboBoxRace.SelectedIndex, comboBoxGender.SelectedIndex];
+			nudHair.Maximum = haircutMaximums[comboBoxRace.SelectedIndex, comboBoxGender.SelectedIndex];
+		}
+
+		private void ComboBoxClassSelectedIndexChanged(object sender, EventArgs e)
+		{
+			string[][] specializations = new[]
+			{
+				new[] { "Berserker", "Guardian" },
+				new[] { "Sniper", "Scout" },
+				new[] { "Fire Mage", "Water Mage" },
+				new[] { "Assassin", "Ninja" }
+			};
+
+			if (comboBoxClass.SelectedIndex == -1)
+				return;
+
+			comboBoxSpecialization.Items.Clear();
+			comboBoxSpecialization.Items.AddRange(specializations[comboBoxClass.SelectedIndex]);
+
+			comboBoxSpecialization.SelectedIndex = character.Specialization;
+		}
+
+		private void NudLevelValueChanged(object sender, EventArgs e)
+		{
+			nudPetLevel.Maximum = nudLevel.Value;
+		}
+
+		private void ButtonLoadNewCharacterClick(object sender, EventArgs e)
+		{
+			LoadCharacterDatabase();
 		}
 
 		private void SyncCharacterDataToGui()
@@ -87,9 +170,12 @@ namespace CharacterEditor
 
 			nudPetExperience.Value = character.PetExperience;
 
-            // TODO Find a cleaner way to do this, maybe?
-            ComboBoxRaceSelectedIndexChanged(null, null);
-            ComboBoxClassSelectedIndexChanged(null, null);
+			// TODO Find a cleaner way to do this, maybe?
+			ComboBoxRaceSelectedIndexChanged(null, null);
+			ComboBoxClassSelectedIndexChanged(null, null);
+
+			if (dirtyWatcher != null)
+				dirtyWatcher.Dirty = false;
 		}
 
 		private void SyncGuiToCharacterData()
@@ -100,87 +186,61 @@ namespace CharacterEditor
 			character.Gender = (byte)comboBoxGender.SelectedIndex;
 			character.Race = comboBoxRace.SelectedIndex;
 			character.Class = (byte)(comboBoxClass.SelectedIndex + 1);
-            character.Specialization = (byte)comboBoxSpecialization.SelectedIndex;
+			character.Specialization = (byte)comboBoxSpecialization.SelectedIndex;
 			character.Face = (int)nudFace.Value;
 			character.Hair = (int)nudHair.Value;
 			character.HairColor = Utility.ToAbgr(buttonHairColor.BackColor);
 			character.PetIndex = (byte)comboBoxPetKind.SelectedIndex;
 			character.PetLevel = (short)nudPetLevel.Value;
 			character.PetExperience = (int)nudPetExperience.Value;
+
+			dirtyWatcher.Dirty = false;
 		}
 
-		private void ButtonSaveCharacterClick(object sender, EventArgs e)
+		private void LoadCharacterDatabase()
 		{
-			SyncGuiToCharacterData();
-			MessageBox.Show(character.Save(database)
-				                ? "Saved character to database successfully."
-				                : "Something went wrong trying to save your character to the database.", "Character Editor",
-			                MessageBoxButtons.OK);
-		}
+			Enabled = false;
 
-		private void ButtonHairColorClick(object sender, EventArgs e)
-		{
-			ColorDialog colorDialog = new ColorDialog
+			FormLoadCharacter formLoadCharacter = new FormLoadCharacter(database)
 			{
-				Color = buttonHairColor.BackColor,
-				FullOpen = true
+				StartPosition = FormStartPosition.CenterParent
 			};
 
-			colorDialog.ShowDialog(this);
+			DialogResult result = formLoadCharacter.ShowDialog(this);
 
-			buttonHairColor.BackColor = colorDialog.Color;
+			if (result == DialogResult.OK)
+			{
+				character = formLoadCharacter.SelectedCharacter;
+
+				SyncCharacterDataToGui();
+			}
+
+			Enabled = character != null;
 		}
 
-		private void ComboBoxRaceSelectedIndexChanged(object sender, EventArgs e)
+		private void FormEditorClosing(object sender, FormClosingEventArgs e)
 		{
-			if (comboBoxRace.SelectedIndex == -1 || comboBoxGender.SelectedIndex == -1)
+			if (!dirtyWatcher.Dirty)
 				return;
 
-			nudFace.Maximum = faceMaximums[comboBoxRace.SelectedIndex, comboBoxGender.SelectedIndex];
-			nudHair.Maximum = haircutMaximums[comboBoxRace.SelectedIndex, comboBoxGender.SelectedIndex];
+			DialogResult result = MessageBox.Show(this, "Would you like to save changes before closing?", "Character Editor",
+												  MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+			switch (result)
+			{
+				case DialogResult.Yes:
+					SyncGuiToCharacterData();
+					character.Save(database);
+					break;
+
+				case DialogResult.No:
+					break;
+
+				case DialogResult.Cancel:
+					e.Cancel = true;
+					return;
+			}
+
+			dirtyThread.Abort();
 		}
-
-        private void ComboBoxClassSelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboBoxClass.SelectedIndex == -1)
-                return;
-
-            comboBoxSpecialization.Items.Clear();
-            comboBoxSpecialization.Items.AddRange(specializations[comboBoxClass.SelectedIndex]);
-
-            comboBoxSpecialization.SelectedIndex = character.Specialization;
-        }
-
-		private void NudLevelValueChanged(object sender, EventArgs e)
-		{
-			nudPetLevel.Maximum = nudLevel.Value;
-		}
-
-        private void ButtonLoadNewCharacterClick(object sender, EventArgs e)
-        {
-            LoadCharacterDatabase();
-            Text = "Character Editor v" + Program.Version + " [" + character.Name + "]";
-        }
-
-        private void LoadCharacterDatabase()
-        {
-            Enabled = false;
-
-            FormLoadCharacter formLoadCharacter = new FormLoadCharacter(database)
-            {
-                StartPosition = FormStartPosition.CenterParent
-            };
-
-            DialogResult result = formLoadCharacter.ShowDialog(this);
-
-            if (result == DialogResult.OK)
-            {
-                character = formLoadCharacter.SelectedCharacter;
-
-                SyncCharacterDataToGui();
-            }
-
-            Enabled = character != null;
-        }
 	}
 }

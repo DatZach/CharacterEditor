@@ -67,15 +67,15 @@
 			this.tabPagePets = new System.Windows.Forms.TabPage();
 			this.panelPetPreview = new System.Windows.Forms.Panel();
 			this.labelPetPreview = new System.Windows.Forms.Label();
-			this.buttonLoadNewCharacter = new System.Windows.Forms.Button();
 			this.tabPageInventory = new System.Windows.Forms.TabPage();
-			this.label1 = new System.Windows.Forms.Label();
-			this.panel1 = new System.Windows.Forms.Panel();
+			this.groupBoxCoins = new System.Windows.Forms.GroupBox();
+			this.labelPlatinumCoins = new System.Windows.Forms.Label();
+			this.nudPlatinumCoins = new System.Windows.Forms.NumericUpDown();
 			this.labelCoins = new System.Windows.Forms.Label();
 			this.nudCoins = new System.Windows.Forms.NumericUpDown();
-			this.groupBoxCoins = new System.Windows.Forms.GroupBox();
-			this.nudPlatinumCoins = new System.Windows.Forms.NumericUpDown();
-			this.labelPlatinumCoins = new System.Windows.Forms.Label();
+			this.panel1 = new System.Windows.Forms.Panel();
+			this.label1 = new System.Windows.Forms.Label();
+			this.buttonLoadNewCharacter = new System.Windows.Forms.Button();
 			this.groupBoxAppearance.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nudHair)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudFace)).BeginInit();
@@ -95,14 +95,15 @@
 			this.tabPagePets.SuspendLayout();
 			this.panelPetPreview.SuspendLayout();
 			this.tabPageInventory.SuspendLayout();
-			this.panel1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.nudCoins)).BeginInit();
 			this.groupBoxCoins.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nudPlatinumCoins)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudCoins)).BeginInit();
+			this.panel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// textBoxName
 			// 
+			this.textBoxName.Enabled = false;
 			this.textBoxName.Location = new System.Drawing.Point(141, 19);
 			this.textBoxName.MaxLength = 15;
 			this.textBoxName.Name = "textBoxName";
@@ -619,16 +620,6 @@
 			this.labelPetPreview.TabIndex = 0;
 			this.labelPetPreview.Text = "Character Preview";
 			// 
-			// buttonLoadNewCharacter
-			// 
-			this.buttonLoadNewCharacter.Location = new System.Drawing.Point(492, 14);
-			this.buttonLoadNewCharacter.Name = "buttonLoadNewCharacter";
-			this.buttonLoadNewCharacter.Size = new System.Drawing.Size(119, 23);
-			this.buttonLoadNewCharacter.TabIndex = 7;
-			this.buttonLoadNewCharacter.Text = "Load new Character";
-			this.buttonLoadNewCharacter.UseVisualStyleBackColor = true;
-			this.buttonLoadNewCharacter.Click += new System.EventHandler(this.ButtonLoadNewCharacterClick);
-			// 
 			// tabPageInventory
 			// 
 			this.tabPageInventory.Controls.Add(this.groupBoxCoins);
@@ -641,27 +632,35 @@
 			this.tabPageInventory.Text = "Inventory";
 			this.tabPageInventory.UseVisualStyleBackColor = true;
 			// 
-			// label1
+			// groupBoxCoins
 			// 
-			this.label1.AutoSize = true;
-			this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.label1.ForeColor = System.Drawing.Color.White;
-			this.label1.Location = new System.Drawing.Point(0, 0);
-			this.label1.Name = "label1";
-			this.label1.Padding = new System.Windows.Forms.Padding(20, 60, 20, 60);
-			this.label1.Size = new System.Drawing.Size(134, 133);
-			this.label1.TabIndex = 0;
-			this.label1.Text = "Character Preview";
+			this.groupBoxCoins.Controls.Add(this.labelPlatinumCoins);
+			this.groupBoxCoins.Controls.Add(this.nudPlatinumCoins);
+			this.groupBoxCoins.Controls.Add(this.labelCoins);
+			this.groupBoxCoins.Controls.Add(this.nudCoins);
+			this.groupBoxCoins.Enabled = false;
+			this.groupBoxCoins.Location = new System.Drawing.Point(6, 6);
+			this.groupBoxCoins.Name = "groupBoxCoins";
+			this.groupBoxCoins.Size = new System.Drawing.Size(268, 191);
+			this.groupBoxCoins.TabIndex = 12;
+			this.groupBoxCoins.TabStop = false;
+			this.groupBoxCoins.Text = "Coins";
 			// 
-			// panel1
+			// labelPlatinumCoins
 			// 
-			this.panel1.BackColor = System.Drawing.Color.DarkGray;
-			this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panel1.Controls.Add(this.label1);
-			this.panel1.Location = new System.Drawing.Point(554, 6);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(136, 136);
-			this.panel1.TabIndex = 9;
+			this.labelPlatinumCoins.AutoSize = true;
+			this.labelPlatinumCoins.Location = new System.Drawing.Point(6, 47);
+			this.labelPlatinumCoins.Name = "labelPlatinumCoins";
+			this.labelPlatinumCoins.Size = new System.Drawing.Size(79, 13);
+			this.labelPlatinumCoins.TabIndex = 13;
+			this.labelPlatinumCoins.Text = "Platinum Coins:";
+			// 
+			// nudPlatinumCoins
+			// 
+			this.nudPlatinumCoins.Location = new System.Drawing.Point(141, 45);
+			this.nudPlatinumCoins.Name = "nudPlatinumCoins";
+			this.nudPlatinumCoins.Size = new System.Drawing.Size(121, 20);
+			this.nudPlatinumCoins.TabIndex = 12;
 			// 
 			// labelCoins
 			// 
@@ -679,35 +678,37 @@
 			this.nudCoins.Size = new System.Drawing.Size(121, 20);
 			this.nudCoins.TabIndex = 11;
 			// 
-			// groupBoxCoins
+			// panel1
 			// 
-			this.groupBoxCoins.Controls.Add(this.labelPlatinumCoins);
-			this.groupBoxCoins.Controls.Add(this.nudPlatinumCoins);
-			this.groupBoxCoins.Controls.Add(this.labelCoins);
-			this.groupBoxCoins.Controls.Add(this.nudCoins);
-			this.groupBoxCoins.Enabled = false;
-			this.groupBoxCoins.Location = new System.Drawing.Point(6, 6);
-			this.groupBoxCoins.Name = "groupBoxCoins";
-			this.groupBoxCoins.Size = new System.Drawing.Size(268, 191);
-			this.groupBoxCoins.TabIndex = 12;
-			this.groupBoxCoins.TabStop = false;
-			this.groupBoxCoins.Text = "Coins";
+			this.panel1.BackColor = System.Drawing.Color.DarkGray;
+			this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel1.Controls.Add(this.label1);
+			this.panel1.Location = new System.Drawing.Point(554, 6);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(136, 136);
+			this.panel1.TabIndex = 9;
 			// 
-			// nudPlatinumCoins
+			// label1
 			// 
-			this.nudPlatinumCoins.Location = new System.Drawing.Point(141, 45);
-			this.nudPlatinumCoins.Name = "nudPlatinumCoins";
-			this.nudPlatinumCoins.Size = new System.Drawing.Size(121, 20);
-			this.nudPlatinumCoins.TabIndex = 12;
+			this.label1.AutoSize = true;
+			this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.label1.ForeColor = System.Drawing.Color.White;
+			this.label1.Location = new System.Drawing.Point(0, 0);
+			this.label1.Name = "label1";
+			this.label1.Padding = new System.Windows.Forms.Padding(20, 60, 20, 60);
+			this.label1.Size = new System.Drawing.Size(134, 133);
+			this.label1.TabIndex = 0;
+			this.label1.Text = "Character Preview";
 			// 
-			// labelPlatinumCoins
+			// buttonLoadNewCharacter
 			// 
-			this.labelPlatinumCoins.AutoSize = true;
-			this.labelPlatinumCoins.Location = new System.Drawing.Point(6, 47);
-			this.labelPlatinumCoins.Name = "labelPlatinumCoins";
-			this.labelPlatinumCoins.Size = new System.Drawing.Size(79, 13);
-			this.labelPlatinumCoins.TabIndex = 13;
-			this.labelPlatinumCoins.Text = "Platinum Coins:";
+			this.buttonLoadNewCharacter.Location = new System.Drawing.Point(492, 14);
+			this.buttonLoadNewCharacter.Name = "buttonLoadNewCharacter";
+			this.buttonLoadNewCharacter.Size = new System.Drawing.Size(119, 23);
+			this.buttonLoadNewCharacter.TabIndex = 7;
+			this.buttonLoadNewCharacter.Text = "Load new Character";
+			this.buttonLoadNewCharacter.UseVisualStyleBackColor = true;
+			this.buttonLoadNewCharacter.Click += new System.EventHandler(this.ButtonLoadNewCharacterClick);
 			// 
 			// FormEditor
 			// 
@@ -720,6 +721,7 @@
 			this.Name = "FormEditor";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Character Editor";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormEditorClosing);
 			this.Shown += new System.EventHandler(this.FormEditorShown);
 			this.groupBoxAppearance.ResumeLayout(false);
 			this.groupBoxAppearance.PerformLayout();
@@ -745,12 +747,12 @@
 			this.panelPetPreview.ResumeLayout(false);
 			this.panelPetPreview.PerformLayout();
 			this.tabPageInventory.ResumeLayout(false);
-			this.panel1.ResumeLayout(false);
-			this.panel1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.nudCoins)).EndInit();
 			this.groupBoxCoins.ResumeLayout(false);
 			this.groupBoxCoins.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nudPlatinumCoins)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudCoins)).EndInit();
+			this.panel1.ResumeLayout(false);
+			this.panel1.PerformLayout();
 			this.ResumeLayout(false);
 
 		}

@@ -7,7 +7,7 @@ namespace CharacterEditor
 {
 	static class Program
 	{
-		public const string Version = "0.2";
+		public const string Version = "0.3";
 
 		[STAThread]
 		public static void Main()
@@ -33,8 +33,10 @@ namespace CharacterEditor
 
 				message.AppendLine(exception.Message);
 				message.AppendLine(exception.Source);
+				message.AppendLine();
 				message.AppendLine(exception.StackTrace);
 
+				// TODO Exception form
 				if (args.IsTerminating)
 				{
 					MessageBox.Show(message.ToString(), "Oops!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -49,6 +51,7 @@ namespace CharacterEditor
 				}
 			};
 #endif
+
             if (Process.GetProcessesByName("Cube").Length > 0)
             {
                 MessageBox.Show("Please close Cube World before running the Character Editor.", "Character Editor", MessageBoxButtons.OK, MessageBoxIcon.Error);

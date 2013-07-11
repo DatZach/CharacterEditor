@@ -65,7 +65,8 @@ namespace CharacterEditor
 			}
 			catch (Exception)
 			{
-				MessageBox.Show("Database appears to be corrupted!", "Character Editor", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				// TODO Exception form
+				MessageBox.Show(this, "Database appears to be corrupted!", "Character Editor", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
 
@@ -92,7 +93,7 @@ namespace CharacterEditor
 				message.AppendLine(exception.Source);
 				message.AppendLine(exception.StackTrace);
 
-				MessageBox.Show(message.ToString(), "Character Editor", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(this, message.ToString(), "Character Editor", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
 				Characters.Clear();
 				listBoxCharacters.Items.Clear();

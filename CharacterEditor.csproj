@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -56,6 +59,7 @@
   <ItemGroup>
     <Compile Include="CharacterData.cs" />
     <Compile Include="Database.cs" />
+    <Compile Include="DirtyWatcher.cs" />
     <Compile Include="FormEditor.cs">
       <SubType>Form</SubType>
     </Compile>
