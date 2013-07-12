@@ -237,7 +237,7 @@ namespace CharacterEditor
 
 		private void FormEditorClosing(object sender, FormClosingEventArgs e)
 		{
-			if (!dirtyWatcher.Dirty)
+			if (dirtyWatcher == null || !dirtyWatcher.Dirty)
 				return;
 
 			DialogResult result = MessageBox.Show(this, "Would you like to save changes before closing?", "Character Editor",

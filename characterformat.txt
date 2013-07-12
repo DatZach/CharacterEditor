@@ -16,7 +16,7 @@ Compressed Stream
 	30 4	Level
 	34 1	Class
 	35 1	Specialization
-	36 4	Unknown (Stored at [PlayerBase + 1198h]) Stamina (Double)? or Crafting Level?
+	36 4	Unknown (Stored at [PlayerBase + 1198h])
 	3A 4	Unknown (Stored at [PlayerBase + 119Ch])
 
 	[ Equipment ]
