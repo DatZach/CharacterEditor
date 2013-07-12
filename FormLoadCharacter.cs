@@ -73,8 +73,8 @@ namespace CharacterEditor
 			Characters.Clear();
 			listBoxCharacters.Items.Clear();
 
-			try
-			{
+			//try
+			//{
 				int characterCount = database.ReadBlobByKey("num")[0];
 				for (int i = 0; i < characterCount; ++i)
 				{
@@ -84,7 +84,7 @@ namespace CharacterEditor
 					Characters.Add(character);
 					listBoxCharacters.Items.Add(character.Name);
 				}
-			}
+			/*}
 			catch (Exception exception)
 			{
 				StringBuilder message = new StringBuilder();
@@ -97,7 +97,7 @@ namespace CharacterEditor
 
 				Characters.Clear();
 				listBoxCharacters.Items.Clear();
-			}
+			}*/
 		}
 
 		private string FindCubeWorldDirectory()

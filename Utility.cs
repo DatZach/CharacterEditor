@@ -26,6 +26,16 @@ namespace CharacterEditor
 			return value;
 		}
 
+		public static void Skip(this BinaryReader reader, int count)
+		{
+			reader.BaseStream.Seek(count, SeekOrigin.Current);
+		}
+
+		public static void Skip(this BinaryWriter writer, int count)
+		{
+			writer.Write(new byte[count]);
+		}
+
 		public static string ReadLongString(this BinaryReader reader)
 		{
 			int length = reader.ReadInt32();
