@@ -277,8 +277,8 @@ namespace CharacterEditor
 			ShoulderArmor,
 			Amulet,
 			Ring,
-			Block,
-			Items,
+			Spirit,
+			Nugget,
 			Coin,
 			PlatinumCoin,
 			Leftovers,
@@ -288,10 +288,10 @@ namespace CharacterEditor
 			Candle,
 			Pet,
 			PetFood,
+			QuestItem,
 			Unknown,
 			Transportation,
-			Lamp,
-			ManaCube
+			Lamp
 		};
 
 		public ItemType Type;
