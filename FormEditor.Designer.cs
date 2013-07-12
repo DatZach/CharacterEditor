@@ -429,7 +429,7 @@
             "Peacock",
             "Frog",
             "Devourer",
-            "Duckbull",
+            "Duckbill",
             "Crocodile",
             "Imp",
             "Spitter",

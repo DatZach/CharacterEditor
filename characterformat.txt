@@ -2,139 +2,130 @@ Charater Format
 
 Compressed Stream
 {
-	[ Camera information is not saved ]
-	[ Player direction is not saved ]
+	[ Padding is aligned to 8 bytes ]
 
-	00 4	Version? (Always 1)
-	04 4	Unknown (Somewhat random)
-	0C 4	Unknown (Usually 0x00000080)
-	10 4	Unknown (Somewhat random)
-	14 4	Unknown (Usually 0x00000080)
-	18 4	Unknown (Always 0x00B1147A?)
-	1C 4	Unknown (Always 0? Resaving will set to 0)
-	20 4	Unknown
-	24 4	Unknown
-
-	28 4	Health
+	00 4	Entity ID (Always 1)
+	04 8	X Position
+	0C 8	Y Position
+	14 8	Z Position
+	1C 4	Pitch
+	20 4	Roll
+	24 4	Yaw
+	28 4	Health (Float)
 	2C 4	Experience
 	30 4	Level
 	34 1	Class
 	35 1	Specialization
-	36 2	Padding (Or unknown)
-	38 4	Unknown
-	3C 4	Unknown (Always 0?)
+	36 4	Unknown (Stored at [PlayerBase + 1198h]) Stamina (Double)? or Crafting Level?
+	3A 4	Unknown (Stored at [PlayerBase + 119Ch])
 
-	At 0x0D5E
+	[ Equipment ]
+	{ Unused, Neck, Chest, Feet, Hands, Shoulder, Left Weapon, Right Weapon,
+		Left Ring, Right Ring, Light, Special, Pet }
+	For 13
 	{
-		[ Pet HP is not stored in the format ]
-		[ Anything other than these two values results in some weird shit happening
-			Given that it will cause you to carry random garbage, this might be the
-			pet food index ]
-		1	0x13 If you have a pet, 0x00 otherwise
-		1	Pet Index
-		1	Unknown
-		1	Unknown
-		4	Pet XP
-		4	Unknown (Always 0?)
-		4	Unknown (Randomish)
-		2	Pet Level
+		<Item>
 	}
 
-	At 0x0E76
+	00 4	Length { Name }
+	04 4	Race
+	08 1	Gender (0 = Male, 1 = Female)
+	09 3	Padding
+	0C 4	Face Index
+	10 4	Hair Index
+	14 1	Hair R					[ Stored as bytes in the structure ]
+	15 1	Hair G
+	16 1	Hair B
+	17 1	Padding
+	18 4	InventoryCount				[ Can be set to 3 and the client doesn't crash ]
+	For InventoryCount
 	{
-		4	Length { Name }
-		4	Race
-		1	Gender (0 = Male, 1 = Female)
-		3	Padding
-		4	Face Index
-		4	Hair Index
-		4	Hair RGBX
-		4	InventoryCount				[ Can be set to 3 and the client doesn't crash ]
-		For InventoryCount
+		00 4 SlotCount
+		For SlotCount
 		{
-			4 SlotCount
-			For SlotCount
-			{
-				[ Thanks to the hard work of everyone at #ModCubeWorld @ irc.esper.net ]
-				
-			}
+			<Item>
 		}
 	}
 
-	at 0xEC89
+	00 4	Coins (Split into bronze, silver, gold ingame)
+	04 4	Platinum Coins
+
+	[ Crafting recipes ]
+	08 4	Count
+	For Count
 	{
-		4	Coins (Split into bronze, silver, gold and platinum ingame)
-		4	Unknown (0)
-		4	Unknown
+		<Item>
 	}
 
-	At ???
+	[ Worlds ]
+	00 4	Count
+	For Count
 	{
-		4 Count
-		For Count
-		{
-			4	Seed
-			4	Length { Name }
-			8	X
-			8	Y
-			8	Z
-			4	Unknown
-			4	Seed
-			4	Length { Name }
-			4	Unknown (0?)
-			4	Unknown (11?)
-			4	Pet Master Skill Level
-			4	Pet Riding Level
-			4	Climbing Skill Level
-			4	Hang Gliding Skill Level
-			4	Swimming Skill Level
-			4	Sailing Skill Level
-			4	Special Skill 1 Level
-			4	Special Skill 2 Level
-			4	Special Skill 3 Level
-
-			[ I think that these are two extra skills to be added in a future update ]
-			4	Unknown (Always 0)
-			4	Unknown (Always 0)
-		}
+		00 4	Seed
+		04 4	Length { Name }
+		08 8	X
+		10 8	Z
+		18 8	Y
 	}
+	
+	00 4	LastWorldSeed
+	04 4	Length { String <LastWorldName> }
+
+	[ Skills ]
+	
+	[ This draws 0 - 3 cylinders under XP, unknown use, PlayerBase + 1164h ]
+	00 4	Unknown Skill? (Should be set to 0)
+	
+	04 4	Skill Count
+	08 4	Pet Master Skill Level
+	0C 4	Pet Riding Level
+	10 4	Climbing Skill Level
+	14 4	Hang Gliding Skill Level
+	18 4	Swimming Skill Level
+	1C 4	Sailing Skill Level
+	20 4	Tier 1 Skill Level
+	24 4	Tier 2 Skill Level
+	28 4	Tier 3 Skill Level
+
+	[ I think that these are two extra skills to be added in a future update ]
+	2C 4	Unknown Skill? (Always 0)
+	30 4	Unknown Skill? (Always 0)
 }
 
-Inventory Item Size = 0x011C
+<Item>
+{
+	00 1	Type
+	01 1	Subtype
+	02 2	Padding
+	04 4	Modifier
+	08 4	Unknown
+	0C 1	Rarity
+	0D 1	Material
+	0E 1	Item Flags
+	0F 1	Padding
+	10 2	Level
+	12 2	Padding
+	
+	[ Item Attributes ]
+	For 31
+	{
+		00 1	X Offset
+		01 1	Y Offset
+		02 1	Z Offset
+		03 1	Material
+		04 2	Level
+		06 2	Padding
+	}
 
-Class Types
-	1	Warrior
-	2	Ranger
-	3	Mage
-	4	Rogue
+	00 4	Attributes Used
+}
 
-Race Types
-	0	Human
-	1	Elf
-	2	Dwarf
-	3	Orc
-	4	Goblin
-	5	Lizard
-	6	Undead
-	7	Frogman
+=== Notes on Player Name ===
+Technicaly the name can be signed int max characters long, however,
+	the game has some routine that verifies the names are less than
+	or equal to 15 character and some other small attributes and
+	panics if it isn't.
 
-Memory Structure
-	[EAX+190]		Name
-	[EAX+140]		Type
-
-Iron Sword
-Dmg 4
-Hp 7.5
-Crit 0.6%
-
-01000000030010190000000000000000000100210100008000000
-00000000000000000000000000000000000000000000000000000
-00000000000000000000000000000000000000000000000000000
-00000000000000000000000000000000000000000000000000000
-00000000000000000000000000000000000000000000000000000
-00000000000000000000000000000000000000000000000000000
-00000000000000000000000000000000000000000000000000000
-00000000000000000000000000000000000000000000000000000
-00000000000000000000000000000000000000000000000000000
-00000000000000000000000000000000000000000000000000000
-00000000000000000000000000000000000000
+=== Notes on Pet Names ===
+Pet names can be 15 characters long and are stored as item attributes,
+	the material byte being used as the ASCII character.
