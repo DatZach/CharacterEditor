@@ -97,7 +97,8 @@ Compressed Stream
 	00 1	Type
 	01 1	Subtype
 	02 2	Padding
-	04 4	Modifier
+	04 2	Modifier
+	06 2	Padding
 	08 4	Unknown
 	0C 1	Rarity
 	0D 1	Material
@@ -107,7 +108,7 @@ Compressed Stream
 	12 2	Padding
 	
 	[ Item Attributes ]
-	For 31
+	For 32
 	{
 		00 1	X Offset
 		01 1	Y Offset

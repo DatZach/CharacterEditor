@@ -8,6 +8,7 @@ namespace CharacterEditor
 {
 	public partial class FormLoadCharacter : Form
 	{
+		// TODO Exception form
 		// TODO Backup database just in case
 
 		public List<CharacterData> Characters { get; private set; }
@@ -65,7 +66,6 @@ namespace CharacterEditor
 			}
 			catch (Exception)
 			{
-				// TODO Exception form
 				MessageBox.Show(this, "Database appears to be corrupted!", "Character Editor", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
@@ -73,8 +73,8 @@ namespace CharacterEditor
 			Characters.Clear();
 			listBoxCharacters.Items.Clear();
 
-			//try
-			//{
+			try
+			{
 				int characterCount = database.ReadBlobByKey("num")[0];
 				for (int i = 0; i < characterCount; ++i)
 				{
@@ -84,7 +84,7 @@ namespace CharacterEditor
 					Characters.Add(character);
 					listBoxCharacters.Items.Add(character.Name);
 				}
-			/*}
+			}
 			catch (Exception exception)
 			{
 				StringBuilder message = new StringBuilder();
@@ -97,7 +97,7 @@ namespace CharacterEditor
 
 				Characters.Clear();
 				listBoxCharacters.Items.Clear();
-			}*/
+			}
 		}
 
 		private string FindCubeWorldDirectory()

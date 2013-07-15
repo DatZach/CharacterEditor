@@ -178,6 +178,16 @@ namespace CharacterEditor
 
 			buttonHairColor.BackColor = character.HairColor;
 
+			nudPetMasterSkillLevel.Value = character.PetMasterSkillLevel;
+			nudPetRidingSkillLevel.Value = character.PetRidingSkillLevel;
+			nudClimbingSkillLevel.Value = character.ClimbingSkillLevel;
+			nudHangGlidingSkillLevel.Value = character.HangGlidingSkillLevel;
+			nudSwimmingSkillLevel.Value = character.SwimmingSkillLevel;
+			nudSailingSkillLevel.Value = character.SailingSkillLevel;
+			nudTierOneSkillLevel.Value = character.TierOneSkillLevel;
+			nudTierTwoSkillLevel.Value = character.TierTwoSkillLevel;
+			nudTierThreeSkillLevel.Value = character.TierThreeSkillLevel;
+
 			/*comboBoxPetKind.SelectedIndex = CharacterData.PetKinds.IndexOf(character.PetIndex);
 			if (comboBoxPetKind.SelectedIndex == -1)
 				comboBoxPetKind.SelectedIndex = 0;
@@ -207,6 +217,17 @@ namespace CharacterEditor
 			character.Face = (int)nudFace.Value;
 			character.Hair = (int)nudHair.Value;
 			character.HairColor = buttonHairColor.BackColor;
+
+			character.PetMasterSkillLevel = (int)nudPetMasterSkillLevel.Value;
+			character.PetRidingSkillLevel = (int)nudPetRidingSkillLevel.Value;
+			character.ClimbingSkillLevel = (int)nudClimbingSkillLevel.Value;
+			character.HangGlidingSkillLevel = (int)nudHangGlidingSkillLevel.Value;
+			character.SwimmingSkillLevel = (int)nudSwimmingSkillLevel.Value;
+			character.SailingSkillLevel = (int)nudSailingSkillLevel.Value;
+			character.TierOneSkillLevel = (int)nudTierOneSkillLevel.Value;
+			character.TierTwoSkillLevel = (int)nudTierTwoSkillLevel.Value;
+			character.TierThreeSkillLevel = (int)nudTierThreeSkillLevel.Value;
+
 			/*character.PetIndex = (byte)comboBoxPetKind.SelectedIndex;
 			character.PetLevel = (short)nudPetLevel.Value;
 			character.PetExperience = (int)nudPetExperience.Value;*/

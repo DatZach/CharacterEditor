@@ -93,6 +93,9 @@ namespace CharacterEditor
 
 			using (BinaryReader reader = new BinaryReader(new MemoryStream(characterData)))
 				Read(reader);
+
+			using(BinaryWriter writer = new BinaryWriter(new FileStream("read.bin", FileMode.Create)))
+				writer.Write(characterData);
 		}
 
 		public bool Save(Database database)
@@ -102,13 +105,16 @@ namespace CharacterEditor
 			using (BinaryWriter writer = new BinaryWriter(saveDataStream))
 				Write(writer);
 
+			using (BinaryWriter writer = new BinaryWriter(new FileStream("wrote.bin", FileMode.Create)))
+				writer.Write(saveDataStream.ToArray());
+
 			return database.WriteCharacterBlob(DatabaseIndex, saveDataStream.ToArray());
 		}
 
 		public void Read(BinaryReader reader)
 		{
 			EntityId = reader.ReadInt32();
-			PositionX = reader.ReadDouble();
+			PositionX = reader.ReadDouble(); // TODO Might need to change this to long to prevent NaN exceptions being thrown
 			PositionY = reader.ReadDouble();
 			PositionZ = reader.ReadDouble();
 			Pitch = reader.ReadSingle();
@@ -175,7 +181,7 @@ namespace CharacterEditor
 			LastWorld = Worlds.FirstOrDefault(w => w.Seed == lastWorldSeed && w.Name == lastWorldName);
 
 			unknown3 = reader.ReadUInt32();
-			reader.ReadInt32();
+			reader.Skip(4);
 			PetMasterSkillLevel = reader.ReadInt32();
 			PetRidingSkillLevel = reader.ReadInt32();
 			ClimbingSkillLevel = reader.ReadInt32();
@@ -201,6 +207,7 @@ namespace CharacterEditor
 
 			writer.Write(Health);
 			writer.Write(Experience);
+			writer.Write(Level);
 			writer.Write((byte)Class);
 			writer.Write(Specialization);
 			writer.Write(unknown1);
@@ -209,7 +216,7 @@ namespace CharacterEditor
 			foreach(Item equipment in Equipment)
 				equipment.Write(writer);
 
-			writer.WriteLongString(Name);
+			writer.WriteLongString(Name); // Should be 0xE76
 			writer.Write(Race);
 			writer.Write(Gender);
 			writer.Skip(3);
@@ -228,8 +235,12 @@ namespace CharacterEditor
 			foreach(Item recipe in CraftingRecipes)
 				recipe.Write(writer);
 
+			writer.Write(Worlds.Count);
+			foreach(World world in Worlds)
+				world.Write(writer);
+
 			writer.Write(LastWorld.Seed);
-			writer.Write(LastWorld.Name);
+			writer.WriteLongString(LastWorld.Name);
 
 			writer.Write(unknown3);
 			writer.Write(SkillCount);
@@ -255,41 +266,12 @@ namespace CharacterEditor
 
 	public class Item : ICharacterDataBlob
 	{
-		public const int AttributeCount = 31;
+		public const int AttributeCount = 32;
 
-		public enum ItemType : byte
-		{
-			None,
-			Consumable,
-			Formula,
-			Weapon,
-			ChestArmor,
-			Gloves,
-			Boots,
-			ShoulderArmor,
-			Amulet,
-			Ring,
-			Spirit,
-			Nugget,
-			Coin,
-			PlatinumCoin,
-			Leftovers,
-			Beak,
-			Painting,
-			Vase,
-			Candle,
-			Pet,
-			PetFood,
-			QuestItem,
-			Unknown,
-			Transportation,
-			Lamp
-		};
-
-		public ItemType Type;
+		public byte Type;
 		public byte Subtype;
 		public short Modifier;
-		private long unknown1;
+		private int unknown1;
 		public byte Rarity;
 		public byte Material;
 		public byte Flags;
@@ -304,12 +286,12 @@ namespace CharacterEditor
 
 		public void Read(BinaryReader reader)
 		{
-			Type = (ItemType)reader.ReadByte();
+			Type = reader.ReadByte();
 			Subtype = reader.ReadByte();
 			reader.Skip(2);
 			Modifier = reader.ReadInt16();
 			reader.Skip(2);
-			unknown1 = reader.ReadInt64();
+			unknown1 = reader.ReadInt32();
 			Rarity = reader.ReadByte();
 			Material = reader.ReadByte();
 			Flags = reader.ReadByte();
@@ -326,17 +308,18 @@ namespace CharacterEditor
 			}
 
 			// AttributesUsed is calculated on write
-			reader.Skip(8);
+			reader.Skip(4);
 		}
 
 		public void Write(BinaryWriter writer)
 		{
-			writer.Write((byte)Type);
+			writer.Write(Type);
 			writer.Write(Subtype);
 			writer.Skip(2);
 			writer.Write(Modifier);
+			writer.Skip(2);
 			writer.Write(unknown1);
-			writer.Write(Rarity > 4 ? 4 : Rarity);
+			writer.Write(Rarity);
 			writer.Write(Material);
 			writer.Write(Flags);
 			writer.Skip(1);
@@ -346,7 +329,6 @@ namespace CharacterEditor
 			foreach (ItemAttribute attribute in Attributes)
 				attribute.Write(writer);
 
-			writer.Write(0);
 			writer.Write(Attributes.Count(attr => attr.Used));
 		}
 	}

@@ -68,14 +68,32 @@
 			this.panelPetPreview = new System.Windows.Forms.Panel();
 			this.labelPetPreview = new System.Windows.Forms.Label();
 			this.tabPageInventory = new System.Windows.Forms.TabPage();
+			this.panel1 = new System.Windows.Forms.Panel();
+			this.label1 = new System.Windows.Forms.Label();
+			this.buttonLoadNewCharacter = new System.Windows.Forms.Button();
 			this.groupBoxCoins = new System.Windows.Forms.GroupBox();
 			this.labelPlatinumCoins = new System.Windows.Forms.Label();
 			this.nudPlatinumCoins = new System.Windows.Forms.NumericUpDown();
 			this.labelCoins = new System.Windows.Forms.Label();
 			this.nudCoins = new System.Windows.Forms.NumericUpDown();
-			this.panel1 = new System.Windows.Forms.Panel();
-			this.label1 = new System.Windows.Forms.Label();
-			this.buttonLoadNewCharacter = new System.Windows.Forms.Button();
+			this.nudTierOneSkillLevel = new System.Windows.Forms.NumericUpDown();
+			this.nudTierTwoSkillLevel = new System.Windows.Forms.NumericUpDown();
+			this.nudTierThreeSkillLevel = new System.Windows.Forms.NumericUpDown();
+			this.nudPetMasterSkillLevel = new System.Windows.Forms.NumericUpDown();
+			this.nudPetRidingSkillLevel = new System.Windows.Forms.NumericUpDown();
+			this.nudClimbingSkillLevel = new System.Windows.Forms.NumericUpDown();
+			this.nudHangGlidingSkillLevel = new System.Windows.Forms.NumericUpDown();
+			this.nudSwimmingSkillLevel = new System.Windows.Forms.NumericUpDown();
+			this.nudSailingSkillLevel = new System.Windows.Forms.NumericUpDown();
+			this.labelTierOneSkillLevel = new System.Windows.Forms.Label();
+			this.labelTierTwoSkillLevel = new System.Windows.Forms.Label();
+			this.labelTierThreeSkillLevel = new System.Windows.Forms.Label();
+			this.labelHangGlidingSkillLevel = new System.Windows.Forms.Label();
+			this.labelSwimmingSkillLevel = new System.Windows.Forms.Label();
+			this.labelSailingSkillLevel = new System.Windows.Forms.Label();
+			this.labelPetMasterSkillLevel = new System.Windows.Forms.Label();
+			this.labelPetRidingSkillLevel = new System.Windows.Forms.Label();
+			this.labelClimbingSkillLevel = new System.Windows.Forms.Label();
 			this.groupBoxAppearance.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nudHair)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudFace)).BeginInit();
@@ -90,15 +108,25 @@
 			this.splitContainerWorkspace.SuspendLayout();
 			this.tabControlWorkspace.SuspendLayout();
 			this.tabPageCharacter.SuspendLayout();
+			this.groupBoxSkills.SuspendLayout();
 			this.panelCharacterPreview.SuspendLayout();
 			this.groupBoxCharacterInformation.SuspendLayout();
 			this.tabPagePets.SuspendLayout();
 			this.panelPetPreview.SuspendLayout();
 			this.tabPageInventory.SuspendLayout();
+			this.panel1.SuspendLayout();
 			this.groupBoxCoins.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nudPlatinumCoins)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudCoins)).BeginInit();
-			this.panel1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.nudTierOneSkillLevel)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudTierTwoSkillLevel)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudTierThreeSkillLevel)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudPetMasterSkillLevel)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudPetRidingSkillLevel)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudClimbingSkillLevel)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudHangGlidingSkillLevel)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudSwimmingSkillLevel)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudSailingSkillLevel)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// textBoxName
@@ -497,6 +525,7 @@
 			// 
 			// tabPageCharacter
 			// 
+			this.tabPageCharacter.Controls.Add(this.groupBoxCoins);
 			this.tabPageCharacter.Controls.Add(this.groupBoxSkills);
 			this.tabPageCharacter.Controls.Add(this.panelCharacterPreview);
 			this.tabPageCharacter.Controls.Add(this.groupBoxCharacterInformation);
@@ -511,9 +540,27 @@
 			// 
 			// groupBoxSkills
 			// 
+			this.groupBoxSkills.Controls.Add(this.labelClimbingSkillLevel);
+			this.groupBoxSkills.Controls.Add(this.labelPetRidingSkillLevel);
+			this.groupBoxSkills.Controls.Add(this.labelPetMasterSkillLevel);
+			this.groupBoxSkills.Controls.Add(this.labelSailingSkillLevel);
+			this.groupBoxSkills.Controls.Add(this.labelSwimmingSkillLevel);
+			this.groupBoxSkills.Controls.Add(this.labelHangGlidingSkillLevel);
+			this.groupBoxSkills.Controls.Add(this.labelTierThreeSkillLevel);
+			this.groupBoxSkills.Controls.Add(this.labelTierTwoSkillLevel);
+			this.groupBoxSkills.Controls.Add(this.labelTierOneSkillLevel);
+			this.groupBoxSkills.Controls.Add(this.nudSailingSkillLevel);
+			this.groupBoxSkills.Controls.Add(this.nudSwimmingSkillLevel);
+			this.groupBoxSkills.Controls.Add(this.nudHangGlidingSkillLevel);
+			this.groupBoxSkills.Controls.Add(this.nudClimbingSkillLevel);
+			this.groupBoxSkills.Controls.Add(this.nudPetRidingSkillLevel);
+			this.groupBoxSkills.Controls.Add(this.nudPetMasterSkillLevel);
+			this.groupBoxSkills.Controls.Add(this.nudTierThreeSkillLevel);
+			this.groupBoxSkills.Controls.Add(this.nudTierTwoSkillLevel);
+			this.groupBoxSkills.Controls.Add(this.nudTierOneSkillLevel);
 			this.groupBoxSkills.Location = new System.Drawing.Point(6, 203);
 			this.groupBoxSkills.Name = "groupBoxSkills";
-			this.groupBoxSkills.Size = new System.Drawing.Size(268, 154);
+			this.groupBoxSkills.Size = new System.Drawing.Size(542, 154);
 			this.groupBoxSkills.TabIndex = 8;
 			this.groupBoxSkills.TabStop = false;
 			this.groupBoxSkills.Text = "Skills";
@@ -622,7 +669,6 @@
 			// 
 			// tabPageInventory
 			// 
-			this.tabPageInventory.Controls.Add(this.groupBoxCoins);
 			this.tabPageInventory.Controls.Add(this.panel1);
 			this.tabPageInventory.Location = new System.Drawing.Point(4, 22);
 			this.tabPageInventory.Name = "tabPageInventory";
@@ -632,6 +678,38 @@
 			this.tabPageInventory.Text = "Inventory";
 			this.tabPageInventory.UseVisualStyleBackColor = true;
 			// 
+			// panel1
+			// 
+			this.panel1.BackColor = System.Drawing.Color.DarkGray;
+			this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel1.Controls.Add(this.label1);
+			this.panel1.Location = new System.Drawing.Point(554, 6);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(136, 136);
+			this.panel1.TabIndex = 9;
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.label1.ForeColor = System.Drawing.Color.White;
+			this.label1.Location = new System.Drawing.Point(0, 0);
+			this.label1.Name = "label1";
+			this.label1.Padding = new System.Windows.Forms.Padding(20, 60, 20, 60);
+			this.label1.Size = new System.Drawing.Size(134, 133);
+			this.label1.TabIndex = 0;
+			this.label1.Text = "Character Preview";
+			// 
+			// buttonLoadNewCharacter
+			// 
+			this.buttonLoadNewCharacter.Location = new System.Drawing.Point(492, 14);
+			this.buttonLoadNewCharacter.Name = "buttonLoadNewCharacter";
+			this.buttonLoadNewCharacter.Size = new System.Drawing.Size(119, 23);
+			this.buttonLoadNewCharacter.TabIndex = 7;
+			this.buttonLoadNewCharacter.Text = "Load new Character";
+			this.buttonLoadNewCharacter.UseVisualStyleBackColor = true;
+			this.buttonLoadNewCharacter.Click += new System.EventHandler(this.ButtonLoadNewCharacterClick);
+			// 
 			// groupBoxCoins
 			// 
 			this.groupBoxCoins.Controls.Add(this.labelPlatinumCoins);
@@ -639,10 +717,10 @@
 			this.groupBoxCoins.Controls.Add(this.labelCoins);
 			this.groupBoxCoins.Controls.Add(this.nudCoins);
 			this.groupBoxCoins.Enabled = false;
-			this.groupBoxCoins.Location = new System.Drawing.Point(6, 6);
+			this.groupBoxCoins.Location = new System.Drawing.Point(554, 203);
 			this.groupBoxCoins.Name = "groupBoxCoins";
-			this.groupBoxCoins.Size = new System.Drawing.Size(268, 191);
-			this.groupBoxCoins.TabIndex = 12;
+			this.groupBoxCoins.Size = new System.Drawing.Size(268, 154);
+			this.groupBoxCoins.TabIndex = 13;
 			this.groupBoxCoins.TabStop = false;
 			this.groupBoxCoins.Text = "Coins";
 			// 
@@ -678,37 +756,149 @@
 			this.nudCoins.Size = new System.Drawing.Size(121, 20);
 			this.nudCoins.TabIndex = 11;
 			// 
-			// panel1
+			// nudTierOneSkillLevel
 			// 
-			this.panel1.BackColor = System.Drawing.Color.DarkGray;
-			this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panel1.Controls.Add(this.label1);
-			this.panel1.Location = new System.Drawing.Point(554, 6);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(136, 136);
-			this.panel1.TabIndex = 9;
+			this.nudTierOneSkillLevel.Location = new System.Drawing.Point(141, 19);
+			this.nudTierOneSkillLevel.Name = "nudTierOneSkillLevel";
+			this.nudTierOneSkillLevel.Size = new System.Drawing.Size(121, 20);
+			this.nudTierOneSkillLevel.TabIndex = 0;
 			// 
-			// label1
+			// nudTierTwoSkillLevel
 			// 
-			this.label1.AutoSize = true;
-			this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.label1.ForeColor = System.Drawing.Color.White;
-			this.label1.Location = new System.Drawing.Point(0, 0);
-			this.label1.Name = "label1";
-			this.label1.Padding = new System.Windows.Forms.Padding(20, 60, 20, 60);
-			this.label1.Size = new System.Drawing.Size(134, 133);
-			this.label1.TabIndex = 0;
-			this.label1.Text = "Character Preview";
+			this.nudTierTwoSkillLevel.Location = new System.Drawing.Point(141, 45);
+			this.nudTierTwoSkillLevel.Name = "nudTierTwoSkillLevel";
+			this.nudTierTwoSkillLevel.Size = new System.Drawing.Size(121, 20);
+			this.nudTierTwoSkillLevel.TabIndex = 1;
 			// 
-			// buttonLoadNewCharacter
+			// nudTierThreeSkillLevel
 			// 
-			this.buttonLoadNewCharacter.Location = new System.Drawing.Point(492, 14);
-			this.buttonLoadNewCharacter.Name = "buttonLoadNewCharacter";
-			this.buttonLoadNewCharacter.Size = new System.Drawing.Size(119, 23);
-			this.buttonLoadNewCharacter.TabIndex = 7;
-			this.buttonLoadNewCharacter.Text = "Load new Character";
-			this.buttonLoadNewCharacter.UseVisualStyleBackColor = true;
-			this.buttonLoadNewCharacter.Click += new System.EventHandler(this.ButtonLoadNewCharacterClick);
+			this.nudTierThreeSkillLevel.Location = new System.Drawing.Point(141, 71);
+			this.nudTierThreeSkillLevel.Name = "nudTierThreeSkillLevel";
+			this.nudTierThreeSkillLevel.Size = new System.Drawing.Size(121, 20);
+			this.nudTierThreeSkillLevel.TabIndex = 2;
+			// 
+			// nudPetMasterSkillLevel
+			// 
+			this.nudPetMasterSkillLevel.Location = new System.Drawing.Point(141, 97);
+			this.nudPetMasterSkillLevel.Name = "nudPetMasterSkillLevel";
+			this.nudPetMasterSkillLevel.Size = new System.Drawing.Size(121, 20);
+			this.nudPetMasterSkillLevel.TabIndex = 3;
+			// 
+			// nudPetRidingSkillLevel
+			// 
+			this.nudPetRidingSkillLevel.Location = new System.Drawing.Point(141, 123);
+			this.nudPetRidingSkillLevel.Name = "nudPetRidingSkillLevel";
+			this.nudPetRidingSkillLevel.Size = new System.Drawing.Size(121, 20);
+			this.nudPetRidingSkillLevel.TabIndex = 4;
+			// 
+			// nudClimbingSkillLevel
+			// 
+			this.nudClimbingSkillLevel.Location = new System.Drawing.Point(415, 19);
+			this.nudClimbingSkillLevel.Name = "nudClimbingSkillLevel";
+			this.nudClimbingSkillLevel.Size = new System.Drawing.Size(121, 20);
+			this.nudClimbingSkillLevel.TabIndex = 5;
+			// 
+			// nudHangGlidingSkillLevel
+			// 
+			this.nudHangGlidingSkillLevel.Location = new System.Drawing.Point(415, 45);
+			this.nudHangGlidingSkillLevel.Name = "nudHangGlidingSkillLevel";
+			this.nudHangGlidingSkillLevel.Size = new System.Drawing.Size(121, 20);
+			this.nudHangGlidingSkillLevel.TabIndex = 6;
+			// 
+			// nudSwimmingSkillLevel
+			// 
+			this.nudSwimmingSkillLevel.Location = new System.Drawing.Point(415, 71);
+			this.nudSwimmingSkillLevel.Name = "nudSwimmingSkillLevel";
+			this.nudSwimmingSkillLevel.Size = new System.Drawing.Size(121, 20);
+			this.nudSwimmingSkillLevel.TabIndex = 7;
+			// 
+			// nudSailingSkillLevel
+			// 
+			this.nudSailingSkillLevel.Location = new System.Drawing.Point(415, 97);
+			this.nudSailingSkillLevel.Name = "nudSailingSkillLevel";
+			this.nudSailingSkillLevel.Size = new System.Drawing.Size(121, 20);
+			this.nudSailingSkillLevel.TabIndex = 8;
+			// 
+			// labelTierOneSkillLevel
+			// 
+			this.labelTierOneSkillLevel.AutoSize = true;
+			this.labelTierOneSkillLevel.Location = new System.Drawing.Point(6, 21);
+			this.labelTierOneSkillLevel.Name = "labelTierOneSkillLevel";
+			this.labelTierOneSkillLevel.Size = new System.Drawing.Size(51, 13);
+			this.labelTierOneSkillLevel.TabIndex = 9;
+			this.labelTierOneSkillLevel.Text = "Tier One:";
+			// 
+			// labelTierTwoSkillLevel
+			// 
+			this.labelTierTwoSkillLevel.AutoSize = true;
+			this.labelTierTwoSkillLevel.Location = new System.Drawing.Point(6, 47);
+			this.labelTierTwoSkillLevel.Name = "labelTierTwoSkillLevel";
+			this.labelTierTwoSkillLevel.Size = new System.Drawing.Size(52, 13);
+			this.labelTierTwoSkillLevel.TabIndex = 10;
+			this.labelTierTwoSkillLevel.Text = "Tier Two:";
+			// 
+			// labelTierThreeSkillLevel
+			// 
+			this.labelTierThreeSkillLevel.AutoSize = true;
+			this.labelTierThreeSkillLevel.Location = new System.Drawing.Point(6, 73);
+			this.labelTierThreeSkillLevel.Name = "labelTierThreeSkillLevel";
+			this.labelTierThreeSkillLevel.Size = new System.Drawing.Size(59, 13);
+			this.labelTierThreeSkillLevel.TabIndex = 11;
+			this.labelTierThreeSkillLevel.Text = "Tier Three:";
+			// 
+			// labelHangGlidingSkillLevel
+			// 
+			this.labelHangGlidingSkillLevel.AutoSize = true;
+			this.labelHangGlidingSkillLevel.Location = new System.Drawing.Point(280, 47);
+			this.labelHangGlidingSkillLevel.Name = "labelHangGlidingSkillLevel";
+			this.labelHangGlidingSkillLevel.Size = new System.Drawing.Size(71, 13);
+			this.labelHangGlidingSkillLevel.TabIndex = 12;
+			this.labelHangGlidingSkillLevel.Text = "Hang Gliding:";
+			// 
+			// labelSwimmingSkillLevel
+			// 
+			this.labelSwimmingSkillLevel.AutoSize = true;
+			this.labelSwimmingSkillLevel.Location = new System.Drawing.Point(280, 73);
+			this.labelSwimmingSkillLevel.Name = "labelSwimmingSkillLevel";
+			this.labelSwimmingSkillLevel.Size = new System.Drawing.Size(57, 13);
+			this.labelSwimmingSkillLevel.TabIndex = 13;
+			this.labelSwimmingSkillLevel.Text = "Swimming:";
+			// 
+			// labelSailingSkillLevel
+			// 
+			this.labelSailingSkillLevel.AutoSize = true;
+			this.labelSailingSkillLevel.Location = new System.Drawing.Point(280, 99);
+			this.labelSailingSkillLevel.Name = "labelSailingSkillLevel";
+			this.labelSailingSkillLevel.Size = new System.Drawing.Size(41, 13);
+			this.labelSailingSkillLevel.TabIndex = 14;
+			this.labelSailingSkillLevel.Text = "Sailing:";
+			// 
+			// labelPetMasterSkillLevel
+			// 
+			this.labelPetMasterSkillLevel.AutoSize = true;
+			this.labelPetMasterSkillLevel.Location = new System.Drawing.Point(6, 99);
+			this.labelPetMasterSkillLevel.Name = "labelPetMasterSkillLevel";
+			this.labelPetMasterSkillLevel.Size = new System.Drawing.Size(61, 13);
+			this.labelPetMasterSkillLevel.TabIndex = 15;
+			this.labelPetMasterSkillLevel.Text = "Pet Master:";
+			// 
+			// labelPetRidingSkillLevel
+			// 
+			this.labelPetRidingSkillLevel.AutoSize = true;
+			this.labelPetRidingSkillLevel.Location = new System.Drawing.Point(6, 125);
+			this.labelPetRidingSkillLevel.Name = "labelPetRidingSkillLevel";
+			this.labelPetRidingSkillLevel.Size = new System.Drawing.Size(59, 13);
+			this.labelPetRidingSkillLevel.TabIndex = 16;
+			this.labelPetRidingSkillLevel.Text = "Pet Riding:";
+			// 
+			// labelClimbingSkillLevel
+			// 
+			this.labelClimbingSkillLevel.AutoSize = true;
+			this.labelClimbingSkillLevel.Location = new System.Drawing.Point(280, 21);
+			this.labelClimbingSkillLevel.Name = "labelClimbingSkillLevel";
+			this.labelClimbingSkillLevel.Size = new System.Drawing.Size(49, 13);
+			this.labelClimbingSkillLevel.TabIndex = 17;
+			this.labelClimbingSkillLevel.Text = "Climbing:";
 			// 
 			// FormEditor
 			// 
@@ -739,6 +929,8 @@
 			this.splitContainerWorkspace.ResumeLayout(false);
 			this.tabControlWorkspace.ResumeLayout(false);
 			this.tabPageCharacter.ResumeLayout(false);
+			this.groupBoxSkills.ResumeLayout(false);
+			this.groupBoxSkills.PerformLayout();
 			this.panelCharacterPreview.ResumeLayout(false);
 			this.panelCharacterPreview.PerformLayout();
 			this.groupBoxCharacterInformation.ResumeLayout(false);
@@ -747,12 +939,21 @@
 			this.panelPetPreview.ResumeLayout(false);
 			this.panelPetPreview.PerformLayout();
 			this.tabPageInventory.ResumeLayout(false);
+			this.panel1.ResumeLayout(false);
+			this.panel1.PerformLayout();
 			this.groupBoxCoins.ResumeLayout(false);
 			this.groupBoxCoins.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nudPlatinumCoins)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudCoins)).EndInit();
-			this.panel1.ResumeLayout(false);
-			this.panel1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.nudTierOneSkillLevel)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudTierTwoSkillLevel)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudTierThreeSkillLevel)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudPetMasterSkillLevel)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudPetRidingSkillLevel)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudClimbingSkillLevel)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudHangGlidingSkillLevel)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudSwimmingSkillLevel)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudSailingSkillLevel)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -800,12 +1001,30 @@
         private System.Windows.Forms.Panel panelPetPreview;
         private System.Windows.Forms.Label labelPetPreview;
 		private System.Windows.Forms.TabPage tabPageInventory;
+		private System.Windows.Forms.Panel panel1;
+		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.GroupBox groupBoxCoins;
 		private System.Windows.Forms.Label labelPlatinumCoins;
 		private System.Windows.Forms.NumericUpDown nudPlatinumCoins;
 		private System.Windows.Forms.Label labelCoins;
 		private System.Windows.Forms.NumericUpDown nudCoins;
-		private System.Windows.Forms.Panel panel1;
-		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label labelClimbingSkillLevel;
+		private System.Windows.Forms.Label labelPetRidingSkillLevel;
+		private System.Windows.Forms.Label labelPetMasterSkillLevel;
+		private System.Windows.Forms.Label labelSailingSkillLevel;
+		private System.Windows.Forms.Label labelSwimmingSkillLevel;
+		private System.Windows.Forms.Label labelHangGlidingSkillLevel;
+		private System.Windows.Forms.Label labelTierThreeSkillLevel;
+		private System.Windows.Forms.Label labelTierTwoSkillLevel;
+		private System.Windows.Forms.Label labelTierOneSkillLevel;
+		private System.Windows.Forms.NumericUpDown nudSailingSkillLevel;
+		private System.Windows.Forms.NumericUpDown nudSwimmingSkillLevel;
+		private System.Windows.Forms.NumericUpDown nudHangGlidingSkillLevel;
+		private System.Windows.Forms.NumericUpDown nudClimbingSkillLevel;
+		private System.Windows.Forms.NumericUpDown nudPetRidingSkillLevel;
+		private System.Windows.Forms.NumericUpDown nudPetMasterSkillLevel;
+		private System.Windows.Forms.NumericUpDown nudTierThreeSkillLevel;
+		private System.Windows.Forms.NumericUpDown nudTierTwoSkillLevel;
+		private System.Windows.Forms.NumericUpDown nudTierOneSkillLevel;
 	}
 }
