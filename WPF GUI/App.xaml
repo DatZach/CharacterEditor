@@ -10,7 +10,7 @@
     <Application.Resources>
         <!--Global View Model Locator-->
         <vm:ViewModelLocator x:Key="Locator"
-                             d:IsDataSource="True" />
+                             d:IsDataSource="True"/>
     </Application.Resources>
     
 </Application>
