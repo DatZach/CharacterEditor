@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Text;
 
 namespace CharacterEditor
 {
@@ -94,7 +95,7 @@ namespace CharacterEditor
 			using (BinaryReader reader = new BinaryReader(new MemoryStream(characterData)))
 				Read(reader);
 
-			using(BinaryWriter writer = new BinaryWriter(new FileStream("read.bin", FileMode.Create)))
+			using (BinaryWriter writer = new BinaryWriter(new FileStream("read.bin", FileMode.Create)))
 				writer.Write(characterData);
 		}
 
@@ -129,7 +130,7 @@ namespace CharacterEditor
 			unknown1 = reader.ReadUInt32();
 			unknown2 = reader.ReadUInt32();
 
-			for(int i = 0; i < EquipmentCount; ++i)
+			for (int i = 0; i < EquipmentCount; ++i)
 			{
 				Item item = new Item();
 				item.Read(reader);
@@ -146,7 +147,7 @@ namespace CharacterEditor
 			HairColor = Utility.FromAbgr(reader.ReadInt32());
 
 			int inventoryCount = reader.ReadInt32();
-			for(int i = 0; i < inventoryCount; ++i)
+			for (int i = 0; i < inventoryCount; ++i)
 			{
 				Inventory inventory = new Inventory();
 				inventory.Read(reader);
@@ -158,7 +159,7 @@ namespace CharacterEditor
 			PlatinumCoins = reader.ReadInt32();
 
 			int craftingRecipeCount = reader.ReadInt32();
-			for(int i = 0; i < craftingRecipeCount; ++i)
+			for (int i = 0; i < craftingRecipeCount; ++i)
 			{
 				Item item = new Item();
 				item.Read(reader);
@@ -167,7 +168,7 @@ namespace CharacterEditor
 			}
 
 			int worldCount = reader.ReadInt32();
-			for(int i = 0; i < worldCount; ++i)
+			for (int i = 0; i < worldCount; ++i)
 			{
 				World world = new World();
 				world.Read(reader);
@@ -213,7 +214,7 @@ namespace CharacterEditor
 			writer.Write(unknown1);
 			writer.Write(unknown2);
 
-			foreach(Item equipment in Equipment)
+			foreach (Item equipment in Equipment)
 				equipment.Write(writer);
 
 			writer.WriteLongString(Name); // Should be 0xE76
@@ -225,18 +226,18 @@ namespace CharacterEditor
 			writer.Write(Utility.ToAbgr(HairColor));
 
 			writer.Write(InventoryCount);
-			foreach(Inventory inventory in Inventories)
+			foreach (Inventory inventory in Inventories)
 				inventory.Write(writer);
 
 			writer.Write(Coins);
 			writer.Write(PlatinumCoins);
 
 			writer.Write(CraftingRecipes.Count);
-			foreach(Item recipe in CraftingRecipes)
+			foreach (Item recipe in CraftingRecipes)
 				recipe.Write(writer);
 
 			writer.Write(Worlds.Count);
-			foreach(World world in Worlds)
+			foreach (World world in Worlds)
 				world.Write(writer);
 
 			writer.Write(LastWorld.Seed);
@@ -258,15 +259,225 @@ namespace CharacterEditor
 		}
 	}
 
-    public interface ICharacterDataBlob
-    {
-        void Read(BinaryReader reader);
-        void Write(BinaryWriter writer);
-    }
+	public interface ICharacterDataBlob
+	{
+		void Read(BinaryReader reader);
+		void Write(BinaryWriter writer);
+	}
 
 	public class Item : ICharacterDataBlob
 	{
 		public const int AttributeCount = 32;
+
+		public static readonly string[] MaterialNames = new[]
+		{
+			"",
+			"Iron",
+			"Wood",
+			"",
+			"",
+			"Obsidian",
+			"",
+			"Bone",
+			"",
+			"",
+			"Copper",
+			"Gold",
+			"Silver",
+			"Emerald",
+			"Sapphire",
+			"Ruby",
+			"Diamond",
+			"Sandstone",
+			"Saurian",
+			"Parrot",
+			"Mammoth",
+			"Plant",
+			"Ice",
+			"Licht",
+			"Glass",
+			"Silk",
+			"Linen",
+			"Cotton"
+		};
+
+		// TODO Still kill me
+		// [type][subtype]
+		public static readonly string[][] Subtypes = new[]
+		{
+			new []
+			{
+				""
+			}, 
+			new []
+			{
+				"Cookie",
+				"Life Potion",
+				"Cactus Potion",
+				"Mana Potion",
+				"Ginseng Soup",
+				"Snowberry Soup",
+				"Snowberry Mash",
+				"Mushroom Spit",
+				"Bomb",
+				"Pineapple Slice",
+				"Pumpkin Muffin"
+			},
+			new []
+			{
+				""
+			}, 
+			new []
+			{
+				"Sword",
+				"Axe",
+				"Mace",
+				"Dagger",
+				"Fist",
+				"Longsword",
+				"Bow",
+				"Crossbow",
+				"Boomarang",
+				"Arrow",
+				"Staff",
+				"Wand",
+				"Bracelet",
+				"Shield",
+				"Arrows",
+				"Greatsword",
+				"Greataxe",
+				"Greatmace",
+				"Rake",
+				"Pickaxe",
+				"Torch"
+			},
+			new []
+			{
+				"Chest"
+			},
+			new []
+			{
+				"Gloves"
+			},
+			new []
+			{
+				"Boots"
+			},
+			new []
+			{
+				"Sholder Armor"
+			},
+			new []
+			{
+				"Amulet"
+			},
+			new []
+			{
+				"Ring"
+			},
+			new []
+			{
+				"Block"
+			},
+			new []
+			{
+				"Nugget",
+				"Log",
+				"Feather",
+				"Horn",
+				"Claw",
+				"Fiber",
+				"Cobweb",
+				"Hair",
+				"Crystal",
+				"Yarn",
+				"Cube",
+				"Capsule",
+				"Flask",
+				"Orb",
+				"Spirit",
+				"Mushroom",
+				"Pumpkin",
+				"Pineapple",
+				"Radish Slice",
+				"Shimmer Mushroom",
+				"Ginseng Root",
+				"Onion Slice",
+				"Heartflower",
+				"Prickly Pear",
+				"Iceflower",
+				"Soulflower",
+				"Water Flask",
+				"Snowberry"
+			},
+			new []
+			{
+				"Coin"
+			},
+			new []
+			{
+				"Platinum Coin"
+			},
+			new []
+			{
+				"Leftovers"
+			},
+			new []
+			{
+				"Beak"
+			},
+			new []
+			{
+				"Painting"
+			},
+			new []
+			{
+				"Vase"
+			},
+			new []
+			{
+				"Candle",
+				"Haunted Candle"
+			},
+			new []
+			{
+				""
+			}, 
+			new []
+			{
+				"Fuck pet food"
+			},
+			new []
+			{
+				"Amulet (Gold)",
+				"Amulet (sapphire)",
+				"Jewel Case",
+				"Key",
+				"Medicine",
+				"Antivenom",
+				"Band Aid",
+				"Crutch",
+				"Bandage",
+				"Salve"
+			},
+			new []
+			{
+				""
+			}, 
+			new []
+			{
+				"Hang Glider",
+				"Boat"
+			}, 
+			new []
+			{
+				"Lamp"
+			},
+			new []
+			{
+				"Mana Cube"
+			}
+		};
 
 		public byte Type;
 		public byte Subtype;
@@ -276,12 +487,31 @@ namespace CharacterEditor
 		public byte Material;
 		public byte Flags;
 		public short Level;
-
+		
 		public List<ItemAttribute> Attributes;
 
 		public Item()
 		{
 			Attributes = new List<ItemAttribute>();
+		}
+
+		public string FriendlyName
+		{
+			get
+			{
+				// <Modifier> <Material> <Item Name>
+				StringBuilder name = new StringBuilder();
+
+				if (Material != 0)
+				{
+					name.Append(MaterialNames[Material]);
+					name.Append(" ");
+				}
+
+				name.Append(Type == 0x14 ? "Pet Cage" : Subtypes[Type][Subtype]);
+
+				return name.ToString();
+			}
 		}
 
 		public void Read(BinaryReader reader)
@@ -299,7 +529,7 @@ namespace CharacterEditor
 			Level = reader.ReadInt16();
 			reader.Skip(2);
 
-			for(int i = 0; i < AttributeCount; ++i)
+			for (int i = 0; i < AttributeCount; ++i)
 			{
 				ItemAttribute attribute = new ItemAttribute();
 				attribute.Read(reader);
@@ -375,7 +605,7 @@ namespace CharacterEditor
 		public const int DefaultItemCount = 50;
 
 		public List<Tuple<int, Item>> Items;
- 
+
 		public Inventory()
 		{
 			Items = new List<Tuple<int, Item>>();
@@ -384,7 +614,7 @@ namespace CharacterEditor
 		public void Read(BinaryReader reader)
 		{
 			int inventoryCount = reader.ReadInt32();
-			for(int i = 0; i < inventoryCount; ++i)
+			for (int i = 0; i < inventoryCount; ++i)
 			{
 				int count = reader.ReadInt32();
 				Item item = new Item();

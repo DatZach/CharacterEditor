@@ -233,7 +233,7 @@ Items [0B]
 	17	Prickly Pear
 	18	Iceflower
 	19	Soulflower
-	1A	Waterflask
+	1A	Water Flask
 	1B	Snowberry
 
 Coins [0C]

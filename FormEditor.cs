@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -188,14 +189,50 @@ namespace CharacterEditor
 			nudTierTwoSkillLevel.Value = character.TierTwoSkillLevel;
 			nudTierThreeSkillLevel.Value = character.TierThreeSkillLevel;
 
-			/*comboBoxPetKind.SelectedIndex = CharacterData.PetKinds.IndexOf(character.PetIndex);
+			Item petEquipment = character.Equipment.Last();
+			comboBoxPetKind.SelectedIndex = CharacterData.PetKinds.IndexOf(petEquipment.Subtype);
 			if (comboBoxPetKind.SelectedIndex == -1)
 				comboBoxPetKind.SelectedIndex = 0;
 
-			if (character.PetLevel > 0)
-				nudPetLevel.Value = character.PetLevel;
+			nudPetLevel.Value = petEquipment.Level;
+			nudPetExperience.Value = petEquipment.Modifier;
+			textBoxPetName.Text = petEquipment.Attributes.Aggregate("", (c, a) => c + (char)a.Material);
 
-			nudPetExperience.Value = character.PetExperience;*/
+			// Sync inventory to GUI
+			for (int i = 0; i < CharacterData.InventoryCount; ++i)
+			{
+				Inventory inventory = character.Inventories[i];
+
+				TabPage tabPage = new TabPage(new[] { "Equipment", "Items", "Ingredients", "Pets" }[i]);
+				ListView listView = new ListView
+				{
+					Activation = ItemActivation.OneClick,
+					BorderStyle = BorderStyle.None,
+					Dock = DockStyle.Fill,
+					HideSelection = false,
+					LargeImageList = imageListInventory,
+					MultiSelect = false,
+					UseCompatibleStateImageBehavior = false
+				};
+
+				// Ok .NET 2.0, have it your way
+				listView.SelectedIndexChanged += ListViewInventorySelectedIndexChanged;
+
+				foreach (Tuple<int, Item> item in inventory.Items)
+				{
+					ListViewItem listViewItem = new ListViewItem
+					{
+						StateImageIndex = 0,
+						Text = item.Item2.FriendlyName,
+						Tag = item.Item2,
+					};
+
+					listView.Items.Add(listViewItem);
+				}
+
+				tabPage.Controls.Add(listView);
+				tabControlInventory.TabPages.Add(tabPage);
+			}
 
 			// TODO Find a cleaner way to do this, maybe?
 			ComboBoxRaceSelectedIndexChanged(null, null);
@@ -228,9 +265,15 @@ namespace CharacterEditor
 			character.TierTwoSkillLevel = (int)nudTierTwoSkillLevel.Value;
 			character.TierThreeSkillLevel = (int)nudTierThreeSkillLevel.Value;
 
-			/*character.PetIndex = (byte)comboBoxPetKind.SelectedIndex;
-			character.PetLevel = (short)nudPetLevel.Value;
-			character.PetExperience = (int)nudPetExperience.Value;*/
+			// TODO No, just no
+			Item petEquipment = character.Equipment.Last();
+			petEquipment.Type = (byte)(comboBoxPetKind.SelectedIndex == -1 ? 0x00 : 0x13);
+			petEquipment.Subtype = (byte)comboBoxPetKind.SelectedIndex;
+			petEquipment.Level = (short)nudPetLevel.Value;
+			petEquipment.Modifier = (short)nudPetExperience.Value;
+
+			for (int i = 0; i < textBoxPetName.Text.Length; ++i)
+				petEquipment.Attributes[i].Material = (byte)textBoxPetName.Text[i];
 
 			dirtyWatcher.Dirty = false;
 		}
@@ -279,6 +322,37 @@ namespace CharacterEditor
 			}
 
 			dirtyThread.Abort();
+		}
+
+		private void ComboBoxItemTypeSelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (comboBoxItemType.SelectedIndex == -1)
+				comboBoxItemType.SelectedIndex = 0;
+
+			comboBoxItemSubtype.Items.Clear();
+			comboBoxItemSubtype.Items.AddRange(Item.Subtypes[comboBoxItemType.SelectedIndex]);
+			comboBoxItemSubtype.SelectedIndex = 0;
+		}
+
+		private void TabControlInventorySelectedIndexChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		private void ListViewInventorySelectedIndexChanged(object sender, EventArgs e)
+		{
+			// TODO Unsafish
+			ListView listView = (ListView)tabControlInventory.SelectedTab.Controls[0];
+			if (listView.SelectedItems.Count == 0)
+				return;
+
+			ListViewItem selectedItem = listView.SelectedItems[0];
+			Item item = (Item)selectedItem.Tag;
+
+			// TODO Indices don't match up with combobox because of missing/null entries in game
+			comboBoxItemType.SelectedIndex = item.Type;
+			comboBoxItemSubtype.SelectedIndex = item.Subtype;
+			nudItemLevel.Value = item.Level;
 		}
 	}
 }
