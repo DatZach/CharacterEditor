@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 
@@ -127,7 +129,7 @@ namespace CharacterEditor
 				writer.Write(PetLevel);
 				writer.Write((short)0);
 				Mirror(writer, 0xE76 - 0x0D5E - 20);
-				writer.ReadLongString(Name);
+				writer.WriteLongString(Name);
 				writer.Write(Race);
 				writer.Write(Gender);
 				Mirror(writer, 3);
@@ -173,6 +175,8 @@ namespace CharacterEditor
 	public class CharacterDataBlob : ICharacterDataBlob
 	{
 		public const int EquipmentCount = 13;
+		public const int InventoryCount = 4;
+		public const int SkillCount = 11;
 
 		public enum ClassType : byte
 		{
@@ -204,10 +208,39 @@ namespace CharacterEditor
 
 		public string Name;
 		public int Race;
+		public byte Gender;
+		public int Face;
+		public int Hair;
+		public Color HairColor;
+
+		public List<Inventory> Inventories;
+
+		public int Coins;
+		public int PlatinumCoins;
+
+		public List<Item> CraftingRecipes;
+		public List<World> Worlds;
+		public World LastWorld;
+
+		private uint unknown3;
+		public int PetMasterSkillLevel;
+		public int PetRidingSkillLevel;
+		public int ClimbingSkillLevel;
+		public int HangGlidingSkillLevel;
+		public int SwimmingSkillLevel;
+		public int SailingSkillLevel;
+		public int TierOneSkillLevel;
+		public int TierTwoSkillLevel;
+		public int TierThreeSkillLevel;
+		private int unknown4;
+		private int unknown5;
 
 		public CharacterDataBlob()
 		{
 			Equipment = new List<Item>();
+			Inventories = new List<Inventory>();
+			CraftingRecipes = new List<Item>();
+			Worlds = new List<World>();
 		}
 
 		public void Read(BinaryReader reader)
@@ -237,6 +270,61 @@ namespace CharacterEditor
 			}
 
 			Name = reader.ReadLongString();
+			Race = reader.ReadInt32();
+			Gender = reader.ReadByte();
+			reader.Skip(3);
+			Face = reader.ReadInt32();
+			Hair = reader.ReadInt32();
+			HairColor = Utility.FromAbgr(reader.ReadInt32());
+
+			int inventoryCount = reader.ReadInt32();
+			for(int i = 0; i < inventoryCount; ++i)
+			{
+				Inventory inventory = new Inventory();
+				inventory.Read(reader);
+
+				Inventories.Add(inventory);
+			}
+
+			Coins = reader.ReadInt32();
+			PlatinumCoins = reader.ReadInt32();
+
+			int craftingRecipeCount = reader.ReadInt32();
+			for(int i = 0; i < craftingRecipeCount; ++i)
+			{
+				Item item = new Item();
+				item.Read(reader);
+
+				CraftingRecipes.Add(item);
+			}
+
+			int worldCount = reader.ReadInt32();
+			for(int i = 0; i < worldCount; ++i)
+			{
+				World world = new World();
+				world.Read(reader);
+
+				Worlds.Add(world);
+			}
+
+			int lastWorldSeed = reader.ReadInt32();
+			string lastWorldName = reader.ReadLongString();
+
+			LastWorld = Worlds.FirstOrDefault(w => w.Seed == lastWorldSeed && w.Name == lastWorldName);
+
+			unknown3 = reader.ReadUInt32();
+			reader.ReadInt32();
+			PetMasterSkillLevel = reader.ReadInt32();
+			PetRidingSkillLevel = reader.ReadInt32();
+			ClimbingSkillLevel = reader.ReadInt32();
+			HangGlidingSkillLevel = reader.ReadInt32();
+			SwimmingSkillLevel = reader.ReadInt32();
+			SailingSkillLevel = reader.ReadInt32();
+			TierOneSkillLevel = reader.ReadInt32();
+			TierTwoSkillLevel = reader.ReadInt32();
+			TierThreeSkillLevel = reader.ReadInt32();
+			unknown4 = reader.ReadInt32();
+			unknown5 = reader.ReadInt32();
 		}
 
 		public void Write(BinaryWriter writer)
@@ -258,6 +346,42 @@ namespace CharacterEditor
 
 			foreach(Item equipment in Equipment)
 				equipment.Write(writer);
+
+			writer.WriteLongString(Name);
+			writer.Write(Race);
+			writer.Write(Gender);
+			writer.Skip(3);
+			writer.Write(Face);
+			writer.Write(Hair);
+			writer.Write(Utility.ToAbgr(HairColor));
+
+			writer.Write(InventoryCount);
+			foreach(Inventory inventory in Inventories)
+				inventory.Write(writer);
+
+			writer.Write(Coins);
+			writer.Write(PlatinumCoins);
+
+			writer.Write(CraftingRecipes.Count);
+			foreach(Item recipe in CraftingRecipes)
+				recipe.Write(writer);
+
+			writer.Write(LastWorld.Seed);
+			writer.Write(LastWorld.Name);
+
+			writer.Write(unknown3);
+			writer.Write(SkillCount);
+			writer.Write(PetMasterSkillLevel);
+			writer.Write(PetRidingSkillLevel);
+			writer.Write(ClimbingSkillLevel);
+			writer.Write(HangGlidingSkillLevel);
+			writer.Write(SwimmingSkillLevel);
+			writer.Write(SailingSkillLevel);
+			writer.Write(TierOneSkillLevel);
+			writer.Write(TierTwoSkillLevel);
+			writer.Write(TierThreeSkillLevel);
+			writer.Write(unknown4);
+			writer.Write(unknown5);
 		}
 	}
 
@@ -296,7 +420,7 @@ namespace CharacterEditor
 
 		public ItemType Type;
 		public byte Subtype;
-		public int Modifier;
+		public short Modifier;
 		private long unknown1;
 		public byte Rarity;
 		public byte Material;
@@ -315,7 +439,8 @@ namespace CharacterEditor
 			Type = (ItemType)reader.ReadByte();
 			Subtype = reader.ReadByte();
 			reader.Skip(2);
-			Modifier = reader.ReadInt32();
+			Modifier = reader.ReadInt16();
+			reader.Skip(2);
 			unknown1 = reader.ReadInt64();
 			Rarity = reader.ReadByte();
 			Material = reader.ReadByte();
@@ -392,6 +517,69 @@ namespace CharacterEditor
 			writer.Write(Material);
 			writer.Write(Level);
 			writer.Skip(2);
+		}
+	}
+
+	public class Inventory : ICharacterDataBlob
+	{
+		public const int DefaultItemCount = 50;
+
+		public List<Tuple<int, Item>> Items;
+ 
+		public Inventory()
+		{
+			Items = new List<Tuple<int, Item>>();
+		}
+
+		public void Read(BinaryReader reader)
+		{
+			int inventoryCount = reader.ReadInt32();
+			for(int i = 0; i < inventoryCount; ++i)
+			{
+				int count = reader.ReadInt32();
+				Item item = new Item();
+				item.Read(reader);
+
+				Items.Add(new Tuple<int, Item>(count, item));
+			}
+		}
+
+		public void Write(BinaryWriter writer)
+		{
+			writer.Write(Items.Count);
+
+			foreach (Tuple<int, Item> item in Items)
+			{
+				writer.Write(item.Item1);
+				item.Item2.Write(writer);
+			}
+		}
+	}
+
+	public class World : ICharacterDataBlob
+	{
+		public int Seed;
+		public string Name;
+		public long X;
+		public long Y;
+		public long Z;
+
+		public void Read(BinaryReader reader)
+		{
+			Seed = reader.ReadInt32();
+			Name = reader.ReadLongString();
+			X = reader.ReadInt64();
+			Y = reader.ReadInt64();
+			Z = reader.ReadInt64();
+		}
+
+		public void Write(BinaryWriter writer)
+		{
+			writer.Write(Seed);
+			writer.WriteLongString(Name);
+			writer.Write(X);
+			writer.Write(Y);
+			writer.Write(Z);
 		}
 	}
 }

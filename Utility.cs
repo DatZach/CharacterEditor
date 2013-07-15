@@ -1,5 +1,4 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 using System.IO;
 using System.Text;
 
@@ -70,7 +69,7 @@ namespace CharacterEditor
 			return value;
 		}
 
-		public static void ReadLongString(this BinaryWriter writer, string value)
+		public static void WriteLongString(this BinaryWriter writer, string value)
 		{
 			writer.Write(value.Length);
 			writer.Write(Encoding.ASCII.GetBytes(value));

@@ -37,7 +37,7 @@ Compressed Stream
 	15 1	Hair G
 	16 1	Hair B
 	17 1	Padding
-	18 4	InventoryCount				[ Can be set to 3 and the client doesn't crash ]
+	18 4	InventoryCount
 	For InventoryCount
 	{
 		00 4 SlotCount
