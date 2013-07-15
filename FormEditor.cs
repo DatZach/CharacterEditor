@@ -172,20 +172,20 @@ namespace CharacterEditor
 			nudExperience.Value = character.Experience;
 			comboBoxGender.SelectedIndex = character.Gender;
 			comboBoxRace.SelectedIndex = character.Race;
-			comboBoxClass.SelectedIndex = character.Class - 1;
+			comboBoxClass.SelectedIndex = (int)character.Class - 1;
 			nudFace.Value = character.Face;
 			nudHair.Value = character.Hair;
 
-			buttonHairColor.BackColor = Utility.FromAbgr(character.HairColor);
+			buttonHairColor.BackColor = character.HairColor;
 
-			comboBoxPetKind.SelectedIndex = CharacterData.PetKinds.IndexOf(character.PetIndex);
+			/*comboBoxPetKind.SelectedIndex = CharacterData.PetKinds.IndexOf(character.PetIndex);
 			if (comboBoxPetKind.SelectedIndex == -1)
 				comboBoxPetKind.SelectedIndex = 0;
 
 			if (character.PetLevel > 0)
 				nudPetLevel.Value = character.PetLevel;
 
-			nudPetExperience.Value = character.PetExperience;
+			nudPetExperience.Value = character.PetExperience;*/
 
 			// TODO Find a cleaner way to do this, maybe?
 			ComboBoxRaceSelectedIndexChanged(null, null);
@@ -202,14 +202,14 @@ namespace CharacterEditor
 			character.Experience = (int)nudExperience.Value;
 			character.Gender = (byte)comboBoxGender.SelectedIndex;
 			character.Race = comboBoxRace.SelectedIndex;
-			character.Class = (byte)(comboBoxClass.SelectedIndex + 1);
+			character.Class = (CharacterData.ClassType)(comboBoxClass.SelectedIndex + 1);
 			character.Specialization = (byte)comboBoxSpecialization.SelectedIndex;
 			character.Face = (int)nudFace.Value;
 			character.Hair = (int)nudHair.Value;
-			character.HairColor = Utility.ToAbgr(buttonHairColor.BackColor);
-			character.PetIndex = (byte)comboBoxPetKind.SelectedIndex;
+			character.HairColor = buttonHairColor.BackColor;
+			/*character.PetIndex = (byte)comboBoxPetKind.SelectedIndex;
 			character.PetLevel = (short)nudPetLevel.Value;
-			character.PetExperience = (int)nudPetExperience.Value;
+			character.PetExperience = (int)nudPetExperience.Value;*/
 
 			dirtyWatcher.Dirty = false;
 		}
