@@ -199,11 +199,38 @@ namespace CharacterEditor
 			textBoxPetName.Text = petEquipment.Attributes.Aggregate("", (c, a) => c + (char)a.Material);
 
 			// Sync inventory to GUI
-			for (int i = 0; i < character.Inventories.Count; ++i)
+			for (int i = 0; i < CharacterData.InventoryCount; ++i)
 			{
+				Inventory inventory = character.Inventories[i];
+
 				TabPage tabPage = new TabPage(new[] { "Equipment", "Items", "Ingredients", "Pets" }[i]);
+				ListView listView = new ListView
+				{
+					Activation = ItemActivation.OneClick,
+					BorderStyle = BorderStyle.None,
+					Dock = DockStyle.Fill,
+					HideSelection = false,
+					LargeImageList = imageListInventory,
+					MultiSelect = false,
+					UseCompatibleStateImageBehavior = false
+				};
 
+				// Ok .NET 2.0, have it your way
+				listView.SelectedIndexChanged += ListViewInventorySelectedIndexChanged;
 
+				foreach (Tuple<int, Item> item in inventory.Items)
+				{
+					ListViewItem listViewItem = new ListViewItem
+					{
+						StateImageIndex = 0,
+						Text = item.Item2.FriendlyName,
+						Tag = item.Item2,
+					};
+
+					listView.Items.Add(listViewItem);
+				}
+
+				tabPage.Controls.Add(listView);
 				tabControlInventory.TabPages.Add(tabPage);
 			}
 
@@ -299,172 +326,33 @@ namespace CharacterEditor
 
 		private void ComboBoxItemTypeSelectedIndexChanged(object sender, EventArgs e)
 		{
-			// TODO Kill me
-			string[][] subtypes = new []
-			{
-				new []
-				{
-					"Cookie",
-					"Life Potion",
-					"Cactus Potion",
-					"Mana Potion",
-					"Ginseng Soup",
-					"Snowberry Soup",
-					"Snowberry Mash",
-					"Mushroom Spit",
-					"Bomb",
-					"Pineapple Slice",
-					"Pumpkin Muffin"
-				},
-				new []
-				{
-					"Sword",
-					"Axe",
-					"Mace",
-					"Dagger",
-					"Fist",
-					"Longsword",
-					"Bow",
-					"Crossbow",
-					"Boomarang",
-					"Arrow",
-					"Staff",
-					"Wand",
-					"Bracelet",
-					"Shield",
-					"Arrows",
-					"Greatsword",
-					"Greataxe",
-					"Greatmace",
-					"Rake",
-					"Pickaxe",
-					"Torch"
-				},
-				new []
-				{
-					"Chest"
-				},
-				new []
-				{
-					"Gloves"
-				},
-				new []
-				{
-					"Boots"
-				},
-				new []
-				{
-					"Sholder Armor"
-				},
-				new []
-				{
-					"Amulet"
-				},
-				new []
-				{
-					"Ring"
-				},
-				new []
-				{
-					"Block"
-				},
-				new []
-				{
-					"Nugget",
-					"Log",
-					"Feather",
-					"Horn",
-					"Claw",
-					"Fiber",
-					"Cobweb",
-					"Hair",
-					"Crystal",
-					"Yarn",
-					"Cube",
-					"Capsule",
-					"Flask",
-					"Orb",
-					"Spirit",
-					"Mushroom",
-					"Pumpkin",
-					"Pineapple",
-					"Radish Slice",
-					"Shimmer Mushroom",
-					"Ginseng Root",
-					"Onion Slice",
-					"Heartflower",
-					"Prickly Pear",
-					"Iceflower",
-					"Soulflower",
-					"Water Flask",
-					"Snowberry"
-				},
-				new []
-				{
-					"Coin"
-				},
-				new []
-				{
-					"Platinum Coin"
-				},
-				new []
-				{
-					"Leftovers"
-				},
-				new []
-				{
-					"Beak"
-				},
-				new []
-				{
-					"Painting"
-				},
-				new []
-				{
-					"Vase"
-				},
-				new []
-				{
-					"Candle"
-				},
-				new []
-				{
-					"Fuck pet food"
-				},
-				new []
-				{
-					"Amulet (Gold)",
-					"Amulet (Saphhire)",
-					"Jewel Case",
-					"Key",
-					"Medicine",
-					"Antivenom",
-					"Band Aid",
-					"Crutch",
-					"Bandage",
-					"Salve"
-				},
-				new []
-				{
-					"Hang Glider",
-					"Boat"
-				}, 
-				new []
-				{
-					"Lamp"
-				},
-				new []
-				{
-					"Mana Cube"
-				}
-			};
-
 			if (comboBoxItemType.SelectedIndex == -1)
 				comboBoxItemType.SelectedIndex = 0;
 
 			comboBoxItemSubtype.Items.Clear();
-			comboBoxItemSubtype.Items.AddRange(subtypes[comboBoxItemType.SelectedIndex]);
+			comboBoxItemSubtype.Items.AddRange(Item.Subtypes[comboBoxItemType.SelectedIndex]);
 			comboBoxItemSubtype.SelectedIndex = 0;
+		}
+
+		private void TabControlInventorySelectedIndexChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		private void ListViewInventorySelectedIndexChanged(object sender, EventArgs e)
+		{
+			// TODO Unsafish
+			ListView listView = (ListView)tabControlInventory.SelectedTab.Controls[0];
+			if (listView.SelectedItems.Count == 0)
+				return;
+
+			ListViewItem selectedItem = listView.SelectedItems[0];
+			Item item = (Item)selectedItem.Tag;
+
+			// TODO Indices don't match up with combobox because of missing/null entries in game
+			comboBoxItemType.SelectedIndex = item.Type;
+			comboBoxItemSubtype.SelectedIndex = item.Subtype;
+			nudItemLevel.Value = item.Level;
 		}
 	}
 }

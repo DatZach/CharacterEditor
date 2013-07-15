@@ -29,15 +29,6 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Should Wrap");
-			System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Item 9");
-			System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("Item 7");
-			System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("Item 6");
-			System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("Item 5");
-			System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("Item 4");
-			System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("Item 3");
-			System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("Item 2");
-			System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("Item 1", 0);
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEditor));
 			this.textBoxName = new System.Windows.Forms.TextBox();
 			this.groupBoxAppearance = new System.Windows.Forms.GroupBox();
@@ -59,6 +50,8 @@
 			this.nudExperience = new System.Windows.Forms.NumericUpDown();
 			this.buttonSaveCharacter = new System.Windows.Forms.Button();
 			this.groupBoxPetInformation = new System.Windows.Forms.GroupBox();
+			this.labelPetName = new System.Windows.Forms.Label();
+			this.textBoxPetName = new System.Windows.Forms.TextBox();
 			this.labelPetLevel = new System.Windows.Forms.Label();
 			this.nudPetLevel = new System.Windows.Forms.NumericUpDown();
 			this.labelPetXP = new System.Windows.Forms.Label();
@@ -69,6 +62,24 @@
 			this.tabControlWorkspace = new System.Windows.Forms.TabControl();
 			this.tabPageCharacter = new System.Windows.Forms.TabPage();
 			this.groupBoxSkills = new System.Windows.Forms.GroupBox();
+			this.labelClimbingSkillLevel = new System.Windows.Forms.Label();
+			this.labelPetRidingSkillLevel = new System.Windows.Forms.Label();
+			this.labelPetMasterSkillLevel = new System.Windows.Forms.Label();
+			this.labelSailingSkillLevel = new System.Windows.Forms.Label();
+			this.labelSwimmingSkillLevel = new System.Windows.Forms.Label();
+			this.labelHangGlidingSkillLevel = new System.Windows.Forms.Label();
+			this.labelTierThreeSkillLevel = new System.Windows.Forms.Label();
+			this.labelTierTwoSkillLevel = new System.Windows.Forms.Label();
+			this.labelTierOneSkillLevel = new System.Windows.Forms.Label();
+			this.nudSailingSkillLevel = new System.Windows.Forms.NumericUpDown();
+			this.nudSwimmingSkillLevel = new System.Windows.Forms.NumericUpDown();
+			this.nudHangGlidingSkillLevel = new System.Windows.Forms.NumericUpDown();
+			this.nudClimbingSkillLevel = new System.Windows.Forms.NumericUpDown();
+			this.nudPetRidingSkillLevel = new System.Windows.Forms.NumericUpDown();
+			this.nudPetMasterSkillLevel = new System.Windows.Forms.NumericUpDown();
+			this.nudTierThreeSkillLevel = new System.Windows.Forms.NumericUpDown();
+			this.nudTierTwoSkillLevel = new System.Windows.Forms.NumericUpDown();
+			this.nudTierOneSkillLevel = new System.Windows.Forms.NumericUpDown();
 			this.panelCharacterPreview = new System.Windows.Forms.Panel();
 			this.labelCharacterPreview = new System.Windows.Forms.Label();
 			this.groupBoxCharacterInformation = new System.Windows.Forms.GroupBox();
@@ -79,42 +90,22 @@
 			this.panelPetPreview = new System.Windows.Forms.Panel();
 			this.labelPetPreview = new System.Windows.Forms.Label();
 			this.tabPageInventory = new System.Windows.Forms.TabPage();
+			this.groupBoxItemProperties = new System.Windows.Forms.GroupBox();
+			this.nudItemLevel = new System.Windows.Forms.NumericUpDown();
+			this.label3 = new System.Windows.Forms.Label();
+			this.comboBoxItemModifier = new System.Windows.Forms.ComboBox();
+			this.labelModifier = new System.Windows.Forms.Label();
+			this.labelItemSubtype = new System.Windows.Forms.Label();
+			this.label2 = new System.Windows.Forms.Label();
+			this.comboBoxItemSubtype = new System.Windows.Forms.ComboBox();
+			this.comboBoxItemType = new System.Windows.Forms.ComboBox();
+			this.tabControlInventory = new System.Windows.Forms.TabControl();
+			this.imageListInventory = new System.Windows.Forms.ImageList(this.components);
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.label1 = new System.Windows.Forms.Label();
 			this.buttonLoadNewCharacter = new System.Windows.Forms.Button();
-			this.nudTierOneSkillLevel = new System.Windows.Forms.NumericUpDown();
-			this.nudTierTwoSkillLevel = new System.Windows.Forms.NumericUpDown();
-			this.nudTierThreeSkillLevel = new System.Windows.Forms.NumericUpDown();
-			this.nudPetMasterSkillLevel = new System.Windows.Forms.NumericUpDown();
-			this.nudPetRidingSkillLevel = new System.Windows.Forms.NumericUpDown();
-			this.nudClimbingSkillLevel = new System.Windows.Forms.NumericUpDown();
-			this.nudHangGlidingSkillLevel = new System.Windows.Forms.NumericUpDown();
-			this.nudSwimmingSkillLevel = new System.Windows.Forms.NumericUpDown();
-			this.nudSailingSkillLevel = new System.Windows.Forms.NumericUpDown();
-			this.labelTierOneSkillLevel = new System.Windows.Forms.Label();
-			this.labelTierTwoSkillLevel = new System.Windows.Forms.Label();
-			this.labelTierThreeSkillLevel = new System.Windows.Forms.Label();
-			this.labelHangGlidingSkillLevel = new System.Windows.Forms.Label();
-			this.labelSwimmingSkillLevel = new System.Windows.Forms.Label();
-			this.labelSailingSkillLevel = new System.Windows.Forms.Label();
-			this.labelPetMasterSkillLevel = new System.Windows.Forms.Label();
-			this.labelPetRidingSkillLevel = new System.Windows.Forms.Label();
-			this.labelClimbingSkillLevel = new System.Windows.Forms.Label();
-			this.textBoxPetName = new System.Windows.Forms.TextBox();
-			this.labelPetName = new System.Windows.Forms.Label();
-			this.tabControlInventory = new System.Windows.Forms.TabControl();
-			this.tabPage1 = new System.Windows.Forms.TabPage();
-			this.listView = new System.Windows.Forms.ListView();
-			this.imageListInventory = new System.Windows.Forms.ImageList(this.components);
-			this.groupBoxItemProperties = new System.Windows.Forms.GroupBox();
-			this.comboBoxItemType = new System.Windows.Forms.ComboBox();
-			this.comboBoxItemSubtype = new System.Windows.Forms.ComboBox();
-			this.label2 = new System.Windows.Forms.Label();
-			this.labelItemSubtype = new System.Windows.Forms.Label();
-			this.labelModifier = new System.Windows.Forms.Label();
-			this.comboBoxItemModifier = new System.Windows.Forms.ComboBox();
-			this.label3 = new System.Windows.Forms.Label();
-			this.nudItemLevel = new System.Windows.Forms.NumericUpDown();
+			this.labelMaterial = new System.Windows.Forms.Label();
+			this.comboBoxMaterial = new System.Windows.Forms.ComboBox();
 			this.groupBoxAppearance.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nudHair)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudFace)).BeginInit();
@@ -130,25 +121,23 @@
 			this.tabControlWorkspace.SuspendLayout();
 			this.tabPageCharacter.SuspendLayout();
 			this.groupBoxSkills.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.nudSailingSkillLevel)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudSwimmingSkillLevel)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudHangGlidingSkillLevel)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudClimbingSkillLevel)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudPetRidingSkillLevel)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudPetMasterSkillLevel)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudTierThreeSkillLevel)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudTierTwoSkillLevel)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudTierOneSkillLevel)).BeginInit();
 			this.panelCharacterPreview.SuspendLayout();
 			this.groupBoxCharacterInformation.SuspendLayout();
 			this.tabPagePets.SuspendLayout();
 			this.panelPetPreview.SuspendLayout();
 			this.tabPageInventory.SuspendLayout();
-			this.panel1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.nudTierOneSkillLevel)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.nudTierTwoSkillLevel)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.nudTierThreeSkillLevel)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.nudPetMasterSkillLevel)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.nudPetRidingSkillLevel)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.nudClimbingSkillLevel)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.nudHangGlidingSkillLevel)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.nudSwimmingSkillLevel)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.nudSailingSkillLevel)).BeginInit();
-			this.tabControlInventory.SuspendLayout();
-			this.tabPage1.SuspendLayout();
 			this.groupBoxItemProperties.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nudItemLevel)).BeginInit();
+			this.panel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// textBoxName
@@ -387,6 +376,23 @@
 			this.groupBoxPetInformation.TabStop = false;
 			this.groupBoxPetInformation.Text = "Pet Information";
 			// 
+			// labelPetName
+			// 
+			this.labelPetName.AutoSize = true;
+			this.labelPetName.Location = new System.Drawing.Point(6, 22);
+			this.labelPetName.Name = "labelPetName";
+			this.labelPetName.Size = new System.Drawing.Size(38, 13);
+			this.labelPetName.TabIndex = 7;
+			this.labelPetName.Text = "Name:";
+			// 
+			// textBoxPetName
+			// 
+			this.textBoxPetName.Location = new System.Drawing.Point(141, 19);
+			this.textBoxPetName.MaxLength = 15;
+			this.textBoxPetName.Name = "textBoxPetName";
+			this.textBoxPetName.Size = new System.Drawing.Size(121, 20);
+			this.textBoxPetName.TabIndex = 6;
+			// 
 			// labelPetLevel
 			// 
 			this.labelPetLevel.AutoSize = true;
@@ -588,6 +594,150 @@
 			this.groupBoxSkills.TabStop = false;
 			this.groupBoxSkills.Text = "Skills";
 			// 
+			// labelClimbingSkillLevel
+			// 
+			this.labelClimbingSkillLevel.AutoSize = true;
+			this.labelClimbingSkillLevel.Location = new System.Drawing.Point(280, 21);
+			this.labelClimbingSkillLevel.Name = "labelClimbingSkillLevel";
+			this.labelClimbingSkillLevel.Size = new System.Drawing.Size(49, 13);
+			this.labelClimbingSkillLevel.TabIndex = 17;
+			this.labelClimbingSkillLevel.Text = "Climbing:";
+			// 
+			// labelPetRidingSkillLevel
+			// 
+			this.labelPetRidingSkillLevel.AutoSize = true;
+			this.labelPetRidingSkillLevel.Location = new System.Drawing.Point(6, 125);
+			this.labelPetRidingSkillLevel.Name = "labelPetRidingSkillLevel";
+			this.labelPetRidingSkillLevel.Size = new System.Drawing.Size(59, 13);
+			this.labelPetRidingSkillLevel.TabIndex = 16;
+			this.labelPetRidingSkillLevel.Text = "Pet Riding:";
+			// 
+			// labelPetMasterSkillLevel
+			// 
+			this.labelPetMasterSkillLevel.AutoSize = true;
+			this.labelPetMasterSkillLevel.Location = new System.Drawing.Point(6, 99);
+			this.labelPetMasterSkillLevel.Name = "labelPetMasterSkillLevel";
+			this.labelPetMasterSkillLevel.Size = new System.Drawing.Size(61, 13);
+			this.labelPetMasterSkillLevel.TabIndex = 15;
+			this.labelPetMasterSkillLevel.Text = "Pet Master:";
+			// 
+			// labelSailingSkillLevel
+			// 
+			this.labelSailingSkillLevel.AutoSize = true;
+			this.labelSailingSkillLevel.Location = new System.Drawing.Point(280, 99);
+			this.labelSailingSkillLevel.Name = "labelSailingSkillLevel";
+			this.labelSailingSkillLevel.Size = new System.Drawing.Size(41, 13);
+			this.labelSailingSkillLevel.TabIndex = 14;
+			this.labelSailingSkillLevel.Text = "Sailing:";
+			// 
+			// labelSwimmingSkillLevel
+			// 
+			this.labelSwimmingSkillLevel.AutoSize = true;
+			this.labelSwimmingSkillLevel.Location = new System.Drawing.Point(280, 73);
+			this.labelSwimmingSkillLevel.Name = "labelSwimmingSkillLevel";
+			this.labelSwimmingSkillLevel.Size = new System.Drawing.Size(57, 13);
+			this.labelSwimmingSkillLevel.TabIndex = 13;
+			this.labelSwimmingSkillLevel.Text = "Swimming:";
+			// 
+			// labelHangGlidingSkillLevel
+			// 
+			this.labelHangGlidingSkillLevel.AutoSize = true;
+			this.labelHangGlidingSkillLevel.Location = new System.Drawing.Point(280, 47);
+			this.labelHangGlidingSkillLevel.Name = "labelHangGlidingSkillLevel";
+			this.labelHangGlidingSkillLevel.Size = new System.Drawing.Size(71, 13);
+			this.labelHangGlidingSkillLevel.TabIndex = 12;
+			this.labelHangGlidingSkillLevel.Text = "Hang Gliding:";
+			// 
+			// labelTierThreeSkillLevel
+			// 
+			this.labelTierThreeSkillLevel.AutoSize = true;
+			this.labelTierThreeSkillLevel.Location = new System.Drawing.Point(6, 73);
+			this.labelTierThreeSkillLevel.Name = "labelTierThreeSkillLevel";
+			this.labelTierThreeSkillLevel.Size = new System.Drawing.Size(59, 13);
+			this.labelTierThreeSkillLevel.TabIndex = 11;
+			this.labelTierThreeSkillLevel.Text = "Tier Three:";
+			// 
+			// labelTierTwoSkillLevel
+			// 
+			this.labelTierTwoSkillLevel.AutoSize = true;
+			this.labelTierTwoSkillLevel.Location = new System.Drawing.Point(6, 47);
+			this.labelTierTwoSkillLevel.Name = "labelTierTwoSkillLevel";
+			this.labelTierTwoSkillLevel.Size = new System.Drawing.Size(52, 13);
+			this.labelTierTwoSkillLevel.TabIndex = 10;
+			this.labelTierTwoSkillLevel.Text = "Tier Two:";
+			// 
+			// labelTierOneSkillLevel
+			// 
+			this.labelTierOneSkillLevel.AutoSize = true;
+			this.labelTierOneSkillLevel.Location = new System.Drawing.Point(6, 21);
+			this.labelTierOneSkillLevel.Name = "labelTierOneSkillLevel";
+			this.labelTierOneSkillLevel.Size = new System.Drawing.Size(51, 13);
+			this.labelTierOneSkillLevel.TabIndex = 9;
+			this.labelTierOneSkillLevel.Text = "Tier One:";
+			// 
+			// nudSailingSkillLevel
+			// 
+			this.nudSailingSkillLevel.Location = new System.Drawing.Point(415, 97);
+			this.nudSailingSkillLevel.Name = "nudSailingSkillLevel";
+			this.nudSailingSkillLevel.Size = new System.Drawing.Size(121, 20);
+			this.nudSailingSkillLevel.TabIndex = 8;
+			// 
+			// nudSwimmingSkillLevel
+			// 
+			this.nudSwimmingSkillLevel.Location = new System.Drawing.Point(415, 71);
+			this.nudSwimmingSkillLevel.Name = "nudSwimmingSkillLevel";
+			this.nudSwimmingSkillLevel.Size = new System.Drawing.Size(121, 20);
+			this.nudSwimmingSkillLevel.TabIndex = 7;
+			// 
+			// nudHangGlidingSkillLevel
+			// 
+			this.nudHangGlidingSkillLevel.Location = new System.Drawing.Point(415, 45);
+			this.nudHangGlidingSkillLevel.Name = "nudHangGlidingSkillLevel";
+			this.nudHangGlidingSkillLevel.Size = new System.Drawing.Size(121, 20);
+			this.nudHangGlidingSkillLevel.TabIndex = 6;
+			// 
+			// nudClimbingSkillLevel
+			// 
+			this.nudClimbingSkillLevel.Location = new System.Drawing.Point(415, 19);
+			this.nudClimbingSkillLevel.Name = "nudClimbingSkillLevel";
+			this.nudClimbingSkillLevel.Size = new System.Drawing.Size(121, 20);
+			this.nudClimbingSkillLevel.TabIndex = 5;
+			// 
+			// nudPetRidingSkillLevel
+			// 
+			this.nudPetRidingSkillLevel.Location = new System.Drawing.Point(141, 123);
+			this.nudPetRidingSkillLevel.Name = "nudPetRidingSkillLevel";
+			this.nudPetRidingSkillLevel.Size = new System.Drawing.Size(121, 20);
+			this.nudPetRidingSkillLevel.TabIndex = 4;
+			// 
+			// nudPetMasterSkillLevel
+			// 
+			this.nudPetMasterSkillLevel.Location = new System.Drawing.Point(141, 97);
+			this.nudPetMasterSkillLevel.Name = "nudPetMasterSkillLevel";
+			this.nudPetMasterSkillLevel.Size = new System.Drawing.Size(121, 20);
+			this.nudPetMasterSkillLevel.TabIndex = 3;
+			// 
+			// nudTierThreeSkillLevel
+			// 
+			this.nudTierThreeSkillLevel.Location = new System.Drawing.Point(141, 71);
+			this.nudTierThreeSkillLevel.Name = "nudTierThreeSkillLevel";
+			this.nudTierThreeSkillLevel.Size = new System.Drawing.Size(121, 20);
+			this.nudTierThreeSkillLevel.TabIndex = 2;
+			// 
+			// nudTierTwoSkillLevel
+			// 
+			this.nudTierTwoSkillLevel.Location = new System.Drawing.Point(141, 45);
+			this.nudTierTwoSkillLevel.Name = "nudTierTwoSkillLevel";
+			this.nudTierTwoSkillLevel.Size = new System.Drawing.Size(121, 20);
+			this.nudTierTwoSkillLevel.TabIndex = 1;
+			// 
+			// nudTierOneSkillLevel
+			// 
+			this.nudTierOneSkillLevel.Location = new System.Drawing.Point(141, 19);
+			this.nudTierOneSkillLevel.Name = "nudTierOneSkillLevel";
+			this.nudTierOneSkillLevel.Size = new System.Drawing.Size(121, 20);
+			this.nudTierOneSkillLevel.TabIndex = 0;
+			// 
 			// panelCharacterPreview
 			// 
 			this.panelCharacterPreview.BackColor = System.Drawing.Color.DarkGray;
@@ -703,261 +853,10 @@
 			this.tabPageInventory.Text = "Inventory";
 			this.tabPageInventory.UseVisualStyleBackColor = true;
 			// 
-			// panel1
-			// 
-			this.panel1.BackColor = System.Drawing.Color.DarkGray;
-			this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panel1.Controls.Add(this.label1);
-			this.panel1.Location = new System.Drawing.Point(554, 6);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(136, 136);
-			this.panel1.TabIndex = 9;
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.label1.ForeColor = System.Drawing.Color.White;
-			this.label1.Location = new System.Drawing.Point(0, 0);
-			this.label1.Name = "label1";
-			this.label1.Padding = new System.Windows.Forms.Padding(9, 60, 9, 60);
-			this.label1.Size = new System.Drawing.Size(133, 133);
-			this.label1.TabIndex = 0;
-			this.label1.Text = "Inventory Item Preview";
-			// 
-			// buttonLoadNewCharacter
-			// 
-			this.buttonLoadNewCharacter.Location = new System.Drawing.Point(492, 14);
-			this.buttonLoadNewCharacter.Name = "buttonLoadNewCharacter";
-			this.buttonLoadNewCharacter.Size = new System.Drawing.Size(119, 23);
-			this.buttonLoadNewCharacter.TabIndex = 7;
-			this.buttonLoadNewCharacter.Text = "Load new Character";
-			this.buttonLoadNewCharacter.UseVisualStyleBackColor = true;
-			this.buttonLoadNewCharacter.Click += new System.EventHandler(this.ButtonLoadNewCharacterClick);
-			// 
-			// nudTierOneSkillLevel
-			// 
-			this.nudTierOneSkillLevel.Location = new System.Drawing.Point(141, 19);
-			this.nudTierOneSkillLevel.Name = "nudTierOneSkillLevel";
-			this.nudTierOneSkillLevel.Size = new System.Drawing.Size(121, 20);
-			this.nudTierOneSkillLevel.TabIndex = 0;
-			// 
-			// nudTierTwoSkillLevel
-			// 
-			this.nudTierTwoSkillLevel.Location = new System.Drawing.Point(141, 45);
-			this.nudTierTwoSkillLevel.Name = "nudTierTwoSkillLevel";
-			this.nudTierTwoSkillLevel.Size = new System.Drawing.Size(121, 20);
-			this.nudTierTwoSkillLevel.TabIndex = 1;
-			// 
-			// nudTierThreeSkillLevel
-			// 
-			this.nudTierThreeSkillLevel.Location = new System.Drawing.Point(141, 71);
-			this.nudTierThreeSkillLevel.Name = "nudTierThreeSkillLevel";
-			this.nudTierThreeSkillLevel.Size = new System.Drawing.Size(121, 20);
-			this.nudTierThreeSkillLevel.TabIndex = 2;
-			// 
-			// nudPetMasterSkillLevel
-			// 
-			this.nudPetMasterSkillLevel.Location = new System.Drawing.Point(141, 97);
-			this.nudPetMasterSkillLevel.Name = "nudPetMasterSkillLevel";
-			this.nudPetMasterSkillLevel.Size = new System.Drawing.Size(121, 20);
-			this.nudPetMasterSkillLevel.TabIndex = 3;
-			// 
-			// nudPetRidingSkillLevel
-			// 
-			this.nudPetRidingSkillLevel.Location = new System.Drawing.Point(141, 123);
-			this.nudPetRidingSkillLevel.Name = "nudPetRidingSkillLevel";
-			this.nudPetRidingSkillLevel.Size = new System.Drawing.Size(121, 20);
-			this.nudPetRidingSkillLevel.TabIndex = 4;
-			// 
-			// nudClimbingSkillLevel
-			// 
-			this.nudClimbingSkillLevel.Location = new System.Drawing.Point(415, 19);
-			this.nudClimbingSkillLevel.Name = "nudClimbingSkillLevel";
-			this.nudClimbingSkillLevel.Size = new System.Drawing.Size(121, 20);
-			this.nudClimbingSkillLevel.TabIndex = 5;
-			// 
-			// nudHangGlidingSkillLevel
-			// 
-			this.nudHangGlidingSkillLevel.Location = new System.Drawing.Point(415, 45);
-			this.nudHangGlidingSkillLevel.Name = "nudHangGlidingSkillLevel";
-			this.nudHangGlidingSkillLevel.Size = new System.Drawing.Size(121, 20);
-			this.nudHangGlidingSkillLevel.TabIndex = 6;
-			// 
-			// nudSwimmingSkillLevel
-			// 
-			this.nudSwimmingSkillLevel.Location = new System.Drawing.Point(415, 71);
-			this.nudSwimmingSkillLevel.Name = "nudSwimmingSkillLevel";
-			this.nudSwimmingSkillLevel.Size = new System.Drawing.Size(121, 20);
-			this.nudSwimmingSkillLevel.TabIndex = 7;
-			// 
-			// nudSailingSkillLevel
-			// 
-			this.nudSailingSkillLevel.Location = new System.Drawing.Point(415, 97);
-			this.nudSailingSkillLevel.Name = "nudSailingSkillLevel";
-			this.nudSailingSkillLevel.Size = new System.Drawing.Size(121, 20);
-			this.nudSailingSkillLevel.TabIndex = 8;
-			// 
-			// labelTierOneSkillLevel
-			// 
-			this.labelTierOneSkillLevel.AutoSize = true;
-			this.labelTierOneSkillLevel.Location = new System.Drawing.Point(6, 21);
-			this.labelTierOneSkillLevel.Name = "labelTierOneSkillLevel";
-			this.labelTierOneSkillLevel.Size = new System.Drawing.Size(51, 13);
-			this.labelTierOneSkillLevel.TabIndex = 9;
-			this.labelTierOneSkillLevel.Text = "Tier One:";
-			// 
-			// labelTierTwoSkillLevel
-			// 
-			this.labelTierTwoSkillLevel.AutoSize = true;
-			this.labelTierTwoSkillLevel.Location = new System.Drawing.Point(6, 47);
-			this.labelTierTwoSkillLevel.Name = "labelTierTwoSkillLevel";
-			this.labelTierTwoSkillLevel.Size = new System.Drawing.Size(52, 13);
-			this.labelTierTwoSkillLevel.TabIndex = 10;
-			this.labelTierTwoSkillLevel.Text = "Tier Two:";
-			// 
-			// labelTierThreeSkillLevel
-			// 
-			this.labelTierThreeSkillLevel.AutoSize = true;
-			this.labelTierThreeSkillLevel.Location = new System.Drawing.Point(6, 73);
-			this.labelTierThreeSkillLevel.Name = "labelTierThreeSkillLevel";
-			this.labelTierThreeSkillLevel.Size = new System.Drawing.Size(59, 13);
-			this.labelTierThreeSkillLevel.TabIndex = 11;
-			this.labelTierThreeSkillLevel.Text = "Tier Three:";
-			// 
-			// labelHangGlidingSkillLevel
-			// 
-			this.labelHangGlidingSkillLevel.AutoSize = true;
-			this.labelHangGlidingSkillLevel.Location = new System.Drawing.Point(280, 47);
-			this.labelHangGlidingSkillLevel.Name = "labelHangGlidingSkillLevel";
-			this.labelHangGlidingSkillLevel.Size = new System.Drawing.Size(71, 13);
-			this.labelHangGlidingSkillLevel.TabIndex = 12;
-			this.labelHangGlidingSkillLevel.Text = "Hang Gliding:";
-			// 
-			// labelSwimmingSkillLevel
-			// 
-			this.labelSwimmingSkillLevel.AutoSize = true;
-			this.labelSwimmingSkillLevel.Location = new System.Drawing.Point(280, 73);
-			this.labelSwimmingSkillLevel.Name = "labelSwimmingSkillLevel";
-			this.labelSwimmingSkillLevel.Size = new System.Drawing.Size(57, 13);
-			this.labelSwimmingSkillLevel.TabIndex = 13;
-			this.labelSwimmingSkillLevel.Text = "Swimming:";
-			// 
-			// labelSailingSkillLevel
-			// 
-			this.labelSailingSkillLevel.AutoSize = true;
-			this.labelSailingSkillLevel.Location = new System.Drawing.Point(280, 99);
-			this.labelSailingSkillLevel.Name = "labelSailingSkillLevel";
-			this.labelSailingSkillLevel.Size = new System.Drawing.Size(41, 13);
-			this.labelSailingSkillLevel.TabIndex = 14;
-			this.labelSailingSkillLevel.Text = "Sailing:";
-			// 
-			// labelPetMasterSkillLevel
-			// 
-			this.labelPetMasterSkillLevel.AutoSize = true;
-			this.labelPetMasterSkillLevel.Location = new System.Drawing.Point(6, 99);
-			this.labelPetMasterSkillLevel.Name = "labelPetMasterSkillLevel";
-			this.labelPetMasterSkillLevel.Size = new System.Drawing.Size(61, 13);
-			this.labelPetMasterSkillLevel.TabIndex = 15;
-			this.labelPetMasterSkillLevel.Text = "Pet Master:";
-			// 
-			// labelPetRidingSkillLevel
-			// 
-			this.labelPetRidingSkillLevel.AutoSize = true;
-			this.labelPetRidingSkillLevel.Location = new System.Drawing.Point(6, 125);
-			this.labelPetRidingSkillLevel.Name = "labelPetRidingSkillLevel";
-			this.labelPetRidingSkillLevel.Size = new System.Drawing.Size(59, 13);
-			this.labelPetRidingSkillLevel.TabIndex = 16;
-			this.labelPetRidingSkillLevel.Text = "Pet Riding:";
-			// 
-			// labelClimbingSkillLevel
-			// 
-			this.labelClimbingSkillLevel.AutoSize = true;
-			this.labelClimbingSkillLevel.Location = new System.Drawing.Point(280, 21);
-			this.labelClimbingSkillLevel.Name = "labelClimbingSkillLevel";
-			this.labelClimbingSkillLevel.Size = new System.Drawing.Size(49, 13);
-			this.labelClimbingSkillLevel.TabIndex = 17;
-			this.labelClimbingSkillLevel.Text = "Climbing:";
-			// 
-			// textBoxPetName
-			// 
-			this.textBoxPetName.Location = new System.Drawing.Point(141, 19);
-			this.textBoxPetName.MaxLength = 15;
-			this.textBoxPetName.Name = "textBoxPetName";
-			this.textBoxPetName.Size = new System.Drawing.Size(121, 20);
-			this.textBoxPetName.TabIndex = 6;
-			// 
-			// labelPetName
-			// 
-			this.labelPetName.AutoSize = true;
-			this.labelPetName.Location = new System.Drawing.Point(6, 22);
-			this.labelPetName.Name = "labelPetName";
-			this.labelPetName.Size = new System.Drawing.Size(38, 13);
-			this.labelPetName.TabIndex = 7;
-			this.labelPetName.Text = "Name:";
-			// 
-			// tabControlInventory
-			// 
-			this.tabControlInventory.Controls.Add(this.tabPage1);
-			this.tabControlInventory.Location = new System.Drawing.Point(6, 6);
-			this.tabControlInventory.Name = "tabControlInventory";
-			this.tabControlInventory.SelectedIndex = 0;
-			this.tabControlInventory.Size = new System.Drawing.Size(542, 351);
-			this.tabControlInventory.TabIndex = 10;
-			// 
-			// tabPage1
-			// 
-			this.tabPage1.Controls.Add(this.listView);
-			this.tabPage1.Location = new System.Drawing.Point(4, 22);
-			this.tabPage1.Name = "tabPage1";
-			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage1.Size = new System.Drawing.Size(534, 325);
-			this.tabPage1.TabIndex = 0;
-			this.tabPage1.Text = "tabPage1";
-			this.tabPage1.UseVisualStyleBackColor = true;
-			// 
-			// listView
-			// 
-			this.listView.Activation = System.Windows.Forms.ItemActivation.OneClick;
-			this.listView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.listView.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.listView.GridLines = true;
-			this.listView.HideSelection = false;
-			listViewItem1.StateImageIndex = 0;
-			listViewItem2.StateImageIndex = 0;
-			listViewItem3.StateImageIndex = 0;
-			listViewItem4.StateImageIndex = 0;
-			listViewItem5.StateImageIndex = 0;
-			listViewItem6.StateImageIndex = 0;
-			listViewItem7.StateImageIndex = 0;
-			listViewItem8.StateImageIndex = 0;
-			listViewItem9.StateImageIndex = 0;
-			this.listView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3,
-            listViewItem4,
-            listViewItem5,
-            listViewItem6,
-            listViewItem7,
-            listViewItem8,
-            listViewItem9});
-			this.listView.LargeImageList = this.imageListInventory;
-			this.listView.Location = new System.Drawing.Point(3, 3);
-			this.listView.MultiSelect = false;
-			this.listView.Name = "listView";
-			this.listView.Size = new System.Drawing.Size(528, 319);
-			this.listView.TabIndex = 0;
-			this.listView.UseCompatibleStateImageBehavior = false;
-			// 
-			// imageListInventory
-			// 
-			this.imageListInventory.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListInventory.ImageStream")));
-			this.imageListInventory.TransparentColor = System.Drawing.Color.Transparent;
-			this.imageListInventory.Images.SetKeyName(0, "ItemIcon.png");
-			// 
 			// groupBoxItemProperties
 			// 
+			this.groupBoxItemProperties.Controls.Add(this.comboBoxMaterial);
+			this.groupBoxItemProperties.Controls.Add(this.labelMaterial);
 			this.groupBoxItemProperties.Controls.Add(this.nudItemLevel);
 			this.groupBoxItemProperties.Controls.Add(this.label3);
 			this.groupBoxItemProperties.Controls.Add(this.comboBoxItemModifier);
@@ -966,12 +865,73 @@
 			this.groupBoxItemProperties.Controls.Add(this.label2);
 			this.groupBoxItemProperties.Controls.Add(this.comboBoxItemSubtype);
 			this.groupBoxItemProperties.Controls.Add(this.comboBoxItemType);
-			this.groupBoxItemProperties.Location = new System.Drawing.Point(554, 148);
+			this.groupBoxItemProperties.Location = new System.Drawing.Point(6, 239);
 			this.groupBoxItemProperties.Name = "groupBoxItemProperties";
-			this.groupBoxItemProperties.Size = new System.Drawing.Size(136, 209);
+			this.groupBoxItemProperties.Size = new System.Drawing.Size(539, 118);
 			this.groupBoxItemProperties.TabIndex = 11;
 			this.groupBoxItemProperties.TabStop = false;
 			this.groupBoxItemProperties.Text = "Item";
+			// 
+			// nudItemLevel
+			// 
+			this.nudItemLevel.Location = new System.Drawing.Point(136, 77);
+			this.nudItemLevel.Name = "nudItemLevel";
+			this.nudItemLevel.Size = new System.Drawing.Size(124, 20);
+			this.nudItemLevel.TabIndex = 7;
+			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
+			this.label3.Location = new System.Drawing.Point(133, 60);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(36, 13);
+			this.label3.TabIndex = 6;
+			this.label3.Text = "Level:";
+			// 
+			// comboBoxItemModifier
+			// 
+			this.comboBoxItemModifier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboBoxItemModifier.FormattingEnabled = true;
+			this.comboBoxItemModifier.Location = new System.Drawing.Point(136, 32);
+			this.comboBoxItemModifier.Name = "comboBoxItemModifier";
+			this.comboBoxItemModifier.Size = new System.Drawing.Size(124, 21);
+			this.comboBoxItemModifier.TabIndex = 5;
+			// 
+			// labelModifier
+			// 
+			this.labelModifier.AutoSize = true;
+			this.labelModifier.Location = new System.Drawing.Point(133, 16);
+			this.labelModifier.Name = "labelModifier";
+			this.labelModifier.Size = new System.Drawing.Size(47, 13);
+			this.labelModifier.TabIndex = 4;
+			this.labelModifier.Text = "Modifier:";
+			// 
+			// labelItemSubtype
+			// 
+			this.labelItemSubtype.AutoSize = true;
+			this.labelItemSubtype.Location = new System.Drawing.Point(7, 60);
+			this.labelItemSubtype.Name = "labelItemSubtype";
+			this.labelItemSubtype.Size = new System.Drawing.Size(49, 13);
+			this.labelItemSubtype.TabIndex = 3;
+			this.labelItemSubtype.Text = "Subtype:";
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(6, 16);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(34, 13);
+			this.label2.TabIndex = 2;
+			this.label2.Text = "Type:";
+			// 
+			// comboBoxItemSubtype
+			// 
+			this.comboBoxItemSubtype.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboBoxItemSubtype.FormattingEnabled = true;
+			this.comboBoxItemSubtype.Location = new System.Drawing.Point(6, 76);
+			this.comboBoxItemSubtype.Name = "comboBoxItemSubtype";
+			this.comboBoxItemSubtype.Size = new System.Drawing.Size(124, 21);
+			this.comboBoxItemSubtype.TabIndex = 1;
 			// 
 			// comboBoxItemType
 			// 
@@ -1006,66 +966,94 @@
 			this.comboBoxItemType.TabIndex = 0;
 			this.comboBoxItemType.SelectedIndexChanged += new System.EventHandler(this.ComboBoxItemTypeSelectedIndexChanged);
 			// 
-			// comboBoxItemSubtype
+			// tabControlInventory
 			// 
-			this.comboBoxItemSubtype.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.comboBoxItemSubtype.FormattingEnabled = true;
-			this.comboBoxItemSubtype.Location = new System.Drawing.Point(6, 76);
-			this.comboBoxItemSubtype.Name = "comboBoxItemSubtype";
-			this.comboBoxItemSubtype.Size = new System.Drawing.Size(124, 21);
-			this.comboBoxItemSubtype.TabIndex = 1;
+			this.tabControlInventory.Location = new System.Drawing.Point(6, 6);
+			this.tabControlInventory.Name = "tabControlInventory";
+			this.tabControlInventory.SelectedIndex = 0;
+			this.tabControlInventory.Size = new System.Drawing.Size(543, 227);
+			this.tabControlInventory.TabIndex = 10;
+			this.tabControlInventory.SelectedIndexChanged += new System.EventHandler(this.TabControlInventorySelectedIndexChanged);
 			// 
-			// label2
+			// imageListInventory
 			// 
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(6, 16);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(34, 13);
-			this.label2.TabIndex = 2;
-			this.label2.Text = "Type:";
+			this.imageListInventory.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListInventory.ImageStream")));
+			this.imageListInventory.TransparentColor = System.Drawing.Color.Transparent;
+			this.imageListInventory.Images.SetKeyName(0, "ItemIcon.png");
 			// 
-			// labelItemSubtype
+			// panel1
 			// 
-			this.labelItemSubtype.AutoSize = true;
-			this.labelItemSubtype.Location = new System.Drawing.Point(7, 60);
-			this.labelItemSubtype.Name = "labelItemSubtype";
-			this.labelItemSubtype.Size = new System.Drawing.Size(49, 13);
-			this.labelItemSubtype.TabIndex = 3;
-			this.labelItemSubtype.Text = "Subtype:";
+			this.panel1.BackColor = System.Drawing.Color.DarkGray;
+			this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel1.Controls.Add(this.label1);
+			this.panel1.Location = new System.Drawing.Point(554, 6);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(136, 136);
+			this.panel1.TabIndex = 9;
 			// 
-			// labelModifier
+			// label1
 			// 
-			this.labelModifier.AutoSize = true;
-			this.labelModifier.Location = new System.Drawing.Point(6, 100);
-			this.labelModifier.Name = "labelModifier";
-			this.labelModifier.Size = new System.Drawing.Size(47, 13);
-			this.labelModifier.TabIndex = 4;
-			this.labelModifier.Text = "Modifier:";
+			this.label1.AutoSize = true;
+			this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.label1.ForeColor = System.Drawing.Color.White;
+			this.label1.Location = new System.Drawing.Point(0, 0);
+			this.label1.Name = "label1";
+			this.label1.Padding = new System.Windows.Forms.Padding(9, 60, 9, 60);
+			this.label1.Size = new System.Drawing.Size(133, 133);
+			this.label1.TabIndex = 0;
+			this.label1.Text = "Inventory Item Preview";
 			// 
-			// comboBoxItemModifier
+			// buttonLoadNewCharacter
 			// 
-			this.comboBoxItemModifier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.comboBoxItemModifier.FormattingEnabled = true;
-			this.comboBoxItemModifier.Location = new System.Drawing.Point(6, 117);
-			this.comboBoxItemModifier.Name = "comboBoxItemModifier";
-			this.comboBoxItemModifier.Size = new System.Drawing.Size(124, 21);
-			this.comboBoxItemModifier.TabIndex = 5;
+			this.buttonLoadNewCharacter.Location = new System.Drawing.Point(492, 14);
+			this.buttonLoadNewCharacter.Name = "buttonLoadNewCharacter";
+			this.buttonLoadNewCharacter.Size = new System.Drawing.Size(119, 23);
+			this.buttonLoadNewCharacter.TabIndex = 7;
+			this.buttonLoadNewCharacter.Text = "Load new Character";
+			this.buttonLoadNewCharacter.UseVisualStyleBackColor = true;
+			this.buttonLoadNewCharacter.Click += new System.EventHandler(this.ButtonLoadNewCharacterClick);
 			// 
-			// label3
+			// labelMaterial
 			// 
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(6, 141);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(36, 13);
-			this.label3.TabIndex = 6;
-			this.label3.Text = "Level:";
+			this.labelMaterial.AutoSize = true;
+			this.labelMaterial.Location = new System.Drawing.Point(267, 16);
+			this.labelMaterial.Name = "labelMaterial";
+			this.labelMaterial.Size = new System.Drawing.Size(47, 13);
+			this.labelMaterial.TabIndex = 8;
+			this.labelMaterial.Text = "Material:";
 			// 
-			// nudItemLevel
+			// comboBoxMaterial
 			// 
-			this.nudItemLevel.Location = new System.Drawing.Point(6, 157);
-			this.nudItemLevel.Name = "nudItemLevel";
-			this.nudItemLevel.Size = new System.Drawing.Size(124, 20);
-			this.nudItemLevel.TabIndex = 7;
+			this.comboBoxMaterial.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboBoxMaterial.FormattingEnabled = true;
+			this.comboBoxMaterial.Items.AddRange(new object[] {
+            "None",
+            "Iron",
+            "Wood",
+            "Obsidian",
+            "Bone",
+            "Copper",
+            "Gold",
+            "Silver",
+            "Emerald",
+            "Saphhir",
+            "Ruby",
+            "Diamond",
+            "Sandstone",
+            "Saurian",
+            "Parrot",
+            "Mammoth",
+            "Plant",
+            "Ice",
+            "Licht",
+            "Glass",
+            "Silk",
+            "Linen",
+            "Cotton"});
+			this.comboBoxMaterial.Location = new System.Drawing.Point(266, 32);
+			this.comboBoxMaterial.Name = "comboBoxMaterial";
+			this.comboBoxMaterial.Size = new System.Drawing.Size(124, 21);
+			this.comboBoxMaterial.TabIndex = 9;
 			// 
 			// FormEditor
 			// 
@@ -1098,6 +1086,15 @@
 			this.tabPageCharacter.ResumeLayout(false);
 			this.groupBoxSkills.ResumeLayout(false);
 			this.groupBoxSkills.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.nudSailingSkillLevel)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudSwimmingSkillLevel)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudHangGlidingSkillLevel)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudClimbingSkillLevel)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudPetRidingSkillLevel)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudPetMasterSkillLevel)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudTierThreeSkillLevel)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudTierTwoSkillLevel)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudTierOneSkillLevel)).EndInit();
 			this.panelCharacterPreview.ResumeLayout(false);
 			this.panelCharacterPreview.PerformLayout();
 			this.groupBoxCharacterInformation.ResumeLayout(false);
@@ -1106,22 +1103,11 @@
 			this.panelPetPreview.ResumeLayout(false);
 			this.panelPetPreview.PerformLayout();
 			this.tabPageInventory.ResumeLayout(false);
-			this.panel1.ResumeLayout(false);
-			this.panel1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.nudTierOneSkillLevel)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.nudTierTwoSkillLevel)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.nudTierThreeSkillLevel)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.nudPetMasterSkillLevel)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.nudPetRidingSkillLevel)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.nudClimbingSkillLevel)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.nudHangGlidingSkillLevel)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.nudSwimmingSkillLevel)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.nudSailingSkillLevel)).EndInit();
-			this.tabControlInventory.ResumeLayout(false);
-			this.tabPage1.ResumeLayout(false);
 			this.groupBoxItemProperties.ResumeLayout(false);
 			this.groupBoxItemProperties.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nudItemLevel)).EndInit();
+			this.panel1.ResumeLayout(false);
+			this.panel1.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -1192,8 +1178,6 @@
 		private System.Windows.Forms.Label labelPetName;
 		private System.Windows.Forms.TextBox textBoxPetName;
 		private System.Windows.Forms.TabControl tabControlInventory;
-		private System.Windows.Forms.TabPage tabPage1;
-		private System.Windows.Forms.ListView listView;
 		private System.Windows.Forms.ImageList imageListInventory;
 		private System.Windows.Forms.GroupBox groupBoxItemProperties;
 		private System.Windows.Forms.NumericUpDown nudItemLevel;
@@ -1204,5 +1188,7 @@
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.ComboBox comboBoxItemSubtype;
 		private System.Windows.Forms.ComboBox comboBoxItemType;
+		private System.Windows.Forms.Label labelMaterial;
+		private System.Windows.Forms.ComboBox comboBoxMaterial;
 	}
 }
