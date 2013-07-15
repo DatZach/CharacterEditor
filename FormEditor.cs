@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -188,14 +189,23 @@ namespace CharacterEditor
 			nudTierTwoSkillLevel.Value = character.TierTwoSkillLevel;
 			nudTierThreeSkillLevel.Value = character.TierThreeSkillLevel;
 
-			/*comboBoxPetKind.SelectedIndex = CharacterData.PetKinds.IndexOf(character.PetIndex);
+			Item petEquipment = character.Equipment.Last();
+			comboBoxPetKind.SelectedIndex = CharacterData.PetKinds.IndexOf(petEquipment.Subtype);
 			if (comboBoxPetKind.SelectedIndex == -1)
 				comboBoxPetKind.SelectedIndex = 0;
 
-			if (character.PetLevel > 0)
-				nudPetLevel.Value = character.PetLevel;
+			nudPetLevel.Value = petEquipment.Level;
+			nudPetExperience.Value = petEquipment.Modifier;
+			textBoxPetName.Text = petEquipment.Attributes.Aggregate("", (c, a) => c + (char)a.Material);
 
-			nudPetExperience.Value = character.PetExperience;*/
+			// Sync inventory to GUI
+			for (int i = 0; i < character.Inventories.Count; ++i)
+			{
+				TabPage tabPage = new TabPage(new[] { "Equipment", "Items", "Ingredients", "Pets" }[i]);
+
+
+				tabControlInventory.TabPages.Add(tabPage);
+			}
 
 			// TODO Find a cleaner way to do this, maybe?
 			ComboBoxRaceSelectedIndexChanged(null, null);
@@ -228,9 +238,15 @@ namespace CharacterEditor
 			character.TierTwoSkillLevel = (int)nudTierTwoSkillLevel.Value;
 			character.TierThreeSkillLevel = (int)nudTierThreeSkillLevel.Value;
 
-			/*character.PetIndex = (byte)comboBoxPetKind.SelectedIndex;
-			character.PetLevel = (short)nudPetLevel.Value;
-			character.PetExperience = (int)nudPetExperience.Value;*/
+			// TODO No, just no
+			Item petEquipment = character.Equipment.Last();
+			petEquipment.Type = (byte)(comboBoxPetKind.SelectedIndex == -1 ? 0x00 : 0x13);
+			petEquipment.Subtype = (byte)comboBoxPetKind.SelectedIndex;
+			petEquipment.Level = (short)nudPetLevel.Value;
+			petEquipment.Modifier = (short)nudPetExperience.Value;
+
+			for (int i = 0; i < textBoxPetName.Text.Length; ++i)
+				petEquipment.Attributes[i].Material = (byte)textBoxPetName.Text[i];
 
 			dirtyWatcher.Dirty = false;
 		}
@@ -279,6 +295,176 @@ namespace CharacterEditor
 			}
 
 			dirtyThread.Abort();
+		}
+
+		private void ComboBoxItemTypeSelectedIndexChanged(object sender, EventArgs e)
+		{
+			// TODO Kill me
+			string[][] subtypes = new []
+			{
+				new []
+				{
+					"Cookie",
+					"Life Potion",
+					"Cactus Potion",
+					"Mana Potion",
+					"Ginseng Soup",
+					"Snowberry Soup",
+					"Snowberry Mash",
+					"Mushroom Spit",
+					"Bomb",
+					"Pineapple Slice",
+					"Pumpkin Muffin"
+				},
+				new []
+				{
+					"Sword",
+					"Axe",
+					"Mace",
+					"Dagger",
+					"Fist",
+					"Longsword",
+					"Bow",
+					"Crossbow",
+					"Boomarang",
+					"Arrow",
+					"Staff",
+					"Wand",
+					"Bracelet",
+					"Shield",
+					"Arrows",
+					"Greatsword",
+					"Greataxe",
+					"Greatmace",
+					"Rake",
+					"Pickaxe",
+					"Torch"
+				},
+				new []
+				{
+					"Chest"
+				},
+				new []
+				{
+					"Gloves"
+				},
+				new []
+				{
+					"Boots"
+				},
+				new []
+				{
+					"Sholder Armor"
+				},
+				new []
+				{
+					"Amulet"
+				},
+				new []
+				{
+					"Ring"
+				},
+				new []
+				{
+					"Block"
+				},
+				new []
+				{
+					"Nugget",
+					"Log",
+					"Feather",
+					"Horn",
+					"Claw",
+					"Fiber",
+					"Cobweb",
+					"Hair",
+					"Crystal",
+					"Yarn",
+					"Cube",
+					"Capsule",
+					"Flask",
+					"Orb",
+					"Spirit",
+					"Mushroom",
+					"Pumpkin",
+					"Pineapple",
+					"Radish Slice",
+					"Shimmer Mushroom",
+					"Ginseng Root",
+					"Onion Slice",
+					"Heartflower",
+					"Prickly Pear",
+					"Iceflower",
+					"Soulflower",
+					"Water Flask",
+					"Snowberry"
+				},
+				new []
+				{
+					"Coin"
+				},
+				new []
+				{
+					"Platinum Coin"
+				},
+				new []
+				{
+					"Leftovers"
+				},
+				new []
+				{
+					"Beak"
+				},
+				new []
+				{
+					"Painting"
+				},
+				new []
+				{
+					"Vase"
+				},
+				new []
+				{
+					"Candle"
+				},
+				new []
+				{
+					"Fuck pet food"
+				},
+				new []
+				{
+					"Amulet (Gold)",
+					"Amulet (Saphhire)",
+					"Jewel Case",
+					"Key",
+					"Medicine",
+					"Antivenom",
+					"Band Aid",
+					"Crutch",
+					"Bandage",
+					"Salve"
+				},
+				new []
+				{
+					"Hang Glider",
+					"Boat"
+				}, 
+				new []
+				{
+					"Lamp"
+				},
+				new []
+				{
+					"Mana Cube"
+				}
+			};
+
+			if (comboBoxItemType.SelectedIndex == -1)
+				comboBoxItemType.SelectedIndex = 0;
+
+			comboBoxItemSubtype.Items.Clear();
+			comboBoxItemSubtype.Items.AddRange(subtypes[comboBoxItemType.SelectedIndex]);
+			comboBoxItemSubtype.SelectedIndex = 0;
 		}
 	}
 }
