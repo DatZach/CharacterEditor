@@ -336,7 +336,7 @@ namespace CharacterEditor
 			writer.Skip(2);
 			writer.Write(Modifier);
 			writer.Write(unknown1);
-			writer.Write(Rarity);
+			writer.Write(Rarity > 4 ? 4 : Rarity);
 			writer.Write(Material);
 			writer.Write(Flags);
 			writer.Skip(1);
