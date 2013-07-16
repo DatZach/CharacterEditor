@@ -7,12 +7,12 @@ namespace WPF_GUI.Model
 {
     public class DataItem
     {
-        public DataItem(string title)
+        public DataItem(List<Character> characters)
         {
-            Title = title;
+            Characters = characters;
         }
 
-        public string Title
+        public List<Character> Characters
         {
             get;
             private set;

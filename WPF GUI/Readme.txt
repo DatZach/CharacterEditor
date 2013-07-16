@@ -1,4 +1,4 @@
-﻿Frameworks Used
+﻿﻿Frameworks Use
 ===============
 Architechtural Pattern:
 MVVM
@@ -16,8 +16,8 @@ http://wpftoolkit.codeplex.com/
 
 Structure of Program:
 MainWindow.Xaml is the Startup Window.
-	Draws information via DataBinding from MainViewModel.cs
-		MainViewModel is populated with data from ViewModelLocator, which uses SimpleIOC to inject data via DataService
+  Draws information via DataBinding from MainViewModel.cs
+    MainViewModel is populated with data from ViewModelLocator, which uses SimpleIOC to inject data via DataService
 
 Loading Data
 ============
@@ -25,6 +25,5 @@ DataService, which is an implementation of IDataService loads the data into an D
 
 DesignDataService is an implementation of IDataService which loads fake data for use in Design Time.
 
-//asdfasd
 
-			
+      
