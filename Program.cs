@@ -50,13 +50,13 @@ namespace CharacterEditor
 						Application.Exit();
 				}
 			};
-#endif
 
-            if (Process.GetProcessesByName("Cube").Length > 0)
+			if (Process.GetProcessesByName("Cube").Length > 0)
             {
                 MessageBox.Show("Please close Cube World before running the Character Editor.", "Character Editor", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+#endif
 
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
