@@ -331,6 +331,14 @@ namespace CharacterEditor
 			"Cotton"
 		};
 
+		public static readonly string[] MaterialNamesTierTwo = new []
+		{
+			"Fire",
+			"Unholy",
+			"Ice",
+			"Wind"
+		};
+
 		// TODO Still kill me
 		// [type][subtype]
 		public static readonly string[][] Subtypes = new[]
@@ -473,7 +481,7 @@ namespace CharacterEditor
 			{
 				"", "", "", "", "", "", "", "", 
 				"", "", "", "", "", "", "", "", 
-				"", "", 
+				"", "", "",
 				"Collie",
 				"Shepherd Dog",
 				"",
@@ -518,6 +526,7 @@ namespace CharacterEditor
 				"Frog",
 				"", "", "", "",
 				"Devourer",
+				"Duckbill",
 				"Crocodile",
 				"", "", "", "", "", "", "", "", "", 
 				"Imp",
@@ -550,7 +559,7 @@ namespace CharacterEditor
 			{
 				"", "", "", "", "", "", "", "",
 				"", "", "", "", "", "", "", "",
-				"", "",
+				"", "", "",
 				"Bubble Gum",
 				"", "", "",
 				"Chocolate Cupcake",
@@ -592,7 +601,7 @@ namespace CharacterEditor
 				"", "", "", "", "", "",
 				"Sugar Candy",
 				"Apple Ring",
-				"", "", "", "", "", "", "", "", "", "", "", 
+				"", "", "", "", "", "", "", "", "", "",
 				"Water Ice",
 				"Chocolate Doughnut",
 				"Pancakes",
@@ -603,7 +612,7 @@ namespace CharacterEditor
 				"Softice",
 				"", "", "", "", 
 				"Candied Apple",
-				"Data Cookie",
+				"Date Cookie",
 				"", "",
 				"Bread",
 				"Curry",
@@ -670,11 +679,11 @@ namespace CharacterEditor
 
 					if (Material != 0)
 					{
-						name.Append(MaterialNames[Material]);
+						name.Append(Material >= 128 ? MaterialNamesTierTwo[Material - 128] : MaterialNames[Material]);
 						name.Append(" ");
 					}
 
-					name.Append(Type == 0x14 ? "Pet Cage" : Subtypes[Type][Subtype]);
+					name.Append(Subtypes[Type][Subtype]);
 
 					return name.ToString();
 				}
