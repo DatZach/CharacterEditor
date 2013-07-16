@@ -220,12 +220,26 @@ namespace CharacterEditor
 
 				foreach (Tuple<int, Item> item in inventory.Items)
 				{
-					ListViewItem listViewItem = new ListViewItem
+					ListViewItem listViewItem;
+
+					if (item.Item1 > 0 && item.Item2.Type != 0x00)
 					{
-						StateImageIndex = 0,
-						Text = item.Item2.FriendlyName,
-						Tag = item.Item2,
-					};
+						listViewItem = new ListViewItem
+						{
+							ImageIndex = item.Item2.Type,
+							Text = item.Item2.FriendlyName,
+							Tag = item.Item2
+						};
+					}
+					else
+					{
+						listViewItem = new ListViewItem
+						{
+							ImageIndex = 0,
+							Text = "",
+							Tag = item.Item2
+						};
+					}
 
 					listView.Items.Add(listViewItem);
 				}
@@ -329,8 +343,12 @@ namespace CharacterEditor
 			if (comboBoxItemType.SelectedIndex == -1)
 				comboBoxItemType.SelectedIndex = 0;
 
+			// Type is normalized now, Subtypes is not normalized
+
+			int subtypeIndex = Utility.GoofyIndex(comboBoxItemType.SelectedIndex, Item.TypeNames);
+
 			comboBoxItemSubtype.Items.Clear();
-			comboBoxItemSubtype.Items.AddRange(Item.Subtypes[comboBoxItemType.SelectedIndex]);
+			comboBoxItemSubtype.Items.AddRange(Item.Subtypes[subtypeIndex].Where(x => !String.IsNullOrEmpty(x)).ToArray());
 			comboBoxItemSubtype.SelectedIndex = 0;
 		}
 
@@ -350,8 +368,10 @@ namespace CharacterEditor
 			Item item = (Item)selectedItem.Tag;
 
 			// TODO Indices don't match up with combobox because of missing/null entries in game
-			comboBoxItemType.SelectedIndex = item.Type;
-			comboBoxItemSubtype.SelectedIndex = item.Subtype;
+			comboBoxItemType.SelectedIndex = Utility.NormalizeIndex(item.Type, Item.TypeNames);
+			comboBoxItemSubtype.SelectedIndex = Utility.NormalizeIndex(item.Subtype, Item.Subtypes[item.Type]);
+			comboBoxItemMaterial.SelectedIndex = Utility.NormalizeIndex(item.Material, Item.MaterialNames);
+			//comboBoxItemModifier.SelectedIndex = item.Modifier & 0x0F;
 			nudItemLevel.Value = item.Level;
 		}
 	}

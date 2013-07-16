@@ -6,6 +6,37 @@ namespace CharacterEditor
 {
 	static class Utility
 	{
+		public static int GoofyIndex(int index, string[] list)
+		{
+			int result = 0;
+
+			for (int i = 0; index > 0 || list[i] == null; ++i, --index)
+			{
+				if (string.IsNullOrEmpty(list[i]))
+					++result;
+
+				if (index != 0)
+					++result;
+			}
+
+			return result;
+		}
+
+		public static int NormalizeIndex(int index, string[] list)
+		{
+			int result = 0;
+
+			for (int i = 0; i < index; ++i)
+			{
+				if (string.IsNullOrEmpty(list[i]))
+					continue;
+
+				++result;
+			}
+			
+			return result;
+		}
+
 		public static Color FromAbgr(int abgr)
 		{
 			int value = (int)(abgr & 0xFF00FF00);

@@ -269,18 +269,48 @@ namespace CharacterEditor
 	{
 		public const int AttributeCount = 32;
 
+		public static readonly string[] TypeNames = new[]
+		{
+			null,				// None
+			"Consumables",
+			"Recipes",
+			"Weapons",
+			"Chest Armor",
+			"Gloves",
+			"Boots",
+			"Shoulder Armor",
+			"Amulets",
+			"Rings",
+			"Blocks",
+			"Items",
+			"Coins",
+			"Platinum Coins",
+			"Leftovers",
+			"Beak",
+			"Painting",
+			"Vase",
+			"Candle",
+			"Pets",
+			"Pet Food",
+			"Quest Items",
+			null,
+			"Transportation",
+			"Lamps",
+			"Mana Cubes"
+		};
+
 		public static readonly string[] MaterialNames = new[]
 		{
-			"",
+			"None",			// Might be a problem?
 			"Iron",
 			"Wood",
-			"",
-			"",
+			null,
+			null,
 			"Obsidian",
-			"",
+			null,
 			"Bone",
-			"",
-			"",
+			null,
+			null,
 			"Copper",
 			"Gold",
 			"Silver",
@@ -305,11 +335,11 @@ namespace CharacterEditor
 		// [type][subtype]
 		public static readonly string[][] Subtypes = new[]
 		{
-			new []
+			new []						// None
 			{
 				""
 			}, 
-			new []
+			new []						// Consumable
 			{
 				"Cookie",
 				"Life Potion",
@@ -323,11 +353,11 @@ namespace CharacterEditor
 				"Pineapple Slice",
 				"Pumpkin Muffin"
 			},
-			new []
+			new []						// Recipes
 			{
-				""
+				"Recipe"
 			}, 
-			new []
+			new []						// Weapons
 			{
 				"Sword",
 				"Axe",
@@ -351,35 +381,35 @@ namespace CharacterEditor
 				"Pickaxe",
 				"Torch"
 			},
-			new []
+			new []						// Chest Armor
 			{
-				"Chest"
+				"Chest Armor"
 			},
-			new []
-			{
+			new []						// Gloves
+			{	
 				"Gloves"
 			},
-			new []
+			new []						// Boots
 			{
 				"Boots"
 			},
-			new []
+			new []						// Shoulder Armor
 			{
-				"Sholder Armor"
+				"Shoulder Armor"
 			},
-			new []
+			new []						// Amulets
 			{
 				"Amulet"
 			},
-			new []
+			new []						// Rings
 			{
 				"Ring"
 			},
-			new []
+			new []						// Blocks
 			{
 				"Block"
 			},
-			new []
+			new []						// Items
 			{
 				"Nugget",
 				"Log",
@@ -410,47 +440,181 @@ namespace CharacterEditor
 				"Water Flask",
 				"Snowberry"
 			},
-			new []
+			new []						// Coins
 			{
 				"Coin"
 			},
-			new []
+			new []						// Platinum Coins
 			{
 				"Platinum Coin"
 			},
-			new []
+			new []						// Leftovers
 			{
 				"Leftovers"
 			},
-			new []
+			new []						// Beak
 			{
 				"Beak"
 			},
-			new []
+			new []						// Painting
 			{
 				"Painting"
 			},
-			new []
+			new []						// Vase
 			{
 				"Vase"
 			},
-			new []
+			new []						// Candle
 			{
 				"Candle",
 				"Haunted Candle"
 			},
-			new []
+			new []						// Pets
 			{
-				""
+				"", "", "", "", "", "", "", "", 
+				"", "", "", "", "", "", "", "", 
+				"", "", 
+				"Collie",
+				"Shepherd Dog",
+				"",
+				"Alpaca",
+				"Alpaca (Brown)",
+				"",
+				"Turtle",
+				"Terrier",
+				"Terrier (Scottish)",
+				"Wolf",
+				"",
+				"Cat",
+				"Cat (Brown)",
+				"Cat (White)",
+				"Pig",
+				"Sheep",
+				"Bunny",
+				"Porcupine",
+				"Slime (Green)",
+				"Slime (Pink)",
+				"Slime (Yellow)",
+				"Slime (Blue)",
+				"", "", "", "", "", "", "", "",
+				"",
+				"Monkey",
+				"", "",
+				"Hornet",
+				"",
+				"Crow",
+				"Chicken",
+				"Seagull",
+				"Parrot",
+				"Bat",
+				"Fly",
+				"Midge",
+				"Mosquito",
+				"Runner (Plain)",
+				"Runner (Leaf)",
+				"Runner (Snow)",
+				"Runner (Desert)",
+				"Peacock",
+				"Frog",
+				"", "", "", "",
+				"Devourer",
+				"Crocodile",
+				"", "", "", "", "", "", "", "", "", 
+				"Imp",
+				"Spitter",
+				"Mole",
+				"Biter",
+				"Koala",
+				"Squirrel",
+				"Raccoon",
+				"Owl",
+				"Penguin",
+				"", "", "", "",
+				"Horse",
+				"Camel",
+				"", "",
+				"Beetle (Dark)",
+				"Beetle (Fire)",
+				"Beetle (Snout)",
+				"Beetle (Lemon)",
+				"Crab",
+				"", "", "", "", "", "", "", "", 
+				"", "", "", "", "", "", "", "", 
+				"", "", "", "", "", "", "", "", 
+				"", "", "", "", "", "", "", "", 
+				"", "", "", "", "", "", "", "",
+				"", "", "", "",
+				"Bumblebee"
 			}, 
-			new []
+			new []						// Pet Food
 			{
-				"Fuck pet food"
+				"", "", "", "", "", "", "", "",
+				"", "", "", "", "", "", "", "",
+				"", "",
+				"Bubble Gum",
+				"", "", "",
+				"Chocolate Cupcake",
+				"",
+				"Cinnamon Roll",
+				"Waffle",
+				"Croissant",
+				"",
+				"",
+				"Candy",
+				"",
+				"",
+				"Pumpkin Mash",
+				"Cotton Candy",
+				"Carrot",
+				"Blackberry Marmalade",
+				"Green Jelly",
+				"Pink Jelly",
+				"Yellow Jelly",
+				"Blue Jelly",
+				"", "", "", "", "", "", "", "", "", 
+				"Banana Split",
+				"", "", 
+				"Popcorn",
+				"", 
+				"Licorice Candy",
+				"Cereal Bar",
+				"Salted Caramel",
+				"Ginger Tartlet",
+				"Mango Juice",
+				"Fruit Basket",
+				"Melon Icecream",
+				"Bloodorange Juice",
+				"Milk chocolate bar",
+				"Mint chocolate bar",
+				"White chocolate bar",
+				"Caramel chocolate bar",
+				"Chocolate Cookie",
+				"", "", "", "", "", "",
+				"Sugar Candy",
+				"Apple Ring",
+				"", "", "", "", "", "", "", "", "", "", "", 
+				"Water Ice",
+				"Chocolate Doughnut",
+				"Pancakes",
+				"",
+				"Strawberry Cake",
+				"Chocolate Cake",
+				"Lollipop",
+				"Softice",
+				"", "", "", "", 
+				"Candied Apple",
+				"Data Cookie",
+				"", "",
+				"Bread",
+				"Curry",
+				"Lolly",
+				"Lemon Tart",
+				"Starberry Cocktail"
 			},
-			new []
+			new []						// Quest Items
 			{
 				"Amulet (Gold)",
-				"Amulet (sapphire)",
+				"Amulet (Sapphire)",
 				"Jewel Case",
 				"Key",
 				"Medicine",
@@ -460,20 +624,20 @@ namespace CharacterEditor
 				"Bandage",
 				"Salve"
 			},
-			new []
+			new []						// Unused
 			{
 				""
 			}, 
-			new []
+			new []						// Transportation
 			{
 				"Hang Glider",
 				"Boat"
-			}, 
-			new []
+			},
+			new []						// Lamps
 			{
 				"Lamp"
 			},
-			new []
+			new []						// Mana Cubes
 			{
 				"Mana Cube"
 			}
@@ -484,10 +648,10 @@ namespace CharacterEditor
 		public short Modifier;
 		private int unknown1;
 		public byte Rarity;
-		public byte Material;
-		public byte Flags;
+		public byte Material;	// TODO Sometimes denotes what class can use the item...
+		public byte Flags;		// TODO Noted in ItemIDs.txt
 		public short Level;
-		
+
 		public List<ItemAttribute> Attributes;
 
 		public Item()
@@ -499,18 +663,26 @@ namespace CharacterEditor
 		{
 			get
 			{
-				// <Modifier> <Material> <Item Name>
-				StringBuilder name = new StringBuilder();
-
-				if (Material != 0)
+				try
 				{
-					name.Append(MaterialNames[Material]);
-					name.Append(" ");
+					// <Modifier> <Material> <Item Name>
+					StringBuilder name = new StringBuilder();
+
+					if (Material != 0)
+					{
+						name.Append(MaterialNames[Material]);
+						name.Append(" ");
+					}
+
+					name.Append(Type == 0x14 ? "Pet Cage" : Subtypes[Type][Subtype]);
+
+					return name.ToString();
 				}
-
-				name.Append(Type == 0x14 ? "Pet Cage" : Subtypes[Type][Subtype]);
-
-				return name.ToString();
+				catch (Exception)
+				{
+					Console.WriteLine("FriendlyName error: Type = {0}; Subtype = {1}", Type, Subtype);
+					return "ERROR";
+				}
 			}
 		}
 
@@ -539,6 +711,10 @@ namespace CharacterEditor
 
 			// AttributesUsed is calculated on write
 			reader.Skip(4);
+
+			// TODO Ignore recipes for now
+			if (Type == 2)
+				Subtype = 0;
 		}
 
 		public void Write(BinaryWriter writer)

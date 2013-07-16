@@ -14,7 +14,7 @@ Material
 	0B	Gold
 	0C	Silver
 	0D	Emerald
-	0E	Saphhire
+	0E	Sapphire
 	0F	Ruby
 	10	Diamond
 	11	Sandstone
@@ -134,7 +134,7 @@ Boots [06]
 		0A	Exceptional
 	00	Boots
 	
-Sholder Armors [07]
+Shoulder Armors [07]
 	Modifiers
 		00	None
 		01	Polished
@@ -147,6 +147,10 @@ Sholder Armors [07]
 		08	Magic
 		09	Decorated
 		0A	Exceptional
+	Materials
+		19	Mage
+		1A	Ranger
+		1B	Rogue
 	00	Shoulder Armor
 	
 Amulets [08]
@@ -340,27 +344,52 @@ Pet Food [14]
 		08	Magic
 		09	Decorated
 		0A	Exceptional
-	00	None
-	->	None
-	12	None
-	13	Bubble Gum
-	14	None
-	15	None
-	16	Vanilla Cupcake
-	17	Chocolate Cupcake
-	18	None
-	19	Cinamon Roll
+	[ Not gonna bother mentioning all the non-existant IDs ]
+	13	Bubble gum
+	17	Chocolate cupcake
+	19	Cinnamon role (sic)
 	1A	Waffle
 	1B	Croissant
-	1C	None
-	1D	None
 	1E	Candy
-	1F	None
-	20	None
-	21	Pumpkin Mash
-	22	Cotton Candy
+	21	Pumpkin mash
+	22	Cotton candy
 	23	Carrot
-	24	Marmelade
+	24	Blackberry marmalade
+	25	Green jelly
+	26	Pink Jelly
+	27	Yellow Jelly
+	28	Blue jelly
+	32	Banana split
+	35	Popcorn
+	37	Licorice candy
+	38	Cereal bar
+	39	Salted caramel
+	3A	Ginger tartlet
+	3B	Mango juice
+	3C	Fruit basket
+	3D	Melon ice cream
+	3E	Bloodorange juice
+	3F	Milk chocolate bar
+	40	Mint chocolate bar
+	41	White chocolate bar
+	42	Caramel chocolate bar
+	43	Chocolate cookie
+	4A	Sugar candy
+	4B	Apple ring
+	56	Water ice
+	57	Chocolate donut
+	58	Pancakes
+	5A	Strawberry cake
+	5B	Chocolate cake
+	5C	Lollipop
+	5D	Softice
+	62	Candied apple
+	63	Date cookie
+	66	Bread
+	67	Curry
+	68	Lolly
+	69	Lemon tart
+	6A	strawberry cocktail
 
 	[ I have no clue what's wrong here ]
 
@@ -384,7 +413,7 @@ Quest Items [15]
 		0F	Chulu's
 		10	Xula's
 	00	Amulet (Gold)
-	01	Amulet (Saphhire)
+	01	Amulet (Sapphire)
 	02	Jewel Case
 	03	Key
 	04	Medicine

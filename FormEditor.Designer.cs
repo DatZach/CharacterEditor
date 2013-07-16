@@ -91,6 +91,8 @@
 			this.labelPetPreview = new System.Windows.Forms.Label();
 			this.tabPageInventory = new System.Windows.Forms.TabPage();
 			this.groupBoxItemProperties = new System.Windows.Forms.GroupBox();
+			this.comboBoxItemMaterial = new System.Windows.Forms.ComboBox();
+			this.labelMaterial = new System.Windows.Forms.Label();
 			this.nudItemLevel = new System.Windows.Forms.NumericUpDown();
 			this.label3 = new System.Windows.Forms.Label();
 			this.comboBoxItemModifier = new System.Windows.Forms.ComboBox();
@@ -100,12 +102,10 @@
 			this.comboBoxItemSubtype = new System.Windows.Forms.ComboBox();
 			this.comboBoxItemType = new System.Windows.Forms.ComboBox();
 			this.tabControlInventory = new System.Windows.Forms.TabControl();
-			this.imageListInventory = new System.Windows.Forms.ImageList(this.components);
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.label1 = new System.Windows.Forms.Label();
 			this.buttonLoadNewCharacter = new System.Windows.Forms.Button();
-			this.labelMaterial = new System.Windows.Forms.Label();
-			this.comboBoxMaterial = new System.Windows.Forms.ComboBox();
+			this.imageListInventory = new System.Windows.Forms.ImageList(this.components);
 			this.groupBoxAppearance.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nudHair)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudFace)).BeginInit();
@@ -855,7 +855,7 @@
 			// 
 			// groupBoxItemProperties
 			// 
-			this.groupBoxItemProperties.Controls.Add(this.comboBoxMaterial);
+			this.groupBoxItemProperties.Controls.Add(this.comboBoxItemMaterial);
 			this.groupBoxItemProperties.Controls.Add(this.labelMaterial);
 			this.groupBoxItemProperties.Controls.Add(this.nudItemLevel);
 			this.groupBoxItemProperties.Controls.Add(this.label3);
@@ -871,6 +871,48 @@
 			this.groupBoxItemProperties.TabIndex = 11;
 			this.groupBoxItemProperties.TabStop = false;
 			this.groupBoxItemProperties.Text = "Item";
+			// 
+			// comboBoxItemMaterial
+			// 
+			this.comboBoxItemMaterial.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboBoxItemMaterial.FormattingEnabled = true;
+			this.comboBoxItemMaterial.Items.AddRange(new object[] {
+            "None",
+            "Iron",
+            "Wood",
+            "Obsidian",
+            "Bone",
+            "Copper",
+            "Gold",
+            "Silver",
+            "Emerald",
+            "Saphhir",
+            "Ruby",
+            "Diamond",
+            "Sandstone",
+            "Saurian",
+            "Parrot",
+            "Mammoth",
+            "Plant",
+            "Ice",
+            "Licht",
+            "Glass",
+            "Silk",
+            "Linen",
+            "Cotton"});
+			this.comboBoxItemMaterial.Location = new System.Drawing.Point(266, 32);
+			this.comboBoxItemMaterial.Name = "comboBoxItemMaterial";
+			this.comboBoxItemMaterial.Size = new System.Drawing.Size(124, 21);
+			this.comboBoxItemMaterial.TabIndex = 9;
+			// 
+			// labelMaterial
+			// 
+			this.labelMaterial.AutoSize = true;
+			this.labelMaterial.Location = new System.Drawing.Point(267, 16);
+			this.labelMaterial.Name = "labelMaterial";
+			this.labelMaterial.Size = new System.Drawing.Size(47, 13);
+			this.labelMaterial.TabIndex = 8;
+			this.labelMaterial.Text = "Material:";
 			// 
 			// nudItemLevel
 			// 
@@ -892,6 +934,18 @@
 			// 
 			this.comboBoxItemModifier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboBoxItemModifier.FormattingEnabled = true;
+			this.comboBoxItemModifier.Items.AddRange(new object[] {
+            "None",
+            "Polish",
+            "Extraordinary",
+            "Exquisite",
+            "Superb",
+            "Unique",
+            "Handsome",
+            "Grand",
+            "Magic",
+            "Decorated",
+            "Exceptional"});
 			this.comboBoxItemModifier.Location = new System.Drawing.Point(136, 32);
 			this.comboBoxItemModifier.Name = "comboBoxItemModifier";
 			this.comboBoxItemModifier.Size = new System.Drawing.Size(124, 21);
@@ -939,11 +993,12 @@
 			this.comboBoxItemType.FormattingEnabled = true;
 			this.comboBoxItemType.Items.AddRange(new object[] {
             "Consumables",
+            "Recipes",
             "Weapons",
             "Chest Armor",
             "Gloves",
             "Boots",
-            "Sholder Armor",
+            "Shoulder Armor",
             "Amulets",
             "Rings",
             "Blocks",
@@ -955,6 +1010,7 @@
             "Paintings",
             "Vases",
             "Candles",
+            "Pets",
             "Pet Foods",
             "Quest Items",
             "Transportation",
@@ -974,12 +1030,6 @@
 			this.tabControlInventory.Size = new System.Drawing.Size(543, 227);
 			this.tabControlInventory.TabIndex = 10;
 			this.tabControlInventory.SelectedIndexChanged += new System.EventHandler(this.TabControlInventorySelectedIndexChanged);
-			// 
-			// imageListInventory
-			// 
-			this.imageListInventory.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListInventory.ImageStream")));
-			this.imageListInventory.TransparentColor = System.Drawing.Color.Transparent;
-			this.imageListInventory.Images.SetKeyName(0, "ItemIcon.png");
 			// 
 			// panel1
 			// 
@@ -1013,47 +1063,35 @@
 			this.buttonLoadNewCharacter.UseVisualStyleBackColor = true;
 			this.buttonLoadNewCharacter.Click += new System.EventHandler(this.ButtonLoadNewCharacterClick);
 			// 
-			// labelMaterial
+			// imageListInventory
 			// 
-			this.labelMaterial.AutoSize = true;
-			this.labelMaterial.Location = new System.Drawing.Point(267, 16);
-			this.labelMaterial.Name = "labelMaterial";
-			this.labelMaterial.Size = new System.Drawing.Size(47, 13);
-			this.labelMaterial.TabIndex = 8;
-			this.labelMaterial.Text = "Material:";
-			// 
-			// comboBoxMaterial
-			// 
-			this.comboBoxMaterial.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.comboBoxMaterial.FormattingEnabled = true;
-			this.comboBoxMaterial.Items.AddRange(new object[] {
-            "None",
-            "Iron",
-            "Wood",
-            "Obsidian",
-            "Bone",
-            "Copper",
-            "Gold",
-            "Silver",
-            "Emerald",
-            "Saphhir",
-            "Ruby",
-            "Diamond",
-            "Sandstone",
-            "Saurian",
-            "Parrot",
-            "Mammoth",
-            "Plant",
-            "Ice",
-            "Licht",
-            "Glass",
-            "Silk",
-            "Linen",
-            "Cotton"});
-			this.comboBoxMaterial.Location = new System.Drawing.Point(266, 32);
-			this.comboBoxMaterial.Name = "comboBoxMaterial";
-			this.comboBoxMaterial.Size = new System.Drawing.Size(124, 21);
-			this.comboBoxMaterial.TabIndex = 9;
+			this.imageListInventory.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListInventory.ImageStream")));
+			this.imageListInventory.TransparentColor = System.Drawing.Color.Transparent;
+			this.imageListInventory.Images.SetKeyName(0, "ItemIcon.png");
+			this.imageListInventory.Images.SetKeyName(1, "IconConsumable.png");
+			this.imageListInventory.Images.SetKeyName(2, "IconRecipe.png");
+			this.imageListInventory.Images.SetKeyName(3, "IconWeapon.png");
+			this.imageListInventory.Images.SetKeyName(4, "IconChestArmor.png");
+			this.imageListInventory.Images.SetKeyName(5, "IconGloves.png");
+			this.imageListInventory.Images.SetKeyName(6, "IconBoots.png");
+			this.imageListInventory.Images.SetKeyName(7, "IconShoulderArmor.png");
+			this.imageListInventory.Images.SetKeyName(8, "IconAmulet.png");
+			this.imageListInventory.Images.SetKeyName(9, "IconRing.png");
+			this.imageListInventory.Images.SetKeyName(10, "IconBlock.png");
+			this.imageListInventory.Images.SetKeyName(11, "IconItems.png");
+			this.imageListInventory.Images.SetKeyName(12, "IconCoin.png");
+			this.imageListInventory.Images.SetKeyName(13, "IconPlatinumCoin.png");
+			this.imageListInventory.Images.SetKeyName(14, "IconLeftovers.png");
+			this.imageListInventory.Images.SetKeyName(15, "IconBeak.png");
+			this.imageListInventory.Images.SetKeyName(16, "IconPainting.png");
+			this.imageListInventory.Images.SetKeyName(17, "IconVase.png");
+			this.imageListInventory.Images.SetKeyName(18, "IconCandle.png");
+			this.imageListInventory.Images.SetKeyName(19, "IconPet.png");
+			this.imageListInventory.Images.SetKeyName(20, "IconPetFood.png");
+			this.imageListInventory.Images.SetKeyName(21, "IconQuestItem.png");
+			this.imageListInventory.Images.SetKeyName(22, "ItemIcon.png");
+			this.imageListInventory.Images.SetKeyName(23, "IconTransportation.png");
+			this.imageListInventory.Images.SetKeyName(24, "IconManaCube.png");
 			// 
 			// FormEditor
 			// 
@@ -1189,6 +1227,6 @@
 		private System.Windows.Forms.ComboBox comboBoxItemSubtype;
 		private System.Windows.Forms.ComboBox comboBoxItemType;
 		private System.Windows.Forms.Label labelMaterial;
-		private System.Windows.Forms.ComboBox comboBoxMaterial;
+		private System.Windows.Forms.ComboBox comboBoxItemMaterial;
 	}
 }
