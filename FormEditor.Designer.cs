@@ -106,6 +106,28 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.buttonLoadNewCharacter = new System.Windows.Forms.Button();
 			this.imageListInventory = new System.Windows.Forms.ImageList(this.components);
+			this.tabPageEquipment = new System.Windows.Forms.TabPage();
+			this.tabControl1 = new System.Windows.Forms.TabControl();
+			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.comboBox1 = new System.Windows.Forms.ComboBox();
+			this.label4 = new System.Windows.Forms.Label();
+			this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+			this.label5 = new System.Windows.Forms.Label();
+			this.comboBox2 = new System.Windows.Forms.ComboBox();
+			this.label6 = new System.Windows.Forms.Label();
+			this.label7 = new System.Windows.Forms.Label();
+			this.label8 = new System.Windows.Forms.Label();
+			this.comboBox3 = new System.Windows.Forms.ComboBox();
+			this.comboBox4 = new System.Windows.Forms.ComboBox();
+			this.label9 = new System.Windows.Forms.Label();
+			this.panel2 = new System.Windows.Forms.Panel();
+			this.groupBoxCoins = new System.Windows.Forms.GroupBox();
+			this.labelCoins = new System.Windows.Forms.Label();
+			this.nudCoinsGold = new System.Windows.Forms.NumericUpDown();
+			this.nudCoinsSilver = new System.Windows.Forms.NumericUpDown();
+			this.nudCoinsCopper = new System.Windows.Forms.NumericUpDown();
+			this.labelPlatinumCoins = new System.Windows.Forms.Label();
+			this.nudCoinsPlatinum = new System.Windows.Forms.NumericUpDown();
 			this.groupBoxAppearance.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nudHair)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudFace)).BeginInit();
@@ -138,6 +160,15 @@
 			this.groupBoxItemProperties.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nudItemLevel)).BeginInit();
 			this.panel1.SuspendLayout();
+			this.tabPageEquipment.SuspendLayout();
+			this.groupBox1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+			this.panel2.SuspendLayout();
+			this.groupBoxCoins.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.nudCoinsGold)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudCoinsSilver)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudCoinsCopper)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudCoinsPlatinum)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// textBoxName
@@ -489,6 +520,7 @@
 			this.tabControlWorkspace.Controls.Add(this.tabPageCharacter);
 			this.tabControlWorkspace.Controls.Add(this.tabPagePets);
 			this.tabControlWorkspace.Controls.Add(this.tabPageInventory);
+			this.tabControlWorkspace.Controls.Add(this.tabPageEquipment);
 			this.tabControlWorkspace.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tabControlWorkspace.Location = new System.Drawing.Point(0, 0);
 			this.tabControlWorkspace.Name = "tabControlWorkspace";
@@ -810,7 +842,7 @@
 			this.groupBoxItemProperties.Controls.Add(this.comboBoxItemType);
 			this.groupBoxItemProperties.Location = new System.Drawing.Point(6, 239);
 			this.groupBoxItemProperties.Name = "groupBoxItemProperties";
-			this.groupBoxItemProperties.Size = new System.Drawing.Size(539, 118);
+			this.groupBoxItemProperties.Size = new System.Drawing.Size(542, 118);
 			this.groupBoxItemProperties.TabIndex = 11;
 			this.groupBoxItemProperties.TabStop = false;
 			this.groupBoxItemProperties.Text = "Item";
@@ -928,7 +960,7 @@
 			this.tabControlInventory.Location = new System.Drawing.Point(6, 6);
 			this.tabControlInventory.Name = "tabControlInventory";
 			this.tabControlInventory.SelectedIndex = 0;
-			this.tabControlInventory.Size = new System.Drawing.Size(543, 227);
+			this.tabControlInventory.Size = new System.Drawing.Size(542, 227);
 			this.tabControlInventory.TabIndex = 10;
 			this.tabControlInventory.SelectedIndexChanged += new System.EventHandler(this.TabControlInventorySelectedIndexChanged);
 			// 
@@ -994,6 +1026,250 @@
 			this.imageListInventory.Images.SetKeyName(23, "IconTransportation.png");
 			this.imageListInventory.Images.SetKeyName(24, "IconManaCube.png");
 			// 
+			// tabPageEquipment
+			// 
+			this.tabPageEquipment.Controls.Add(this.groupBoxCoins);
+			this.tabPageEquipment.Controls.Add(this.panel2);
+			this.tabPageEquipment.Controls.Add(this.groupBox1);
+			this.tabPageEquipment.Controls.Add(this.tabControl1);
+			this.tabPageEquipment.Location = new System.Drawing.Point(4, 22);
+			this.tabPageEquipment.Name = "tabPageEquipment";
+			this.tabPageEquipment.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPageEquipment.Size = new System.Drawing.Size(696, 363);
+			this.tabPageEquipment.TabIndex = 3;
+			this.tabPageEquipment.Text = "Equipment";
+			this.tabPageEquipment.UseVisualStyleBackColor = true;
+			// 
+			// tabControl1
+			// 
+			this.tabControl1.Location = new System.Drawing.Point(6, 6);
+			this.tabControl1.Name = "tabControl1";
+			this.tabControl1.SelectedIndex = 0;
+			this.tabControl1.Size = new System.Drawing.Size(542, 227);
+			this.tabControl1.TabIndex = 11;
+			// 
+			// groupBox1
+			// 
+			this.groupBox1.Controls.Add(this.comboBox1);
+			this.groupBox1.Controls.Add(this.label4);
+			this.groupBox1.Controls.Add(this.numericUpDown1);
+			this.groupBox1.Controls.Add(this.label5);
+			this.groupBox1.Controls.Add(this.comboBox2);
+			this.groupBox1.Controls.Add(this.label6);
+			this.groupBox1.Controls.Add(this.label7);
+			this.groupBox1.Controls.Add(this.label8);
+			this.groupBox1.Controls.Add(this.comboBox3);
+			this.groupBox1.Controls.Add(this.comboBox4);
+			this.groupBox1.Location = new System.Drawing.Point(6, 239);
+			this.groupBox1.Name = "groupBox1";
+			this.groupBox1.Size = new System.Drawing.Size(542, 118);
+			this.groupBox1.TabIndex = 12;
+			this.groupBox1.TabStop = false;
+			this.groupBox1.Text = "Item";
+			// 
+			// comboBox1
+			// 
+			this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboBox1.FormattingEnabled = true;
+			this.comboBox1.Location = new System.Drawing.Point(266, 32);
+			this.comboBox1.Name = "comboBox1";
+			this.comboBox1.Size = new System.Drawing.Size(124, 21);
+			this.comboBox1.TabIndex = 9;
+			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Location = new System.Drawing.Point(267, 16);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(47, 13);
+			this.label4.TabIndex = 8;
+			this.label4.Text = "Material:";
+			// 
+			// numericUpDown1
+			// 
+			this.numericUpDown1.Location = new System.Drawing.Point(136, 77);
+			this.numericUpDown1.Maximum = new decimal(new int[] {
+            32767,
+            0,
+            0,
+            0});
+			this.numericUpDown1.Name = "numericUpDown1";
+			this.numericUpDown1.Size = new System.Drawing.Size(124, 20);
+			this.numericUpDown1.TabIndex = 7;
+			// 
+			// label5
+			// 
+			this.label5.AutoSize = true;
+			this.label5.Location = new System.Drawing.Point(133, 60);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(36, 13);
+			this.label5.TabIndex = 6;
+			this.label5.Text = "Level:";
+			// 
+			// comboBox2
+			// 
+			this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboBox2.FormattingEnabled = true;
+			this.comboBox2.Items.AddRange(new object[] {
+            "None",
+            "Polish",
+            "Extraordinary",
+            "Exquisite",
+            "Superb",
+            "Unique",
+            "Handsome",
+            "Grand",
+            "Magic",
+            "Decorated",
+            "Exceptional"});
+			this.comboBox2.Location = new System.Drawing.Point(136, 32);
+			this.comboBox2.Name = "comboBox2";
+			this.comboBox2.Size = new System.Drawing.Size(124, 21);
+			this.comboBox2.TabIndex = 5;
+			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.Location = new System.Drawing.Point(133, 16);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(47, 13);
+			this.label6.TabIndex = 4;
+			this.label6.Text = "Modifier:";
+			// 
+			// label7
+			// 
+			this.label7.AutoSize = true;
+			this.label7.Location = new System.Drawing.Point(7, 60);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(49, 13);
+			this.label7.TabIndex = 3;
+			this.label7.Text = "Subtype:";
+			// 
+			// label8
+			// 
+			this.label8.AutoSize = true;
+			this.label8.Location = new System.Drawing.Point(6, 16);
+			this.label8.Name = "label8";
+			this.label8.Size = new System.Drawing.Size(34, 13);
+			this.label8.TabIndex = 2;
+			this.label8.Text = "Type:";
+			// 
+			// comboBox3
+			// 
+			this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboBox3.FormattingEnabled = true;
+			this.comboBox3.Location = new System.Drawing.Point(6, 76);
+			this.comboBox3.Name = "comboBox3";
+			this.comboBox3.Size = new System.Drawing.Size(124, 21);
+			this.comboBox3.TabIndex = 1;
+			// 
+			// comboBox4
+			// 
+			this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboBox4.FormattingEnabled = true;
+			this.comboBox4.Location = new System.Drawing.Point(6, 32);
+			this.comboBox4.Name = "comboBox4";
+			this.comboBox4.Size = new System.Drawing.Size(124, 21);
+			this.comboBox4.TabIndex = 0;
+			// 
+			// label9
+			// 
+			this.label9.AutoSize = true;
+			this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.label9.ForeColor = System.Drawing.Color.White;
+			this.label9.Location = new System.Drawing.Point(0, 0);
+			this.label9.Name = "label9";
+			this.label9.Padding = new System.Windows.Forms.Padding(9, 60, 9, 60);
+			this.label9.Size = new System.Drawing.Size(133, 133);
+			this.label9.TabIndex = 0;
+			this.label9.Text = "Inventory Item Preview";
+			// 
+			// panel2
+			// 
+			this.panel2.BackColor = System.Drawing.Color.DarkGray;
+			this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.panel2.Controls.Add(this.label9);
+			this.panel2.Location = new System.Drawing.Point(554, 6);
+			this.panel2.Name = "panel2";
+			this.panel2.Size = new System.Drawing.Size(136, 136);
+			this.panel2.TabIndex = 13;
+			// 
+			// groupBoxCoins
+			// 
+			this.groupBoxCoins.Controls.Add(this.nudCoinsPlatinum);
+			this.groupBoxCoins.Controls.Add(this.labelPlatinumCoins);
+			this.groupBoxCoins.Controls.Add(this.nudCoinsCopper);
+			this.groupBoxCoins.Controls.Add(this.nudCoinsSilver);
+			this.groupBoxCoins.Controls.Add(this.nudCoinsGold);
+			this.groupBoxCoins.Controls.Add(this.labelCoins);
+			this.groupBoxCoins.Location = new System.Drawing.Point(554, 148);
+			this.groupBoxCoins.Name = "groupBoxCoins";
+			this.groupBoxCoins.Size = new System.Drawing.Size(136, 209);
+			this.groupBoxCoins.TabIndex = 14;
+			this.groupBoxCoins.TabStop = false;
+			this.groupBoxCoins.Text = "Coins";
+			// 
+			// labelCoins
+			// 
+			this.labelCoins.AutoSize = true;
+			this.labelCoins.Location = new System.Drawing.Point(6, 16);
+			this.labelCoins.Name = "labelCoins";
+			this.labelCoins.Size = new System.Drawing.Size(36, 13);
+			this.labelCoins.TabIndex = 0;
+			this.labelCoins.Text = "Coins:";
+			// 
+			// nudCoinsGold
+			// 
+			this.nudCoinsGold.Location = new System.Drawing.Point(6, 32);
+			this.nudCoinsGold.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+			this.nudCoinsGold.Name = "nudCoinsGold";
+			this.nudCoinsGold.Size = new System.Drawing.Size(37, 20);
+			this.nudCoinsGold.TabIndex = 1;
+			// 
+			// nudCoinsSilver
+			// 
+			this.nudCoinsSilver.Location = new System.Drawing.Point(49, 32);
+			this.nudCoinsSilver.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+			this.nudCoinsSilver.Name = "nudCoinsSilver";
+			this.nudCoinsSilver.Size = new System.Drawing.Size(37, 20);
+			this.nudCoinsSilver.TabIndex = 2;
+			// 
+			// nudCoinsCopper
+			// 
+			this.nudCoinsCopper.Location = new System.Drawing.Point(92, 32);
+			this.nudCoinsCopper.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+			this.nudCoinsCopper.Name = "nudCoinsCopper";
+			this.nudCoinsCopper.Size = new System.Drawing.Size(38, 20);
+			this.nudCoinsCopper.TabIndex = 3;
+			// 
+			// labelPlatinumCoins
+			// 
+			this.labelPlatinumCoins.AutoSize = true;
+			this.labelPlatinumCoins.Location = new System.Drawing.Point(6, 55);
+			this.labelPlatinumCoins.Name = "labelPlatinumCoins";
+			this.labelPlatinumCoins.Size = new System.Drawing.Size(79, 13);
+			this.labelPlatinumCoins.TabIndex = 4;
+			this.labelPlatinumCoins.Text = "Platinum Coins:";
+			// 
+			// nudCoinsPlatinum
+			// 
+			this.nudCoinsPlatinum.Location = new System.Drawing.Point(6, 71);
+			this.nudCoinsPlatinum.Name = "nudCoinsPlatinum";
+			this.nudCoinsPlatinum.Size = new System.Drawing.Size(124, 20);
+			this.nudCoinsPlatinum.TabIndex = 5;
+			// 
 			// FormEditor
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1047,6 +1323,18 @@
 			((System.ComponentModel.ISupportInitialize)(this.nudItemLevel)).EndInit();
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
+			this.tabPageEquipment.ResumeLayout(false);
+			this.groupBox1.ResumeLayout(false);
+			this.groupBox1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+			this.panel2.ResumeLayout(false);
+			this.panel2.PerformLayout();
+			this.groupBoxCoins.ResumeLayout(false);
+			this.groupBoxCoins.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.nudCoinsGold)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudCoinsSilver)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudCoinsCopper)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudCoinsPlatinum)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -1129,5 +1417,27 @@
 		private System.Windows.Forms.ComboBox comboBoxItemType;
 		private System.Windows.Forms.Label labelMaterial;
 		private System.Windows.Forms.ComboBox comboBoxItemMaterial;
+		private System.Windows.Forms.TabPage tabPageEquipment;
+		private System.Windows.Forms.GroupBox groupBoxCoins;
+		private System.Windows.Forms.NumericUpDown nudCoinsPlatinum;
+		private System.Windows.Forms.Label labelPlatinumCoins;
+		private System.Windows.Forms.NumericUpDown nudCoinsCopper;
+		private System.Windows.Forms.NumericUpDown nudCoinsSilver;
+		private System.Windows.Forms.NumericUpDown nudCoinsGold;
+		private System.Windows.Forms.Label labelCoins;
+		private System.Windows.Forms.Panel panel2;
+		private System.Windows.Forms.Label label9;
+		private System.Windows.Forms.GroupBox groupBox1;
+		private System.Windows.Forms.ComboBox comboBox1;
+		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.NumericUpDown numericUpDown1;
+		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.ComboBox comboBox2;
+		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.Label label7;
+		private System.Windows.Forms.Label label8;
+		private System.Windows.Forms.ComboBox comboBox3;
+		private System.Windows.Forms.ComboBox comboBox4;
+		private System.Windows.Forms.TabControl tabControl1;
 	}
 }

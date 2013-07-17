@@ -204,6 +204,11 @@ namespace CharacterEditor
 			nudPetExperience.Value = petEquipment.Modifier;
 			textBoxPetName.Text = petEquipment.Attributes.Aggregate("", (c, a) => c + (char)a.Material);
 
+			nudCoinsGold.Value = (character.Coins / 10000) % 100;
+			nudCoinsSilver.Value = (character.Coins / 100) % 100;
+			nudCoinsCopper.Value = character.Coins % 100;
+			nudCoinsPlatinum.Value = character.PlatinumCoins;
+
 			// Sync inventory to GUI
 			for (int i = 0; i < CharacterData.InventoryCount; ++i)
 			{
@@ -284,6 +289,9 @@ namespace CharacterEditor
 			character.TierOneSkillLevel = (int)nudTierOneSkillLevel.Value;
 			character.TierTwoSkillLevel = (int)nudTierTwoSkillLevel.Value;
 			character.TierThreeSkillLevel = (int)nudTierThreeSkillLevel.Value;
+
+			character.Coins = (int)(nudCoinsGold.Value * 10000 + nudCoinsSilver.Value * 100 + nudCoinsCopper.Value);
+			character.PlatinumCoins = (int)nudCoinsPlatinum.Value;
 
 			// TODO No, just no
 			Item petEquipment = character.Equipment.Last();
