@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CharacterData.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="DirtyWatcher.cs" />
     <Compile Include="FormEditor.cs">

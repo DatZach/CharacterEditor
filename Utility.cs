@@ -32,6 +32,9 @@ namespace CharacterEditor
 
 			for (int i = 0; i < index; ++i)
 			{
+				if (i >= list.Length)
+					return 0;
+
 				if (String.IsNullOrEmpty(list[i]))
 					continue;
 

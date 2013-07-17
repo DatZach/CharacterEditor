@@ -23,16 +23,10 @@ namespace CharacterEditor
 			InitializeComponent();
 
 			comboBoxPetKind.Items.Add("None");
-			comboBoxPetKind.Items.AddRange(Item.Subtypes[0x13].Where(x => !String.IsNullOrEmpty(x)).ToArray());
-			comboBoxItemType.Items.AddRange(Item.TypeNames.Where(x => !String.IsNullOrEmpty(x)).ToArray());
-			comboBoxItemMaterial.Items.AddRange(Item.MaterialNames.Where(x => !String.IsNullOrEmpty(x)).ToArray());
-
-			// Unit testing
-			for(int i = 0; i < Item.TypeNames.Length; ++i)
-			{
-
-				Console.WriteLine("Type = {0}; Subtype = {1}", i, Utility.GoofyIndex(i, Item.TypeNames));
-			}
+			comboBoxPetKind.Items.AddRange(Constants.Subtypes[0x13].Where(x => !String.IsNullOrEmpty(x)).ToArray());
+			comboBoxItemType.Items.AddRange(Constants.TypeNames.Where(x => !String.IsNullOrEmpty(x)).ToArray());
+			comboBoxItemMaterial.Items.AddRange(Constants.MaterialNames.Where(x => !String.IsNullOrEmpty(x)).ToArray());
+			comboBoxItemModifier.Items.AddRange(Constants.ItemModifiers.Where(x => !String.IsNullOrEmpty(x)).ToArray());
 		}
 
 		private void FormEditorShown(object sender, EventArgs e)
@@ -294,7 +288,7 @@ namespace CharacterEditor
 			// TODO No, just no
 			Item petEquipment = character.Equipment.Last();
 			petEquipment.Type = (byte)(comboBoxPetKind.SelectedIndex <= 0 ? 0x00 : 0x13);
-			petEquipment.Subtype = (byte)Utility.GoofyIndex(comboBoxPetKind.SelectedIndex - 1, Item.Subtypes[0x13]);
+			petEquipment.Subtype = (byte)Utility.GoofyIndex(comboBoxPetKind.SelectedIndex - 1, Constants.Subtypes[0x13]);
 			petEquipment.Level = (short)nudPetLevel.Value;
 			petEquipment.Modifier = (short)nudPetExperience.Value;
 
@@ -357,13 +351,13 @@ namespace CharacterEditor
 
 			// Type is normalized now, Subtypes is not normalized
 
-			int subtypeIndex = Utility.GoofyIndex(comboBoxItemType.SelectedIndex, Item.TypeNames);
+			int subtypeIndex = Utility.GoofyIndex(comboBoxItemType.SelectedIndex, Constants.TypeNames);
 
 			comboBoxItemSubtype.Items.Clear();
 
 			if (subtypeIndex > 0)
 			{
-				comboBoxItemSubtype.Items.AddRange(Item.Subtypes[subtypeIndex].Where(x => !String.IsNullOrEmpty(x)).ToArray());
+				comboBoxItemSubtype.Items.AddRange(Constants.Subtypes[subtypeIndex].Where(x => !String.IsNullOrEmpty(x)).ToArray());
 				comboBoxItemSubtype.SelectedIndex = 0;
 			}
 		}
@@ -375,20 +369,45 @@ namespace CharacterEditor
 
 		private void ListViewInventorySelectedIndexChanged(object sender, EventArgs e)
 		{
+			Item item = GetSelectedItem();
+			if (item == null)
+				return;
+
+			comboBoxItemType.SelectedIndex = Utility.NormalizeIndex(item.Type, Constants.TypeNames);
+			comboBoxItemSubtype.SelectedIndex = item.Type == 0 ? -1 : Utility.NormalizeIndex(item.Subtype, Constants.Subtypes[item.Type]);
+			comboBoxItemMaterial.SelectedIndex = Utility.NormalizeIndex(item.Material, Constants.MaterialNames);
+			comboBoxItemModifier.SelectedIndex = item.Modifier & Constants.ItemModifiers.Length;
+			nudItemLevel.Value = item.Level;
+		}
+
+		private void NudItemLevelValueChanged(object sender, EventArgs e)
+		{
+			Item item = GetSelectedItem();
+			if (item == null)
+				return;
+
+			item.Level = (short)nudItemLevel.Value;
+		}
+
+		private void ComboBoxItemMaterialSelectedIndexChanged(object sender, EventArgs e)
+		{
+			Item item = GetSelectedItem();
+			if (item == null)
+				return;
+
+			item.Material = (byte)Utility.GoofyIndex(comboBoxItemMaterial.SelectedIndex, Constants.MaterialNames);
+		}
+
+		private Item GetSelectedItem()
+		{
 			// TODO Unsafish
 			ListView listView = (ListView)tabControlInventory.SelectedTab.Controls[0];
 			if (listView.SelectedItems.Count == 0)
-				return;
+				return null;
 
 			ListViewItem selectedItem = listView.SelectedItems[0];
-			Item item = (Item)selectedItem.Tag;
 
-			// TODO Indices don't match up with combobox because of missing/null entries in game
-			comboBoxItemType.SelectedIndex = Utility.NormalizeIndex(item.Type, Item.TypeNames);
-			comboBoxItemSubtype.SelectedIndex = Utility.NormalizeIndex(item.Subtype, Item.Subtypes[item.Type]);
-			comboBoxItemMaterial.SelectedIndex = Utility.NormalizeIndex(item.Material, Item.MaterialNames);
-			//comboBoxItemModifier.SelectedIndex = item.Modifier & 0x0F;
-			nudItemLevel.Value = item.Level;
+			return (Item)selectedItem.Tag;
 		}
 	}
 }

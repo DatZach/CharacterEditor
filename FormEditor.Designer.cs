@@ -823,6 +823,7 @@
 			this.comboBoxItemMaterial.Name = "comboBoxItemMaterial";
 			this.comboBoxItemMaterial.Size = new System.Drawing.Size(124, 21);
 			this.comboBoxItemMaterial.TabIndex = 9;
+			this.comboBoxItemMaterial.SelectedIndexChanged += new System.EventHandler(this.ComboBoxItemMaterialSelectedIndexChanged);
 			// 
 			// labelMaterial
 			// 
@@ -836,9 +837,15 @@
 			// nudItemLevel
 			// 
 			this.nudItemLevel.Location = new System.Drawing.Point(136, 77);
+			this.nudItemLevel.Maximum = new decimal(new int[] {
+            32767,
+            0,
+            0,
+            0});
 			this.nudItemLevel.Name = "nudItemLevel";
 			this.nudItemLevel.Size = new System.Drawing.Size(124, 20);
 			this.nudItemLevel.TabIndex = 7;
+			this.nudItemLevel.ValueChanged += new System.EventHandler(this.NudItemLevelValueChanged);
 			// 
 			// label3
 			// 
