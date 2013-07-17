@@ -2,7 +2,7 @@ using System.IO;
 
 namespace CharacterEditor.Character
 {
-	public class ItemAttribute : ICharacterDataBlob
+	public class ItemAttribute : ICharacterData
 	{
 		public byte OffsetX;
 		public byte OffsetY;

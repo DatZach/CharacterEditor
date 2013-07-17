@@ -55,7 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Character\Character.cs" />
-    <Compile Include="Character\ICharacterDataBlob.cs" />
+    <Compile Include="Character\ICharacterData.cs" />
     <Compile Include="Character\Inventory.cs" />
     <Compile Include="Character\Item.cs" />
     <Compile Include="Character\ItemAttribute.cs" />

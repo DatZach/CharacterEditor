@@ -4,7 +4,7 @@ using System.IO;
 
 namespace CharacterEditor.Character
 {
-	public class Inventory : ICharacterDataBlob
+	public class Inventory : ICharacterData
 	{
 		public const int DefaultItemCount = 50;
 

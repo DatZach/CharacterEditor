@@ -2,7 +2,7 @@ using System.IO;
 
 namespace CharacterEditor.Character
 {
-	public class World : ICharacterDataBlob
+	public class World : ICharacterData
 	{
 		public int Seed;
 		public string Name;

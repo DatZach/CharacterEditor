@@ -62,6 +62,7 @@
 			"Mana Cubes"
 		};
 
+		// TODO Technically has subtypes (Will probably crash on some items)
 		public static readonly string[] ItemModifiers = new []
 		{
 			"None",

@@ -73,9 +73,7 @@ Compressed Stream
 
 	[ Skills ]
 	
-	[ This draws 0 - 3 cylinders under XP, unknown use, PlayerBase + 1164h ]
-	00 4	Unknown Skill? (Should be set to 0)
-	
+	00 4	Mana Cubes
 	04 4	Skill Count
 	08 4	Pet Master Skill Level
 	0C 4	Pet Riding Level

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace CharacterEditor.Character
 {
-	public class Item : ICharacterDataBlob
+	public class Item : ICharacterData
 	{
 		public const int AttributeCount = 32;
 
