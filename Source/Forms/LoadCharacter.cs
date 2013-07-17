@@ -2,20 +2,21 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
-using CharacterEditor.Character;
 using Microsoft.Win32;
 
 namespace CharacterEditor.Forms
 {
-	public partial class FormLoadCharacter : Form
+	public partial class LoadCharacter : Form
 	{
 		// TODO Backup database just in case
+		// TODO Add character delete and add?
+		// TODO Add character.db merging?
 
 		public List<Character.Character> Characters { get; private set; }
 		public Character.Character SelectedCharacter { get; private set; }
 		private readonly Database database;
 
-		public FormLoadCharacter(Database database)
+		public LoadCharacter(Database database)
 		{
 			Characters = new List<Character.Character>();
 			this.database = database;
@@ -66,8 +67,8 @@ namespace CharacterEditor.Forms
 			}
 			catch (Exception e)
 			{
-				FormException formException = new FormException("Database appears to be corrupted!", e);
-				formException.ShowDialog(this);
+				ExceptionDialog exceptionDialog = new ExceptionDialog("Database appears to be corrupted!", e);
+				exceptionDialog.ShowDialog(this);
 
 				return;
 			}
@@ -89,8 +90,8 @@ namespace CharacterEditor.Forms
 			}
 			catch (Exception e)
 			{
-				FormException formException = new FormException("Database appears to be corrupted!", e);
-				formException.ShowDialog(this);
+				ExceptionDialog exceptionDialog = new ExceptionDialog("Database appears to be corrupted!", e);
+				exceptionDialog.ShowDialog(this);
 
 				Characters.Clear();
 				listBoxCharacters.Items.Clear();

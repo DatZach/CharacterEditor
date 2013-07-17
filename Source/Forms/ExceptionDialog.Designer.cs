@@ -1,6 +1,6 @@
 ﻿namespace CharacterEditor.Forms
 {
-	partial class FormException
+	partial class ExceptionDialog
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -28,7 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormException));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExceptionDialog));
 			this.labelExceptionMessage = new System.Windows.Forms.Label();
 			this.buttonClose = new System.Windows.Forms.Button();
 			this.textBoxExceptionInformation = new System.Windows.Forms.TextBox();
@@ -105,7 +105,7 @@
 			this.buttonContinue.UseVisualStyleBackColor = true;
 			this.buttonContinue.Click += new System.EventHandler(this.ButtonContinueClick);
 			// 
-			// FormException
+			// ExceptionDialog
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -117,7 +117,7 @@
 			this.Controls.Add(this.textBoxExceptionInformation);
 			this.Controls.Add(this.buttonClose);
 			this.Controls.Add(this.labelExceptionMessage);
-			this.Name = "FormException";
+			this.Name = "ExceptionDialog";
 			this.Text = "Character Editor Exception Occurred";
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormExceptionClosed);
 			this.ResumeLayout(false);

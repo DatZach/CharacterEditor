@@ -6,17 +6,26 @@ using CharacterEditor.Character;
 
 namespace CharacterEditor.Forms
 {
-	// TODO Add character delete and add?
-	// TODO Add character.db merging?
-
-	public partial class FormEditor : Form
+	public partial class Editor : Form
 	{
 		private readonly Database database;
 		private Character.Character character;
 		private DirtyWatcher dirtyWatcher;
 		private Thread dirtyThread;
 
-		public FormEditor()
+		private Item SelectedItem
+		{
+			get
+			{
+				ListView listView = tabControlInventory.SelectedTab.Controls.OfType<ListView>().FirstOrDefault();
+				if (listView == null || listView.SelectedItems.Count == 0)
+					return null;
+
+				return (Item)listView.SelectedItems[0].Tag;
+			}
+		}
+
+		public Editor()
 		{
 			database = new Database();
 
@@ -69,6 +78,31 @@ namespace CharacterEditor.Forms
 			dirtyThread.Start();
 		}
 
+		private void FormEditorClosing(object sender, FormClosingEventArgs e)
+		{
+			if (dirtyWatcher == null || !dirtyWatcher.Dirty)
+				return;
+
+			DialogResult result = MessageBox.Show(this, "Would you like to save changes before closing?", "Character Editor",
+												  MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+			switch (result)
+			{
+				case DialogResult.Yes:
+					SyncGuiToCharacterData();
+					character.Save(database);
+					break;
+
+				case DialogResult.No:
+					break;
+
+				case DialogResult.Cancel:
+					e.Cancel = true;
+					return;
+			}
+
+			dirtyThread.Abort();
+		}
+
 		private void ButtonSaveCharacterClick(object sender, EventArgs e)
 		{
 			SyncGuiToCharacterData();
@@ -76,76 +110,6 @@ namespace CharacterEditor.Forms
 			if (!character.Save(database))
 				MessageBox.Show(this, "Something went wrong trying to save your character to the database.", "Character Editor",
 								MessageBoxButtons.OK);
-		}
-
-		private void ButtonHairColorClick(object sender, EventArgs e)
-		{
-			ColorDialog colorDialog = new ColorDialog
-			{
-				Color = buttonHairColor.BackColor,
-				FullOpen = true
-			};
-
-			colorDialog.ShowDialog(this);
-
-			buttonHairColor.BackColor = colorDialog.Color;
-		}
-
-		private void ComboBoxRaceSelectedIndexChanged(object sender, EventArgs e)
-		{
-			int[,] faceMaximums = new[,]
-			{
-				{ 6, 6 },
-				{ 4, 6 },
-				{ 5, 5 },
-				{ 5, 4 },
-				{ 5, 6 },
-				{ 2, 5 },
-				{ 6, 6 },
-				{ 5, 4 }
-			};
-
-			int[,] haircutMaximums = new[,]
-			{
-				{ 15, 7 },
-				{ 10, 10 },
-				{ 3, 5 },
-				{ 10, 4 },
-				{ 6, 6 },
-				{ 6, 6 },
-				{ 6, 6 },
-				{ 5, 4 }
-			};
-
-			if (comboBoxRace.SelectedIndex == -1 || comboBoxGender.SelectedIndex == -1)
-				return;
-
-			nudFace.Maximum = faceMaximums[comboBoxRace.SelectedIndex, comboBoxGender.SelectedIndex];
-			nudHair.Maximum = haircutMaximums[comboBoxRace.SelectedIndex, comboBoxGender.SelectedIndex];
-		}
-
-		private void ComboBoxClassSelectedIndexChanged(object sender, EventArgs e)
-		{
-			object[][] specializations = new object[][]
-			{
-				new[] { "Berserker", "Guardian" },
-				new[] { "Sniper", "Scout" },
-				new[] { "Fire Mage", "Water Mage" },
-				new[] { "Assassin", "Ninja" }
-			};
-
-			if (comboBoxClass.SelectedIndex == -1)
-				return;
-
-			comboBoxSpecialization.Items.Clear();
-			comboBoxSpecialization.Items.AddRange(specializations[comboBoxClass.SelectedIndex]);
-
-			comboBoxSpecialization.SelectedIndex = character.Specialization;
-		}
-
-		private void NudLevelValueChanged(object sender, EventArgs e)
-		{
-			nudPetLevel.Maximum = nudLevel.Value;
 		}
 
 		private void ButtonLoadNewCharacterClick(object sender, EventArgs e)
@@ -326,227 +290,21 @@ namespace CharacterEditor.Forms
 		{
 			Enabled = false;
 
-			FormLoadCharacter formLoadCharacter = new FormLoadCharacter(database)
+			LoadCharacter loadCharacter = new LoadCharacter(database)
 			{
 				StartPosition = FormStartPosition.CenterParent
 			};
 
-			DialogResult result = formLoadCharacter.ShowDialog(this);
+			DialogResult result = loadCharacter.ShowDialog(this);
 
 			if (result == DialogResult.OK)
 			{
-				character = formLoadCharacter.SelectedCharacter;
+				character = loadCharacter.SelectedCharacter;
 
 				SyncCharacterDataToGui();
 			}
 
 			Enabled = character != null;
-		}
-
-		private void FormEditorClosing(object sender, FormClosingEventArgs e)
-		{
-			if (dirtyWatcher == null || !dirtyWatcher.Dirty)
-				return;
-
-			DialogResult result = MessageBox.Show(this, "Would you like to save changes before closing?", "Character Editor",
-												  MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-			switch (result)
-			{
-				case DialogResult.Yes:
-					SyncGuiToCharacterData();
-					character.Save(database);
-					break;
-
-				case DialogResult.No:
-					break;
-
-				case DialogResult.Cancel:
-					e.Cancel = true;
-					return;
-			}
-
-			dirtyThread.Abort();
-		}
-
-		private void ComboBoxItemTypeSelectedIndexChanged(object sender, EventArgs e)
-		{
-			if (comboBoxItemType.SelectedIndex == -1)
-				comboBoxItemType.SelectedIndex = 0;
-
-			// Type is normalized now, ItemSubtypes is not normalized
-
-			int subtypeIndex = Utility.GoofyIndex(comboBoxItemType.SelectedIndex, Constants.ItemTypeNames);
-
-			comboBoxItemSubtype.Items.Clear();
-
-			if (subtypeIndex > 0)
-			{
-				comboBoxItemSubtype.Items.AddRange(Constants.ItemSubtypes[subtypeIndex].Where(x => !String.IsNullOrEmpty(x)).ToArray());
-				comboBoxItemSubtype.SelectedIndex = 0;
-			}
-		}
-
-		private void TabControlInventorySelectedIndexChanged(object sender, EventArgs e)
-		{
-
-		}
-
-		private void ListViewInventorySelectedIndexChanged(object sender, EventArgs e)
-		{
-			Item item = GetSelectedItem();
-			if (item == null)
-				return;
-
-			comboBoxItemType.SelectedIndex = Utility.NormalizeIndex(item.Type, Constants.ItemTypeNames);
-			comboBoxItemSubtype.SelectedIndex = item.Type == 0 ? -1 : Utility.NormalizeIndex(item.Subtype, Constants.ItemSubtypes[item.Type]);
-			comboBoxItemMaterial.SelectedIndex = Utility.NormalizeIndex(item.Material, Constants.ItemMaterialNames);
-			comboBoxItemModifier.SelectedIndex = item.Modifier & Constants.ItemModifiers.Length;
-			nudItemLevel.Value = item.Level;
-		}
-
-		private void NudItemLevelValueChanged(object sender, EventArgs e)
-		{
-			Item item = GetSelectedItem();
-			if (item == null)
-				return;
-
-			item.Level = (short)nudItemLevel.Value;
-		}
-
-		private void ComboBoxItemMaterialSelectedIndexChanged(object sender, EventArgs e)
-		{
-			Item item = GetSelectedItem();
-			if (item == null)
-				return;
-
-			item.Material = (byte)Utility.GoofyIndex(comboBoxItemMaterial.SelectedIndex, Constants.ItemMaterialNames);
-		}
-
-		private Item GetSelectedItem()
-		{
-			// TODO Unsafish
-			ListView listView = (ListView)tabControlInventory.SelectedTab.Controls[0];
-			if (listView.SelectedItems.Count == 0)
-				return null;
-
-			ListViewItem selectedItem = listView.SelectedItems[0];
-
-			return (Item)selectedItem.Tag;
-		}
-
-		private TabPage CreateEquipmentTab(int i)
-		{
-			TabPage tabPage =
-				new TabPage(
-					new[ ]
-					{
-						"", "Neck", "Chest", "Feet", "Hands", "Shoulder Armor", "Left Weapon", "Right Weapon", "Left Ring", "Right Ring",
-						"Light", "Special", "Pet"
-					}[i]);
-
-			ComboBox comboBoxEquipmentItemMaterial = new ComboBox
-			{
-				DropDownStyle = ComboBoxStyle.DropDownList,
-				Location = new System.Drawing.Point(266, 32),
-				Size = new System.Drawing.Size(124, 21)
-			};
-
-			Label labelEquipmentItemMaterial = new Label
-			{
-				AutoSize = true,
-				Location = new System.Drawing.Point(267, 16),
-				Size = new System.Drawing.Size(47, 13),
-				Text = "Material:"
-			};
-
-			NumericUpDown nudEquipmentItemLevel = new NumericUpDown
-			{
-				Location = new System.Drawing.Point(136, 77),
-				Maximum = 0x7FFF,
-				Size = new System.Drawing.Size(124, 20)
-			};
-
-			Label labelEquipmentItemLevel = new Label
-			{
-				AutoSize = true,
-				Location = new System.Drawing.Point(133, 60),
-				Size = new System.Drawing.Size(36, 13),
-				Text = "Level:"
-			};
-
-			ComboBox comboBoxEquipmentItemModifier = new ComboBox
-			{
-				DropDownStyle = ComboBoxStyle.DropDownList,
-				Location = new System.Drawing.Point(136, 32),
-				Size = new System.Drawing.Size(124, 21),
-			};
-
-			comboBoxEquipmentItemModifier.Items.AddRange(Constants.ItemModifiers.Where(x => !String.IsNullOrEmpty(x)).ToArray());
-
-			Label labelEquipmentItemModifier = new Label
-			{
-				AutoSize = true,
-				Location = new System.Drawing.Point(133, 16),
-				Size = new System.Drawing.Size(47, 13),
-				Text = "Modifier:"
-			};
-
-			Label labelEquipmentItemSubtype = new Label
-			{
-				AutoSize = true,
-				Location = new System.Drawing.Point(7, 60),
-				Size = new System.Drawing.Size(49, 13),
-				Text = "Subtype:"
-			};
-
-			Label labelEquipmentItemType = new Label
-			{
-				AutoSize = true,
-				Location = new System.Drawing.Point(6, 16),
-				Size = new System.Drawing.Size(34, 13),
-				Text = "Type:"
-			};
-
-			ComboBox comboBoxEquipmentItemSubtype = new ComboBox
-			{
-				DropDownStyle = ComboBoxStyle.DropDownList,
-				Location = new System.Drawing.Point(6, 76),
-				Size = new System.Drawing.Size(124, 21)
-			};
-
-			ComboBox comboBoxEquipmentItemType = new ComboBox
-			{
-				DropDownStyle = ComboBoxStyle.DropDownList,
-				Location = new System.Drawing.Point(6, 32),
-				Size = new System.Drawing.Size(124, 21)
-			};
-
-			GroupBox groupBoxEquipmentItem = new GroupBox
-			{
-				Enabled = false,
-				Location = new System.Drawing.Point(6, 6),
-				Size = new System.Drawing.Size(522, 189),
-				TabStop = false,
-				Text = "Item"
-			};
-
-			groupBoxEquipmentItem.Controls.AddRange(new Control[]
-			{
-				comboBoxEquipmentItemMaterial,
-				labelEquipmentItemMaterial,
-				nudEquipmentItemLevel,
-				labelEquipmentItemLevel,
-				comboBoxEquipmentItemModifier,
-				labelEquipmentItemModifier,
-				labelEquipmentItemSubtype,
-				labelEquipmentItemType,
-				comboBoxEquipmentItemSubtype,
-				comboBoxEquipmentItemType
-			});
-
-			tabPage.Controls.Add(groupBoxEquipmentItem);
-
-			return tabPage;
 		}
 	}
 }

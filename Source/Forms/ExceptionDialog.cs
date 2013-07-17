@@ -4,9 +4,9 @@ using System.Windows.Forms;
 
 namespace CharacterEditor.Forms
 {
-	public partial class FormException : Form
+	public partial class ExceptionDialog : Form
 	{
-		public FormException(string humanMessage, Exception exception)
+		public ExceptionDialog(string humanMessage, Exception exception)
 		{
 			InitializeComponent();
 

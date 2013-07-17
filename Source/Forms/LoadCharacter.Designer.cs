@@ -1,6 +1,6 @@
 ﻿namespace CharacterEditor.Forms
 {
-	partial class FormLoadCharacter
+	partial class LoadCharacter
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -52,7 +52,7 @@
 			this.listBoxCharacters.TabIndex = 0;
 			this.listBoxCharacters.SelectedIndexChanged += new System.EventHandler(this.ListBoxCharactersSelectedIndexChanged);
 			// 
-			// FormLoadCharacter
+			// LoadCharacter
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -61,7 +61,7 @@
 			this.Controls.Add(this.buttonLoadDatabase);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.MaximizeBox = false;
-			this.Name = "FormLoadCharacter";
+			this.Name = "LoadCharacter";
 			this.Text = "Open a database";
 			this.Load += new System.EventHandler(this.FormLoadCharacterLoad);
 			this.ResumeLayout(false);

@@ -17,7 +17,7 @@ namespace CharacterEditor
 			{
 				Exception exception = (Exception)args.ExceptionObject;
 
-				FormException formException = new FormException("An unrecoverable problem has occurred!", exception);
+				ExceptionDialog formException = new ExceptionDialog("An unrecoverable problem has occurred!", exception);
 				formException.ShowDialog();
 
 				if (args.IsTerminating)
@@ -33,7 +33,7 @@ namespace CharacterEditor
 
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new FormEditor());
+			Application.Run(new Editor());
 		}
 	}
 }

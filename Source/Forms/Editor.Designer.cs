@@ -1,6 +1,6 @@
 ﻿namespace CharacterEditor.Forms
 {
-	partial class FormEditor
+	partial class Editor
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -29,7 +29,7 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEditor));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Editor));
 			this.textBoxName = new System.Windows.Forms.TextBox();
 			this.groupBoxAppearance = new System.Windows.Forms.GroupBox();
 			this.buttonHairColor = new System.Windows.Forms.Button();
@@ -1119,7 +1119,7 @@
 			this.imageListInventory.Images.SetKeyName(23, "IconTransportation.png");
 			this.imageListInventory.Images.SetKeyName(24, "IconManaCube.png");
 			// 
-			// FormEditor
+			// Editor
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1127,7 +1127,7 @@
 			this.Controls.Add(this.splitContainerWorkspace);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.MaximizeBox = false;
-			this.Name = "FormEditor";
+			this.Name = "Editor";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Character Editor";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormEditorClosing);
