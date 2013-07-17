@@ -1,11 +1,24 @@
 ﻿using System;
 using System.Linq;
+using System.Windows.Forms;
 using CharacterEditor.Character;
 
 namespace CharacterEditor.Forms
 {
 	public partial class Editor
 	{
+		private Item SelectedItem
+		{
+			get
+			{
+				ListView listView = tabControlInventory.SelectedTab.Controls.OfType<ListView>().FirstOrDefault();
+				if (listView == null || listView.SelectedItems.Count == 0)
+					return null;
+
+				return (Item)listView.SelectedItems[0].Tag;
+			}
+		}
+
 		private void ComboBoxItemTypeSelectedIndexChanged(object sender, EventArgs e)
 		{
 			if (comboBoxItemType.SelectedIndex == -1)

@@ -70,6 +70,10 @@
     <Compile Include="Forms\Editor.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Editor.Data.cs">
+      <DependentUpon>Editor.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Editor.Designer.cs">
       <DependentUpon>Editor.cs</DependentUpon>
     </Compile>

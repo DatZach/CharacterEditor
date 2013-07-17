@@ -23,9 +23,9 @@ namespace CharacterEditor.Character
 		public int DatabaseIndex { get; private set; }
 
 		public int EntityId { get; private set; }
-		public double PositionX { get; private set; }
-		public double PositionY { get; private set; }
-		public double PositionZ { get; private set; }
+		public long PositionX { get; private set; }
+		public long PositionY { get; private set; }
+		public long PositionZ { get; private set; }
 		public float Pitch { get; private set; }
 		public float Roll { get; private set; }
 		public float Yaw { get; private set; }
@@ -70,13 +70,6 @@ namespace CharacterEditor.Character
 		private int unknown4;
 		private int unknown5;
 
-		// Entity IDs found at: https://docs.google.com/spreadsheet/lv?key=0As7kattQ9kwbdFp6ZTlzV0R1RVRaZklBbmZZb2lBZ2c&f=true&noheader=true&gid=5
-		// TODO Is this even used anymore?
-		public static readonly List<byte> PetKinds = new List<byte>
-		{
-			0, 19, 20, 22, 23, 25, 26, 27, 28, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 50, 53, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 73, 74, 75, 85, 86, 87, 88, 89, 90, 91, 92, 93, 98, 99, 102, 103, 104, 105, 106, 151
-		};
-
 		public Character(int index)
 		{
 			DatabaseIndex = index;
@@ -93,9 +86,6 @@ namespace CharacterEditor.Character
 
 			using (BinaryReader reader = new BinaryReader(new MemoryStream(characterData)))
 				Read(reader);
-
-			using (BinaryWriter writer = new BinaryWriter(new FileStream("read.bin", FileMode.Create)))
-				writer.Write(characterData);
 		}
 
 		public bool Save(Database database)
@@ -105,18 +95,15 @@ namespace CharacterEditor.Character
 			using (BinaryWriter writer = new BinaryWriter(saveDataStream))
 				Write(writer);
 
-			using (BinaryWriter writer = new BinaryWriter(new FileStream("wrote.bin", FileMode.Create)))
-				writer.Write(saveDataStream.ToArray());
-
 			return database.WriteCharacterBlob(DatabaseIndex, saveDataStream.ToArray());
 		}
 
 		public void Read(BinaryReader reader)
 		{
 			EntityId = reader.ReadInt32();
-			PositionX = reader.ReadDouble(); // TODO Might need to change this to long to prevent NaN exceptions being thrown
-			PositionY = reader.ReadDouble();
-			PositionZ = reader.ReadDouble();
+			PositionX = reader.ReadInt64();
+			PositionY = reader.ReadInt64();
+			PositionZ = reader.ReadInt64();
 			Pitch = reader.ReadSingle();
 			Roll = reader.ReadSingle();
 			Yaw = reader.ReadSingle();
@@ -216,7 +203,7 @@ namespace CharacterEditor.Character
 			foreach (Item equipment in Equipment)
 				equipment.Write(writer);
 
-			writer.WriteLongString(Name); // Should be 0xE76
+			writer.WriteLongString(Name);
 			writer.Write(Race);
 			writer.Write(Gender);
 			writer.Skip(3);
