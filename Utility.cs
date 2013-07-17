@@ -9,20 +9,19 @@ namespace CharacterEditor
 	{
 		public static int GoofyIndex(int index, string[] list)
 		{
-			int i = 0;
-			int result = 0;
+			int result = index;
 
-			do
+			for (int i = 0, j = 0; i <= index; ++i, ++j)
 			{
-				while (String.IsNullOrEmpty(list[i]))
+				if (j >= list.Length)
+					break;
+
+				while (String.IsNullOrEmpty(list[j]))
 				{
 					++result;
-					++i;
+					++j;
 				}
-
-				if (i <= index)
-					++result;
-			} while (i++ <= index && i < list.Length);
+			}
 
 			return result;
 		}

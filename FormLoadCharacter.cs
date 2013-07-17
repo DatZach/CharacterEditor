@@ -9,7 +9,6 @@ namespace CharacterEditor
 {
 	public partial class FormLoadCharacter : Form
 	{
-		// TODO Exception form
 		// TODO Backup database just in case
 
 		public List<CharacterData> Characters { get; private set; }

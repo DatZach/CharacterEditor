@@ -294,7 +294,7 @@ namespace CharacterEditor
 			// TODO No, just no
 			Item petEquipment = character.Equipment.Last();
 			petEquipment.Type = (byte)(comboBoxPetKind.SelectedIndex <= 0 ? 0x00 : 0x13);
-			petEquipment.Subtype = (byte)(Utility.GoofyIndex(comboBoxPetKind.SelectedIndex, Item.Subtypes[0x13]) - 1);
+			petEquipment.Subtype = (byte)Utility.GoofyIndex(comboBoxPetKind.SelectedIndex - 1, Item.Subtypes[0x13]);
 			petEquipment.Level = (short)nudPetLevel.Value;
 			petEquipment.Modifier = (short)nudPetExperience.Value;
 
@@ -360,8 +360,12 @@ namespace CharacterEditor
 			int subtypeIndex = Utility.GoofyIndex(comboBoxItemType.SelectedIndex, Item.TypeNames);
 
 			comboBoxItemSubtype.Items.Clear();
-			comboBoxItemSubtype.Items.AddRange(Item.Subtypes[subtypeIndex].Where(x => !String.IsNullOrEmpty(x)).ToArray());
-			comboBoxItemSubtype.SelectedIndex = 0;
+
+			if (subtypeIndex > 0)
+			{
+				comboBoxItemSubtype.Items.AddRange(Item.Subtypes[subtypeIndex].Where(x => !String.IsNullOrEmpty(x)).ToArray());
+				comboBoxItemSubtype.SelectedIndex = 0;
+			}
 		}
 
 		private void TabControlInventorySelectedIndexChanged(object sender, EventArgs e)
