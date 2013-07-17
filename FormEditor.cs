@@ -21,6 +21,18 @@ namespace CharacterEditor
 			database = new Database();
 
 			InitializeComponent();
+
+			comboBoxPetKind.Items.Add("None");
+			comboBoxPetKind.Items.AddRange(Item.Subtypes[0x13].Where(x => !String.IsNullOrEmpty(x)).ToArray());
+			comboBoxItemType.Items.AddRange(Item.TypeNames.Where(x => !String.IsNullOrEmpty(x)).ToArray());
+			comboBoxItemMaterial.Items.AddRange(Item.MaterialNames.Where(x => !String.IsNullOrEmpty(x)).ToArray());
+
+			// Unit testing
+			for(int i = 0; i < Item.TypeNames.Length; ++i)
+			{
+
+				Console.WriteLine("Type = {0}; Subtype = {1}", i, Utility.GoofyIndex(i, Item.TypeNames));
+			}
 		}
 
 		private void FormEditorShown(object sender, EventArgs e)
@@ -120,7 +132,7 @@ namespace CharacterEditor
 
 		private void ComboBoxClassSelectedIndexChanged(object sender, EventArgs e)
 		{
-			string[][] specializations = new[]
+			object[][] specializations = new object[][]
 			{
 				new[] { "Berserker", "Guardian" },
 				new[] { "Sniper", "Scout" },
@@ -281,8 +293,8 @@ namespace CharacterEditor
 
 			// TODO No, just no
 			Item petEquipment = character.Equipment.Last();
-			petEquipment.Type = (byte)(comboBoxPetKind.SelectedIndex == -1 ? 0x00 : 0x13);
-			petEquipment.Subtype = (byte)comboBoxPetKind.SelectedIndex;
+			petEquipment.Type = (byte)(comboBoxPetKind.SelectedIndex <= 0 ? 0x00 : 0x13);
+			petEquipment.Subtype = (byte)(Utility.GoofyIndex(comboBoxPetKind.SelectedIndex, Item.Subtypes[0x13]) - 1);
 			petEquipment.Level = (short)nudPetLevel.Value;
 			petEquipment.Modifier = (short)nudPetExperience.Value;
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using Microsoft.Win32;
 
 namespace CharacterEditor
 {
@@ -87,13 +88,8 @@ namespace CharacterEditor
 			}
 			catch (Exception exception)
 			{
-				StringBuilder message = new StringBuilder();
-				message.AppendLine("Database appears to be corrupted!");
-				message.AppendLine(exception.Message);
-				message.AppendLine(exception.Source);
-				message.AppendLine(exception.StackTrace);
-
-				MessageBox.Show(this, message.ToString(), "Character Editor", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				FormException formException = new FormException("Database appears to be corrupted!", exception);
+				formException.ShowDialog(this);
 
 				Characters.Clear();
 				listBoxCharacters.Items.Clear();
@@ -103,6 +99,11 @@ namespace CharacterEditor
 		private string FindCubeWorldDirectory()
 		{
 			const string cubeWorldSaveDirectory = @"\Cube World\Save";
+
+			// Check if it exists in Registry
+			string registryPath = FindCubeWorldDirectoryFromRegistry();
+			if (!String.IsNullOrEmpty(registryPath))
+				return registryPath;
 
 			// Check if it exists in Program Files (32bit)
 			string programFiles = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86);
@@ -115,6 +116,64 @@ namespace CharacterEditor
 				return desktop + cubeWorldSaveDirectory;
 
 			// Can't find it
+			return String.Empty;
+		}
+
+		// Credit to Ricowan
+		private string FindCubeWorldDirectoryFromRegistry()
+		{
+			// Look in 64bit local machine
+			RegistryKey key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall");
+			if (key != null)
+			{
+				foreach (String keyName in key.GetSubKeyNames())
+				{
+					RegistryKey subKey = key.OpenSubKey(keyName);
+					if (subKey == null)
+						continue;
+
+					string displayName = (string)subKey.GetValue("DisplayName");
+
+					if (!String.IsNullOrEmpty(displayName) && displayName.StartsWith("Cube World"))
+						return subKey.GetValue("InstallLocation") + @"\Save";
+				}
+			}
+
+			// Look in 32bit local machine
+			key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall");
+			if (key != null)
+			{
+				foreach (String keyName in key.GetSubKeyNames())
+				{
+					RegistryKey subKey = key.OpenSubKey(keyName);
+					if (subKey == null)
+						continue;
+
+					string displayName = (string)subKey.GetValue("DisplayName");
+
+					if (!String.IsNullOrEmpty(displayName) && displayName.StartsWith("Cube World"))
+						return subKey.GetValue("InstallLocation") + @"\Save";
+				}
+			}
+
+			// Look in CurrentUser
+			key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall");
+			if (key != null)
+			{
+				foreach (string keyName in key.GetSubKeyNames())
+				{
+					RegistryKey subKey = key.OpenSubKey(keyName);
+					if (subKey == null)
+						continue;
+
+					string displayName = (string)subKey.GetValue("DisplayName");
+
+					if (!String.IsNullOrEmpty(displayName) && displayName.StartsWith("Cube World"))
+						return subKey.GetValue("InstallLocation") + @"\Save";
+				}
+			}
+
+			// Cannot find it
 			return String.Empty;
 		}
 	}

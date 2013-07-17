@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.IO;
 using System.Text;
 
@@ -8,16 +9,20 @@ namespace CharacterEditor
 	{
 		public static int GoofyIndex(int index, string[] list)
 		{
+			int i = 0;
 			int result = 0;
 
-			for (int i = 0; index > 0 || list[i] == null; ++i, --index)
+			do
 			{
-				if (string.IsNullOrEmpty(list[i]))
+				while (String.IsNullOrEmpty(list[i]))
+				{
 					++result;
+					++i;
+				}
 
-				if (index != 0)
+				if (i <= index)
 					++result;
-			}
+			} while (i++ <= index && i < list.Length);
 
 			return result;
 		}
@@ -28,7 +33,7 @@ namespace CharacterEditor
 
 			for (int i = 0; i < index; ++i)
 			{
-				if (string.IsNullOrEmpty(list[i]))
+				if (String.IsNullOrEmpty(list[i]))
 					continue;
 
 				++result;

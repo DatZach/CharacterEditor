@@ -449,63 +449,6 @@
 			// 
 			this.comboBoxPetKind.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboBoxPetKind.FormattingEnabled = true;
-			this.comboBoxPetKind.Items.AddRange(new object[] {
-            "None",
-            "Collie",
-            "Shepherd Dog",
-            "Alpaca",
-            "Alpaca (Brown)",
-            "Turtle",
-            "Terrier",
-            "Terrier (Scottish)",
-            "Wolf",
-            "Cat",
-            "Cat (Brown)",
-            "Cat (White)",
-            "Pig",
-            "Sheep",
-            "Bunny",
-            "Porcupine",
-            "Slime (Green)",
-            "Slime (Pink)",
-            "Slime (Yellow)",
-            "Slime (Blue)",
-            "Monkey",
-            "Hornet",
-            "Crow",
-            "Chicken",
-            "Seagull",
-            "Parrot",
-            "Bat",
-            "Fly",
-            "Midge",
-            "Mosquito",
-            "Runner (Plain)",
-            "Runner (Leaf)",
-            "Runner (Snow)",
-            "Runner (Desert)",
-            "Peacock",
-            "Frog",
-            "Devourer",
-            "Duckbill",
-            "Crocodile",
-            "Imp",
-            "Spitter",
-            "Mole",
-            "Biter",
-            "Koala",
-            "Squirrel",
-            "Raccoon",
-            "Owl",
-            "Penguin",
-            "Horse",
-            "Camel",
-            "Beetle (Bark)",
-            "Beetle (Fire)",
-            "Beetle (Snout)",
-            "Beetle (Lemon)",
-            "Crab",
-            "Bumblebee"});
 			this.comboBoxPetKind.Location = new System.Drawing.Point(141, 45);
 			this.comboBoxPetKind.Name = "comboBoxPetKind";
 			this.comboBoxPetKind.Size = new System.Drawing.Size(121, 21);
@@ -815,7 +758,7 @@
 			this.tabPagePets.Padding = new System.Windows.Forms.Padding(3);
 			this.tabPagePets.Size = new System.Drawing.Size(696, 363);
 			this.tabPagePets.TabIndex = 1;
-			this.tabPagePets.Text = "Pets";
+			this.tabPagePets.Text = "Pet";
 			this.tabPagePets.UseVisualStyleBackColor = true;
 			// 
 			// panelPetPreview
@@ -876,30 +819,6 @@
 			// 
 			this.comboBoxItemMaterial.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboBoxItemMaterial.FormattingEnabled = true;
-			this.comboBoxItemMaterial.Items.AddRange(new object[] {
-            "None",
-            "Iron",
-            "Wood",
-            "Obsidian",
-            "Bone",
-            "Copper",
-            "Gold",
-            "Silver",
-            "Emerald",
-            "Saphhir",
-            "Ruby",
-            "Diamond",
-            "Sandstone",
-            "Saurian",
-            "Parrot",
-            "Mammoth",
-            "Plant",
-            "Ice",
-            "Licht",
-            "Glass",
-            "Silk",
-            "Linen",
-            "Cotton"});
 			this.comboBoxItemMaterial.Location = new System.Drawing.Point(266, 32);
 			this.comboBoxItemMaterial.Name = "comboBoxItemMaterial";
 			this.comboBoxItemMaterial.Size = new System.Drawing.Size(124, 21);
@@ -991,31 +910,6 @@
 			// 
 			this.comboBoxItemType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboBoxItemType.FormattingEnabled = true;
-			this.comboBoxItemType.Items.AddRange(new object[] {
-            "Consumables",
-            "Recipes",
-            "Weapons",
-            "Chest Armor",
-            "Gloves",
-            "Boots",
-            "Shoulder Armor",
-            "Amulets",
-            "Rings",
-            "Blocks",
-            "Items",
-            "Coins",
-            "Platinum Coins",
-            "Leftovers",
-            "Beaks",
-            "Paintings",
-            "Vases",
-            "Candles",
-            "Pets",
-            "Pet Foods",
-            "Quest Items",
-            "Transportation",
-            "Lamps",
-            "Mana Cubes"});
 			this.comboBoxItemType.Location = new System.Drawing.Point(6, 32);
 			this.comboBoxItemType.Name = "comboBoxItemType";
 			this.comboBoxItemType.Size = new System.Drawing.Size(124, 21);

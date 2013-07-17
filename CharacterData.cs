@@ -271,7 +271,7 @@ namespace CharacterEditor
 
 		public static readonly string[] TypeNames = new[]
 		{
-			null,				// None
+			"None",				// None
 			"Consumables",
 			"Recipes",
 			"Weapons",
@@ -331,6 +331,7 @@ namespace CharacterEditor
 			"Cotton"
 		};
 
+		// TODO Should probably be cleaned up a little
 		public static readonly string[] MaterialNamesTierTwo = new []
 		{
 			"Fire",
