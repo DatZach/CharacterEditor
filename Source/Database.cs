@@ -109,8 +109,7 @@ namespace CharacterEditor
 
 		private static void CopyStream(Stream input, Stream output)
 		{
-			// You may be tempted to change this to 2048, don't, zlib doesn't like it
-			const int bufferLength = 2000;
+			const int bufferLength = 2048;
 
 			byte[] buffer = new byte[bufferLength];
 			int len;

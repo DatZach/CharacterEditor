@@ -64,9 +64,11 @@ namespace CharacterEditor.Forms
 			{
 				database.Load(filename);
 			}
-			catch (Exception)
+			catch (Exception e)
 			{
-				MessageBox.Show(this, "Database appears to be corrupted!", "Character Editor", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				FormException formException = new FormException("Database appears to be corrupted!", e);
+				formException.ShowDialog(this);
+
 				return;
 			}
 			
@@ -85,9 +87,9 @@ namespace CharacterEditor.Forms
 					listBoxCharacters.Items.Add(character.Name);
 				}
 			}
-			catch (Exception exception)
+			catch (Exception e)
 			{
-				FormException formException = new FormException("Database appears to be corrupted!", exception);
+				FormException formException = new FormException("Database appears to be corrupted!", e);
 				formException.ShowDialog(this);
 
 				Characters.Clear();

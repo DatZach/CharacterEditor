@@ -6,7 +6,6 @@ using CharacterEditor.Character;
 
 namespace CharacterEditor.Forms
 {
-	// TODO Coins
 	// TODO Add character delete and add?
 	// TODO Add character.db merging?
 
@@ -24,9 +23,9 @@ namespace CharacterEditor.Forms
 			InitializeComponent();
 
 			comboBoxPetKind.Items.Add("None");
-			comboBoxPetKind.Items.AddRange(Constants.Subtypes[0x13].Where(x => !String.IsNullOrEmpty(x)).ToArray());
-			comboBoxItemType.Items.AddRange(Constants.TypeNames.Where(x => !String.IsNullOrEmpty(x)).ToArray());
-			comboBoxItemMaterial.Items.AddRange(Constants.MaterialNames.Where(x => !String.IsNullOrEmpty(x)).ToArray());
+			comboBoxPetKind.Items.AddRange(Constants.ItemSubtypes[(int)Constants.ItemType.Pets].Where(x => !String.IsNullOrEmpty(x)).ToArray());
+			comboBoxItemType.Items.AddRange(Constants.ItemTypeNames.Where(x => !String.IsNullOrEmpty(x)).ToArray());
+			comboBoxItemMaterial.Items.AddRange(Constants.ItemMaterialNames.Where(x => !String.IsNullOrEmpty(x)).ToArray());
 			comboBoxItemModifier.Items.AddRange(Constants.ItemModifiers.Where(x => !String.IsNullOrEmpty(x)).ToArray());
 		}
 
@@ -197,7 +196,7 @@ namespace CharacterEditor.Forms
 			nudTierThreeSkillLevel.Value = character.TierThreeSkillLevel;
 
 			Item petEquipment = character.Equipment.Last();
-			comboBoxPetKind.SelectedIndex = Character.Character.PetKinds.IndexOf(petEquipment.Subtype);
+			comboBoxPetKind.SelectedIndex = Utility.NormalizeIndex(petEquipment.Subtype, Constants.ItemSubtypes[(int)Constants.ItemType.Pets]) + 1;
 			if (comboBoxPetKind.SelectedIndex == -1)
 				comboBoxPetKind.SelectedIndex = 0;
 
@@ -296,8 +295,8 @@ namespace CharacterEditor.Forms
 
 			// TODO No, just no
 			Item petEquipment = character.Equipment.Last();
-			petEquipment.Type = (byte)(comboBoxPetKind.SelectedIndex <= 0 ? 0x00 : 0x13);
-			petEquipment.Subtype = (byte)Utility.GoofyIndex(comboBoxPetKind.SelectedIndex - 1, Constants.Subtypes[0x13]);
+			petEquipment.Type = (byte)(comboBoxPetKind.SelectedIndex <= 0 ? (int)Constants.ItemType.None : (int)Constants.ItemType.Pets);
+			petEquipment.Subtype = (byte)Utility.GoofyIndex(comboBoxPetKind.SelectedIndex - 1, Constants.ItemSubtypes[(int)Constants.ItemType.Pets]);
 			petEquipment.Level = (short)nudPetLevel.Value;
 			petEquipment.Modifier = (short)nudPetExperience.Value;
 
@@ -358,15 +357,15 @@ namespace CharacterEditor.Forms
 			if (comboBoxItemType.SelectedIndex == -1)
 				comboBoxItemType.SelectedIndex = 0;
 
-			// Type is normalized now, Subtypes is not normalized
+			// Type is normalized now, ItemSubtypes is not normalized
 
-			int subtypeIndex = Utility.GoofyIndex(comboBoxItemType.SelectedIndex, Constants.TypeNames);
+			int subtypeIndex = Utility.GoofyIndex(comboBoxItemType.SelectedIndex, Constants.ItemTypeNames);
 
 			comboBoxItemSubtype.Items.Clear();
 
 			if (subtypeIndex > 0)
 			{
-				comboBoxItemSubtype.Items.AddRange(Constants.Subtypes[subtypeIndex].Where(x => !String.IsNullOrEmpty(x)).ToArray());
+				comboBoxItemSubtype.Items.AddRange(Constants.ItemSubtypes[subtypeIndex].Where(x => !String.IsNullOrEmpty(x)).ToArray());
 				comboBoxItemSubtype.SelectedIndex = 0;
 			}
 		}
@@ -382,9 +381,9 @@ namespace CharacterEditor.Forms
 			if (item == null)
 				return;
 
-			comboBoxItemType.SelectedIndex = Utility.NormalizeIndex(item.Type, Constants.TypeNames);
-			comboBoxItemSubtype.SelectedIndex = item.Type == 0 ? -1 : Utility.NormalizeIndex(item.Subtype, Constants.Subtypes[item.Type]);
-			comboBoxItemMaterial.SelectedIndex = Utility.NormalizeIndex(item.Material, Constants.MaterialNames);
+			comboBoxItemType.SelectedIndex = Utility.NormalizeIndex(item.Type, Constants.ItemTypeNames);
+			comboBoxItemSubtype.SelectedIndex = item.Type == 0 ? -1 : Utility.NormalizeIndex(item.Subtype, Constants.ItemSubtypes[item.Type]);
+			comboBoxItemMaterial.SelectedIndex = Utility.NormalizeIndex(item.Material, Constants.ItemMaterialNames);
 			comboBoxItemModifier.SelectedIndex = item.Modifier & Constants.ItemModifiers.Length;
 			nudItemLevel.Value = item.Level;
 		}
@@ -404,7 +403,7 @@ namespace CharacterEditor.Forms
 			if (item == null)
 				return;
 
-			item.Material = (byte)Utility.GoofyIndex(comboBoxItemMaterial.SelectedIndex, Constants.MaterialNames);
+			item.Material = (byte)Utility.GoofyIndex(comboBoxItemMaterial.SelectedIndex, Constants.ItemMaterialNames);
 		}
 
 		private Item GetSelectedItem()

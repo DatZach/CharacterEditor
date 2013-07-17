@@ -40,11 +40,11 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Data.SQLite, Version=1.0.86.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\System.Data.SQLite.dll</HintPath>
     </Reference>
-    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -60,7 +60,7 @@
     <Compile Include="Character\Item.cs" />
     <Compile Include="Character\ItemAttribute.cs" />
     <Compile Include="Character\World.cs" />
-    <Compile Include="Constants.cs" />
+    <Compile Include="Character\Constants.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="DirtyWatcher.cs" />
     <Compile Include="Forms\Editor.cs">
@@ -93,7 +93,6 @@
     <EmbeddedResource Include="Forms\LoadCharacter.resx">
       <DependentUpon>LoadCharacter.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -2,6 +2,36 @@
 {
 	public static class Constants
 	{
+		public enum ItemType : byte
+		{
+			None,
+			Consumables,
+			Recipes,
+			Weapons,
+			ChestArmor,
+			Gloves,
+			Boots,
+			ShoulderArmor,
+			Amulets,
+			Rings,
+			Blocks,
+			Items,
+			Coins,
+			PlatinumCoins,
+			Leftovers,
+			Beak,
+			Painting,
+			Vase,
+			Candle,
+			Pets,
+			PetFood,
+			QuestItems,
+			Unused,
+			Transportation,
+			Lamps,
+			ManaCubes
+		};
+
 		public static readonly string[] ItemTypeNames = new[]
 		{
 			"None",				// None
