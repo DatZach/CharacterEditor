@@ -228,7 +228,6 @@
 				"Cactus Potion",
 				"Mana Potion",
 				"Ginseng Soup",
-				"Snowberry Soup",
 				"Snowberry Mash",
 				"Mushroom Spit",
 				"Bomb",
