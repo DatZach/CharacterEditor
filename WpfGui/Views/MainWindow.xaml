@@ -25,12 +25,12 @@
     </Window.Resources>
 
     <Grid x:Name="LayoutRoot">
-        <TabControl Margin="10,0,0,0">
+        <TabControl Margin="10,10,10,30">
             <TabItem Header="character">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="7*" />
-                        <ColumnDefinition Width="10*" />
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
                     <Grid x:Name="StatsAndSkillsPane">
