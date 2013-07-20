@@ -1,34 +1,55 @@
+using System.Collections.ObjectModel;
 using GalaSoft.MvvmLight;
+using WpfGui.Helpers;
+using WpfGui.Model;
 
 namespace WpfGui.ViewModel
 {
-    /// <summary>
-    /// This class contains properties that the main View can data bind to.
-    /// <para>
-    /// Use the <strong>mvvminpc</strong> snippet to add bindable properties to this ViewModel.
-    /// </para>
-    /// <para>
-    /// You can also use Blend to data bind with the tool's support.
-    /// </para>
-    /// <para>
-    /// See http://www.galasoft.ch/mvvm
-    /// </para>
-    /// </summary>
     public class MainViewModel : ViewModelBase
     {
-        /// <summary>
-        /// Initializes a new instance of the MainViewModel class.
-        /// </summary>
-        public MainViewModel()
+        private readonly IDataService _dataService;      
+        
+        public MainViewModel(IDataService dataService)
         {
-            ////if (IsInDesignMode)
-            ////{
-            ////    // Code runs in Blend --> create design time data.
-            ////}
-            ////else
-            ////{
-            ////    // Code runs "for real"
-            ////}
+            _dataService = dataService;
+            _dataService.GetData(
+                (item, error) =>
+                {
+                    if (error != null)
+                    {
+                        // Report error here
+                        return;
+                    }
+                    Characters = item.Characters;
+                });
         }
+
+        #region Properties
+
+        public ObservableCollection<CharacterWrapper> Characters
+        {
+            get
+            {
+                return _characters;
+            }
+
+            set
+            {
+                if (_characters == value)
+                {
+                    return;
+                }
+
+                RaisePropertyChanging(CharactersPropertyName);
+                _characters = value;
+                RaisePropertyChanged(CharactersPropertyName);
+            }
+        }
+        public const string CharactersPropertyName = "Characters";
+        private ObservableCollection<CharacterWrapper> _characters;
+
+
+
+        #endregion Properties
     }
 }
