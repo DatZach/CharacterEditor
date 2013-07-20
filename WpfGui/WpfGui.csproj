@@ -89,7 +89,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Helpers\DesignDataService.cs" />
+    <Compile Include="Design\CharacterFactory.cs" />
+    <Compile Include="Design\DesignDataService.cs" />
     <Compile Include="Helpers\Dialog\IModalDialog.cs" />
     <Compile Include="Helpers\Dialog\IModalDialogService.cs" />
     <Compile Include="Helpers\Dialog\ModalDialogService.cs" />

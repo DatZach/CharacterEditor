@@ -15,6 +15,7 @@
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
+using WpfGui.Design;
 using WpfGui.Helpers;
 using WpfGui.Helpers.Dialog;
 using WpfGui.Views;
@@ -49,7 +50,7 @@ namespace WpfGui.ViewModel
 
             //Register ViewModels
             SimpleIoc.Default.Register<MainViewModel>();
-
+            SimpleIoc.Default.Register<SelectCharacterDialogViewModel>();
             //Register Dialogs
             SimpleIoc.Default.Register<SelectCharacterDialog>();
         }
@@ -67,6 +68,21 @@ namespace WpfGui.ViewModel
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
             }
         }
+
+        /// <summary>
+        /// Gets the SelectCharacterDialog property.
+        /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance",
+            "CA1822:MarkMembersAsStatic",
+            Justification = "This non-static member is needed for data binding purposes.")]
+        public SelectCharacterDialogViewModel DesignSelectCharacterDialog
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<SelectCharacterDialogViewModel>();
+            }
+        }
+        
         
         public static void Cleanup()
         {

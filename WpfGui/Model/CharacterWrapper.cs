@@ -10,6 +10,8 @@ namespace WpfGui.Model
             Character = new Character(i);
         }
 
+        #region Properties
+
         public Character Character
         {
             get
@@ -30,8 +32,30 @@ namespace WpfGui.Model
             }
         }
         public const string CharacterPropertyName = "Character";
-        private Character _character;      
-    
+        private Character _character;
+
+        public string Name
+        {
+            get
+            {
+                return Character.Name;
+            }
+
+            set
+            {
+                if (Character.Name == value)
+                {
+                    return;
+                }
+
+                RaisePropertyChanging(NamePropertyName);
+                Character.Name = value;
+                RaisePropertyChanged(NamePropertyName);
+            }
+        }
+        public const string NamePropertyName = "Name";
   
+
+        #endregion
     }
 }

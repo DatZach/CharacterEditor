@@ -1,7 +1,8 @@
 ﻿using System;
+using WpfGui.Helpers;
 using WpfGui.Model;
 
-namespace WpfGui.Helpers
+namespace WpfGui.Design
 {
     public class DesignDataService : IDataService
     {

@@ -8,8 +8,8 @@
                      Width="800"
                      MinWidth="600"
                      MinHeight="600"
-                     DataContext="{Binding Main, Source={StaticResource Locator}}"
-                     >
+                     WindowStartupLocation="CenterScreen"
+                     DataContext="{Binding Main, Source={StaticResource Locator}}">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -29,8 +29,8 @@
             <TabItem Header="character">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
                     </Grid.ColumnDefinitions>
 
                     <Grid x:Name="StatsAndSkillsPane">
