@@ -5,9 +5,9 @@ namespace WpfGui.Model
 {
     public class CharacterWrapper : ViewModelBase
     {
-        public CharacterWrapper(Character character)
+        public CharacterWrapper(int i)
         {
-            Character = character;
+            Character = new Character(i);
         }
 
         public Character Character
