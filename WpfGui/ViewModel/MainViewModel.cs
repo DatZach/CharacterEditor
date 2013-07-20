@@ -1,15 +1,19 @@
 using System.Collections.ObjectModel;
 using GalaSoft.MvvmLight;
+using Microsoft.Practices.ServiceLocation;
 using WpfGui.Helpers;
+using WpfGui.Helpers.Dialog;
 using WpfGui.Model;
+using WpfGui.Views;
 
 namespace WpfGui.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {
-        private readonly IDataService _dataService;      
+        private readonly IDataService _dataService;
+        private readonly IModalDialogService _dialogService;
         
-        public MainViewModel(IDataService dataService)
+        public MainViewModel(IDataService dataService, IModalDialogService dialogService)
         {
             _dataService = dataService;
             _dataService.GetData(
@@ -22,6 +26,10 @@ namespace WpfGui.ViewModel
                     }
                     Characters = item.Characters;
                 });
+
+            _dialogService = dialogService;
+            var view = ServiceLocator.Current.GetInstance<SelectCharacterDialog>();
+            _dialogService.ShowDialog(view,new SelectCharacterDialogViewModel(Characters), onClose => {});
         }
 
         #region Properties
@@ -47,8 +55,6 @@ namespace WpfGui.ViewModel
         }
         public const string CharactersPropertyName = "Characters";
         private ObservableCollection<CharacterWrapper> _characters;
-
-
 
         #endregion Properties
     }

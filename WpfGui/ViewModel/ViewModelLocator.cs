@@ -16,6 +16,8 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
 using WpfGui.Helpers;
+using WpfGui.Helpers.Dialog;
+using WpfGui.Views;
 
 namespace WpfGui.ViewModel
 {
@@ -41,11 +43,23 @@ namespace WpfGui.ViewModel
             {
                 // Create run time view services and models
                 SimpleIoc.Default.Register<IDataService, DataService>();
+                SimpleIoc.Default.Register<IModalDialogService, ModalDialogService>();
             }
 
+
+            //Register ViewModels
             SimpleIoc.Default.Register<MainViewModel>();
+
+            //Register Dialogs
+            SimpleIoc.Default.Register<SelectCharacterDialog>();
         }
 
+        /// <summary>
+        /// Gets the Main property.
+        /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance",
+            "CA1822:MarkMembersAsStatic",
+            Justification = "This non-static member is needed for data binding purposes.")]
         public MainViewModel Main
         {
             get
