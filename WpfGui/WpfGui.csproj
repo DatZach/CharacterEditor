@@ -94,6 +94,9 @@
     <Compile Include="Helpers\Dialog\IModalDialog.cs" />
     <Compile Include="Helpers\Dialog\IModalDialogService.cs" />
     <Compile Include="Helpers\Dialog\ModalDialogService.cs" />
+    <Compile Include="Helpers\Messages\CloseSelectCharacterDialogMessage.cs" />
+    <Compile Include="Helpers\Messages\SelectedCharacterChangedMessage.cs" />
+    <Compile Include="Helpers\Utilities.cs" />
     <Compile Include="Model\CharacterWrapper.cs" />
     <Compile Include="Model\DataItem.cs" />
     <Compile Include="Helpers\DataService.cs" />
@@ -121,6 +124,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Skins\MainSkin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Skins\AccentColors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Skins\SelectCharacterDialogSkin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -155,6 +166,9 @@
       <Project>{42db9e31-b097-4870-803a-54c924271ba6}</Project>
       <Name>CharacterEditor</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Character Classes\Character.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

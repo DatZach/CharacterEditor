@@ -3,22 +3,16 @@
                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                      xmlns:mahapps="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
                      xmlns:controls="http://schemas.xceed.com/wpf/xaml/toolkit"
-                     Title="MainWindow"
+                     Title=""
                      Height="600"
                      Width="800"
                      MinWidth="600"
                      MinHeight="600"
                      WindowStartupLocation="CenterScreen"
-                     DataContext="{Binding Main, Source={StaticResource Locator}}">
+                     DataContext="{Binding Source={StaticResource Locator}, Path=Main}">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colours.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
-                <ResourceDictionary
-                    Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
                 <ResourceDictionary Source="Skins/MainSkin.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
@@ -28,153 +22,59 @@
         <TabControl Margin="10,10,10,30">
             <TabItem Header="character">
                 <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
                     <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="30"/>
                         <ColumnDefinition />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
 
-                    <Grid x:Name="StatsAndSkillsPane">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
+                    <!--Stats-->
+                    <TextBlock Style="{StaticResource SettingsHeaderStyle}">STATS</TextBlock>
 
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
+                    <TextBlock Style="{StaticResource SettingsLabelStyle}" Grid.Row="1">Name:</TextBlock>
+                    <TextBox Margin="0,5,0,5" Grid.Row="1" Grid.Column="1" Text="{Binding SelectedCharacter.Name}" />
 
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
+                    <TextBlock Style="{StaticResource SettingsLabelStyle}" Grid.Row="2">Class:</TextBlock>
+                    <ComboBox Margin="0,5,0,5" Grid.Row="2" Grid.Column="1" />
 
-                        <TextBlock Style="{StaticResource SettingsHeaderStyle}">
-                            STATS
-                        </TextBlock>
+                    <TextBlock Style="{StaticResource SettingsLabelStyle}" Grid.Row="3">Specialization</TextBlock>
+                    <ComboBox Margin="0,5,0,5" Grid.Row="3" Grid.Column="1" />
 
-                        <TextBlock Style="{StaticResource SettingsLabelStyle}"
-                                   Grid.Row="1">
-                            Name:
-                        </TextBlock>
-                        <TextBox Margin="0,5,0,5"
-                                 Grid.Row="1"
-                                 Grid.Column="1" />
+                    <TextBlock Style="{StaticResource SettingsLabelStyle}" Grid.Row="4">Level</TextBlock>
+                    <controls:IntegerUpDown Grid.Row="4" Grid.Column="1" Margin="0,5,0,5" />
 
-                        <TextBlock Style="{StaticResource SettingsLabelStyle}"
-                                   Grid.Row="2">
-                            Class:
-                        </TextBlock>
-                        <ComboBox Margin="0,5,0,5" Grid.Row="2" Grid.Column="1" />
+                    <TextBlock Style="{StaticResource SettingsLabelStyle}" Grid.Row="5">Experience</TextBlock>
+                    <controls:IntegerUpDown Grid.Row="5" Grid.Column="1" Margin="0,5,0,5" />
 
-                        <TextBlock Style="{StaticResource SettingsLabelStyle}"
-                                   Grid.Row="3">
-                            Specialization
-                        </TextBlock>
-                        <ComboBox Margin="0,5,0,5" Grid.Row="3" Grid.Column="1" />
 
-                        <TextBlock Style="{StaticResource SettingsLabelStyle}"
-                                   Grid.Row="4">
-                            Level
-                        </TextBlock>
-                        <controls:IntegerUpDown Grid.Row="4"
-                                                Grid.Column="1"
-                                                Margin="0,5,0,5">
-                        </controls:IntegerUpDown>
+                    <!--Appearance-->
+                    <TextBlock Style="{StaticResource SettingsHeaderStyle}" Grid.Column="3" >APPEARANCE</TextBlock>
 
-                        <TextBlock Style="{StaticResource SettingsLabelStyle}"
-                                   Grid.Row="5">
-                            Experience
-                        </TextBlock>
-                        <controls:IntegerUpDown Grid.Row="5"
-                                                Grid.Column="1"
-                                                Margin="0,5,0,5">
-                        </controls:IntegerUpDown>
+                    <TextBlock Style="{StaticResource SettingsLabelStyle}" Grid.Row="1" Grid.Column="3">Race:</TextBlock>
+                    <ComboBox Margin="0,5,0,5" Grid.Row="1" Grid.Column="4" />
 
-                        <TextBlock Style="{StaticResource SettingsHeaderStyle}"
-                                   Grid.Row="6">
-                            SKILLS
-                        </TextBlock>
-                    </Grid>
+                    <TextBlock Style="{StaticResource SettingsLabelStyle}" Grid.Row="2" Grid.Column="3">Gender:</TextBlock>
+                    <ComboBox Margin="0,5,0,5" Grid.Row="2" Grid.Column="4" />
 
-                    <Grid x:Name="AppearancePane"
-                          Grid.Column="1"
-                          Margin="50,0,0,0">
-                        <!--Character Preview-->
-                        <Grid.RowDefinitions>
-                            <RowDefinition />
-                            <RowDefinition />
-                        </Grid.RowDefinitions>
+                    <TextBlock Style="{StaticResource SettingsLabelStyle}" Grid.Row="3" Grid.Column="3">Face</TextBlock>
+                    <controls:IntegerUpDown Grid.Row="3" Grid.Column="4" Margin="0,5,0,5" />
 
-                        <!--Appearance Settings-->
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
+                    <TextBlock Style="{StaticResource SettingsLabelStyle}" Grid.Row="4" Grid.Column="3">Hair</TextBlock>
+                    <controls:IntegerUpDown Grid.Row="4" Grid.Column="4" Margin="0,5,0,5"/>
 
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
-
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
-
-                            <TextBlock Style="{StaticResource SettingsHeaderStyle}">
-                                APPEARANCE
-                            </TextBlock>
-
-                            <TextBlock Style="{StaticResource SettingsLabelStyle}"
-                                       Grid.Row="1">
-                                Race:
-                            </TextBlock>
-                            <ComboBox Margin="0,5,0,5" Grid.Row="1" Grid.Column="1" />
-
-                            <TextBlock Style="{StaticResource SettingsLabelStyle}"
-                                       Grid.Row="2">
-                                Gender:
-                            </TextBlock>
-                            <ComboBox Margin="0,5,0,5" Grid.Row="2" Grid.Column="1" />
-
-                            <TextBlock Style="{StaticResource SettingsLabelStyle}"
-                                       Grid.Row="3">
-                                Face
-                            </TextBlock>
-                            <controls:IntegerUpDown Grid.Row="3"
-                                                    Grid.Column="1"
-                                                    Margin="0,5,0,5" />
-
-                            <TextBlock Style="{StaticResource SettingsLabelStyle}"
-                                       Grid.Row="4">
-                                Hair
-                            </TextBlock>
-                            <controls:IntegerUpDown Grid.Row="4"
-                                                    Grid.Column="1"
-                                                    Margin="0,5,0,5">
-                            </controls:IntegerUpDown>
-
-                            <TextBlock Style="{StaticResource SettingsLabelStyle}"
-                                       Grid.Row="5">
-                                Hair Color
-                            </TextBlock>
-                            <controls:ColorPicker Grid.Row="5"
-                                                  Grid.Column="1"
-                                                  Style="{DynamicResource ColorPickerStyle}" />
-                        </Grid>
-                    </Grid>
+                    <TextBlock Style="{StaticResource SettingsLabelStyle}" Grid.Row="5" Grid.Column="3">Hair Color</TextBlock>
+                    <controls:ColorPicker Grid.Row="5" Grid.Column="4" Style="{DynamicResource ColorPickerStyle}" />
                 </Grid>
             </TabItem>
             <TabItem Header="pets" />

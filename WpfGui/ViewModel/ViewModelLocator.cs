@@ -31,7 +31,7 @@ namespace WpfGui.ViewModel
         /// <summary>
         /// Initializes a new instance of the ViewModelLocator class.
         /// </summary>
-        public ViewModelLocator()
+        static ViewModelLocator()
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
@@ -44,14 +44,15 @@ namespace WpfGui.ViewModel
             {
                 // Create run time view services and models
                 SimpleIoc.Default.Register<IDataService, DataService>();
-                SimpleIoc.Default.Register<IModalDialogService, ModalDialogService>();
             }
 
 
             //Register ViewModels
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<SelectCharacterDialogViewModel>();
+            
             //Register Dialogs
+            SimpleIoc.Default.Register<IModalDialogService, ModalDialogService>();
             SimpleIoc.Default.Register<SelectCharacterDialog>();
         }
 

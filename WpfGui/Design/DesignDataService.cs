@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using WpfGui.Helpers;
 using WpfGui.Model;
 
@@ -8,10 +9,14 @@ namespace WpfGui.Design
     {
         public void GetData(Action<DataItem, Exception> callback)
         {
-            // Use this to create design time data
+            var characters = new ObservableCollection<CharacterWrapper>();
+            var character = new CharacterWrapper
+                {
+                    Character = CharacterFactory.CreateMockCharacter()
+                };
+            characters.Add(character);
 
-            //var item = new DataItem("Welcome to MVVM Light [design]");
-            //callback(item, null);
+            callback(new DataItem(characters), null);
         }
     }
 }
