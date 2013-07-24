@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -8,11 +7,11 @@ namespace CharacterEditor.Character
 	{
 		public const int DefaultItemCount = 50;
 
-		public List<Tuple<int, Item>> Items;
+		public List<Slot> Items;
 
 		public Inventory()
 		{
-			Items = new List<Tuple<int, Item>>();
+			Items = new List<Slot>();
 		}
 
 		public void Read(BinaryReader reader)
@@ -20,11 +19,10 @@ namespace CharacterEditor.Character
 			int inventoryCount = reader.ReadInt32();
 			for (int i = 0; i < inventoryCount; ++i)
 			{
-				int count = reader.ReadInt32();
-				Item item = new Item();
-				item.Read(reader);
+				Slot slot = new Slot();
+				slot.Read(reader);
 
-				Items.Add(new Tuple<int, Item>(count, item));
+				Items.Add(slot);
 			}
 		}
 
@@ -32,10 +30,28 @@ namespace CharacterEditor.Character
 		{
 			writer.Write(Items.Count);
 
-			foreach (Tuple<int, Item> item in Items)
+			foreach (Slot slot in Items)
+				slot.Write(writer);
+		}
+
+		public class Slot : ICharacterData
+		{
+			public const int MaxItemCount = 50;
+
+			public int Count;
+			public Item Item;
+
+			public void Read(BinaryReader reader)
 			{
-				writer.Write(item.Item1);
-				item.Item2.Write(writer);
+				Count = reader.ReadInt32();
+				Item = new Item();
+				Item.Read(reader);
+			}
+
+			public void Write(BinaryWriter writer)
+			{
+				writer.Write(Count);
+				Item.Write(writer);
 			}
 		}
 	}

@@ -10,13 +10,19 @@ namespace CharacterEditor.Character
 	{
 		public const int AttributeCount = 32;
 
+		[Flags]
+		public enum ItemFlags : byte
+		{
+			Adapted = 0x01
+		}
+
 		public byte Type;
 		public byte Subtype;
 		public short Modifier;
 		private int unknown1;
 		public byte Rarity;
 		public byte Material;	// TODO Sometimes denotes what class can use the item...
-		public byte Flags;		// TODO Noted in ItemIDs.txt
+		public ItemFlags Flags;		// TODO Noted in ItemIDs.txt
 		public short Level;
 
 		public List<ItemAttribute> Attributes;
@@ -63,7 +69,7 @@ namespace CharacterEditor.Character
 			unknown1 = reader.ReadInt32();
 			Rarity = reader.ReadByte();
 			Material = reader.ReadByte();
-			Flags = reader.ReadByte();
+			Flags = (ItemFlags)reader.ReadByte();
 			reader.Skip(1);
 			Level = reader.ReadInt16();
 			reader.Skip(2);
@@ -94,7 +100,7 @@ namespace CharacterEditor.Character
 			writer.Write(unknown1);
 			writer.Write(Rarity);
 			writer.Write(Material);
-			writer.Write(Flags);
+			writer.Write((byte)Flags);
 			writer.Skip(1);
 			writer.Write(Level);
 			writer.Skip(2);

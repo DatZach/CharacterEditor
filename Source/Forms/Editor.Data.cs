@@ -78,17 +78,17 @@ namespace CharacterEditor.Forms
 				// Ok .NET 2.0, have it your way
 				listView.SelectedIndexChanged += ListViewInventorySelectedIndexChanged;
 
-				foreach (Tuple<int, Item> item in inventory.Items)
+				foreach (Inventory.Slot slot in inventory.Items)
 				{
 					ListViewItem listViewItem;
 
-					if (item.Item1 > 0 && item.Item2.Type != 0x00)
+					if (slot.Count > 0 && slot.Item.Type != 0x00)
 					{
 						listViewItem = new ListViewItem
 						{
-							ImageIndex = item.Item2.Type,
-							Text = item.Item2.FriendlyName,
-							Tag = item.Item2
+							ImageIndex = slot.Item.Type,
+							Text = slot.Item.FriendlyName,
+							Tag = slot.Item
 						};
 					}
 					else
@@ -97,7 +97,7 @@ namespace CharacterEditor.Forms
 						{
 							ImageIndex = 0,
 							Text = "",
-							Tag = item.Item2
+							Tag = slot.Item
 						};
 					}
 

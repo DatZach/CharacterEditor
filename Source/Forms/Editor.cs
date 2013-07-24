@@ -22,9 +22,21 @@ namespace CharacterEditor.Forms
 			comboBoxPetKind.Items.Add("None");
 			comboBoxPetKind.Items.AddRange(Constants.ItemSubtypes[(int)Constants.ItemType.Pets].Where(x => !String.IsNullOrEmpty(x)).ToArray());
 
-			comboBoxItemType.Items.AddRange(Constants.ItemTypeNames.Where(x => !String.IsNullOrEmpty(x)).ToArray());
-			comboBoxItemMaterial.Items.AddRange(Constants.ItemMaterialNames.Where(x => !String.IsNullOrEmpty(x)).ToArray());
-			comboBoxItemModifier.Items.AddRange(Constants.ItemModifiers[(int)nudItemRarity.Value].Where(x => !String.IsNullOrEmpty(x)).ToArray());
+			//comboBoxItemType.Items.AddRange(Constants.ItemTypeNames.Where(x => !String.IsNullOrEmpty(x)).ToArray());
+			//comboBoxItemMaterial.Items.AddRange(Constants.ItemMaterialNames.Where(x => !String.IsNullOrEmpty(x)).ToArray());
+			
+			//comboBoxItemModifier.Items.AddRange(Constants.ItemModifiers[(int)nudItemRarity.Value].Where(x => !String.IsNullOrEmpty(x)).ToArray());
+			//string[] list = (string[])Constants.ItemModifiers[0].Clone();
+			//list[0] = "None";
+
+			//for (int i = 0; i < list.Length; i++)
+			//{
+			//    list[i] = list[i].Replace("{0}", null);
+			//    list[i] = list[i].Replace("{1}", null);
+			//}
+
+			//comboBoxItemModifier.Items.Clear();
+			//comboBoxItemModifier.Items.AddRange(list);
 		}
 
 		private void FormEditorShown(object sender, EventArgs e)

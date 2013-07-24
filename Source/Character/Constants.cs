@@ -220,13 +220,13 @@
 				"Polished {0} of {1}",
 				"Extraordinary {0} of {1}",
 				"Exquisite {0} of {1}",
-				"{1}'s superb {0}",
+				"{1}'s Superb {0}",
 				"Unique {0} of {1}",
-				"{1}'s handsome {0}",
+				"{1}'s Handsome {0}",
 				"Grand {0} of {1}",
 				"Magic {0} of {1}",
 				"Decorated {0} of {1}",
-				"{1}'s exceptional {0}"
+				"{1}'s Exceptional {0}"
 			},
 
 			new []					// Rarity 4
@@ -235,13 +235,13 @@
 				"Shining {0} of {1}", // 1
 				"Magnificent {0} von {1}",
 				"Sublime {0} of {1}",
-				"{1}'s pompous {0}",
+				"{1}'s Pompous {0}",
 				"Glorious {0} of {1}",
-				"{1}'s splendid {0}",
+				"{1}'s Splendid {0}",
 				"Famous {0} of {1}",
 				"Legendary  {0} of {1}",
 				"Fabulous {0} of {1}",
-				"{1}'s brilliant {0}"
+				"{1}'s Brilliant {0}"
 			}
 		};
 
