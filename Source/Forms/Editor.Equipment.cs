@@ -54,7 +54,7 @@ namespace CharacterEditor.Forms
 				Size = new System.Drawing.Size(124, 21),
 			};
 
-			comboBoxEquipmentItemModifier.Items.AddRange(Constants.ItemModifiers.Where(x => !String.IsNullOrEmpty(x)).ToArray());
+			comboBoxEquipmentItemModifier.Items.AddRange(Constants.ItemModifiers[(int)nudItemRarity.Value].Where(x => !String.IsNullOrEmpty(x)).ToArray());
 
 			Label labelEquipmentItemModifier = new Label
 			{

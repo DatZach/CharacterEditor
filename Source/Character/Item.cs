@@ -30,26 +30,26 @@ namespace CharacterEditor.Character
 		{
 			get
 			{
-				try
-				{
-					// <Modifier> <Material> <Item Name>
-					StringBuilder name = new StringBuilder();
+				//try
+				//{
+					string format = "{0}";
+
+					string itemName = Constants.ItemSubtypes[Type][Subtype];
+					string ownerName = "Somebody";
 
 					if (Material != 0)
-					{
-						name.Append(Constants.ItemMaterialNames[Material]);
-						name.Append(" ");
-					}
+						itemName = Constants.ItemMaterialNames[Material] + " " + itemName;
 
-					name.Append(Constants.ItemSubtypes[Type][Subtype]);
+					if (Modifier != 0)
+						format = Constants.ItemModifiers[Rarity][Modifier & 0x09];
 
-					return name.ToString();
-				}
+					return Rarity < 3 ? String.Format(format, itemName) : String.Format(format, itemName, ownerName);
+				/*}
 				catch (Exception)
 				{
 					Console.WriteLine("FriendlyName error: Type = {0}; Subtype = {1}", Type, Subtype);
 					return "ERROR";
-				}
+				}*/
 			}
 		}
 

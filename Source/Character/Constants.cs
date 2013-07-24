@@ -62,20 +62,77 @@
 			"Mana Cubes"
 		};
 
-		// TODO Technically has subtypes (Will probably crash on some items)
-		public static readonly string[] ItemModifiers = new []
+		public static readonly string[][] ItemModifiers = new []
 		{
-			"None",
-			"Polish",
-			"Extraordinary",
-			"Exquisite",
-			"Superb",
-			"Unique",
-			"Handsome",
-			"Grand",
-			"Magic",
-			"Decorated",
-			"Exceptional"
+			new []					// Rarity 0
+			{
+				"Unwieldy {0}",
+				"Used {0}",
+				"Dusty {0}",
+				"Scratched {0}",
+				"Worn {0}",
+				"Common {0}",
+				"Shabby {0}",
+				"Plain {0}",
+				"Battered {0}",
+				"Artless {0}"
+			},
+
+			new []					// Rarity 1
+			{
+				"Handmade {0}",
+				"Fair {0}",
+				"Neat {0}",
+				"Clean {0}",
+				"Undamaged {0}",
+				"Flawless {0}",
+				"Adjusted {0}",
+				"Balanced {0}",
+				"Battle-tested {0}",
+				"Good {0}"
+			},
+
+			new []					// Rarity 2
+ 			{
+				"Superb {0}",
+				"Unique {0}",
+				"Handsome {0}",
+				"Grand {0}",
+				"Magic {0}",
+				"Decorated {0}",
+				"Exceptional {0}",
+				"Polished {0}",
+				"Extraordinary {0}",
+				"Exquisite {0}"
+			},
+
+			new[]					// Rarity 3
+			{
+				"{1}'s superb {0}",
+				"unique {0} of {1}",
+				"{1}'s handsome {0}",
+				"grand {0} of {1}",
+				"magic {0} of {1}",
+				"decorated {0} of {1}",
+				"{1}'s exceptional {0}",
+				"polished {0} of {1}",
+				"extraordinary {0} of {1}",
+				"exquisite {0} of {1}"
+			},
+
+			new []					// Rarity 4
+			{
+				"{1}'s pompous {0}",
+				"glorious {0} of {1}",
+				"{1}'s splendid {0}",
+				"famous {0} of {1}",
+				"legendary  {0} of {1}",
+				"fabulous {0} of {1}",
+				"{1}'s brilliant {0}",
+				"shining {0} of {1}",
+				"Magnificent {0} von {1}",
+				"Sublime {0} of {1}"
+			}
 		};
 
 		public static readonly string[] ItemMaterialNames = new[]

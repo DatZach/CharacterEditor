@@ -24,7 +24,7 @@ namespace CharacterEditor.Forms
 
 			comboBoxItemType.Items.AddRange(Constants.ItemTypeNames.Where(x => !String.IsNullOrEmpty(x)).ToArray());
 			comboBoxItemMaterial.Items.AddRange(Constants.ItemMaterialNames.Where(x => !String.IsNullOrEmpty(x)).ToArray());
-			comboBoxItemModifier.Items.AddRange(Constants.ItemModifiers.Where(x => !String.IsNullOrEmpty(x)).ToArray());
+			comboBoxItemModifier.Items.AddRange(Constants.ItemModifiers[(int)nudItemRarity.Value].Where(x => !String.IsNullOrEmpty(x)).ToArray());
 		}
 
 		private void FormEditorShown(object sender, EventArgs e)

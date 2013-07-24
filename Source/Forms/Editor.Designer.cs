@@ -91,6 +91,8 @@
 			this.labelPetPreview = new System.Windows.Forms.Label();
 			this.tabPageInventory = new System.Windows.Forms.TabPage();
 			this.groupBoxItemProperties = new System.Windows.Forms.GroupBox();
+			this.nudItemRarity = new System.Windows.Forms.NumericUpDown();
+			this.labelItemRarity = new System.Windows.Forms.Label();
 			this.comboBoxItemMaterial = new System.Windows.Forms.ComboBox();
 			this.labelMaterial = new System.Windows.Forms.Label();
 			this.nudItemLevel = new System.Windows.Forms.NumericUpDown();
@@ -147,6 +149,7 @@
 			this.panelPetPreview.SuspendLayout();
 			this.tabPageInventory.SuspendLayout();
 			this.groupBoxItemProperties.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.nudItemRarity)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudItemLevel)).BeginInit();
 			this.panel1.SuspendLayout();
 			this.tabPageEquipment.SuspendLayout();
@@ -816,6 +819,8 @@
 			// 
 			// groupBoxItemProperties
 			// 
+			this.groupBoxItemProperties.Controls.Add(this.nudItemRarity);
+			this.groupBoxItemProperties.Controls.Add(this.labelItemRarity);
 			this.groupBoxItemProperties.Controls.Add(this.comboBoxItemMaterial);
 			this.groupBoxItemProperties.Controls.Add(this.labelMaterial);
 			this.groupBoxItemProperties.Controls.Add(this.nudItemLevel);
@@ -833,6 +838,27 @@
 			this.groupBoxItemProperties.TabStop = false;
 			this.groupBoxItemProperties.Text = "Item";
 			// 
+			// nudItemRarity
+			// 
+			this.nudItemRarity.Location = new System.Drawing.Point(266, 76);
+			this.nudItemRarity.Maximum = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
+			this.nudItemRarity.Name = "nudItemRarity";
+			this.nudItemRarity.Size = new System.Drawing.Size(124, 20);
+			this.nudItemRarity.TabIndex = 11;
+			// 
+			// labelItemRarity
+			// 
+			this.labelItemRarity.AutoSize = true;
+			this.labelItemRarity.Location = new System.Drawing.Point(263, 60);
+			this.labelItemRarity.Name = "labelItemRarity";
+			this.labelItemRarity.Size = new System.Drawing.Size(37, 13);
+			this.labelItemRarity.TabIndex = 10;
+			this.labelItemRarity.Text = "Rarity:";
+			// 
 			// comboBoxItemMaterial
 			// 
 			this.comboBoxItemMaterial.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -846,7 +872,7 @@
 			// labelMaterial
 			// 
 			this.labelMaterial.AutoSize = true;
-			this.labelMaterial.Location = new System.Drawing.Point(267, 16);
+			this.labelMaterial.Location = new System.Drawing.Point(263, 16);
 			this.labelMaterial.Name = "labelMaterial";
 			this.labelMaterial.Size = new System.Drawing.Size(47, 13);
 			this.labelMaterial.TabIndex = 8;
@@ -895,7 +921,7 @@
 			// labelItemSubtype
 			// 
 			this.labelItemSubtype.AutoSize = true;
-			this.labelItemSubtype.Location = new System.Drawing.Point(7, 60);
+			this.labelItemSubtype.Location = new System.Drawing.Point(3, 60);
 			this.labelItemSubtype.Name = "labelItemSubtype";
 			this.labelItemSubtype.Size = new System.Drawing.Size(49, 13);
 			this.labelItemSubtype.TabIndex = 3;
@@ -904,7 +930,7 @@
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(6, 16);
+			this.label2.Location = new System.Drawing.Point(3, 16);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(34, 13);
 			this.label2.TabIndex = 2;
@@ -991,6 +1017,11 @@
 			// nudCoinsPlatinum
 			// 
 			this.nudCoinsPlatinum.Location = new System.Drawing.Point(6, 71);
+			this.nudCoinsPlatinum.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
 			this.nudCoinsPlatinum.Name = "nudCoinsPlatinum";
 			this.nudCoinsPlatinum.Size = new System.Drawing.Size(124, 20);
 			this.nudCoinsPlatinum.TabIndex = 5;
@@ -1169,6 +1200,7 @@
 			this.tabPageInventory.ResumeLayout(false);
 			this.groupBoxItemProperties.ResumeLayout(false);
 			this.groupBoxItemProperties.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.nudItemRarity)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudItemLevel)).EndInit();
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
@@ -1274,5 +1306,7 @@
 		private System.Windows.Forms.Panel panel2;
 		private System.Windows.Forms.Label label9;
 		private System.Windows.Forms.TabControl tabControlEquipment;
+		private System.Windows.Forms.NumericUpDown nudItemRarity;
+		private System.Windows.Forms.Label labelItemRarity;
 	}
 }

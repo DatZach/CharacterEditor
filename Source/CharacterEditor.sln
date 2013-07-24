@@ -1,9 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CharacterEditor", "CharacterEditor.csproj", "{42DB9E31-B097-4870-803A-54C924271BA6}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfGui", "..\WpfGui\WpfGui.csproj", "{7D322F15-C2A4-4C8B-8D05-D62C74B59426}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,16 +23,6 @@ Global
 		{42DB9E31-B097-4870-803A-54C924271BA6}.Release|Mixed Platforms.Build.0 = Release|x86
 		{42DB9E31-B097-4870-803A-54C924271BA6}.Release|x86.ActiveCfg = Release|x86
 		{42DB9E31-B097-4870-803A-54C924271BA6}.Release|x86.Build.0 = Release|x86
-		{7D322F15-C2A4-4C8B-8D05-D62C74B59426}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7D322F15-C2A4-4C8B-8D05-D62C74B59426}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7D322F15-C2A4-4C8B-8D05-D62C74B59426}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{7D322F15-C2A4-4C8B-8D05-D62C74B59426}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{7D322F15-C2A4-4C8B-8D05-D62C74B59426}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{7D322F15-C2A4-4C8B-8D05-D62C74B59426}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7D322F15-C2A4-4C8B-8D05-D62C74B59426}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7D322F15-C2A4-4C8B-8D05-D62C74B59426}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{7D322F15-C2A4-4C8B-8D05-D62C74B59426}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{7D322F15-C2A4-4C8B-8D05-D62C74B59426}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

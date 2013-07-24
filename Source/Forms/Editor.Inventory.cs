@@ -7,6 +7,8 @@ namespace CharacterEditor.Forms
 {
 	public partial class Editor
 	{
+		// TODO Preserve dirty state when setting inventory controls to the right value
+
 		private Item SelectedItem
 		{
 			get
@@ -28,11 +30,11 @@ namespace CharacterEditor.Forms
 
 			comboBoxItemSubtype.Items.Clear();
 
-			if (subtypeIndex > 0)
-			{
-				comboBoxItemSubtype.Items.AddRange(Constants.ItemSubtypes[subtypeIndex].Where(x => !String.IsNullOrEmpty(x)).ToArray());
-				comboBoxItemSubtype.SelectedIndex = 0;
-			}
+			if (subtypeIndex <= 0)
+				return;
+
+			comboBoxItemSubtype.Items.AddRange(Constants.ItemSubtypes[subtypeIndex].Where(x => !String.IsNullOrEmpty(x)).ToArray());
+			comboBoxItemSubtype.SelectedIndex = 0;
 		}
 
 		private void TabControlInventorySelectedIndexChanged(object sender, EventArgs e)
@@ -46,11 +48,17 @@ namespace CharacterEditor.Forms
 				return;
 
 			comboBoxItemType.SelectedIndex = Utility.NormalizeIndex(SelectedItem.Type, Constants.ItemTypeNames);
-			comboBoxItemSubtype.SelectedIndex = SelectedItem.Type == 0 ? -1 : Utility.NormalizeIndex(SelectedItem.Subtype,
-																						Constants.ItemSubtypes[SelectedItem.Type]);
+			comboBoxItemSubtype.SelectedIndex = SelectedItem.Type == 0
+				? -1
+				: Utility.NormalizeIndex(SelectedItem.Subtype, Constants.ItemSubtypes[SelectedItem.Type]);
+
 			comboBoxItemMaterial.SelectedIndex = Utility.NormalizeIndex(SelectedItem.Material, Constants.ItemMaterialNames);
-			comboBoxItemModifier.SelectedIndex = SelectedItem.Modifier & Constants.ItemModifiers.Length;
+			comboBoxItemModifier.SelectedIndex = SelectedItem.Modifier & (Constants.ItemModifiers.Length - 1);
+			if (comboBoxItemModifier.SelectedIndex != SelectedItem.Modifier)
+				Console.WriteLine("Unknown modifier {0}!", SelectedItem.Modifier);
+
 			nudItemLevel.Value = SelectedItem.Level;
+			nudItemRarity.Value = SelectedItem.Rarity;
 		}
 
 		private void NudItemLevelValueChanged(object sender, EventArgs e)
