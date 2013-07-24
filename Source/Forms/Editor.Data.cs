@@ -78,7 +78,7 @@ namespace CharacterEditor.Forms
 				// Ok .NET 2.0, have it your way
 				listView.SelectedIndexChanged += ListViewInventorySelectedIndexChanged;
 
-				foreach (Inventory.Slot slot in inventory.Items)
+				foreach (Slot slot in inventory.Items)
 				{
 					ListViewItem listViewItem;
 

@@ -62,7 +62,7 @@
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.MaximizeBox = false;
 			this.Name = "LoadCharacter";
-			this.Text = "Open a database";
+			this.Text = "Load a Character";
 			this.Load += new System.EventHandler(this.FormLoadCharacterLoad);
 			this.ResumeLayout(false);
 

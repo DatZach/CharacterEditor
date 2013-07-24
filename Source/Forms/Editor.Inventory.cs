@@ -8,6 +8,7 @@ namespace CharacterEditor.Forms
 	public partial class Editor
 	{
 		// TODO Preserve dirty state when setting inventory controls to the right value
+		// TODO Do not populate other controls if count == 0
 
 		private Item SelectedItem
 		{
@@ -21,7 +22,7 @@ namespace CharacterEditor.Forms
 			}
 		}
 
-		private Inventory.Slot SelectedSlot
+		private Slot SelectedSlot
 		{
 			get
 			{
@@ -60,18 +61,32 @@ namespace CharacterEditor.Forms
 			if (comboBoxItemRarity.Items.Count == 0)
 				comboBoxItemRarity.Items.AddRange(new object[] { "Normal", "Uncommon", "Rare", "Epic", "Legendary" });
 
-			comboBoxItemType.SelectedIndex = Utility.NormalizeIndex(SelectedItem.Type, Constants.ItemTypeNames);
-			comboBoxItemSubtype.SelectedIndex = SelectedItem.Type == 0
-				? -1
-				: Utility.NormalizeIndex(SelectedItem.Subtype, Constants.ItemSubtypes[SelectedItem.Type]);
+			if (SelectedSlot.Count != 0)
+			{
+				comboBoxItemType.SelectedIndex = Utility.NormalizeIndex(SelectedItem.Type, Constants.ItemTypeNames);
+				comboBoxItemSubtype.SelectedIndex = SelectedItem.Type == 0
+					                                    ? -1
+					                                    : Utility.NormalizeIndex(SelectedItem.Subtype,
+					                                                             Constants.ItemSubtypes[SelectedItem.Type]);
 
-			comboBoxItemMaterial.SelectedIndex = Utility.NormalizeIndex(SelectedItem.Material, Constants.ItemMaterialNames);
-			comboBoxItemModifier.SelectedIndex = SelectedItem.Modifier % Constants.ItemModifiers.Length;
-			nudItemLevel.Value = SelectedItem.Level;
-			comboBoxItemRarity.SelectedIndex = SelectedItem.Rarity;
-			checkBoxItemAdapted.Checked = SelectedItem.Flags.HasFlag(Item.ItemFlags.Adapted);
-
-			nudItemCount.Value = SelectedSlot.Count;
+				comboBoxItemMaterial.SelectedIndex = Utility.NormalizeIndex(SelectedItem.Material, Constants.ItemMaterialNames);
+				comboBoxItemModifier.SelectedIndex = SelectedItem.Modifier % Constants.ItemModifiers.Length;
+				nudItemLevel.Value = SelectedItem.Level;
+				comboBoxItemRarity.SelectedIndex = SelectedItem.Rarity;
+				checkBoxItemAdapted.Checked = SelectedItem.Flags.HasFlag(Item.ItemFlags.Adapted);
+				nudItemCount.Value = SelectedSlot.Count;
+			}
+			else
+			{
+				/*comboBoxItemType.SelectedIndex = -1;
+				comboBoxItemSubtype.SelectedIndex = -1;
+				comboBoxItemMaterial.SelectedIndex = -1;
+				comboBoxItemModifier.SelectedIndex = -1;
+				nudItemLevel.Value = 0;
+				comboBoxItemRarity.SelectedIndex = -1;
+				checkBoxItemAdapted.Checked = false;
+				nudItemCount.Value = 0;*/
+			}
 		}
 
 		// Type
@@ -146,6 +161,8 @@ namespace CharacterEditor.Forms
 				return;
 
 			SelectedItem.Rarity = (byte)comboBoxItemRarity.SelectedIndex;
+			//if ((sbyte)SelectedItem.Rarity < 0)
+			//	return;
 
 			string[] modifierList = (string[])Constants.ItemModifiers[SelectedItem.Rarity].Clone();
 			modifierList[0] = "None";
@@ -185,6 +202,9 @@ namespace CharacterEditor.Forms
 
 		private void UpdateItemAvatar()
 		{
+			if (SelectedSlot.Count == 0)
+				return;
+
 			ListView listView = tabControlInventory.SelectedTab.Controls.OfType<ListView>().FirstOrDefault();
 			if (listView == null || listView.SelectedItems.Count == 0)
 				return;

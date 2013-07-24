@@ -394,7 +394,7 @@
 			this.groupBoxPetInformation.Controls.Add(this.labelPetKind);
 			this.groupBoxPetInformation.Location = new System.Drawing.Point(6, 6);
 			this.groupBoxPetInformation.Name = "groupBoxPetInformation";
-			this.groupBoxPetInformation.Size = new System.Drawing.Size(268, 191);
+			this.groupBoxPetInformation.Size = new System.Drawing.Size(268, 134);
 			this.groupBoxPetInformation.TabIndex = 7;
 			this.groupBoxPetInformation.TabStop = false;
 			this.groupBoxPetInformation.Text = "Pet Information";

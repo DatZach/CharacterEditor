@@ -60,6 +60,7 @@
     <Compile Include="Character\Item.cs" />
     <Compile Include="Character\ItemAttribute.cs" />
     <Compile Include="Character\NameGenerator.cs" />
+    <Compile Include="Character\Slot.cs" />
     <Compile Include="Character\World.cs" />
     <Compile Include="Character\Constants.cs" />
     <Compile Include="Database.cs" />

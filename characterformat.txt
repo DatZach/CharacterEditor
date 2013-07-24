@@ -97,7 +97,8 @@ Compressed Stream
 	02 2	Padding
 	04 2	Modifier
 	06 2	Padding
-	08 4	Unknown
+	08 1	Recipe Type
+	09 3	Padding
 	0C 1	Rarity
 	0D 1	Material
 	0E 1	Item Flags

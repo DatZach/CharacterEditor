@@ -18,7 +18,7 @@ namespace CharacterEditor.Character
 		public byte Type;
 		public byte Subtype;
 		public short Modifier;
-		private int unknown1;
+		private byte RecipeType;
 		public byte Rarity;
 		public byte Material;
 		public ItemFlags Flags;
@@ -39,8 +39,13 @@ namespace CharacterEditor.Character
 				{
 					string format = "{0}";
 
-					string itemName = Constants.ItemSubtypes[Type][Subtype];
 					string ownerName = NameGenerator.Generate(Modifier, (Modifier * 7) % 11);
+					string itemName = "";
+
+					if (Type == (int)Constants.ItemType.Recipes)
+						itemName += Constants.ItemSubtypes[RecipeType][Subtype] + " ";
+
+					itemName += Constants.ItemSubtypes[Type][Subtype];
 
 					if (Material != 0)
 						itemName = Constants.ItemMaterialNames[Material] + " " + itemName;
@@ -64,7 +69,8 @@ namespace CharacterEditor.Character
 			reader.Skip(2);
 			Modifier = reader.ReadInt16();
 			reader.Skip(2);
-			unknown1 = reader.ReadInt32();
+			RecipeType = reader.ReadByte();
+			reader.Skip(3);
 			Rarity = reader.ReadByte();
 			Material = reader.ReadByte();
 			Flags = (ItemFlags)reader.ReadByte();
@@ -82,10 +88,6 @@ namespace CharacterEditor.Character
 
 			// AttributesUsed is calculated on write
 			reader.Skip(4);
-
-			// TODO Ignore recipes for now, look into what I meant by this, might lead to a crash if I uncomment
-			if (Type == 2)
-				Subtype = 0;
 		}
 
 		public void Write(BinaryWriter writer)
@@ -95,7 +97,8 @@ namespace CharacterEditor.Character
 			writer.Skip(2);
 			writer.Write(Modifier);
 			writer.Skip(2);
-			writer.Write(unknown1);
+			writer.Write(RecipeType);
+			writer.Skip(3);
 			writer.Write(Rarity);
 			writer.Write(Material);
 			writer.Write((byte)Flags);
