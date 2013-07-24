@@ -32,6 +32,111 @@
 			ManaCubes
 		};
 
+		public static readonly string[] Names = new[]
+		{
+			"",
+			"Krazzor",
+			"Melana",
+			"Xorhild",
+			"Garok",
+			"Patram",
+			"Grimkor",
+			"Kixa",
+			"Arimatra",
+			"Spiki",
+			"Xenax",
+			"Lelundra",
+			"Razkor",
+			"Saria",
+			"Moika",
+			"Thalkor",
+			"Derlad",
+			"Melox",
+			"Mami",
+			"Lima",
+			"Azzia",
+			"Gonor",
+			"Lesreon",
+			"Kaztac",
+			"Aurirah",
+			"Grimaxa",
+			"Aruron",
+			"Anman",
+			"Grimli",
+			"Xeki",
+			"Luleya",
+			"Mayrya",
+			"Grami",
+			"Elanlas",
+			"Lorek",
+			"Sarona",
+			"Heitrud",
+			"Ikola",
+			"Benny",
+			"Barthor",
+			"Zuly",
+			"Hialuna",
+			"Azra",
+			"Kibo",
+			"Dazic",
+			"Zergo",
+			"Lama",
+			"Lummuna",
+			"Anno",
+			"Ankal",
+			"Urbur",
+			"Kurbi",
+			"Merly",
+			"Limaya",
+			"Raztuk",
+			"Driric",
+			"Lozor",
+			"Estna",
+			"Brunhild",
+			"Damaria",
+			"Misander",
+			"Gemthos",
+			"Zifara",
+			"Hiavy",
+			"Zermah",
+			"Chunax",
+			"Tholundra",
+			"Chokor",
+			"Miria",
+			"Urika",
+			"Krorior",
+			"Gerick",
+			"Arakbart",
+			"Miazy",
+			"Silia",
+			"Drakzia",
+			"Kubonor",
+			"Drireon",
+			"Draktac",
+			"Verah",
+			"Grunira",
+			"Kurka",
+			"Alegram",
+			"Torbor",
+			"Zifabara",
+			"Siraleya",
+			"Zirya",
+			"Belmi",
+			"Alas",
+			"Zenrek",
+			"Klauna",
+			"Ursa",
+			"Vardara",
+			"Asrek",
+			"Temlok",
+			"Zily",
+			"Aluna",
+			"Izara",
+			"Kubobo",
+			"Lizic",
+			"Zelrux"
+		};
+
 		public static readonly string[] ItemTypeNames = new[]
 		{
 			"None",				// None
@@ -66,72 +171,77 @@
 		{
 			new []					// Rarity 0
 			{
+				"{0}",
+				"Plain {0}",
+				"Battered {0}",
+				"Artless {0}",
 				"Unwieldy {0}",
 				"Used {0}",
 				"Dusty {0}",
 				"Scratched {0}",
 				"Worn {0}",
 				"Common {0}",
-				"Shabby {0}",
-				"Plain {0}",
-				"Battered {0}",
-				"Artless {0}"
+				"Shabby {0}"
 			},
 
 			new []					// Rarity 1
 			{
+				"{0}",
+				"Balanced {0}",
+				"Battle-tested {0}",
+				"Good {0}",
 				"Handmade {0}",
 				"Fair {0}",
 				"Neat {0}",
 				"Clean {0}",
 				"Undamaged {0}",
 				"Flawless {0}",
-				"Adjusted {0}",
-				"Balanced {0}",
-				"Battle-tested {0}",
-				"Good {0}"
+				"Adjusted {0}"
 			},
 
 			new []					// Rarity 2
  			{
+				"{0}",
+				"Polished {0}",
+				"Extraordinary {0}",
+				"Exquisite {0}",
 				"Superb {0}",
 				"Unique {0}",
 				"Handsome {0}",
 				"Grand {0}",
 				"Magic {0}",
 				"Decorated {0}",
-				"Exceptional {0}",
-				"Polished {0}",
-				"Extraordinary {0}",
-				"Exquisite {0}"
+				"Exceptional {0}"
 			},
 
 			new[]					// Rarity 3
 			{
+				"{0}",
+				"Polished {0} of {1}",
+				"Extraordinary {0} of {1}",
+				"Exquisite {0} of {1}",
 				"{1}'s superb {0}",
-				"unique {0} of {1}",
+				"Unique {0} of {1}",
 				"{1}'s handsome {0}",
-				"grand {0} of {1}",
-				"magic {0} of {1}",
-				"decorated {0} of {1}",
-				"{1}'s exceptional {0}",
-				"polished {0} of {1}",
-				"extraordinary {0} of {1}",
-				"exquisite {0} of {1}"
+				"Grand {0} of {1}",
+				"Magic {0} of {1}",
+				"Decorated {0} of {1}",
+				"{1}'s exceptional {0}"
 			},
 
 			new []					// Rarity 4
 			{
-				"{1}'s pompous {0}",
-				"glorious {0} of {1}",
-				"{1}'s splendid {0}",
-				"famous {0} of {1}",
-				"legendary  {0} of {1}",
-				"fabulous {0} of {1}",
-				"{1}'s brilliant {0}",
-				"shining {0} of {1}",
+				"{0}",
+				"Shining {0} of {1}", // 1
 				"Magnificent {0} von {1}",
-				"Sublime {0} of {1}"
+				"Sublime {0} of {1}",
+				"{1}'s pompous {0}",
+				"Glorious {0} of {1}",
+				"{1}'s splendid {0}",
+				"Famous {0} of {1}",
+				"Legendary  {0} of {1}",
+				"Fabulous {0} of {1}",
+				"{1}'s brilliant {0}"
 			}
 		};
 
@@ -277,7 +387,8 @@
 			new []						// None
 			{
 				""
-			}, 
+			},
+
 			new []						// Consumable
 			{
 				"Cookie",
@@ -291,10 +402,12 @@
 				"Pineapple Slice",
 				"Pumpkin Muffin"
 			},
+
 			new []						// Recipes
 			{
 				"Recipe"
 			}, 
+
 			new []						// Weapons
 			{
 				"Sword",
@@ -319,34 +432,42 @@
 				"Pickaxe",
 				"Torch"
 			},
+
 			new []						// Chest Armor
 			{
 				"Chest Armor"
 			},
+
 			new []						// Gloves
 			{	
 				"Gloves"
 			},
+
 			new []						// Boots
 			{
 				"Boots"
 			},
+
 			new []						// Shoulder Armor
 			{
 				"Shoulder Armor"
 			},
+
 			new []						// Amulets
 			{
 				"Amulet"
 			},
+
 			new []						// Rings
 			{
 				"Ring"
 			},
+
 			new []						// Blocks
 			{
 				"Block"
 			},
+
 			new []						// Items
 			{
 				"Nugget",
@@ -378,35 +499,43 @@
 				"Water Flask",
 				"Snowberry"
 			},
+
 			new []						// Coins
 			{
 				"Coin"
 			},
+
 			new []						// Platinum Coins
 			{
 				"Platinum Coin"
 			},
+
 			new []						// Leftovers
 			{
 				"Leftovers"
 			},
+
 			new []						// Beak
 			{
 				"Beak"
 			},
+
 			new []						// Painting
 			{
 				"Painting"
 			},
+
 			new []						// Vase
 			{
 				"Vase"
 			},
+
 			new []						// Candle
 			{
 				"Candle",
 				"Haunted Candle"
 			},
+
 			new []						// Pets
 			{
 				"", "", "", "", "", "", "", "", 
@@ -484,7 +613,8 @@
 				"", "", "", "", "", "", "", "",
 				"", "", "", "",
 				"Bumblebee"
-			}, 
+			},
+
 			new []						// Pet Food
 			{
 				"", "", "", "", "", "", "", "",
@@ -550,6 +680,7 @@
 				"Lemon Tart",
 				"Starberry Cocktail"
 			},
+
 			new []						// Quest Items
 			{
 				"Amulet (Gold)",
@@ -563,19 +694,23 @@
 				"Bandage",
 				"Salve"
 			},
+
 			new []						// Unused
 			{
 				""
 			}, 
+
 			new []						// Transportation
 			{
 				"Hang Glider",
 				"Boat"
 			},
+
 			new []						// Lamps
 			{
 				"Lamp"
 			},
+
 			new []						// Mana Cubes
 			{
 				"Mana Cube"

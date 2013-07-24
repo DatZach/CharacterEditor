@@ -944,6 +944,7 @@
 			this.comboBoxItemSubtype.Name = "comboBoxItemSubtype";
 			this.comboBoxItemSubtype.Size = new System.Drawing.Size(124, 21);
 			this.comboBoxItemSubtype.TabIndex = 1;
+			this.comboBoxItemSubtype.SelectedIndexChanged += new System.EventHandler(this.ComboBoxItemSubtypeSelectedIndexChanged);
 			// 
 			// comboBoxItemType
 			// 
@@ -962,7 +963,6 @@
 			this.tabControlInventory.SelectedIndex = 0;
 			this.tabControlInventory.Size = new System.Drawing.Size(542, 227);
 			this.tabControlInventory.TabIndex = 10;
-			this.tabControlInventory.SelectedIndexChanged += new System.EventHandler(this.TabControlInventorySelectedIndexChanged);
 			// 
 			// panel1
 			// 

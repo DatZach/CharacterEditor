@@ -35,13 +35,13 @@ namespace CharacterEditor.Character
 					string format = "{0}";
 
 					string itemName = Constants.ItemSubtypes[Type][Subtype];
-					string ownerName = "Somebody";
+					string ownerName = Constants.Names[Modifier % Constants.Names.Length];
 
 					if (Material != 0)
 						itemName = Constants.ItemMaterialNames[Material] + " " + itemName;
 
 					if (Modifier != 0)
-						format = Constants.ItemModifiers[Rarity][Modifier & 0x09];
+						format = Constants.ItemModifiers[Rarity][Modifier % 10];
 
 					return Rarity < 3 ? String.Format(format, itemName) : String.Format(format, itemName, ownerName);
 				/*}
