@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 
 namespace CharacterEditor.Character
 {
@@ -21,8 +20,8 @@ namespace CharacterEditor.Character
 		public short Modifier;
 		private int unknown1;
 		public byte Rarity;
-		public byte Material;	// TODO Sometimes denotes what class can use the item...
-		public ItemFlags Flags;		// TODO Noted in ItemIDs.txt
+		public byte Material;
+		public ItemFlags Flags;
 		public short Level;
 
 		public List<ItemAttribute> Attributes;
@@ -36,12 +35,12 @@ namespace CharacterEditor.Character
 		{
 			get
 			{
-				//try
-				//{
+				try
+				{
 					string format = "{0}";
 
 					string itemName = Constants.ItemSubtypes[Type][Subtype];
-					string ownerName = Constants.Names[Modifier % Constants.Names.Length];
+					string ownerName = NameGenerator.Generate(Modifier, (Modifier * 7) % 11);
 
 					if (Material != 0)
 						itemName = Constants.ItemMaterialNames[Material] + " " + itemName;
@@ -50,12 +49,11 @@ namespace CharacterEditor.Character
 						format = Constants.ItemModifiers[Rarity][Modifier % 10];
 
 					return Rarity < 3 ? String.Format(format, itemName) : String.Format(format, itemName, ownerName);
-				/*}
+				}
 				catch (Exception)
 				{
-					Console.WriteLine("FriendlyName error: Type = {0}; Subtype = {1}", Type, Subtype);
 					return "ERROR";
-				}*/
+				}
 			}
 		}
 
@@ -85,7 +83,7 @@ namespace CharacterEditor.Character
 			// AttributesUsed is calculated on write
 			reader.Skip(4);
 
-			// TODO Ignore recipes for now
+			// TODO Ignore recipes for now, look into what I meant by this, might lead to a crash if I uncomment
 			if (Type == 2)
 				Subtype = 0;
 		}

@@ -6,7 +6,7 @@
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{42DB9E31-B097-4870-803A-54C924271BA6}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CharacterEditor</RootNamespace>
     <AssemblyName>CharacterEditor</AssemblyName>
@@ -59,6 +59,7 @@
     <Compile Include="Character\Inventory.cs" />
     <Compile Include="Character\Item.cs" />
     <Compile Include="Character\ItemAttribute.cs" />
+    <Compile Include="Character\NameGenerator.cs" />
     <Compile Include="Character\World.cs" />
     <Compile Include="Character\Constants.cs" />
     <Compile Include="Database.cs" />

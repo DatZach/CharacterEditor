@@ -91,9 +91,9 @@
 			this.labelPetPreview = new System.Windows.Forms.Label();
 			this.tabPageInventory = new System.Windows.Forms.TabPage();
 			this.groupBoxItemProperties = new System.Windows.Forms.GroupBox();
+			this.checkBoxItemAdapted = new System.Windows.Forms.CheckBox();
 			this.comboBoxItemRarity = new System.Windows.Forms.ComboBox();
 			this.nudItemCount = new System.Windows.Forms.NumericUpDown();
-			this.checkBoxItemAdapted = new System.Windows.Forms.CheckBox();
 			this.labelItemRarity = new System.Windows.Forms.Label();
 			this.labelItemCount = new System.Windows.Forms.Label();
 			this.comboBoxItemMaterial = new System.Windows.Forms.ComboBox();
@@ -122,7 +122,6 @@
 			this.tabControlEquipment = new System.Windows.Forms.TabControl();
 			this.buttonLoadNewCharacter = new System.Windows.Forms.Button();
 			this.imageListInventory = new System.Windows.Forms.ImageList(this.components);
-			this.tabPageAbout = new System.Windows.Forms.TabPage();
 			this.groupBoxAppearance.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nudHair)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudFace)).BeginInit();
@@ -514,7 +513,6 @@
 			this.tabControlWorkspace.Controls.Add(this.tabPagePets);
 			this.tabControlWorkspace.Controls.Add(this.tabPageInventory);
 			this.tabControlWorkspace.Controls.Add(this.tabPageEquipment);
-			this.tabControlWorkspace.Controls.Add(this.tabPageAbout);
 			this.tabControlWorkspace.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tabControlWorkspace.Location = new System.Drawing.Point(0, 0);
 			this.tabControlWorkspace.Name = "tabControlWorkspace";
@@ -846,6 +844,17 @@
 			this.groupBoxItemProperties.TabStop = false;
 			this.groupBoxItemProperties.Text = "Item";
 			// 
+			// checkBoxItemAdapted
+			// 
+			this.checkBoxItemAdapted.AutoSize = true;
+			this.checkBoxItemAdapted.Location = new System.Drawing.Point(396, 60);
+			this.checkBoxItemAdapted.Name = "checkBoxItemAdapted";
+			this.checkBoxItemAdapted.Size = new System.Drawing.Size(66, 17);
+			this.checkBoxItemAdapted.TabIndex = 0;
+			this.checkBoxItemAdapted.Text = "Adapted";
+			this.checkBoxItemAdapted.UseVisualStyleBackColor = true;
+			this.checkBoxItemAdapted.CheckedChanged += new System.EventHandler(this.CheckBoxItemAdaptedCheckedChanged);
+			// 
 			// comboBoxItemRarity
 			// 
 			this.comboBoxItemRarity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -863,17 +872,6 @@
 			this.nudItemCount.Size = new System.Drawing.Size(124, 20);
 			this.nudItemCount.TabIndex = 13;
 			this.nudItemCount.ValueChanged += new System.EventHandler(this.NudItemCountValueChanged);
-			// 
-			// checkBoxItemAdapted
-			// 
-			this.checkBoxItemAdapted.AutoSize = true;
-			this.checkBoxItemAdapted.Location = new System.Drawing.Point(396, 60);
-			this.checkBoxItemAdapted.Name = "checkBoxItemAdapted";
-			this.checkBoxItemAdapted.Size = new System.Drawing.Size(66, 17);
-			this.checkBoxItemAdapted.TabIndex = 0;
-			this.checkBoxItemAdapted.Text = "Adapted";
-			this.checkBoxItemAdapted.UseVisualStyleBackColor = true;
-			this.checkBoxItemAdapted.CheckedChanged += new System.EventHandler(this.CheckBoxItemAdaptedCheckedChanged);
 			// 
 			// labelItemRarity
 			// 
@@ -1186,16 +1184,6 @@
 			this.imageListInventory.Images.SetKeyName(24, "IconLamp.png");
 			this.imageListInventory.Images.SetKeyName(25, "IconManaCube.png");
 			// 
-			// tabPageAbout
-			// 
-			this.tabPageAbout.Location = new System.Drawing.Point(4, 22);
-			this.tabPageAbout.Name = "tabPageAbout";
-			this.tabPageAbout.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPageAbout.Size = new System.Drawing.Size(696, 363);
-			this.tabPageAbout.TabIndex = 4;
-			this.tabPageAbout.Text = "About";
-			this.tabPageAbout.UseVisualStyleBackColor = true;
-			// 
 			// Editor
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1357,6 +1345,5 @@
 		private System.Windows.Forms.NumericUpDown nudItemCount;
 		private System.Windows.Forms.Label labelItemCount;
 		private System.Windows.Forms.ComboBox comboBoxItemRarity;
-		private System.Windows.Forms.TabPage tabPageAbout;
 	}
 }
