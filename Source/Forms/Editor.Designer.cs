@@ -91,12 +91,11 @@
 			this.labelPetPreview = new System.Windows.Forms.Label();
 			this.tabPageInventory = new System.Windows.Forms.TabPage();
 			this.groupBoxItemProperties = new System.Windows.Forms.GroupBox();
+			this.comboBoxItemRarity = new System.Windows.Forms.ComboBox();
 			this.nudItemCount = new System.Windows.Forms.NumericUpDown();
-			this.groupBoxItemFlags = new System.Windows.Forms.GroupBox();
 			this.checkBoxItemAdapted = new System.Windows.Forms.CheckBox();
-			this.labelItemCount = new System.Windows.Forms.Label();
-			this.nudItemRarity = new System.Windows.Forms.NumericUpDown();
 			this.labelItemRarity = new System.Windows.Forms.Label();
+			this.labelItemCount = new System.Windows.Forms.Label();
 			this.comboBoxItemMaterial = new System.Windows.Forms.ComboBox();
 			this.labelMaterial = new System.Windows.Forms.Label();
 			this.nudItemLevel = new System.Windows.Forms.NumericUpDown();
@@ -123,6 +122,7 @@
 			this.tabControlEquipment = new System.Windows.Forms.TabControl();
 			this.buttonLoadNewCharacter = new System.Windows.Forms.Button();
 			this.imageListInventory = new System.Windows.Forms.ImageList(this.components);
+			this.tabPageAbout = new System.Windows.Forms.TabPage();
 			this.groupBoxAppearance.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nudHair)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudFace)).BeginInit();
@@ -154,8 +154,6 @@
 			this.tabPageInventory.SuspendLayout();
 			this.groupBoxItemProperties.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nudItemCount)).BeginInit();
-			this.groupBoxItemFlags.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.nudItemRarity)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudItemLevel)).BeginInit();
 			this.panel1.SuspendLayout();
 			this.tabPageEquipment.SuspendLayout();
@@ -516,6 +514,7 @@
 			this.tabControlWorkspace.Controls.Add(this.tabPagePets);
 			this.tabControlWorkspace.Controls.Add(this.tabPageInventory);
 			this.tabControlWorkspace.Controls.Add(this.tabPageEquipment);
+			this.tabControlWorkspace.Controls.Add(this.tabPageAbout);
 			this.tabControlWorkspace.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tabControlWorkspace.Location = new System.Drawing.Point(0, 0);
 			this.tabControlWorkspace.Name = "tabControlWorkspace";
@@ -825,11 +824,11 @@
 			// 
 			// groupBoxItemProperties
 			// 
+			this.groupBoxItemProperties.Controls.Add(this.checkBoxItemAdapted);
+			this.groupBoxItemProperties.Controls.Add(this.comboBoxItemRarity);
 			this.groupBoxItemProperties.Controls.Add(this.nudItemCount);
-			this.groupBoxItemProperties.Controls.Add(this.groupBoxItemFlags);
-			this.groupBoxItemProperties.Controls.Add(this.labelItemCount);
-			this.groupBoxItemProperties.Controls.Add(this.nudItemRarity);
 			this.groupBoxItemProperties.Controls.Add(this.labelItemRarity);
+			this.groupBoxItemProperties.Controls.Add(this.labelItemCount);
 			this.groupBoxItemProperties.Controls.Add(this.comboBoxItemMaterial);
 			this.groupBoxItemProperties.Controls.Add(this.labelMaterial);
 			this.groupBoxItemProperties.Controls.Add(this.nudItemLevel);
@@ -847,6 +846,16 @@
 			this.groupBoxItemProperties.TabStop = false;
 			this.groupBoxItemProperties.Text = "Item";
 			// 
+			// comboBoxItemRarity
+			// 
+			this.comboBoxItemRarity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboBoxItemRarity.FormattingEnabled = true;
+			this.comboBoxItemRarity.Location = new System.Drawing.Point(136, 76);
+			this.comboBoxItemRarity.Name = "comboBoxItemRarity";
+			this.comboBoxItemRarity.Size = new System.Drawing.Size(124, 21);
+			this.comboBoxItemRarity.TabIndex = 14;
+			this.comboBoxItemRarity.SelectedIndexChanged += new System.EventHandler(this.ComboBoxItemRaritySelectedIndexChanged);
+			// 
 			// nudItemCount
 			// 
 			this.nudItemCount.Location = new System.Drawing.Point(396, 32);
@@ -855,26 +864,25 @@
 			this.nudItemCount.TabIndex = 13;
 			this.nudItemCount.ValueChanged += new System.EventHandler(this.NudItemCountValueChanged);
 			// 
-			// groupBoxItemFlags
-			// 
-			this.groupBoxItemFlags.Controls.Add(this.checkBoxItemAdapted);
-			this.groupBoxItemFlags.Location = new System.Drawing.Point(396, 63);
-			this.groupBoxItemFlags.Name = "groupBoxItemFlags";
-			this.groupBoxItemFlags.Size = new System.Drawing.Size(140, 49);
-			this.groupBoxItemFlags.TabIndex = 12;
-			this.groupBoxItemFlags.TabStop = false;
-			this.groupBoxItemFlags.Text = "Item Flags";
-			// 
 			// checkBoxItemAdapted
 			// 
 			this.checkBoxItemAdapted.AutoSize = true;
-			this.checkBoxItemAdapted.Location = new System.Drawing.Point(6, 19);
+			this.checkBoxItemAdapted.Location = new System.Drawing.Point(396, 60);
 			this.checkBoxItemAdapted.Name = "checkBoxItemAdapted";
 			this.checkBoxItemAdapted.Size = new System.Drawing.Size(66, 17);
 			this.checkBoxItemAdapted.TabIndex = 0;
 			this.checkBoxItemAdapted.Text = "Adapted";
 			this.checkBoxItemAdapted.UseVisualStyleBackColor = true;
 			this.checkBoxItemAdapted.CheckedChanged += new System.EventHandler(this.CheckBoxItemAdaptedCheckedChanged);
+			// 
+			// labelItemRarity
+			// 
+			this.labelItemRarity.AutoSize = true;
+			this.labelItemRarity.Location = new System.Drawing.Point(133, 60);
+			this.labelItemRarity.Name = "labelItemRarity";
+			this.labelItemRarity.Size = new System.Drawing.Size(37, 13);
+			this.labelItemRarity.TabIndex = 10;
+			this.labelItemRarity.Text = "Rarity:";
 			// 
 			// labelItemCount
 			// 
@@ -884,28 +892,6 @@
 			this.labelItemCount.Size = new System.Drawing.Size(38, 13);
 			this.labelItemCount.TabIndex = 12;
 			this.labelItemCount.Text = "Count:";
-			// 
-			// nudItemRarity
-			// 
-			this.nudItemRarity.Location = new System.Drawing.Point(266, 76);
-			this.nudItemRarity.Maximum = new decimal(new int[] {
-            4,
-            0,
-            0,
-            0});
-			this.nudItemRarity.Name = "nudItemRarity";
-			this.nudItemRarity.Size = new System.Drawing.Size(124, 20);
-			this.nudItemRarity.TabIndex = 11;
-			this.nudItemRarity.ValueChanged += new System.EventHandler(this.NudItemRarityValueChanged);
-			// 
-			// labelItemRarity
-			// 
-			this.labelItemRarity.AutoSize = true;
-			this.labelItemRarity.Location = new System.Drawing.Point(263, 60);
-			this.labelItemRarity.Name = "labelItemRarity";
-			this.labelItemRarity.Size = new System.Drawing.Size(37, 13);
-			this.labelItemRarity.TabIndex = 10;
-			this.labelItemRarity.Text = "Rarity:";
 			// 
 			// comboBoxItemMaterial
 			// 
@@ -928,7 +914,7 @@
 			// 
 			// nudItemLevel
 			// 
-			this.nudItemLevel.Location = new System.Drawing.Point(136, 77);
+			this.nudItemLevel.Location = new System.Drawing.Point(266, 76);
 			this.nudItemLevel.Maximum = new decimal(new int[] {
             32767,
             0,
@@ -942,7 +928,7 @@
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(133, 60);
+			this.label3.Location = new System.Drawing.Point(263, 59);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(36, 13);
 			this.label3.TabIndex = 6;
@@ -1200,6 +1186,16 @@
 			this.imageListInventory.Images.SetKeyName(24, "IconLamp.png");
 			this.imageListInventory.Images.SetKeyName(25, "IconManaCube.png");
 			// 
+			// tabPageAbout
+			// 
+			this.tabPageAbout.Location = new System.Drawing.Point(4, 22);
+			this.tabPageAbout.Name = "tabPageAbout";
+			this.tabPageAbout.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPageAbout.Size = new System.Drawing.Size(696, 363);
+			this.tabPageAbout.TabIndex = 4;
+			this.tabPageAbout.Text = "About";
+			this.tabPageAbout.UseVisualStyleBackColor = true;
+			// 
 			// Editor
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1251,9 +1247,6 @@
 			this.groupBoxItemProperties.ResumeLayout(false);
 			this.groupBoxItemProperties.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nudItemCount)).EndInit();
-			this.groupBoxItemFlags.ResumeLayout(false);
-			this.groupBoxItemFlags.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.nudItemRarity)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudItemLevel)).EndInit();
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
@@ -1359,11 +1352,11 @@
 		private System.Windows.Forms.Panel panel2;
 		private System.Windows.Forms.Label label9;
 		private System.Windows.Forms.TabControl tabControlEquipment;
-		private System.Windows.Forms.NumericUpDown nudItemRarity;
 		private System.Windows.Forms.Label labelItemRarity;
-		private System.Windows.Forms.GroupBox groupBoxItemFlags;
 		private System.Windows.Forms.CheckBox checkBoxItemAdapted;
 		private System.Windows.Forms.NumericUpDown nudItemCount;
 		private System.Windows.Forms.Label labelItemCount;
+		private System.Windows.Forms.ComboBox comboBoxItemRarity;
+		private System.Windows.Forms.TabPage tabPageAbout;
 	}
 }

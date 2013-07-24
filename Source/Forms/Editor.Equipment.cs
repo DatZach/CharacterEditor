@@ -1,7 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Windows.Forms;
-using CharacterEditor.Character;
+﻿using System.Windows.Forms;
 
 namespace CharacterEditor.Forms
 {
@@ -54,7 +51,7 @@ namespace CharacterEditor.Forms
 				Size = new System.Drawing.Size(124, 21),
 			};
 
-			comboBoxEquipmentItemModifier.Items.AddRange(Constants.ItemModifiers[(int)nudItemRarity.Value].Where(x => !String.IsNullOrEmpty(x)).ToArray());
+			//comboBoxEquipmentItemModifier.Items.AddRange(Constants.ItemModifiers[comboBoxItemRarity.SelectedIndex].Where(x => !String.IsNullOrEmpty(x)).ToArray());
 
 			Label labelEquipmentItemModifier = new Label
 			{
