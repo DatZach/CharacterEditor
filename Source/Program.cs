@@ -12,6 +12,9 @@ namespace CharacterEditor
 		[STAThread]
 		public static void Main()
 		{
+			Application.EnableVisualStyles();
+			Application.SetCompatibleTextRenderingDefault(false);
+
 #if !DEBUG
 			AppDomain.CurrentDomain.UnhandledException += (sender, args) =>
 			{
@@ -31,8 +34,6 @@ namespace CharacterEditor
             }
 #endif
 
-			Application.EnableVisualStyles();
-			Application.SetCompatibleTextRenderingDefault(false);
 			Application.Run(new Editor());
 		}
 	}

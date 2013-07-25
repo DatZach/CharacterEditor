@@ -120,6 +120,12 @@
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.label9 = new System.Windows.Forms.Label();
 			this.tabControlEquipment = new System.Windows.Forms.TabControl();
+			this.tabPageAbout = new System.Windows.Forms.TabPage();
+			this.labelAboutEditorName = new System.Windows.Forms.Label();
+			this.linkLabelX2048 = new System.Windows.Forms.LinkLabel();
+			this.pictureBoxX2048 = new System.Windows.Forms.PictureBox();
+			this.label4 = new System.Windows.Forms.Label();
+			this.labelCopyright = new System.Windows.Forms.Label();
 			this.buttonLoadNewCharacter = new System.Windows.Forms.Button();
 			this.imageListInventory = new System.Windows.Forms.ImageList(this.components);
 			this.groupBoxAppearance.SuspendLayout();
@@ -162,6 +168,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.nudCoinsSilver)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudCoinsGold)).BeginInit();
 			this.panel2.SuspendLayout();
+			this.tabPageAbout.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBoxX2048)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// textBoxName
@@ -513,6 +521,7 @@
 			this.tabControlWorkspace.Controls.Add(this.tabPagePets);
 			this.tabControlWorkspace.Controls.Add(this.tabPageInventory);
 			this.tabControlWorkspace.Controls.Add(this.tabPageEquipment);
+			this.tabControlWorkspace.Controls.Add(this.tabPageAbout);
 			this.tabControlWorkspace.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tabControlWorkspace.Location = new System.Drawing.Point(0, 0);
 			this.tabControlWorkspace.Name = "tabControlWorkspace";
@@ -1193,6 +1202,69 @@
 			this.tabControlEquipment.Size = new System.Drawing.Size(542, 227);
 			this.tabControlEquipment.TabIndex = 11;
 			// 
+			// tabPageAbout
+			// 
+			this.tabPageAbout.Controls.Add(this.labelAboutEditorName);
+			this.tabPageAbout.Controls.Add(this.linkLabelX2048);
+			this.tabPageAbout.Controls.Add(this.pictureBoxX2048);
+			this.tabPageAbout.Controls.Add(this.label4);
+			this.tabPageAbout.Controls.Add(this.labelCopyright);
+			this.tabPageAbout.Location = new System.Drawing.Point(4, 22);
+			this.tabPageAbout.Name = "tabPageAbout";
+			this.tabPageAbout.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPageAbout.Size = new System.Drawing.Size(696, 363);
+			this.tabPageAbout.TabIndex = 4;
+			this.tabPageAbout.Text = "About";
+			this.tabPageAbout.UseVisualStyleBackColor = true;
+			// 
+			// labelAboutEditorName
+			// 
+			this.labelAboutEditorName.AutoSize = true;
+			this.labelAboutEditorName.Location = new System.Drawing.Point(6, 3);
+			this.labelAboutEditorName.Name = "labelAboutEditorName";
+			this.labelAboutEditorName.Size = new System.Drawing.Size(142, 13);
+			this.labelAboutEditorName.TabIndex = 4;
+			this.labelAboutEditorName.Text = "Cube World Character Editor";
+			// 
+			// linkLabelX2048
+			// 
+			this.linkLabelX2048.AutoSize = true;
+			this.linkLabelX2048.Location = new System.Drawing.Point(6, 29);
+			this.linkLabelX2048.Name = "linkLabelX2048";
+			this.linkLabelX2048.Size = new System.Drawing.Size(86, 13);
+			this.linkLabelX2048.TabIndex = 3;
+			this.linkLabelX2048.TabStop = true;
+			this.linkLabelX2048.Text = "www.x2048.com";
+			this.linkLabelX2048.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelX2048LinkClicked);
+			// 
+			// pictureBoxX2048
+			// 
+			this.pictureBoxX2048.Image = global::CharacterEditor.Properties.Resources.x2048;
+			this.pictureBoxX2048.Location = new System.Drawing.Point(434, 6);
+			this.pictureBoxX2048.Name = "pictureBoxX2048";
+			this.pictureBoxX2048.Size = new System.Drawing.Size(256, 256);
+			this.pictureBoxX2048.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.pictureBoxX2048.TabIndex = 2;
+			this.pictureBoxX2048.TabStop = false;
+			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Location = new System.Drawing.Point(6, 53);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(311, 143);
+			this.label4.TabIndex = 1;
+			this.label4.Text = resources.GetString("label4.Text");
+			// 
+			// labelCopyright
+			// 
+			this.labelCopyright.AutoSize = true;
+			this.labelCopyright.Location = new System.Drawing.Point(6, 16);
+			this.labelCopyright.Name = "labelCopyright";
+			this.labelCopyright.Size = new System.Drawing.Size(126, 13);
+			this.labelCopyright.TabIndex = 0;
+			this.labelCopyright.Text = "(C) 2013 Zachary Reedy ";
+			// 
 			// buttonLoadNewCharacter
 			// 
 			this.buttonLoadNewCharacter.Location = new System.Drawing.Point(492, 14);
@@ -1297,6 +1369,9 @@
 			((System.ComponentModel.ISupportInitialize)(this.nudCoinsGold)).EndInit();
 			this.panel2.ResumeLayout(false);
 			this.panel2.PerformLayout();
+			this.tabPageAbout.ResumeLayout(false);
+			this.tabPageAbout.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBoxX2048)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -1395,5 +1470,11 @@
 		private System.Windows.Forms.NumericUpDown nudItemCount;
 		private System.Windows.Forms.Label labelItemCount;
 		private System.Windows.Forms.ComboBox comboBoxItemRarity;
+		private System.Windows.Forms.TabPage tabPageAbout;
+		private System.Windows.Forms.Label labelAboutEditorName;
+		private System.Windows.Forms.LinkLabel linkLabelX2048;
+		private System.Windows.Forms.PictureBox pictureBoxX2048;
+		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.Label labelCopyright;
 	}
 }

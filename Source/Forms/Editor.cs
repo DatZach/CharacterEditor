@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
@@ -18,6 +19,8 @@ namespace CharacterEditor.Forms
 			database = new Database();
 
 			InitializeComponent();
+
+			labelAboutEditorName.Text += " v" + Program.Version;
 
 			comboBoxPetKind.Items.Add("None");
 			string[] pets = Constants.ItemSubtypes[(int)Constants.ItemType.Pets];
@@ -146,6 +149,11 @@ namespace CharacterEditor.Forms
 			}
 
 			Enabled = character != null;
+		}
+
+		private void LinkLabelX2048LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			Process.Start("http://www.x2048.com/");
 		}
 	}
 }

@@ -117,6 +117,9 @@
 			this.Controls.Add(this.textBoxExceptionInformation);
 			this.Controls.Add(this.buttonClose);
 			this.Controls.Add(this.labelExceptionMessage);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
 			this.Name = "ExceptionDialog";
 			this.Text = "Character Editor Exception Occurred";
 			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormExceptionClosed);
