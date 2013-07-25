@@ -5,6 +5,7 @@ namespace CharacterEditor
 	class DirtyWatcher
 	{
 		public bool Dirty;
+		public bool IgnoreDirtiness;
 
 		public DirtyWatcher(Form form)
 		{
@@ -24,27 +25,27 @@ namespace CharacterEditor
 			{
 				if (control is TextBox)
 				{
-					control.TextChanged += (o, e) => Dirty = true;
+					control.TextChanged += (o, e) => Dirty = !IgnoreDirtiness || Dirty;
 				}
 				else if (control is ComboBox)
 				{
 					ComboBox comboBox = (ComboBox)control;
-					comboBox.SelectedIndexChanged += (o, e) => Dirty = true;
+					comboBox.SelectedIndexChanged += (o, e) => Dirty = !IgnoreDirtiness || Dirty;
 				}
 				else if (control is NumericUpDown)
 				{
 					NumericUpDown numericUpDown = (NumericUpDown)control;
-					numericUpDown.ValueChanged += (o, e) => Dirty = true;
+					numericUpDown.ValueChanged += (o, e) => Dirty = !IgnoreDirtiness || Dirty;
 				}
 				else if (control is CheckBox)
 				{
 					CheckBox checkBox = (CheckBox)control;
-					checkBox.CheckedChanged += (o, e) => Dirty = true;
+					checkBox.CheckedChanged += (o, e) => Dirty = !IgnoreDirtiness || Dirty;
 				}
 				else if (control is Button)
 				{
 					Button button = (Button)control;
-					button.BackColorChanged += (o, e) => Dirty = true;
+					button.BackColorChanged += (o, e) => Dirty = !IgnoreDirtiness || Dirty;
 				}
 
 				RecurseControlsInner(control);

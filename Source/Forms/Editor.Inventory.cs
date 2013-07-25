@@ -7,9 +7,6 @@ namespace CharacterEditor.Forms
 {
 	public partial class Editor
 	{
-		// TODO Preserve dirty state when setting inventory controls to the right value
-		// TODO Do not populate other controls if count == 0
-
 		private Item SelectedItem
 		{
 			get
@@ -36,6 +33,10 @@ namespace CharacterEditor.Forms
 		{
 			if (SelectedItem == null)
 				return;
+
+			// Ignore dirtiness
+			lock (dirtyWatcher)
+				dirtyWatcher.IgnoreDirtiness = true;
 
 			if (comboBoxItemType.Items.Count == 0)
 				comboBoxItemType.Items.AddRange(Constants.ItemTypeNames.Where(x => !String.IsNullOrEmpty(x)).ToArray());
@@ -78,15 +79,19 @@ namespace CharacterEditor.Forms
 			}
 			else
 			{
-				/*comboBoxItemType.SelectedIndex = -1;
+				comboBoxItemType.SelectedIndex = -1;
 				comboBoxItemSubtype.SelectedIndex = -1;
 				comboBoxItemMaterial.SelectedIndex = -1;
 				comboBoxItemModifier.SelectedIndex = -1;
 				nudItemLevel.Value = 0;
-				comboBoxItemRarity.SelectedIndex = -1;
+				comboBoxItemRarity.SelectedIndex = -1; // 0
 				checkBoxItemAdapted.Checked = false;
-				nudItemCount.Value = 0;*/
+				nudItemCount.Value = 0;
 			}
+
+			// Stop ignoring dirtiness
+			lock (dirtyWatcher)
+				dirtyWatcher.IgnoreDirtiness = false;
 		}
 
 		// Type
@@ -157,12 +162,10 @@ namespace CharacterEditor.Forms
 		// Rarity
 		private void ComboBoxItemRaritySelectedIndexChanged(object sender, EventArgs e)
 		{
-			if (SelectedItem == null)
+			if (SelectedItem == null || comboBoxItemRarity.SelectedIndex == -1)
 				return;
 
 			SelectedItem.Rarity = (byte)comboBoxItemRarity.SelectedIndex;
-			//if ((sbyte)SelectedItem.Rarity < 0)
-			//	return;
 
 			string[] modifierList = (string[])Constants.ItemModifiers[SelectedItem.Rarity].Clone();
 			modifierList[0] = "None";

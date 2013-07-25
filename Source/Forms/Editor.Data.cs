@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Windows.Forms;
 using CharacterEditor.Character;
 
@@ -107,10 +106,6 @@ namespace CharacterEditor.Forms
 				tabPage.Controls.Add(listView);
 				tabControlInventory.TabPages.Add(tabPage);
 			}
-
-			// TODO Find a cleaner way to do this, maybe?
-			ComboBoxRaceSelectedIndexChanged(null, null);
-			ComboBoxClassSelectedIndexChanged(null, null);
 
 			if (dirtyWatcher != null)
 				dirtyWatcher.Dirty = false;

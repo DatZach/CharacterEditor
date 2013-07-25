@@ -42,19 +42,24 @@ namespace CharacterEditor.Forms
 
 				while (!IsDisposed)
 				{
-					if (dirtyWatcher.Dirty != previousDirty)
+					lock (dirtyWatcher)
 					{
-						string title = "Character Editor v" + Program.Version + " [" + character.Name + "]";
+						if (dirtyWatcher.Dirty != previousDirty && !dirtyWatcher.IgnoreDirtiness)
+						{
+							string title = "Character Editor v" + Program.Version + " [" + character.Name + "]";
 
-						if (dirtyWatcher.Dirty)
-							title += " *";
+							if (dirtyWatcher.Dirty)
+								title += " *";
 
-						if (InvokeRequired)
-							Invoke(new MethodInvoker(() => Text = title));
-						else
-							Text = title;
+							if (InvokeRequired)
+								Invoke(new MethodInvoker(() => Text = title));
+							else
+								Text = title;
 
-						previousDirty = dirtyWatcher.Dirty;
+							previousDirty = dirtyWatcher.Dirty;
+						}
+						else if (dirtyWatcher.IgnoreDirtiness)
+							dirtyWatcher.Dirty = false;
 					}
 
 					Thread.Sleep(1);

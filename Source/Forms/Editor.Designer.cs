@@ -197,9 +197,9 @@
 			this.buttonHairColor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
 			this.buttonHairColor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
 			this.buttonHairColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.buttonHairColor.Location = new System.Drawing.Point(141, 125);
+			this.buttonHairColor.Location = new System.Drawing.Point(141, 127);
 			this.buttonHairColor.Name = "buttonHairColor";
-			this.buttonHairColor.Size = new System.Drawing.Size(21, 21);
+			this.buttonHairColor.Size = new System.Drawing.Size(16, 16);
 			this.buttonHairColor.TabIndex = 9;
 			this.buttonHairColor.UseVisualStyleBackColor = false;
 			this.buttonHairColor.Click += new System.EventHandler(this.ButtonHairColorClick);
@@ -364,7 +364,7 @@
 			// 
 			this.nudExperience.Location = new System.Drawing.Point(141, 125);
 			this.nudExperience.Maximum = new decimal(new int[] {
-            10000,
+            2147483647,
             0,
             0,
             0});
@@ -460,7 +460,7 @@
 			// 
 			this.nudPetExperience.Location = new System.Drawing.Point(141, 98);
 			this.nudPetExperience.Maximum = new decimal(new int[] {
-            10000,
+            2147483647,
             0,
             0,
             0});
@@ -645,6 +645,11 @@
 			// nudSailingSkillLevel
 			// 
 			this.nudSailingSkillLevel.Location = new System.Drawing.Point(415, 97);
+			this.nudSailingSkillLevel.Maximum = new decimal(new int[] {
+            238609294,
+            0,
+            0,
+            0});
 			this.nudSailingSkillLevel.Name = "nudSailingSkillLevel";
 			this.nudSailingSkillLevel.Size = new System.Drawing.Size(121, 20);
 			this.nudSailingSkillLevel.TabIndex = 8;
@@ -652,6 +657,11 @@
 			// nudSwimmingSkillLevel
 			// 
 			this.nudSwimmingSkillLevel.Location = new System.Drawing.Point(415, 71);
+			this.nudSwimmingSkillLevel.Maximum = new decimal(new int[] {
+            238609294,
+            0,
+            0,
+            0});
 			this.nudSwimmingSkillLevel.Name = "nudSwimmingSkillLevel";
 			this.nudSwimmingSkillLevel.Size = new System.Drawing.Size(121, 20);
 			this.nudSwimmingSkillLevel.TabIndex = 7;
@@ -659,6 +669,11 @@
 			// nudHangGlidingSkillLevel
 			// 
 			this.nudHangGlidingSkillLevel.Location = new System.Drawing.Point(415, 45);
+			this.nudHangGlidingSkillLevel.Maximum = new decimal(new int[] {
+            238609294,
+            0,
+            0,
+            0});
 			this.nudHangGlidingSkillLevel.Name = "nudHangGlidingSkillLevel";
 			this.nudHangGlidingSkillLevel.Size = new System.Drawing.Size(121, 20);
 			this.nudHangGlidingSkillLevel.TabIndex = 6;
@@ -666,6 +681,11 @@
 			// nudClimbingSkillLevel
 			// 
 			this.nudClimbingSkillLevel.Location = new System.Drawing.Point(415, 19);
+			this.nudClimbingSkillLevel.Maximum = new decimal(new int[] {
+            238609294,
+            0,
+            0,
+            0});
 			this.nudClimbingSkillLevel.Name = "nudClimbingSkillLevel";
 			this.nudClimbingSkillLevel.Size = new System.Drawing.Size(121, 20);
 			this.nudClimbingSkillLevel.TabIndex = 5;
@@ -673,6 +693,11 @@
 			// nudPetRidingSkillLevel
 			// 
 			this.nudPetRidingSkillLevel.Location = new System.Drawing.Point(141, 123);
+			this.nudPetRidingSkillLevel.Maximum = new decimal(new int[] {
+            238609294,
+            0,
+            0,
+            0});
 			this.nudPetRidingSkillLevel.Name = "nudPetRidingSkillLevel";
 			this.nudPetRidingSkillLevel.Size = new System.Drawing.Size(121, 20);
 			this.nudPetRidingSkillLevel.TabIndex = 4;
@@ -680,6 +705,11 @@
 			// nudPetMasterSkillLevel
 			// 
 			this.nudPetMasterSkillLevel.Location = new System.Drawing.Point(141, 97);
+			this.nudPetMasterSkillLevel.Maximum = new decimal(new int[] {
+            238609294,
+            0,
+            0,
+            0});
 			this.nudPetMasterSkillLevel.Name = "nudPetMasterSkillLevel";
 			this.nudPetMasterSkillLevel.Size = new System.Drawing.Size(121, 20);
 			this.nudPetMasterSkillLevel.TabIndex = 3;
@@ -687,6 +717,11 @@
 			// nudTierThreeSkillLevel
 			// 
 			this.nudTierThreeSkillLevel.Location = new System.Drawing.Point(141, 71);
+			this.nudTierThreeSkillLevel.Maximum = new decimal(new int[] {
+            238609294,
+            0,
+            0,
+            0});
 			this.nudTierThreeSkillLevel.Name = "nudTierThreeSkillLevel";
 			this.nudTierThreeSkillLevel.Size = new System.Drawing.Size(121, 20);
 			this.nudTierThreeSkillLevel.TabIndex = 2;
@@ -694,6 +729,11 @@
 			// nudTierTwoSkillLevel
 			// 
 			this.nudTierTwoSkillLevel.Location = new System.Drawing.Point(141, 45);
+			this.nudTierTwoSkillLevel.Maximum = new decimal(new int[] {
+            238609294,
+            0,
+            0,
+            0});
 			this.nudTierTwoSkillLevel.Name = "nudTierTwoSkillLevel";
 			this.nudTierTwoSkillLevel.Size = new System.Drawing.Size(121, 20);
 			this.nudTierTwoSkillLevel.TabIndex = 1;
@@ -701,6 +741,11 @@
 			// nudTierOneSkillLevel
 			// 
 			this.nudTierOneSkillLevel.Location = new System.Drawing.Point(141, 19);
+			this.nudTierOneSkillLevel.Maximum = new decimal(new int[] {
+            238609294,
+            0,
+            0,
+            0});
 			this.nudTierOneSkillLevel.Name = "nudTierOneSkillLevel";
 			this.nudTierOneSkillLevel.Size = new System.Drawing.Size(121, 20);
 			this.nudTierOneSkillLevel.TabIndex = 0;
@@ -868,6 +913,11 @@
 			// nudItemCount
 			// 
 			this.nudItemCount.Location = new System.Drawing.Point(396, 32);
+			this.nudItemCount.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
 			this.nudItemCount.Name = "nudItemCount";
 			this.nudItemCount.Size = new System.Drawing.Size(124, 20);
 			this.nudItemCount.TabIndex = 13;

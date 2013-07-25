@@ -50,7 +50,7 @@ namespace CharacterEditor
 			value |= (abgr & 0x000000FF) << 16;
 			value |= (abgr & 0x00FF0000) >> 16;
 
-			return Color.FromArgb(value);
+			return Color.FromArgb((int)(value | 0xFF000000));
 		}
 
 		public static int ToAbgr(Color color)
@@ -60,7 +60,7 @@ namespace CharacterEditor
 			value |= (argb & 0x000000FF) << 16;
 			value |= (argb & 0x00FF0000) >> 16;
 
-			return value;
+			return (int)(value | 0xFF000000);
 		}
 
 		public static void Skip(this BinaryReader reader, int count)

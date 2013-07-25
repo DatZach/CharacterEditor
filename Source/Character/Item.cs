@@ -43,9 +43,12 @@ namespace CharacterEditor.Character
 					string itemName = "";
 
 					if (Type == (int)Constants.ItemType.Recipes)
+					{
 						itemName += Constants.ItemSubtypes[RecipeType][Subtype] + " ";
-
-					itemName += Constants.ItemSubtypes[Type][Subtype];
+						itemName += Constants.ItemSubtypes[(int)Constants.ItemType.Recipes][Subtype];
+					}
+					else
+						itemName += Constants.ItemSubtypes[Type][Subtype];
 
 					if (Material != 0)
 						itemName = Constants.ItemMaterialNames[Material] + " " + itemName;
