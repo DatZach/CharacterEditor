@@ -55,7 +55,7 @@ namespace CharacterEditor.Forms
 			nudCoinsGold.Value = (character.Coins / 10000) % 100;
 			nudCoinsSilver.Value = (character.Coins / 100) % 100;
 			nudCoinsCopper.Value = character.Coins % 100;
-			nudCoinsPlatinum.Value = character.PlatinumCoins;
+			nudCoinsPlatinum.SetValueClamped(character.PlatinumCoins);
 
 			// Sync inventory to GUI
 			for (int i = 0; i < Character.Character.InventoryCount; ++i)

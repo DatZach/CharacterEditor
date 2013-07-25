@@ -233,6 +233,11 @@
 			// nudHair
 			// 
 			this.nudHair.Location = new System.Drawing.Point(141, 99);
+			this.nudHair.Maximum = new decimal(new int[] {
+            102,
+            0,
+            0,
+            0});
 			this.nudHair.Name = "nudHair";
 			this.nudHair.Size = new System.Drawing.Size(121, 20);
 			this.nudHair.TabIndex = 6;
@@ -249,6 +254,11 @@
 			// nudFace
 			// 
 			this.nudFace.Location = new System.Drawing.Point(141, 73);
+			this.nudFace.Maximum = new decimal(new int[] {
+            101,
+            0,
+            0,
+            0});
 			this.nudFace.Name = "nudFace";
 			this.nudFace.Size = new System.Drawing.Size(121, 20);
 			this.nudFace.TabIndex = 4;
@@ -1155,7 +1165,7 @@
 			// 
 			this.nudCoinsGold.Location = new System.Drawing.Point(6, 32);
 			this.nudCoinsGold.Maximum = new decimal(new int[] {
-            99,
+            99999,
             0,
             0,
             0});

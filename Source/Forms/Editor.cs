@@ -101,9 +101,19 @@ namespace CharacterEditor.Forms
 		{
 			SyncGuiToCharacterData();
 
-			if (!character.Save(database))
-				MessageBox.Show(this, "Something went wrong trying to save your character to the database.", "Character Editor",
-								MessageBoxButtons.OK);
+			try
+			{
+				if (!character.Save(database))
+					MessageBox.Show(this, "Something went wrong trying to save your character to the database.", "Character Editor",
+					                MessageBoxButtons.OK);
+			}
+			catch (System.Data.SQLite.SQLiteException)
+			{
+				MessageBox.Show(this,
+								"Cannot save because the database is currently read only.\r\nTry running the editor as Administrator.",
+								"Character Editor",
+								MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 		}
 
 		private void ButtonLoadNewCharacterClick(object sender, EventArgs e)

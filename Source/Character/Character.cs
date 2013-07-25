@@ -165,7 +165,7 @@ namespace CharacterEditor.Character
 			int lastWorldSeed = reader.ReadInt32();
 			string lastWorldName = reader.ReadLongString();
 
-			LastWorld = Worlds.FirstOrDefault(w => w.Seed == lastWorldSeed && w.Name == lastWorldName);
+			LastWorld = Worlds.FirstOrDefault(w => w.Seed == lastWorldSeed && w.Name == lastWorldName) ?? new World { Name = lastWorldName, Seed = lastWorldSeed };
 
 			unknown3 = reader.ReadUInt32();
 			reader.Skip(4);
