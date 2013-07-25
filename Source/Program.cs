@@ -7,7 +7,7 @@ namespace CharacterEditor
 {
 	static class Program
 	{
-		public const string Version = "0.35";
+		public const string Version = "0.4";
 
 		[STAThread]
 		public static void Main()
