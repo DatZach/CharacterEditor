@@ -5,8 +5,6 @@ using System.Linq;
 
 namespace CharacterEditor.Character
 {
-	// TODO If a loaded value goes out of range, don't crash
-
 	public class Character
 	{
 		public const int EquipmentCount = 13;

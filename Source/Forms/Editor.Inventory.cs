@@ -38,40 +38,20 @@ namespace CharacterEditor.Forms
 			lock (dirtyWatcher)
 				dirtyWatcher.IgnoreDirtiness = true;
 
-			if (comboBoxItemType.Items.Count == 0)
-				comboBoxItemType.Items.AddRange(Constants.ItemTypeNames.Where(x => !String.IsNullOrEmpty(x)).ToArray());
-
-			if (comboBoxItemMaterial.Items.Count == 0)
-				comboBoxItemMaterial.Items.AddRange(Constants.ItemMaterialNames.Where(x => !String.IsNullOrEmpty(x)).ToArray());
-
-			if (comboBoxItemModifier.Items.Count == 0)
-			{
-				string[] modifierList = (string[ ])Constants.ItemModifiers[0].Clone();
-				modifierList[0] = "None";
-
-				for (int i = 0; i < modifierList.Length; i++)
-				{
-					modifierList[i] = modifierList[i].Replace("{0}", null);
-					modifierList[i] = modifierList[i].Replace("{1}", null);
-				}
-
-				comboBoxItemModifier.Items.Clear();
-				comboBoxItemModifier.Items.AddRange(modifierList);
-			}
-
-			if (comboBoxItemRarity.Items.Count == 0)
-				comboBoxItemRarity.Items.AddRange(new object[] { "Normal", "Uncommon", "Rare", "Epic", "Legendary" });
+			// Update controls if needed
+			UpdateItemControls();
 
 			if (SelectedSlot.Count != 0)
 			{
+				// There's an item here, update controls
 				comboBoxItemType.SelectedIndex = Utility.NormalizeIndex(SelectedItem.Type, Constants.ItemTypeNames);
-				comboBoxItemSubtype.SelectedIndex = SelectedItem.Type == 0
-					                                    ? -1
-					                                    : Utility.NormalizeIndex(SelectedItem.Subtype,
-					                                                             Constants.ItemSubtypes[SelectedItem.Type]);
-
+				comboBoxItemSubtype.SelectedIndex = Utility.NormalizeIndex(SelectedItem.Subtype, Constants.ItemSubtypes[SelectedItem.Type]);
 				comboBoxItemMaterial.SelectedIndex = Utility.NormalizeIndex(SelectedItem.Material, Constants.ItemMaterialNames);
-				comboBoxItemModifier.SelectedIndex = SelectedItem.Modifier % Constants.ItemModifiers.Length;
+				if (SelectedItem.Modifier != 0)
+					comboBoxItemModifier.SelectedIndex = (SelectedItem.Modifier - 1) % 10 + 1;
+				else
+					comboBoxItemModifier.SelectedIndex = 0;
+
 				nudItemLevel.Value = SelectedItem.Level;
 				comboBoxItemRarity.SelectedIndex = SelectedItem.Rarity;
 				checkBoxItemAdapted.Checked = SelectedItem.Flags.HasFlag(Item.ItemFlags.Adapted);
@@ -79,12 +59,13 @@ namespace CharacterEditor.Forms
 			}
 			else
 			{
+				// No item here, update controls
 				comboBoxItemType.SelectedIndex = -1;
 				comboBoxItemSubtype.SelectedIndex = -1;
 				comboBoxItemMaterial.SelectedIndex = -1;
 				comboBoxItemModifier.SelectedIndex = -1;
 				nudItemLevel.Value = 0;
-				comboBoxItemRarity.SelectedIndex = -1; // 0
+				comboBoxItemRarity.SelectedIndex = -1;
 				checkBoxItemAdapted.Checked = false;
 				nudItemCount.Value = 0;
 			}
@@ -145,7 +126,13 @@ namespace CharacterEditor.Forms
 			if (SelectedItem == null)
 				return;
 
-			SelectedItem.Modifier = (short)comboBoxItemModifier.SelectedIndex;
+			// TODO Magic code right here
+			int offset = 0;
+			int offsetInitial = ((SelectedItem.ActualModifier - 1) % 10 + 1);
+			if (comboBoxItemModifier.SelectedIndex != 0)
+				offset = comboBoxItemModifier.SelectedIndex - offsetInitial;
+
+			SelectedItem.Modifier = (short)(SelectedItem.ActualModifier + offset);
 			UpdateItemAvatar();
 		}
 
@@ -168,7 +155,7 @@ namespace CharacterEditor.Forms
 			SelectedItem.Rarity = (byte)comboBoxItemRarity.SelectedIndex;
 
 			string[] modifierList = (string[])Constants.ItemModifiers[SelectedItem.Rarity].Clone();
-			modifierList[0] = "None";
+			//modifierList[0] = "None";
 
 			for (int i = 0; i < modifierList.Length; i++)
 			{
@@ -178,6 +165,7 @@ namespace CharacterEditor.Forms
 
 			int restoreIndex = comboBoxItemModifier.SelectedIndex;
 			comboBoxItemModifier.Items.Clear();
+			comboBoxItemModifier.Items.Add("None");
 			comboBoxItemModifier.Items.AddRange(modifierList);
 			comboBoxItemModifier.SelectedIndex = restoreIndex;
 		}
@@ -217,6 +205,34 @@ namespace CharacterEditor.Forms
 
 			selectedItem.Text = item.FriendlyName;
 			selectedItem.ImageIndex = item.Type;
+		}
+
+		private void UpdateItemControls()
+		{
+			if (comboBoxItemType.Items.Count == 0)
+				comboBoxItemType.Items.AddRange(Constants.ItemTypeNames.Where(x => !String.IsNullOrEmpty(x)).ToArray());
+
+			if (comboBoxItemMaterial.Items.Count == 0)
+				comboBoxItemMaterial.Items.AddRange(Constants.ItemMaterialNames.Where(x => !String.IsNullOrEmpty(x)).ToArray());
+
+			if (comboBoxItemModifier.Items.Count == 0)
+			{
+				string[] modifierList = (string[])Constants.ItemModifiers[0].Clone();
+				//modifierList[0] = "None";
+
+				for (int i = 0; i < modifierList.Length; i++)
+				{
+					modifierList[i] = modifierList[i].Replace("{0}", null);
+					modifierList[i] = modifierList[i].Replace("{1}", null);
+				}
+
+				comboBoxItemModifier.Items.Clear();
+				comboBoxItemModifier.Items.Add("None");
+				comboBoxItemModifier.Items.AddRange(modifierList);
+			}
+
+			if (comboBoxItemRarity.Items.Count == 0)
+				comboBoxItemRarity.Items.AddRange(new object[] { "Normal", "Uncommon", "Rare", "Epic", "Legendary" });
 		}
 	}
 }

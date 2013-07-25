@@ -19,9 +19,9 @@ namespace CharacterEditor.Forms
 
 			InitializeComponent();
 
-			// TODO Clean this crap
 			comboBoxPetKind.Items.Add("None");
-			comboBoxPetKind.Items.AddRange(Constants.ItemSubtypes[(int)Constants.ItemType.Pets].Where(x => !String.IsNullOrEmpty(x)).ToArray());
+			string[] pets = Constants.ItemSubtypes[(int)Constants.ItemType.Pets];
+			comboBoxPetKind.Items.AddRange(pets.Where(x => !String.IsNullOrEmpty(x)).ToArray());
 		}
 
 		private void FormEditorShown(object sender, EventArgs e)

@@ -9,8 +9,8 @@ namespace CharacterEditor.Forms
 		private void SyncCharacterDataToGui()
 		{
 			textBoxName.Text = character.Name;
-			nudLevel.Value = character.Level;
-			nudExperience.Value = character.Experience;
+			nudLevel.SetValueClamped(character.Level);
+			nudExperience.SetValueClamped(character.Experience);
 			comboBoxGender.SelectedIndex = character.Gender;
 			comboBoxRace.SelectedIndex = character.Race;
 			comboBoxClass.SelectedIndex = (int)character.Class - 1;

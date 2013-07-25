@@ -66,7 +66,6 @@
 		{
 			new []					// Rarity 0
 			{
-				"{0}",
 				"Plain {0}",
 				"Battered {0}",
 				"Artless {0}",
@@ -81,7 +80,6 @@
 
 			new []					// Rarity 1
 			{
-				"{0}",
 				"Balanced {0}",
 				"Battle-tested {0}",
 				"Good {0}",
@@ -96,7 +94,6 @@
 
 			new []					// Rarity 2
  			{
-				"{0}",
 				"Polished {0}",
 				"Extraordinary {0}",
 				"Exquisite {0}",
@@ -111,7 +108,6 @@
 
 			new[]					// Rarity 3
 			{
-				"{0}",
 				"Polished {0} of {1}",
 				"Extraordinary {0} of {1}",
 				"Exquisite {0} of {1}",
@@ -126,7 +122,6 @@
 
 			new []					// Rarity 4
 			{
-				"{0}",
 				"Shining {0} of {1}", // 1
 				"Magnificent {0} von {1}",
 				"Sublime {0} of {1}",

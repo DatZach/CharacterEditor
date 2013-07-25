@@ -17,8 +17,9 @@ namespace CharacterEditor.Character
 
 		public byte Type;
 		public byte Subtype;
+		public short ActualModifier; // TODO Hack, should build modifier from its fragments
 		public short Modifier;
-		private byte RecipeType;
+		public byte RecipeType;
 		public byte Rarity;
 		public byte Material;
 		public ItemFlags Flags;
@@ -37,6 +38,7 @@ namespace CharacterEditor.Character
 			{
 				try
 				{
+					// TODO Should probably clean this up
 					string format = "{0}";
 
 					string ownerName = NameGenerator.Generate(Modifier, (Modifier * 7) % 11);
@@ -54,7 +56,7 @@ namespace CharacterEditor.Character
 						itemName = Constants.ItemMaterialNames[Material] + " " + itemName;
 
 					if (Modifier != 0)
-						format = Constants.ItemModifiers[Rarity][Modifier % 10];
+						format = Constants.ItemModifiers[Rarity][(Modifier - 1) % 10];
 
 					return Rarity < 3 ? String.Format(format, itemName) : String.Format(format, itemName, ownerName);
 				}
@@ -91,6 +93,8 @@ namespace CharacterEditor.Character
 
 			// AttributesUsed is calculated on write
 			reader.Skip(4);
+
+			ActualModifier = Modifier;
 		}
 
 		public void Write(BinaryWriter writer)

@@ -2,11 +2,24 @@
 using System.Drawing;
 using System.IO;
 using System.Text;
+using System.Windows.Forms;
 
 namespace CharacterEditor
 {
 	static class Utility
 	{
+		public static void SetValueClamped(this NumericUpDown nud, int value)
+		{
+			decimal result = value;
+
+			if (value < nud.Minimum)
+				result = nud.Minimum;
+			else if (value > nud.Maximum)
+				result = nud.Maximum;
+
+			nud.Value = result;
+		}
+
 		public static int GoofyIndex(int index, string[] list)
 		{
 			int result = index;
@@ -46,9 +59,9 @@ namespace CharacterEditor
 
 		public static Color FromAbgr(int abgr)
 		{
-			int value = (int)(abgr & 0xFF00FF00);
-			value |= (abgr & 0x000000FF) << 16;
-			value |= (abgr & 0x00FF0000) >> 16;
+			long value = abgr & 0xFF00FF00;
+			value |= (abgr & 0x000000FFL) << 16;
+			value |= (abgr & 0x00FF0000L) >> 16;
 
 			return Color.FromArgb((int)(value | 0xFF000000));
 		}
@@ -56,9 +69,9 @@ namespace CharacterEditor
 		public static int ToAbgr(Color color)
 		{
 			int argb = color.ToArgb();
-			int value = (int)(argb & 0xFF00FF00);
-			value |= (argb & 0x000000FF) << 16;
-			value |= (argb & 0x00FF0000) >> 16;
+			long value = argb & 0xFF00FF00;
+			value |= (argb & 0x000000FFL) << 16;
+			value |= (argb & 0x00FF0000L) >> 16;
 
 			return (int)(value | 0xFF000000);
 		}
