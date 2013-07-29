@@ -998,12 +998,12 @@
       // 
       this.nudItemLevel.Location = new System.Drawing.Point(266, 76);
       this.nudItemLevel.Maximum = new decimal(new int[] {
-            2147483647,
+            32767,
             0,
             0,
             0});
       this.nudItemLevel.Minimum = new decimal(new int[] {
-            -2147483648,
+            32768,
             0,
             0,
             -2147483648});
