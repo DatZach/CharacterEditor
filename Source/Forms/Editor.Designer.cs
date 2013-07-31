@@ -1189,7 +1189,6 @@
             0,
             0,
             0});
-
 			this.nudCoinsGold.Name = "nudCoinsGold";
 			this.nudCoinsGold.Size = new System.Drawing.Size(37, 20);
 			this.nudCoinsGold.TabIndex = 1;
@@ -1283,7 +1282,7 @@
 			this.label4.AutoSize = true;
 			this.label4.Location = new System.Drawing.Point(6, 53);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(311, 143);
+			this.label4.Size = new System.Drawing.Size(311, 156);
 			this.label4.TabIndex = 1;
 			this.label4.Text = resources.GetString("label4.Text");
 			// 
@@ -1344,6 +1343,7 @@
 			this.ClientSize = new System.Drawing.Size(704, 442);
 			this.Controls.Add(this.splitContainerWorkspace);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
 			this.Name = "Editor";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -1404,6 +1404,7 @@
 			this.tabPageAbout.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxX2048)).EndInit();
 			this.ResumeLayout(false);
+
 		}
 
 		#endregion

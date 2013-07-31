@@ -144,7 +144,7 @@ namespace CharacterEditor.Forms
 		{
 			Enabled = false;
 
-			LoadCharacter loadCharacter = new LoadCharacter(database)
+			LoadCharacterDialog loadCharacter = new LoadCharacterDialog(database)
 			{
 				StartPosition = FormStartPosition.CenterParent
 			};

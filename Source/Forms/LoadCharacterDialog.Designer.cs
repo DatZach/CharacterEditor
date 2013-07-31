@@ -1,6 +1,6 @@
 ﻿namespace CharacterEditor.Forms
 {
-	partial class LoadCharacter
+	partial class LoadCharacterDialog
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -28,7 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoadCharacter));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoadCharacterDialog));
 			this.buttonLoadDatabase = new System.Windows.Forms.Button();
 			this.listBoxCharacters = new System.Windows.Forms.ListBox();
 			this.SuspendLayout();
@@ -53,17 +53,19 @@
 			this.listBoxCharacters.TabIndex = 0;
 			this.listBoxCharacters.SelectedIndexChanged += new System.EventHandler(this.ListBoxCharactersSelectedIndexChanged);
 			// 
-			// LoadCharacter
+			// LoadCharacterDialog
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(474, 282);
 			this.Controls.Add(this.listBoxCharacters);
 			this.Controls.Add(this.buttonLoadDatabase);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
-			this.Name = "LoadCharacter";
+			this.MinimizeBox = false;
+			this.Name = "LoadCharacterDialog";
+			this.ShowInTaskbar = false;
 			this.Text = "Load a Character";
 			this.Load += new System.EventHandler(this.FormLoadCharacterLoad);
 			this.ResumeLayout(false);

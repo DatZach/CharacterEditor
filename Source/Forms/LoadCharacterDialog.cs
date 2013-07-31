@@ -6,7 +6,7 @@ using Microsoft.Win32;
 
 namespace CharacterEditor.Forms
 {
-	public partial class LoadCharacter : Form
+	public partial class LoadCharacterDialog : Form
 	{
 		// TODO Backup database just in case
 		// TODO Add character delete and add?
@@ -16,7 +16,7 @@ namespace CharacterEditor.Forms
 		public Character.Character SelectedCharacter { get; private set; }
 		private readonly Database database;
 
-		public LoadCharacter(Database database)
+		public LoadCharacterDialog(Database database)
 		{
 			Characters = new List<Character.Character>();
 			this.database = database;
