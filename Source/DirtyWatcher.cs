@@ -2,7 +2,7 @@
 
 namespace CharacterEditor
 {
-	class DirtyWatcher
+	public class DirtyWatcher
 	{
 		public bool Dirty;
 		public bool IgnoreDirtiness;

@@ -1,11 +1,11 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 using CharacterEditor.Forms;
-using System.Diagnostics;
 
 namespace CharacterEditor
 {
-	static class Program
+	public static class Program
 	{
 		public const string Version = "0.4b";
 

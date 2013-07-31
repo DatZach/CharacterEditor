@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoadCharacter));
 			this.buttonLoadDatabase = new System.Windows.Forms.Button();
 			this.listBoxCharacters = new System.Windows.Forms.ListBox();
 			this.SuspendLayout();
@@ -60,6 +61,7 @@
 			this.Controls.Add(this.listBoxCharacters);
 			this.Controls.Add(this.buttonLoadDatabase);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
 			this.Name = "LoadCharacter";
 			this.Text = "Load a Character";

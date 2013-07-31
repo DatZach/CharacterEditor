@@ -1,5 +1,4 @@
-﻿using System;
-using System.Data;
+﻿using System.Data;
 using System.Data.SQLite;
 using System.IO;
 using System.Linq;
@@ -13,7 +12,7 @@ namespace CharacterEditor
 
 		public void Load(string filename)
 		{
-			string connectionString = String.Format("Data Source={0};Version=3", filename);
+			string connectionString = string.Format("Data Source={0};Version=3", filename);
 			connection = new SQLiteConnection(connectionString);
 			connection.Open();
 		}
@@ -40,7 +39,7 @@ namespace CharacterEditor
 		{
 			using (SQLiteCommand command = new SQLiteCommand(connection))
 			{
-				command.CommandText = String.Format("UPDATE `blobs` SET `value`=@blobData WHERE `key`='{0}'", index);
+				command.CommandText = string.Format("UPDATE `blobs` SET `value`=@blobData WHERE `key`='{0}'", index);
 				command.Parameters.Add(new SQLiteParameter("@blobData", DbType.Binary)
 				{
 					Value = data
@@ -61,7 +60,7 @@ namespace CharacterEditor
 
 			using (SQLiteCommand command = new SQLiteCommand(connection))
 			{
-				command.CommandText = String.Format("SELECT `value` FROM `blobs` WHERE `key`='{0}'", index);
+				command.CommandText = string.Format("SELECT `value` FROM `blobs` WHERE `key`='{0}'", index);
 				SQLiteDataReader reader = command.ExecuteReader();
 				table.Load(reader);
 				reader.Close();
@@ -109,12 +108,10 @@ namespace CharacterEditor
 
 		private static void CopyStream(Stream input, Stream output)
 		{
-			const int bufferLength = 2048;
-
-			byte[] buffer = new byte[bufferLength];
+			byte[] buffer = new byte[2048];
 			int len;
 
-			while ((len = input.Read(buffer, 0, bufferLength)) > 0)
+			while ((len = input.Read(buffer, 0, buffer.Length)) > 0)
 				output.Write(buffer, 0, len);
 
 			output.Flush();

@@ -5,7 +5,7 @@ namespace CharacterEditor.Character
 	// CREDIT Ntl3fty
 	public class NameGenerator
 	{
-		private static readonly IDictionary<int, string[,]> partialNames = new Dictionary<int, string[,]>
+		private static readonly IDictionary<int, string[,]> PartialNames = new Dictionary<int, string[,]>
         {
             {
                 -1,
@@ -162,19 +162,19 @@ namespace CharacterEditor.Character
 
 		static NameGenerator()
 		{
-			partialNames[18] = partialNames[2];
-			partialNames[43] = partialNames[2];
-			partialNames[83] = partialNames[2];
+			PartialNames[18] = PartialNames[2];
+			PartialNames[43] = PartialNames[2];
+			PartialNames[83] = PartialNames[2];
 
-			partialNames[45] = partialNames[3];
-			partialNames[84] = partialNames[3];
+			PartialNames[45] = PartialNames[3];
+			PartialNames[84] = PartialNames[3];
 		}
 
 		public static string Generate(int id, int type = -1)
 		{
 			string[,] partials;
-			if (!partialNames.TryGetValue(type, out partials))
-				partials = partialNames[-1];
+			if (!PartialNames.TryGetValue(type, out partials))
+				partials = PartialNames[-1];
 
 			int index1 = (13 * id + id / 7) % partials.GetLength(1);
 			int index2 = (id / 10 + 7 * id) % partials.GetLength(1);

@@ -100,7 +100,7 @@ namespace CharacterEditor.Forms
 
 		private string FindCubeWorldDirectory()
 		{
-			const string cubeWorldSaveDirectory = @"\Cube World\Save";
+			const string CubeWorldSaveDirectory = @"\Cube World\Save";
 
 			// Check if it exists in Registry
 			string registryPath = FindCubeWorldDirectoryFromRegistry();
@@ -109,13 +109,13 @@ namespace CharacterEditor.Forms
 
 			// Check if it exists in Program Files (32bit)
 			string programFiles = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86);
-			if (Directory.Exists(programFiles + cubeWorldSaveDirectory))
-				return programFiles + cubeWorldSaveDirectory;
+			if (Directory.Exists(programFiles + CubeWorldSaveDirectory))
+				return programFiles + CubeWorldSaveDirectory;
 
 			// Check if it exists on the Desktop
 			string desktop = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
-			if (Directory.Exists(desktop + cubeWorldSaveDirectory))
-				return desktop + cubeWorldSaveDirectory;
+			if (Directory.Exists(desktop + CubeWorldSaveDirectory))
+				return desktop + CubeWorldSaveDirectory;
 
 			// Can't find it
 			return String.Empty;

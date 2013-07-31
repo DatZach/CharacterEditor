@@ -5,8 +5,6 @@ namespace CharacterEditor.Forms
 {
 	public partial class Editor
 	{
-		// TODO Boss pets?
-
 		private void ButtonHairColorClick(object sender, EventArgs e)
 		{
 			ColorDialog colorDialog = new ColorDialog

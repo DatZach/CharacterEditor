@@ -9,12 +9,6 @@ namespace CharacterEditor.Character
 	{
 		public const int AttributeCount = 32;
 
-		[Flags]
-		public enum ItemFlags : byte
-		{
-			Adapted = 0x01
-		}
-
 		public byte Type;
 		public byte Subtype;
 		public short ActualModifier; // TODO Hack, should build modifier from its fragments
@@ -27,11 +21,6 @@ namespace CharacterEditor.Character
 
 		public List<ItemAttribute> Attributes;
 
-		public Item()
-		{
-			Attributes = new List<ItemAttribute>();
-		}
-
 		public string FriendlyName
 		{
 			get
@@ -42,7 +31,7 @@ namespace CharacterEditor.Character
 					string format = "{0}";
 
 					string ownerName = NameGenerator.Generate(Modifier, (Modifier * 7) % 11);
-					string itemName = "";
+					string itemName = string.Empty;
 
 					if (Type == (int)Constants.ItemType.Recipes)
 					{
@@ -58,13 +47,24 @@ namespace CharacterEditor.Character
 					if (Modifier != 0)
 						format = Constants.ItemModifiers[Rarity][(Modifier - 1) % 10];
 
-					return Rarity < 3 ? String.Format(format, itemName) : String.Format(format, itemName, ownerName);
+					return Rarity < 3 ? string.Format(format, itemName) : string.Format(format, itemName, ownerName);
 				}
 				catch (Exception)
 				{
 					return "ERROR";
 				}
 			}
+		}
+
+		[Flags]
+		public enum ItemFlags : byte
+		{
+			Adapted = 0x01
+		}
+
+		public Item()
+		{
+			Attributes = new List<ItemAttribute>();
 		}
 
 		public void Read(BinaryReader reader)

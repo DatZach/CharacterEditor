@@ -30,7 +30,7 @@
 			Transportation,
 			Lamps,
 			ManaCubes
-		};
+		}
 
 		public static readonly string[] ItemTypeNames = new[]
 		{

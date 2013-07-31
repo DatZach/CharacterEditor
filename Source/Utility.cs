@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace CharacterEditor
 {
-	static class Utility
+	public static class Utility
 	{
 		public static void SetValueClamped(this NumericUpDown nud, int value)
 		{

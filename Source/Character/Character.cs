@@ -18,10 +18,9 @@ namespace CharacterEditor.Character
 			Ranger,
 			Mage,
 			Rogue
-		};
+		}
 
 		public int DatabaseIndex { get; private set; }
-
 		public int EntityId { get; private set; }
 		public long PositionX { get; private set; }
 		public long PositionY { get; private set; }
@@ -57,7 +56,7 @@ namespace CharacterEditor.Character
 		public List<World> Worlds;
 		public World LastWorld;
 
-		private uint unknown3;
+		public int ManaCubes;
 		public int PetMasterSkillLevel;
 		public int PetRidingSkillLevel;
 		public int ClimbingSkillLevel;
@@ -167,7 +166,7 @@ namespace CharacterEditor.Character
 
 			LastWorld = Worlds.FirstOrDefault(w => w.Seed == lastWorldSeed && w.Name == lastWorldName) ?? new World { Name = lastWorldName, Seed = lastWorldSeed };
 
-			unknown3 = reader.ReadUInt32();
+			ManaCubes = reader.ReadInt32();
 			reader.Skip(4);
 			PetMasterSkillLevel = reader.ReadInt32();
 			PetRidingSkillLevel = reader.ReadInt32();
@@ -229,7 +228,7 @@ namespace CharacterEditor.Character
 			writer.Write(LastWorld.Seed);
 			writer.WriteLongString(LastWorld.Name);
 
-			writer.Write(unknown3);
+			writer.Write(ManaCubes);
 			writer.Write(SkillCount);
 			writer.Write(PetMasterSkillLevel);
 			writer.Write(PetRidingSkillLevel);
