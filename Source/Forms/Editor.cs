@@ -153,6 +153,9 @@ namespace CharacterEditor.Forms
 
 			if (result == DialogResult.OK)
 			{
+				tabControlInventory.TabPages.Clear();
+				tabControlEquipment.TabPages.Clear();
+
 				character = loadCharacter.SelectedCharacter;
 
 				SyncCharacterDataToGui();

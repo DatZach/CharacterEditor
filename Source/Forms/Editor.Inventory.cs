@@ -155,12 +155,11 @@ namespace CharacterEditor.Forms
 			SelectedItem.Rarity = (byte)comboBoxItemRarity.SelectedIndex;
 
 			string[] modifierList = (string[])Constants.ItemModifiers[SelectedItem.Rarity].Clone();
-			//modifierList[0] = "None";
 
 			for (int i = 0; i < modifierList.Length; i++)
 			{
-				modifierList[i] = modifierList[i].Replace("{0}", null);
-				modifierList[i] = modifierList[i].Replace("{1}", null);
+				modifierList[i] = modifierList[i].Replace("{0}", "*");
+				modifierList[i] = modifierList[i].Replace("{1}", "*");
 			}
 
 			int restoreIndex = comboBoxItemModifier.SelectedIndex;
