@@ -8,18 +8,6 @@ namespace CharacterEditor
 {
 	public static class Utility
 	{
-		public static void SetValueClamped(this NumericUpDown nud, int value)
-		{
-			decimal result = value;
-
-			if (value < nud.Minimum)
-				result = nud.Minimum;
-			else if (value > nud.Maximum)
-				result = nud.Maximum;
-
-			nud.Value = result;
-		}
-
 		public static int GoofyIndex(int index, string[] list)
 		{
 			int result = index;

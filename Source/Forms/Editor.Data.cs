@@ -9,8 +9,8 @@ namespace CharacterEditor.Forms
 		private void SyncCharacterDataToGui()
 		{
 			textBoxName.Text = character.Name;
-			nudLevel.SetValueClamped(character.Level);
-			nudExperience.SetValueClamped(character.Experience);
+			nudLevel.Value = character.Level;
+			nudExperience.Value = character.Experience;
 			comboBoxGender.SelectedIndex = character.Gender;
 			comboBoxRace.SelectedIndex = character.Race;
 			comboBoxClass.SelectedIndex = (int)character.Class - 1;
@@ -55,7 +55,7 @@ namespace CharacterEditor.Forms
 			nudCoinsGold.Value = (character.Coins / 10000) % 100;
 			nudCoinsSilver.Value = (character.Coins / 100) % 100;
 			nudCoinsCopper.Value = character.Coins % 100;
-			nudCoinsPlatinum.SetValueClamped(character.PlatinumCoins);
+			nudCoinsPlatinum.Value = character.PlatinumCoins;
 
 			// Sync inventory to GUI
 			for (int i = 0; i < Character.Character.InventoryCount; ++i)

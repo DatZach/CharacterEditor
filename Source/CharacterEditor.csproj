@@ -102,6 +102,9 @@
     <Compile Include="Forms\LoadCharacterDialog.Designer.cs">
       <DependentUpon>LoadCharacterDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\SafeNumericUpDown.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

@@ -29,7 +29,7 @@ namespace CharacterEditor.Forms
 				Text = "Material:"
 			};
 
-			NumericUpDown nudEquipmentItemLevel = new NumericUpDown
+			SafeNumericUpDown nudEquipmentItemLevel = new SafeNumericUpDown
 			{
 				Location = new System.Drawing.Point(136, 77),
 				Maximum = 0x7FFF,
