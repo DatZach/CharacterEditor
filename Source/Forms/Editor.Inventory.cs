@@ -47,10 +47,10 @@ namespace CharacterEditor.Forms
 				comboBoxItemType.SelectedIndex = Utility.NormalizeIndex(SelectedItem.Type, Constants.ItemTypeNames);
 				comboBoxItemSubtype.SelectedIndex = Utility.NormalizeIndex(SelectedItem.Subtype, Constants.ItemSubtypes[SelectedItem.Type]);
 				comboBoxItemMaterial.SelectedIndex = Utility.NormalizeIndex(SelectedItem.Material, Constants.ItemMaterialNames);
-				if (SelectedItem.Modifier != 0)
-					comboBoxItemModifier.SelectedIndex = (SelectedItem.Modifier - 1) % 10 + 1;
-				else
-					comboBoxItemModifier.SelectedIndex = 0;
+				//if (SelectedItem.Modifier != 0)
+				//    comboBoxItemPrefixId.SelectedIndex = (SelectedItem.Modifier - 1) % 10 + 1;
+				//else
+				//    comboBoxItemPrefixId.SelectedIndex = 0;
 
 				nudItemLevel.Value = SelectedItem.Level;
 				comboBoxItemRarity.SelectedIndex = SelectedItem.Rarity;
@@ -63,7 +63,7 @@ namespace CharacterEditor.Forms
 				comboBoxItemType.SelectedIndex = -1;
 				comboBoxItemSubtype.SelectedIndex = -1;
 				comboBoxItemMaterial.SelectedIndex = -1;
-				comboBoxItemModifier.SelectedIndex = -1;
+				comboBoxItemPrefixId.SelectedIndex = -1;
 				nudItemLevel.Value = 0;
 				comboBoxItemRarity.SelectedIndex = -1;
 				checkBoxItemAdapted.Checked = false;
@@ -127,12 +127,12 @@ namespace CharacterEditor.Forms
 				return;
 
 			// TODO Magic code right here
-			int offset = 0;
-			int offsetInitial = ((SelectedItem.ActualModifier - 1) % 10 + 1);
-			if (comboBoxItemModifier.SelectedIndex != 0)
-				offset = comboBoxItemModifier.SelectedIndex - offsetInitial;
+			//int offset = 0;
+			//int offsetInitial = ((SelectedItem.ActualModifier - 1) % 10 + 1);
+			//if (comboBoxItemPrefixId.SelectedIndex != 0)
+			//    offset = comboBoxItemPrefixId.SelectedIndex - offsetInitial;
 
-			SelectedItem.Modifier = (short)(SelectedItem.ActualModifier + offset);
+			//SelectedItem.Modifier = (short)(SelectedItem.ActualModifier + offset);
 			UpdateItemAvatar();
 		}
 
@@ -162,11 +162,11 @@ namespace CharacterEditor.Forms
 				modifierList[i] = modifierList[i].Replace("{1}", "*");
 			}
 
-			int restoreIndex = comboBoxItemModifier.SelectedIndex;
-			comboBoxItemModifier.Items.Clear();
-			comboBoxItemModifier.Items.Add("None");
-			comboBoxItemModifier.Items.AddRange(modifierList);
-			comboBoxItemModifier.SelectedIndex = restoreIndex;
+			int restoreIndex = comboBoxItemPrefixId.SelectedIndex;
+			comboBoxItemPrefixId.Items.Clear();
+			comboBoxItemPrefixId.Items.Add("None");
+			comboBoxItemPrefixId.Items.AddRange(modifierList);
+			comboBoxItemPrefixId.SelectedIndex = restoreIndex;
 		}
 
 		// Adapted
@@ -214,7 +214,7 @@ namespace CharacterEditor.Forms
 			if (comboBoxItemMaterial.Items.Count == 0)
 				comboBoxItemMaterial.Items.AddRange(Constants.ItemMaterialNames.Where(x => !String.IsNullOrEmpty(x)).ToArray());
 
-			if (comboBoxItemModifier.Items.Count == 0)
+			if (comboBoxItemPrefixId.Items.Count == 0)
 			{
 				string[] modifierList = (string[])Constants.ItemModifiers[0].Clone();
 				//modifierList[0] = "None";
@@ -225,9 +225,9 @@ namespace CharacterEditor.Forms
 					modifierList[i] = modifierList[i].Replace("{1}", null);
 				}
 
-				comboBoxItemModifier.Items.Clear();
-				comboBoxItemModifier.Items.Add("None");
-				comboBoxItemModifier.Items.AddRange(modifierList);
+				comboBoxItemPrefixId.Items.Clear();
+				comboBoxItemPrefixId.Items.Add("None");
+				comboBoxItemPrefixId.Items.AddRange(modifierList);
 			}
 
 			if (comboBoxItemRarity.Items.Count == 0)

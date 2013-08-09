@@ -143,7 +143,8 @@ namespace CharacterEditor.Forms
 			petEquipment.Type = (byte)(comboBoxPetKind.SelectedIndex <= 0 ? (int)Constants.ItemType.None : (int)Constants.ItemType.Pets);
 			petEquipment.Subtype = (byte)Utility.GoofyIndex(comboBoxPetKind.SelectedIndex - 1, Constants.ItemSubtypes[(int)Constants.ItemType.Pets]);
 			petEquipment.Level = (short)nudPetLevel.Value;
-			petEquipment.Modifier = (short)nudPetExperience.Value;
+			// TODO Fix pets..........
+			//petEquipment.Modifier = (short)nudPetExperience.Value;
 
 			for (int i = 0; i < textBoxPetName.Text.Length; ++i)
 				petEquipment.Attributes[i].Material = (byte)textBoxPetName.Text[i];

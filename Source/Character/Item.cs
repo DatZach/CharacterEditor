@@ -8,18 +8,43 @@ namespace CharacterEditor.Character
 	public class Item : ICharacterData
 	{
 		public const int AttributeCount = 32;
+		public const int PrefixDivisor = 10;
+		public const int ModelDivisor = 11;
+		public const int EffectDivisor = 21;
 
 		public byte Type;
 		public byte Subtype;
-		public short ActualModifier; // TODO Hack, should build modifier from its fragments
-		public short Modifier;
+		//public short ActualModifier; // TODO Hack, should build modifier from its fragments
 		public byte RecipeType;
 		public byte Rarity;
 		public byte Material;
 		public ItemFlags Flags;
 		public short Level;
 
+		// Modifier subparts
+		public int PrefixId;
+		public int ModelId;
+		public int EffectId;
+
 		public List<ItemAttribute> Attributes;
+
+		public short Modifier
+		{
+			get
+			{
+				int modifier, t;
+				ChineseRemainder.Solve(PrefixDivisor, ModelDivisor, EffectDivisor, PrefixId, ModelId, EffectId, out modifier, out t);
+
+				return (short)modifier;
+			}
+
+			private set
+			{
+				PrefixId = value % PrefixDivisor;
+				ModelId = value % ModelDivisor;
+				EffectId = value % EffectDivisor;
+			}
+		}
 
 		public string FriendlyName
 		{
@@ -93,8 +118,6 @@ namespace CharacterEditor.Character
 
 			// AttributesUsed is calculated on write
 			reader.Skip(4);
-
-			ActualModifier = Modifier;
 		}
 
 		public void Write(BinaryWriter writer)

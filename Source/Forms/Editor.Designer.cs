@@ -35,9 +35,9 @@
 			this.buttonHairColor = new System.Windows.Forms.Button();
 			this.labelHairColor = new System.Windows.Forms.Label();
 			this.labelHair = new System.Windows.Forms.Label();
-			this.nudHair = new SafeNumericUpDown();
+			this.nudHair = new CharacterEditor.Forms.SafeNumericUpDown();
 			this.labelFace = new System.Windows.Forms.Label();
-			this.nudFace = new SafeNumericUpDown();
+			this.nudFace = new CharacterEditor.Forms.SafeNumericUpDown();
 			this.labelGender = new System.Windows.Forms.Label();
 			this.comboBoxGender = new System.Windows.Forms.ComboBox();
 			this.comboBoxRace = new System.Windows.Forms.ComboBox();
@@ -45,17 +45,17 @@
 			this.labelClass = new System.Windows.Forms.Label();
 			this.comboBoxClass = new System.Windows.Forms.ComboBox();
 			this.labelLevel = new System.Windows.Forms.Label();
-			this.nudLevel = new SafeNumericUpDown();
+			this.nudLevel = new CharacterEditor.Forms.SafeNumericUpDown();
 			this.labelExperience = new System.Windows.Forms.Label();
-			this.nudExperience = new SafeNumericUpDown();
+			this.nudExperience = new CharacterEditor.Forms.SafeNumericUpDown();
 			this.buttonSaveCharacter = new System.Windows.Forms.Button();
 			this.groupBoxPetInformation = new System.Windows.Forms.GroupBox();
 			this.labelPetName = new System.Windows.Forms.Label();
 			this.textBoxPetName = new System.Windows.Forms.TextBox();
 			this.labelPetLevel = new System.Windows.Forms.Label();
-			this.nudPetLevel = new SafeNumericUpDown();
+			this.nudPetLevel = new CharacterEditor.Forms.SafeNumericUpDown();
 			this.labelPetXP = new System.Windows.Forms.Label();
-			this.nudPetExperience = new SafeNumericUpDown();
+			this.nudPetExperience = new CharacterEditor.Forms.SafeNumericUpDown();
 			this.comboBoxPetKind = new System.Windows.Forms.ComboBox();
 			this.labelPetKind = new System.Windows.Forms.Label();
 			this.splitContainerWorkspace = new System.Windows.Forms.SplitContainer();
@@ -71,15 +71,15 @@
 			this.labelTierThreeSkillLevel = new System.Windows.Forms.Label();
 			this.labelTierTwoSkillLevel = new System.Windows.Forms.Label();
 			this.labelTierOneSkillLevel = new System.Windows.Forms.Label();
-			this.nudSailingSkillLevel = new SafeNumericUpDown();
-			this.nudSwimmingSkillLevel = new SafeNumericUpDown();
-			this.nudHangGlidingSkillLevel = new SafeNumericUpDown();
-			this.nudClimbingSkillLevel = new SafeNumericUpDown();
-			this.nudPetRidingSkillLevel = new SafeNumericUpDown();
-			this.nudPetMasterSkillLevel = new SafeNumericUpDown();
-			this.nudTierThreeSkillLevel = new SafeNumericUpDown();
-			this.nudTierTwoSkillLevel = new SafeNumericUpDown();
-			this.nudTierOneSkillLevel = new SafeNumericUpDown();
+			this.nudSailingSkillLevel = new CharacterEditor.Forms.SafeNumericUpDown();
+			this.nudSwimmingSkillLevel = new CharacterEditor.Forms.SafeNumericUpDown();
+			this.nudHangGlidingSkillLevel = new CharacterEditor.Forms.SafeNumericUpDown();
+			this.nudClimbingSkillLevel = new CharacterEditor.Forms.SafeNumericUpDown();
+			this.nudPetRidingSkillLevel = new CharacterEditor.Forms.SafeNumericUpDown();
+			this.nudPetMasterSkillLevel = new CharacterEditor.Forms.SafeNumericUpDown();
+			this.nudTierThreeSkillLevel = new CharacterEditor.Forms.SafeNumericUpDown();
+			this.nudTierTwoSkillLevel = new CharacterEditor.Forms.SafeNumericUpDown();
+			this.nudTierOneSkillLevel = new CharacterEditor.Forms.SafeNumericUpDown();
 			this.panelCharacterPreview = new System.Windows.Forms.Panel();
 			this.labelCharacterPreview = new System.Windows.Forms.Label();
 			this.groupBoxCharacterInformation = new System.Windows.Forms.GroupBox();
@@ -90,32 +90,36 @@
 			this.panelPetPreview = new System.Windows.Forms.Panel();
 			this.labelPetPreview = new System.Windows.Forms.Label();
 			this.tabPageInventory = new System.Windows.Forms.TabPage();
+			this.groupBoxItemStats = new System.Windows.Forms.GroupBox();
+			this.safeNumericUpDown2 = new CharacterEditor.Forms.SafeNumericUpDown();
+			this.label5 = new System.Windows.Forms.Label();
+			this.safeNumericUpDown1 = new CharacterEditor.Forms.SafeNumericUpDown();
+			this.labelItemModelId = new System.Windows.Forms.Label();
+			this.labelPrefixId = new System.Windows.Forms.Label();
+			this.comboBoxItemPrefixId = new System.Windows.Forms.ComboBox();
 			this.groupBoxItemProperties = new System.Windows.Forms.GroupBox();
+			this.groupBoxItemFlags = new System.Windows.Forms.GroupBox();
 			this.checkBoxItemAdapted = new System.Windows.Forms.CheckBox();
 			this.comboBoxItemRarity = new System.Windows.Forms.ComboBox();
-			this.nudItemCount = new SafeNumericUpDown();
+			this.nudItemCount = new CharacterEditor.Forms.SafeNumericUpDown();
 			this.labelItemRarity = new System.Windows.Forms.Label();
 			this.labelItemCount = new System.Windows.Forms.Label();
 			this.comboBoxItemMaterial = new System.Windows.Forms.ComboBox();
 			this.labelMaterial = new System.Windows.Forms.Label();
-			this.nudItemLevel = new SafeNumericUpDown();
+			this.nudItemLevel = new CharacterEditor.Forms.SafeNumericUpDown();
 			this.label3 = new System.Windows.Forms.Label();
-			this.comboBoxItemModifier = new System.Windows.Forms.ComboBox();
-			this.labelModifier = new System.Windows.Forms.Label();
 			this.labelItemSubtype = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.comboBoxItemSubtype = new System.Windows.Forms.ComboBox();
 			this.comboBoxItemType = new System.Windows.Forms.ComboBox();
 			this.tabControlInventory = new System.Windows.Forms.TabControl();
-			this.panel1 = new System.Windows.Forms.Panel();
-			this.label1 = new System.Windows.Forms.Label();
 			this.tabPageEquipment = new System.Windows.Forms.TabPage();
 			this.groupBoxCoins = new System.Windows.Forms.GroupBox();
-			this.nudCoinsPlatinum = new SafeNumericUpDown();
+			this.nudCoinsPlatinum = new CharacterEditor.Forms.SafeNumericUpDown();
 			this.labelPlatinumCoins = new System.Windows.Forms.Label();
-			this.nudCoinsCopper = new SafeNumericUpDown();
-			this.nudCoinsSilver = new SafeNumericUpDown();
-			this.nudCoinsGold = new SafeNumericUpDown();
+			this.nudCoinsCopper = new CharacterEditor.Forms.SafeNumericUpDown();
+			this.nudCoinsSilver = new CharacterEditor.Forms.SafeNumericUpDown();
+			this.nudCoinsGold = new CharacterEditor.Forms.SafeNumericUpDown();
 			this.labelCoins = new System.Windows.Forms.Label();
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.label9 = new System.Windows.Forms.Label();
@@ -128,6 +132,19 @@
 			this.labelCopyright = new System.Windows.Forms.Label();
 			this.buttonLoadNewCharacter = new System.Windows.Forms.Button();
 			this.imageListInventory = new System.Windows.Forms.ImageList(this.components);
+			this.safeNumericUpDown3 = new CharacterEditor.Forms.SafeNumericUpDown();
+			this.safeNumericUpDown4 = new CharacterEditor.Forms.SafeNumericUpDown();
+			this.safeNumericUpDown5 = new CharacterEditor.Forms.SafeNumericUpDown();
+			this.safeNumericUpDown6 = new CharacterEditor.Forms.SafeNumericUpDown();
+			this.safeNumericUpDown7 = new CharacterEditor.Forms.SafeNumericUpDown();
+			this.safeNumericUpDown8 = new CharacterEditor.Forms.SafeNumericUpDown();
+			this.safeNumericUpDown9 = new CharacterEditor.Forms.SafeNumericUpDown();
+			this.label1 = new System.Windows.Forms.Label();
+			this.label6 = new System.Windows.Forms.Label();
+			this.label7 = new System.Windows.Forms.Label();
+			this.label8 = new System.Windows.Forms.Label();
+			this.label10 = new System.Windows.Forms.Label();
+			this.label11 = new System.Windows.Forms.Label();
 			this.groupBoxAppearance.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nudHair)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudFace)).BeginInit();
@@ -157,10 +174,13 @@
 			this.tabPagePets.SuspendLayout();
 			this.panelPetPreview.SuspendLayout();
 			this.tabPageInventory.SuspendLayout();
+			this.groupBoxItemStats.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.safeNumericUpDown2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.safeNumericUpDown1)).BeginInit();
 			this.groupBoxItemProperties.SuspendLayout();
+			this.groupBoxItemFlags.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nudItemCount)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudItemLevel)).BeginInit();
-			this.panel1.SuspendLayout();
 			this.tabPageEquipment.SuspendLayout();
 			this.groupBoxCoins.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nudCoinsPlatinum)).BeginInit();
@@ -170,6 +190,13 @@
 			this.panel2.SuspendLayout();
 			this.tabPageAbout.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxX2048)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.safeNumericUpDown3)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.safeNumericUpDown4)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.safeNumericUpDown5)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.safeNumericUpDown6)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.safeNumericUpDown7)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.safeNumericUpDown8)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.safeNumericUpDown9)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// textBoxName
@@ -241,6 +268,11 @@
 			this.nudHair.Name = "nudHair";
 			this.nudHair.Size = new System.Drawing.Size(121, 20);
 			this.nudHair.TabIndex = 6;
+			this.nudHair.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
 			// 
 			// labelFace
 			// 
@@ -262,6 +294,11 @@
 			this.nudFace.Name = "nudFace";
 			this.nudFace.Size = new System.Drawing.Size(121, 20);
 			this.nudFace.TabIndex = 4;
+			this.nudFace.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
 			// 
 			// labelGender
 			// 
@@ -394,6 +431,11 @@
 			this.nudExperience.Name = "nudExperience";
 			this.nudExperience.Size = new System.Drawing.Size(121, 20);
 			this.nudExperience.TabIndex = 5;
+			this.nudExperience.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
 			// 
 			// buttonSaveCharacter
 			// 
@@ -495,6 +537,11 @@
 			this.nudPetExperience.Name = "nudPetExperience";
 			this.nudPetExperience.Size = new System.Drawing.Size(121, 20);
 			this.nudPetExperience.TabIndex = 2;
+			this.nudPetExperience.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
 			// 
 			// comboBoxPetKind
 			// 
@@ -682,6 +729,11 @@
 			this.nudSailingSkillLevel.Name = "nudSailingSkillLevel";
 			this.nudSailingSkillLevel.Size = new System.Drawing.Size(121, 20);
 			this.nudSailingSkillLevel.TabIndex = 8;
+			this.nudSailingSkillLevel.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
 			// 
 			// nudSwimmingSkillLevel
 			// 
@@ -694,6 +746,11 @@
 			this.nudSwimmingSkillLevel.Name = "nudSwimmingSkillLevel";
 			this.nudSwimmingSkillLevel.Size = new System.Drawing.Size(121, 20);
 			this.nudSwimmingSkillLevel.TabIndex = 7;
+			this.nudSwimmingSkillLevel.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
 			// 
 			// nudHangGlidingSkillLevel
 			// 
@@ -706,6 +763,11 @@
 			this.nudHangGlidingSkillLevel.Name = "nudHangGlidingSkillLevel";
 			this.nudHangGlidingSkillLevel.Size = new System.Drawing.Size(121, 20);
 			this.nudHangGlidingSkillLevel.TabIndex = 6;
+			this.nudHangGlidingSkillLevel.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
 			// 
 			// nudClimbingSkillLevel
 			// 
@@ -718,6 +780,11 @@
 			this.nudClimbingSkillLevel.Name = "nudClimbingSkillLevel";
 			this.nudClimbingSkillLevel.Size = new System.Drawing.Size(121, 20);
 			this.nudClimbingSkillLevel.TabIndex = 5;
+			this.nudClimbingSkillLevel.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
 			// 
 			// nudPetRidingSkillLevel
 			// 
@@ -730,6 +797,11 @@
 			this.nudPetRidingSkillLevel.Name = "nudPetRidingSkillLevel";
 			this.nudPetRidingSkillLevel.Size = new System.Drawing.Size(121, 20);
 			this.nudPetRidingSkillLevel.TabIndex = 4;
+			this.nudPetRidingSkillLevel.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
 			// 
 			// nudPetMasterSkillLevel
 			// 
@@ -742,6 +814,11 @@
 			this.nudPetMasterSkillLevel.Name = "nudPetMasterSkillLevel";
 			this.nudPetMasterSkillLevel.Size = new System.Drawing.Size(121, 20);
 			this.nudPetMasterSkillLevel.TabIndex = 3;
+			this.nudPetMasterSkillLevel.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
 			// 
 			// nudTierThreeSkillLevel
 			// 
@@ -754,6 +831,11 @@
 			this.nudTierThreeSkillLevel.Name = "nudTierThreeSkillLevel";
 			this.nudTierThreeSkillLevel.Size = new System.Drawing.Size(121, 20);
 			this.nudTierThreeSkillLevel.TabIndex = 2;
+			this.nudTierThreeSkillLevel.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
 			// 
 			// nudTierTwoSkillLevel
 			// 
@@ -766,6 +848,11 @@
 			this.nudTierTwoSkillLevel.Name = "nudTierTwoSkillLevel";
 			this.nudTierTwoSkillLevel.Size = new System.Drawing.Size(121, 20);
 			this.nudTierTwoSkillLevel.TabIndex = 1;
+			this.nudTierTwoSkillLevel.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
 			// 
 			// nudTierOneSkillLevel
 			// 
@@ -778,6 +865,11 @@
 			this.nudTierOneSkillLevel.Name = "nudTierOneSkillLevel";
 			this.nudTierOneSkillLevel.Size = new System.Drawing.Size(121, 20);
 			this.nudTierOneSkillLevel.TabIndex = 0;
+			this.nudTierOneSkillLevel.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
 			// 
 			// panelCharacterPreview
 			// 
@@ -883,9 +975,11 @@
 			// 
 			// tabPageInventory
 			// 
+			this.tabPageInventory.Controls.Add(this.groupBoxItemStats);
 			this.tabPageInventory.Controls.Add(this.groupBoxItemProperties);
+			this.tabPageInventory.Controls.Add(this.nudItemCount);
 			this.tabPageInventory.Controls.Add(this.tabControlInventory);
-			this.tabPageInventory.Controls.Add(this.panel1);
+			this.tabPageInventory.Controls.Add(this.labelItemCount);
 			this.tabPageInventory.Location = new System.Drawing.Point(4, 22);
 			this.tabPageInventory.Name = "tabPageInventory";
 			this.tabPageInventory.Padding = new System.Windows.Forms.Padding(3);
@@ -894,19 +988,109 @@
 			this.tabPageInventory.Text = "Inventory";
 			this.tabPageInventory.UseVisualStyleBackColor = true;
 			// 
+			// groupBoxItemStats
+			// 
+			this.groupBoxItemStats.Controls.Add(this.label11);
+			this.groupBoxItemStats.Controls.Add(this.label10);
+			this.groupBoxItemStats.Controls.Add(this.label8);
+			this.groupBoxItemStats.Controls.Add(this.label7);
+			this.groupBoxItemStats.Controls.Add(this.label6);
+			this.groupBoxItemStats.Controls.Add(this.label1);
+			this.groupBoxItemStats.Controls.Add(this.safeNumericUpDown9);
+			this.groupBoxItemStats.Controls.Add(this.safeNumericUpDown8);
+			this.groupBoxItemStats.Controls.Add(this.safeNumericUpDown7);
+			this.groupBoxItemStats.Controls.Add(this.safeNumericUpDown6);
+			this.groupBoxItemStats.Controls.Add(this.safeNumericUpDown5);
+			this.groupBoxItemStats.Controls.Add(this.safeNumericUpDown4);
+			this.groupBoxItemStats.Controls.Add(this.safeNumericUpDown3);
+			this.groupBoxItemStats.Controls.Add(this.safeNumericUpDown2);
+			this.groupBoxItemStats.Controls.Add(this.label5);
+			this.groupBoxItemStats.Controls.Add(this.safeNumericUpDown1);
+			this.groupBoxItemStats.Controls.Add(this.labelItemModelId);
+			this.groupBoxItemStats.Controls.Add(this.labelPrefixId);
+			this.groupBoxItemStats.Controls.Add(this.comboBoxItemPrefixId);
+			this.groupBoxItemStats.Location = new System.Drawing.Point(554, 32);
+			this.groupBoxItemStats.Name = "groupBoxItemStats";
+			this.groupBoxItemStats.Size = new System.Drawing.Size(136, 325);
+			this.groupBoxItemStats.TabIndex = 12;
+			this.groupBoxItemStats.TabStop = false;
+			this.groupBoxItemStats.Text = "Item Stats";
+			// 
+			// safeNumericUpDown2
+			// 
+			this.safeNumericUpDown2.Location = new System.Drawing.Point(6, 111);
+			this.safeNumericUpDown2.Name = "safeNumericUpDown2";
+			this.safeNumericUpDown2.Size = new System.Drawing.Size(124, 20);
+			this.safeNumericUpDown2.TabIndex = 9;
+			this.safeNumericUpDown2.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			// 
+			// label5
+			// 
+			this.label5.AutoSize = true;
+			this.label5.Location = new System.Drawing.Point(6, 95);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(52, 13);
+			this.label5.TabIndex = 8;
+			this.label5.Text = "Effect ID:";
+			// 
+			// safeNumericUpDown1
+			// 
+			this.safeNumericUpDown1.Location = new System.Drawing.Point(6, 72);
+			this.safeNumericUpDown1.Maximum = new decimal(new int[] {
+            11,
+            0,
+            0,
+            0});
+			this.safeNumericUpDown1.Name = "safeNumericUpDown1";
+			this.safeNumericUpDown1.Size = new System.Drawing.Size(124, 20);
+			this.safeNumericUpDown1.TabIndex = 7;
+			this.safeNumericUpDown1.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			// 
+			// labelItemModelId
+			// 
+			this.labelItemModelId.AutoSize = true;
+			this.labelItemModelId.Location = new System.Drawing.Point(6, 56);
+			this.labelItemModelId.Name = "labelItemModelId";
+			this.labelItemModelId.Size = new System.Drawing.Size(53, 13);
+			this.labelItemModelId.TabIndex = 6;
+			this.labelItemModelId.Text = "Model ID:";
+			// 
+			// labelPrefixId
+			// 
+			this.labelPrefixId.AutoSize = true;
+			this.labelPrefixId.Location = new System.Drawing.Point(6, 16);
+			this.labelPrefixId.Name = "labelPrefixId";
+			this.labelPrefixId.Size = new System.Drawing.Size(50, 13);
+			this.labelPrefixId.TabIndex = 4;
+			this.labelPrefixId.Text = "Prefix ID:";
+			// 
+			// comboBoxItemPrefixId
+			// 
+			this.comboBoxItemPrefixId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboBoxItemPrefixId.FormattingEnabled = true;
+			this.comboBoxItemPrefixId.Location = new System.Drawing.Point(6, 32);
+			this.comboBoxItemPrefixId.Name = "comboBoxItemPrefixId";
+			this.comboBoxItemPrefixId.Size = new System.Drawing.Size(124, 21);
+			this.comboBoxItemPrefixId.TabIndex = 5;
+			this.comboBoxItemPrefixId.SelectedIndexChanged += new System.EventHandler(this.ComboBoxItemModifierSelectedIndexChanged);
+			// 
 			// groupBoxItemProperties
 			// 
-			this.groupBoxItemProperties.Controls.Add(this.checkBoxItemAdapted);
+			this.groupBoxItemProperties.Controls.Add(this.groupBoxItemFlags);
 			this.groupBoxItemProperties.Controls.Add(this.comboBoxItemRarity);
-			this.groupBoxItemProperties.Controls.Add(this.nudItemCount);
 			this.groupBoxItemProperties.Controls.Add(this.labelItemRarity);
-			this.groupBoxItemProperties.Controls.Add(this.labelItemCount);
 			this.groupBoxItemProperties.Controls.Add(this.comboBoxItemMaterial);
 			this.groupBoxItemProperties.Controls.Add(this.labelMaterial);
 			this.groupBoxItemProperties.Controls.Add(this.nudItemLevel);
 			this.groupBoxItemProperties.Controls.Add(this.label3);
-			this.groupBoxItemProperties.Controls.Add(this.comboBoxItemModifier);
-			this.groupBoxItemProperties.Controls.Add(this.labelModifier);
 			this.groupBoxItemProperties.Controls.Add(this.labelItemSubtype);
 			this.groupBoxItemProperties.Controls.Add(this.label2);
 			this.groupBoxItemProperties.Controls.Add(this.comboBoxItemSubtype);
@@ -918,10 +1102,20 @@
 			this.groupBoxItemProperties.TabStop = false;
 			this.groupBoxItemProperties.Text = "Item";
 			// 
+			// groupBoxItemFlags
+			// 
+			this.groupBoxItemFlags.Controls.Add(this.checkBoxItemAdapted);
+			this.groupBoxItemFlags.Location = new System.Drawing.Point(396, 19);
+			this.groupBoxItemFlags.Name = "groupBoxItemFlags";
+			this.groupBoxItemFlags.Size = new System.Drawing.Size(140, 93);
+			this.groupBoxItemFlags.TabIndex = 15;
+			this.groupBoxItemFlags.TabStop = false;
+			this.groupBoxItemFlags.Text = "Item Flags";
+			// 
 			// checkBoxItemAdapted
 			// 
 			this.checkBoxItemAdapted.AutoSize = true;
-			this.checkBoxItemAdapted.Location = new System.Drawing.Point(396, 60);
+			this.checkBoxItemAdapted.Location = new System.Drawing.Point(6, 19);
 			this.checkBoxItemAdapted.Name = "checkBoxItemAdapted";
 			this.checkBoxItemAdapted.Size = new System.Drawing.Size(66, 17);
 			this.checkBoxItemAdapted.TabIndex = 0;
@@ -941,7 +1135,7 @@
 			// 
 			// nudItemCount
 			// 
-			this.nudItemCount.Location = new System.Drawing.Point(396, 32);
+			this.nudItemCount.Location = new System.Drawing.Point(595, 6);
 			this.nudItemCount.Maximum = new decimal(new int[] {
             2147483647,
             0,
@@ -953,8 +1147,13 @@
             0,
             -2147483648});
 			this.nudItemCount.Name = "nudItemCount";
-			this.nudItemCount.Size = new System.Drawing.Size(124, 20);
+			this.nudItemCount.Size = new System.Drawing.Size(98, 20);
 			this.nudItemCount.TabIndex = 13;
+			this.nudItemCount.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
 			this.nudItemCount.ValueChanged += new System.EventHandler(this.NudItemCountValueChanged);
 			// 
 			// labelItemRarity
@@ -969,7 +1168,7 @@
 			// labelItemCount
 			// 
 			this.labelItemCount.AutoSize = true;
-			this.labelItemCount.Location = new System.Drawing.Point(393, 16);
+			this.labelItemCount.Location = new System.Drawing.Point(551, 8);
 			this.labelItemCount.Name = "labelItemCount";
 			this.labelItemCount.Size = new System.Drawing.Size(38, 13);
 			this.labelItemCount.TabIndex = 12;
@@ -979,7 +1178,7 @@
 			// 
 			this.comboBoxItemMaterial.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboBoxItemMaterial.FormattingEnabled = true;
-			this.comboBoxItemMaterial.Location = new System.Drawing.Point(266, 32);
+			this.comboBoxItemMaterial.Location = new System.Drawing.Point(136, 32);
 			this.comboBoxItemMaterial.Name = "comboBoxItemMaterial";
 			this.comboBoxItemMaterial.Size = new System.Drawing.Size(124, 21);
 			this.comboBoxItemMaterial.TabIndex = 9;
@@ -988,7 +1187,7 @@
 			// labelMaterial
 			// 
 			this.labelMaterial.AutoSize = true;
-			this.labelMaterial.Location = new System.Drawing.Point(263, 16);
+			this.labelMaterial.Location = new System.Drawing.Point(133, 16);
 			this.labelMaterial.Name = "labelMaterial";
 			this.labelMaterial.Size = new System.Drawing.Size(47, 13);
 			this.labelMaterial.TabIndex = 8;
@@ -996,7 +1195,7 @@
 			// 
 			// nudItemLevel
 			// 
-			this.nudItemLevel.Location = new System.Drawing.Point(266, 76);
+			this.nudItemLevel.Location = new System.Drawing.Point(266, 32);
 			this.nudItemLevel.Maximum = new decimal(new int[] {
             32767,
             0,
@@ -1010,35 +1209,21 @@
 			this.nudItemLevel.Name = "nudItemLevel";
 			this.nudItemLevel.Size = new System.Drawing.Size(124, 20);
 			this.nudItemLevel.TabIndex = 7;
+			this.nudItemLevel.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
 			this.nudItemLevel.ValueChanged += new System.EventHandler(this.NudItemLevelValueChanged);
 			// 
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(263, 59);
+			this.label3.Location = new System.Drawing.Point(263, 15);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(36, 13);
 			this.label3.TabIndex = 6;
 			this.label3.Text = "Level:";
-			// 
-			// comboBoxItemModifier
-			// 
-			this.comboBoxItemModifier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.comboBoxItemModifier.FormattingEnabled = true;
-			this.comboBoxItemModifier.Location = new System.Drawing.Point(136, 32);
-			this.comboBoxItemModifier.Name = "comboBoxItemModifier";
-			this.comboBoxItemModifier.Size = new System.Drawing.Size(124, 21);
-			this.comboBoxItemModifier.TabIndex = 5;
-			this.comboBoxItemModifier.SelectedIndexChanged += new System.EventHandler(this.ComboBoxItemModifierSelectedIndexChanged);
-			// 
-			// labelModifier
-			// 
-			this.labelModifier.AutoSize = true;
-			this.labelModifier.Location = new System.Drawing.Point(133, 16);
-			this.labelModifier.Name = "labelModifier";
-			this.labelModifier.Size = new System.Drawing.Size(47, 13);
-			this.labelModifier.TabIndex = 4;
-			this.labelModifier.Text = "Modifier:";
 			// 
 			// labelItemSubtype
 			// 
@@ -1086,28 +1271,6 @@
 			this.tabControlInventory.Size = new System.Drawing.Size(542, 227);
 			this.tabControlInventory.TabIndex = 10;
 			// 
-			// panel1
-			// 
-			this.panel1.BackColor = System.Drawing.Color.DarkGray;
-			this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.panel1.Controls.Add(this.label1);
-			this.panel1.Location = new System.Drawing.Point(554, 6);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(136, 136);
-			this.panel1.TabIndex = 9;
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.label1.ForeColor = System.Drawing.Color.White;
-			this.label1.Location = new System.Drawing.Point(0, 0);
-			this.label1.Name = "label1";
-			this.label1.Padding = new System.Windows.Forms.Padding(9, 60, 9, 60);
-			this.label1.Size = new System.Drawing.Size(133, 133);
-			this.label1.TabIndex = 0;
-			this.label1.Text = "Inventory Item Preview";
-			// 
 			// tabPageEquipment
 			// 
 			this.tabPageEquipment.Controls.Add(this.groupBoxCoins);
@@ -1147,6 +1310,11 @@
 			this.nudCoinsPlatinum.Name = "nudCoinsPlatinum";
 			this.nudCoinsPlatinum.Size = new System.Drawing.Size(124, 20);
 			this.nudCoinsPlatinum.TabIndex = 5;
+			this.nudCoinsPlatinum.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
 			// 
 			// labelPlatinumCoins
 			// 
@@ -1168,6 +1336,11 @@
 			this.nudCoinsCopper.Name = "nudCoinsCopper";
 			this.nudCoinsCopper.Size = new System.Drawing.Size(38, 20);
 			this.nudCoinsCopper.TabIndex = 3;
+			this.nudCoinsCopper.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
 			// 
 			// nudCoinsSilver
 			// 
@@ -1180,6 +1353,11 @@
 			this.nudCoinsSilver.Name = "nudCoinsSilver";
 			this.nudCoinsSilver.Size = new System.Drawing.Size(37, 20);
 			this.nudCoinsSilver.TabIndex = 2;
+			this.nudCoinsSilver.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
 			// 
 			// nudCoinsGold
 			// 
@@ -1192,6 +1370,11 @@
 			this.nudCoinsGold.Name = "nudCoinsGold";
 			this.nudCoinsGold.Size = new System.Drawing.Size(37, 20);
 			this.nudCoinsGold.TabIndex = 1;
+			this.nudCoinsGold.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
 			// 
 			// labelCoins
 			// 
@@ -1336,6 +1519,144 @@
 			this.imageListInventory.Images.SetKeyName(24, "IconLamp.png");
 			this.imageListInventory.Images.SetKeyName(25, "IconManaCube.png");
 			// 
+			// safeNumericUpDown3
+			// 
+			this.safeNumericUpDown3.Location = new System.Drawing.Point(61, 137);
+			this.safeNumericUpDown3.Name = "safeNumericUpDown3";
+			this.safeNumericUpDown3.Size = new System.Drawing.Size(69, 20);
+			this.safeNumericUpDown3.TabIndex = 10;
+			this.safeNumericUpDown3.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			// 
+			// safeNumericUpDown4
+			// 
+			this.safeNumericUpDown4.Location = new System.Drawing.Point(61, 163);
+			this.safeNumericUpDown4.Name = "safeNumericUpDown4";
+			this.safeNumericUpDown4.Size = new System.Drawing.Size(69, 20);
+			this.safeNumericUpDown4.TabIndex = 11;
+			this.safeNumericUpDown4.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			// 
+			// safeNumericUpDown5
+			// 
+			this.safeNumericUpDown5.Location = new System.Drawing.Point(61, 189);
+			this.safeNumericUpDown5.Name = "safeNumericUpDown5";
+			this.safeNumericUpDown5.Size = new System.Drawing.Size(69, 20);
+			this.safeNumericUpDown5.TabIndex = 12;
+			this.safeNumericUpDown5.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			// 
+			// safeNumericUpDown6
+			// 
+			this.safeNumericUpDown6.Location = new System.Drawing.Point(61, 215);
+			this.safeNumericUpDown6.Name = "safeNumericUpDown6";
+			this.safeNumericUpDown6.Size = new System.Drawing.Size(69, 20);
+			this.safeNumericUpDown6.TabIndex = 13;
+			this.safeNumericUpDown6.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			// 
+			// safeNumericUpDown7
+			// 
+			this.safeNumericUpDown7.Location = new System.Drawing.Point(61, 241);
+			this.safeNumericUpDown7.Name = "safeNumericUpDown7";
+			this.safeNumericUpDown7.Size = new System.Drawing.Size(69, 20);
+			this.safeNumericUpDown7.TabIndex = 14;
+			this.safeNumericUpDown7.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			// 
+			// safeNumericUpDown8
+			// 
+			this.safeNumericUpDown8.Location = new System.Drawing.Point(61, 267);
+			this.safeNumericUpDown8.Name = "safeNumericUpDown8";
+			this.safeNumericUpDown8.Size = new System.Drawing.Size(69, 20);
+			this.safeNumericUpDown8.TabIndex = 15;
+			this.safeNumericUpDown8.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			// 
+			// safeNumericUpDown9
+			// 
+			this.safeNumericUpDown9.Location = new System.Drawing.Point(61, 293);
+			this.safeNumericUpDown9.Name = "safeNumericUpDown9";
+			this.safeNumericUpDown9.Size = new System.Drawing.Size(69, 20);
+			this.safeNumericUpDown9.TabIndex = 16;
+			this.safeNumericUpDown9.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Location = new System.Drawing.Point(30, 139);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(25, 13);
+			this.label1.TabIndex = 17;
+			this.label1.Text = "HP:";
+			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.Location = new System.Drawing.Point(18, 165);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(37, 13);
+			this.label6.TabIndex = 18;
+			this.label6.Text = "Armor:";
+			// 
+			// label7
+			// 
+			this.label7.AutoSize = true;
+			this.label7.Location = new System.Drawing.Point(24, 191);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(31, 13);
+			this.label7.TabIndex = 19;
+			this.label7.Text = "Resi:";
+			// 
+			// label8
+			// 
+			this.label8.AutoSize = true;
+			this.label8.Location = new System.Drawing.Point(12, 217);
+			this.label8.Name = "label8";
+			this.label8.Size = new System.Drawing.Size(43, 13);
+			this.label8.TabIndex = 20;
+			this.label8.Text = "Tempo:";
+			// 
+			// label10
+			// 
+			this.label10.AutoSize = true;
+			this.label10.Location = new System.Drawing.Point(30, 243);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(25, 13);
+			this.label10.TabIndex = 21;
+			this.label10.Text = "Crit:";
+			// 
+			// label11
+			// 
+			this.label11.AutoSize = true;
+			this.label11.Location = new System.Drawing.Point(25, 269);
+			this.label11.Name = "label11";
+			this.label11.Size = new System.Drawing.Size(30, 13);
+			this.label11.TabIndex = 22;
+			this.label11.Text = "Reg:";
+			// 
 			// Editor
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1385,12 +1706,17 @@
 			this.panelPetPreview.ResumeLayout(false);
 			this.panelPetPreview.PerformLayout();
 			this.tabPageInventory.ResumeLayout(false);
+			this.tabPageInventory.PerformLayout();
+			this.groupBoxItemStats.ResumeLayout(false);
+			this.groupBoxItemStats.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.safeNumericUpDown2)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.safeNumericUpDown1)).EndInit();
 			this.groupBoxItemProperties.ResumeLayout(false);
 			this.groupBoxItemProperties.PerformLayout();
+			this.groupBoxItemFlags.ResumeLayout(false);
+			this.groupBoxItemFlags.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nudItemCount)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudItemLevel)).EndInit();
-			this.panel1.ResumeLayout(false);
-			this.panel1.PerformLayout();
 			this.tabPageEquipment.ResumeLayout(false);
 			this.groupBoxCoins.ResumeLayout(false);
 			this.groupBoxCoins.PerformLayout();
@@ -1403,6 +1729,13 @@
 			this.tabPageAbout.ResumeLayout(false);
 			this.tabPageAbout.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxX2048)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.safeNumericUpDown3)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.safeNumericUpDown4)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.safeNumericUpDown5)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.safeNumericUpDown6)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.safeNumericUpDown7)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.safeNumericUpDown8)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.safeNumericUpDown9)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -1450,8 +1783,6 @@
 		private System.Windows.Forms.Panel panelPetPreview;
 		private System.Windows.Forms.Label labelPetPreview;
 		private System.Windows.Forms.TabPage tabPageInventory;
-		private System.Windows.Forms.Panel panel1;
-		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label labelClimbingSkillLevel;
 		private System.Windows.Forms.Label labelPetRidingSkillLevel;
 		private System.Windows.Forms.Label labelPetMasterSkillLevel;
@@ -1477,8 +1808,8 @@
 		private System.Windows.Forms.GroupBox groupBoxItemProperties;
 		private SafeNumericUpDown nudItemLevel;
 		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.ComboBox comboBoxItemModifier;
-		private System.Windows.Forms.Label labelModifier;
+		private System.Windows.Forms.ComboBox comboBoxItemPrefixId;
+		private System.Windows.Forms.Label labelPrefixId;
 		private System.Windows.Forms.Label labelItemSubtype;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.ComboBox comboBoxItemSubtype;
@@ -1507,5 +1838,24 @@
 		private System.Windows.Forms.PictureBox pictureBoxX2048;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.Label labelCopyright;
+		private System.Windows.Forms.GroupBox groupBoxItemStats;
+		private System.Windows.Forms.GroupBox groupBoxItemFlags;
+		private System.Windows.Forms.Label labelItemModelId;
+		private SafeNumericUpDown safeNumericUpDown2;
+		private System.Windows.Forms.Label label5;
+		private SafeNumericUpDown safeNumericUpDown1;
+		private System.Windows.Forms.Label label11;
+		private System.Windows.Forms.Label label10;
+		private System.Windows.Forms.Label label8;
+		private System.Windows.Forms.Label label7;
+		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.Label label1;
+		private SafeNumericUpDown safeNumericUpDown9;
+		private SafeNumericUpDown safeNumericUpDown8;
+		private SafeNumericUpDown safeNumericUpDown7;
+		private SafeNumericUpDown safeNumericUpDown6;
+		private SafeNumericUpDown safeNumericUpDown5;
+		private SafeNumericUpDown safeNumericUpDown4;
+		private SafeNumericUpDown safeNumericUpDown3;
 	}
 }

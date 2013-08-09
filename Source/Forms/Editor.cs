@@ -13,10 +13,12 @@ namespace CharacterEditor.Forms
 		private Character.Character character;
 		private DirtyWatcher dirtyWatcher;
 		private Thread dirtyThread;
+		private readonly FormItemStats itemStats;
 
 		public Editor()
 		{
 			database = new Database();
+			itemStats = new FormItemStats();
 
 			InitializeComponent();
 
@@ -167,6 +169,11 @@ namespace CharacterEditor.Forms
 		private void LinkLabelX2048LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
 			Process.Start("http://www.x2048.com/");
+		}
+
+		private void ButtonViewStatsClick(object sender, EventArgs e)
+		{
+			itemStats.Show();
 		}
 	}
 }

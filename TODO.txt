@@ -1,0 +1,9 @@
+[ ] Fix items
+	[ ] Modifiers
+[ ] Item stats
+[ ] Recipes
+[ ] "Advanced" mode
+[ ] Any entity as a pet
+[ ] Auto recipe/level scaling
+[ ] Database backups
+[ ] Model rendering

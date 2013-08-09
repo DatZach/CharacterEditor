@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Character\Character.cs" />
+    <Compile Include="Character\ChineseRemainder.cs" />
     <Compile Include="Character\ICharacterData.cs" />
     <Compile Include="Character\Inventory.cs" />
     <Compile Include="Character\Item.cs" />
@@ -96,6 +97,12 @@
     <Compile Include="Forms\ExceptionDialog.Designer.cs">
       <DependentUpon>ExceptionDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormItemStats.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormItemStats.Designer.cs">
+      <DependentUpon>FormItemStats.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\LoadCharacterDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ExceptionDialog.resx">
       <DependentUpon>ExceptionDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormItemStats.resx">
+      <DependentUpon>FormItemStats.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoadCharacterDialog.resx">
       <DependentUpon>LoadCharacterDialog.cs</DependentUpon>

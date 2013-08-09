@@ -73,6 +73,7 @@ namespace CharacterEditor.Forms
 		private void NudLevelValueChanged(object sender, EventArgs e)
 		{
 			nudPetLevel.Maximum = nudLevel.Value;
+			nudExperience.Maximum = (decimal)(50 + 1000 * (1 - 1 / (((int)nudLevel.Value - 1) * 0.05 + 1)));
 		}
 	}
 }
