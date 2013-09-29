@@ -52,6 +52,17 @@ namespace CharacterEditor.Forms
 				//else
 				//    comboBoxItemPrefixId.SelectedIndex = 0;
 
+				comboBoxItemPrefixId.SelectedIndex = SelectedItem.PrefixId;
+				nudItemModelId.Value = SelectedItem.ModelId;
+				nudItemEffectId.Value = SelectedItem.EffectId;
+
+				nudItemHP.Value = (decimal)SelectedItem.Life;
+				nudItemArmor.Value = (decimal)SelectedItem.Armor;
+				nudItemResistance.Value = (decimal)SelectedItem.Resistance;
+				nudItemTempo.Value = (decimal)SelectedItem.Tempo;
+				nudItemCrit.Value = (decimal)SelectedItem.Critical;
+				nudItemReg.Value = (decimal)SelectedItem.Regeneration;
+
 				nudItemLevel.Value = SelectedItem.Level;
 				comboBoxItemRarity.SelectedIndex = SelectedItem.Rarity;
 				checkBoxItemAdapted.Checked = SelectedItem.Flags.HasFlag(Item.ItemFlags.Adapted);
@@ -204,6 +215,14 @@ namespace CharacterEditor.Forms
 
 			selectedItem.Text = item.FriendlyName;
 			selectedItem.ImageIndex = item.Type;
+
+			// TODO Might be somewhat out of place
+			nudItemHP.Value = (decimal)SelectedItem.Life;
+			nudItemArmor.Value = (decimal)SelectedItem.Armor;
+			nudItemResistance.Value = (decimal)SelectedItem.Resistance;
+			nudItemTempo.Value = (decimal)SelectedItem.Tempo;
+			nudItemCrit.Value = (decimal)SelectedItem.Critical;
+			nudItemReg.Value = (decimal)SelectedItem.Regeneration;
 		}
 
 		private void UpdateItemControls()

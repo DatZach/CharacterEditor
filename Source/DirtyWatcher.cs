@@ -7,13 +7,12 @@ namespace CharacterEditor
 		public bool Dirty;
 		public bool IgnoreDirtiness;
 
-		public DirtyWatcher(Form form)
+		public DirtyWatcher(Control form)
 		{
 			RecurseControls(form);
 		}
 
-		// Pleb tier recursion
-		private void RecurseControls(Form form)
+		private void RecurseControls(Control form)
 		{
 			foreach (Control control in form.Controls)
 				RecurseControlsInner(control);

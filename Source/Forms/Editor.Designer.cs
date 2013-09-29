@@ -91,9 +91,21 @@
 			this.labelPetPreview = new System.Windows.Forms.Label();
 			this.tabPageInventory = new System.Windows.Forms.TabPage();
 			this.groupBoxItemStats = new System.Windows.Forms.GroupBox();
-			this.safeNumericUpDown2 = new CharacterEditor.Forms.SafeNumericUpDown();
+			this.label11 = new System.Windows.Forms.Label();
+			this.label10 = new System.Windows.Forms.Label();
+			this.label8 = new System.Windows.Forms.Label();
+			this.label7 = new System.Windows.Forms.Label();
+			this.label6 = new System.Windows.Forms.Label();
+			this.label1 = new System.Windows.Forms.Label();
+			this.nudItemReg = new CharacterEditor.Forms.SafeNumericUpDown();
+			this.nudItemCrit = new CharacterEditor.Forms.SafeNumericUpDown();
+			this.nudItemTempo = new CharacterEditor.Forms.SafeNumericUpDown();
+			this.nudItemResistance = new CharacterEditor.Forms.SafeNumericUpDown();
+			this.nudItemArmor = new CharacterEditor.Forms.SafeNumericUpDown();
+			this.nudItemHP = new CharacterEditor.Forms.SafeNumericUpDown();
+			this.nudItemEffectId = new CharacterEditor.Forms.SafeNumericUpDown();
 			this.label5 = new System.Windows.Forms.Label();
-			this.safeNumericUpDown1 = new CharacterEditor.Forms.SafeNumericUpDown();
+			this.nudItemModelId = new CharacterEditor.Forms.SafeNumericUpDown();
 			this.labelItemModelId = new System.Windows.Forms.Label();
 			this.labelPrefixId = new System.Windows.Forms.Label();
 			this.comboBoxItemPrefixId = new System.Windows.Forms.ComboBox();
@@ -101,9 +113,7 @@
 			this.groupBoxItemFlags = new System.Windows.Forms.GroupBox();
 			this.checkBoxItemAdapted = new System.Windows.Forms.CheckBox();
 			this.comboBoxItemRarity = new System.Windows.Forms.ComboBox();
-			this.nudItemCount = new CharacterEditor.Forms.SafeNumericUpDown();
 			this.labelItemRarity = new System.Windows.Forms.Label();
-			this.labelItemCount = new System.Windows.Forms.Label();
 			this.comboBoxItemMaterial = new System.Windows.Forms.ComboBox();
 			this.labelMaterial = new System.Windows.Forms.Label();
 			this.nudItemLevel = new CharacterEditor.Forms.SafeNumericUpDown();
@@ -112,7 +122,9 @@
 			this.label2 = new System.Windows.Forms.Label();
 			this.comboBoxItemSubtype = new System.Windows.Forms.ComboBox();
 			this.comboBoxItemType = new System.Windows.Forms.ComboBox();
+			this.nudItemCount = new CharacterEditor.Forms.SafeNumericUpDown();
 			this.tabControlInventory = new System.Windows.Forms.TabControl();
+			this.labelItemCount = new System.Windows.Forms.Label();
 			this.tabPageEquipment = new System.Windows.Forms.TabPage();
 			this.groupBoxCoins = new System.Windows.Forms.GroupBox();
 			this.nudCoinsPlatinum = new CharacterEditor.Forms.SafeNumericUpDown();
@@ -132,19 +144,6 @@
 			this.labelCopyright = new System.Windows.Forms.Label();
 			this.buttonLoadNewCharacter = new System.Windows.Forms.Button();
 			this.imageListInventory = new System.Windows.Forms.ImageList(this.components);
-			this.safeNumericUpDown3 = new CharacterEditor.Forms.SafeNumericUpDown();
-			this.safeNumericUpDown4 = new CharacterEditor.Forms.SafeNumericUpDown();
-			this.safeNumericUpDown5 = new CharacterEditor.Forms.SafeNumericUpDown();
-			this.safeNumericUpDown6 = new CharacterEditor.Forms.SafeNumericUpDown();
-			this.safeNumericUpDown7 = new CharacterEditor.Forms.SafeNumericUpDown();
-			this.safeNumericUpDown8 = new CharacterEditor.Forms.SafeNumericUpDown();
-			this.safeNumericUpDown9 = new CharacterEditor.Forms.SafeNumericUpDown();
-			this.label1 = new System.Windows.Forms.Label();
-			this.label6 = new System.Windows.Forms.Label();
-			this.label7 = new System.Windows.Forms.Label();
-			this.label8 = new System.Windows.Forms.Label();
-			this.label10 = new System.Windows.Forms.Label();
-			this.label11 = new System.Windows.Forms.Label();
 			this.groupBoxAppearance.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nudHair)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudFace)).BeginInit();
@@ -175,12 +174,18 @@
 			this.panelPetPreview.SuspendLayout();
 			this.tabPageInventory.SuspendLayout();
 			this.groupBoxItemStats.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.safeNumericUpDown2)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.safeNumericUpDown1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudItemReg)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudItemCrit)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudItemTempo)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudItemResistance)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudItemArmor)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudItemHP)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudItemEffectId)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudItemModelId)).BeginInit();
 			this.groupBoxItemProperties.SuspendLayout();
 			this.groupBoxItemFlags.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.nudItemCount)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudItemLevel)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudItemCount)).BeginInit();
 			this.tabPageEquipment.SuspendLayout();
 			this.groupBoxCoins.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nudCoinsPlatinum)).BeginInit();
@@ -190,13 +195,6 @@
 			this.panel2.SuspendLayout();
 			this.tabPageAbout.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxX2048)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.safeNumericUpDown3)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.safeNumericUpDown4)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.safeNumericUpDown5)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.safeNumericUpDown6)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.safeNumericUpDown7)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.safeNumericUpDown8)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.safeNumericUpDown9)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// textBoxName
@@ -996,16 +994,15 @@
 			this.groupBoxItemStats.Controls.Add(this.label7);
 			this.groupBoxItemStats.Controls.Add(this.label6);
 			this.groupBoxItemStats.Controls.Add(this.label1);
-			this.groupBoxItemStats.Controls.Add(this.safeNumericUpDown9);
-			this.groupBoxItemStats.Controls.Add(this.safeNumericUpDown8);
-			this.groupBoxItemStats.Controls.Add(this.safeNumericUpDown7);
-			this.groupBoxItemStats.Controls.Add(this.safeNumericUpDown6);
-			this.groupBoxItemStats.Controls.Add(this.safeNumericUpDown5);
-			this.groupBoxItemStats.Controls.Add(this.safeNumericUpDown4);
-			this.groupBoxItemStats.Controls.Add(this.safeNumericUpDown3);
-			this.groupBoxItemStats.Controls.Add(this.safeNumericUpDown2);
+			this.groupBoxItemStats.Controls.Add(this.nudItemReg);
+			this.groupBoxItemStats.Controls.Add(this.nudItemCrit);
+			this.groupBoxItemStats.Controls.Add(this.nudItemTempo);
+			this.groupBoxItemStats.Controls.Add(this.nudItemResistance);
+			this.groupBoxItemStats.Controls.Add(this.nudItemArmor);
+			this.groupBoxItemStats.Controls.Add(this.nudItemHP);
+			this.groupBoxItemStats.Controls.Add(this.nudItemEffectId);
 			this.groupBoxItemStats.Controls.Add(this.label5);
-			this.groupBoxItemStats.Controls.Add(this.safeNumericUpDown1);
+			this.groupBoxItemStats.Controls.Add(this.nudItemModelId);
 			this.groupBoxItemStats.Controls.Add(this.labelItemModelId);
 			this.groupBoxItemStats.Controls.Add(this.labelPrefixId);
 			this.groupBoxItemStats.Controls.Add(this.comboBoxItemPrefixId);
@@ -1016,13 +1013,181 @@
 			this.groupBoxItemStats.TabStop = false;
 			this.groupBoxItemStats.Text = "Item Stats";
 			// 
-			// safeNumericUpDown2
+			// label11
 			// 
-			this.safeNumericUpDown2.Location = new System.Drawing.Point(6, 111);
-			this.safeNumericUpDown2.Name = "safeNumericUpDown2";
-			this.safeNumericUpDown2.Size = new System.Drawing.Size(124, 20);
-			this.safeNumericUpDown2.TabIndex = 9;
-			this.safeNumericUpDown2.Value = new decimal(new int[] {
+			this.label11.AutoSize = true;
+			this.label11.Location = new System.Drawing.Point(25, 269);
+			this.label11.Name = "label11";
+			this.label11.Size = new System.Drawing.Size(30, 13);
+			this.label11.TabIndex = 22;
+			this.label11.Text = "Reg:";
+			// 
+			// label10
+			// 
+			this.label10.AutoSize = true;
+			this.label10.Location = new System.Drawing.Point(30, 243);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(25, 13);
+			this.label10.TabIndex = 21;
+			this.label10.Text = "Crit:";
+			// 
+			// label8
+			// 
+			this.label8.AutoSize = true;
+			this.label8.Location = new System.Drawing.Point(12, 217);
+			this.label8.Name = "label8";
+			this.label8.Size = new System.Drawing.Size(43, 13);
+			this.label8.TabIndex = 20;
+			this.label8.Text = "Tempo:";
+			// 
+			// label7
+			// 
+			this.label7.AutoSize = true;
+			this.label7.Location = new System.Drawing.Point(24, 191);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(31, 13);
+			this.label7.TabIndex = 19;
+			this.label7.Text = "Resi:";
+			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.Location = new System.Drawing.Point(18, 165);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(37, 13);
+			this.label6.TabIndex = 18;
+			this.label6.Text = "Armor:";
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Location = new System.Drawing.Point(30, 139);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(25, 13);
+			this.label1.TabIndex = 17;
+			this.label1.Text = "HP:";
+			// 
+			// nudItemReg
+			// 
+			this.nudItemReg.DecimalPlaces = 1;
+			this.nudItemReg.Enabled = false;
+			this.nudItemReg.Location = new System.Drawing.Point(61, 267);
+			this.nudItemReg.Maximum = new decimal(new int[] {
+            65535,
+            0,
+            0,
+            0});
+			this.nudItemReg.Name = "nudItemReg";
+			this.nudItemReg.Size = new System.Drawing.Size(69, 20);
+			this.nudItemReg.TabIndex = 15;
+			this.nudItemReg.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			// 
+			// nudItemCrit
+			// 
+			this.nudItemCrit.DecimalPlaces = 1;
+			this.nudItemCrit.Enabled = false;
+			this.nudItemCrit.Location = new System.Drawing.Point(61, 241);
+			this.nudItemCrit.Maximum = new decimal(new int[] {
+            65535,
+            0,
+            0,
+            0});
+			this.nudItemCrit.Name = "nudItemCrit";
+			this.nudItemCrit.Size = new System.Drawing.Size(69, 20);
+			this.nudItemCrit.TabIndex = 14;
+			this.nudItemCrit.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			// 
+			// nudItemTempo
+			// 
+			this.nudItemTempo.DecimalPlaces = 1;
+			this.nudItemTempo.Enabled = false;
+			this.nudItemTempo.Location = new System.Drawing.Point(61, 215);
+			this.nudItemTempo.Maximum = new decimal(new int[] {
+            65535,
+            0,
+            0,
+            0});
+			this.nudItemTempo.Name = "nudItemTempo";
+			this.nudItemTempo.Size = new System.Drawing.Size(69, 20);
+			this.nudItemTempo.TabIndex = 13;
+			this.nudItemTempo.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			// 
+			// nudItemResistance
+			// 
+			this.nudItemResistance.DecimalPlaces = 1;
+			this.nudItemResistance.Enabled = false;
+			this.nudItemResistance.Location = new System.Drawing.Point(61, 189);
+			this.nudItemResistance.Maximum = new decimal(new int[] {
+            65535,
+            0,
+            0,
+            0});
+			this.nudItemResistance.Name = "nudItemResistance";
+			this.nudItemResistance.Size = new System.Drawing.Size(69, 20);
+			this.nudItemResistance.TabIndex = 12;
+			this.nudItemResistance.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			// 
+			// nudItemArmor
+			// 
+			this.nudItemArmor.DecimalPlaces = 1;
+			this.nudItemArmor.Enabled = false;
+			this.nudItemArmor.Location = new System.Drawing.Point(61, 163);
+			this.nudItemArmor.Maximum = new decimal(new int[] {
+            65535,
+            0,
+            0,
+            0});
+			this.nudItemArmor.Name = "nudItemArmor";
+			this.nudItemArmor.Size = new System.Drawing.Size(69, 20);
+			this.nudItemArmor.TabIndex = 11;
+			this.nudItemArmor.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			// 
+			// nudItemHP
+			// 
+			this.nudItemHP.DecimalPlaces = 1;
+			this.nudItemHP.Enabled = false;
+			this.nudItemHP.Location = new System.Drawing.Point(61, 137);
+			this.nudItemHP.Maximum = new decimal(new int[] {
+            65535,
+            0,
+            0,
+            0});
+			this.nudItemHP.Name = "nudItemHP";
+			this.nudItemHP.Size = new System.Drawing.Size(69, 20);
+			this.nudItemHP.TabIndex = 10;
+			this.nudItemHP.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			// 
+			// nudItemEffectId
+			// 
+			this.nudItemEffectId.Location = new System.Drawing.Point(6, 111);
+			this.nudItemEffectId.Name = "nudItemEffectId";
+			this.nudItemEffectId.Size = new System.Drawing.Size(124, 20);
+			this.nudItemEffectId.TabIndex = 9;
+			this.nudItemEffectId.Value = new decimal(new int[] {
             0,
             0,
             0,
@@ -1037,18 +1202,18 @@
 			this.label5.TabIndex = 8;
 			this.label5.Text = "Effect ID:";
 			// 
-			// safeNumericUpDown1
+			// nudItemModelId
 			// 
-			this.safeNumericUpDown1.Location = new System.Drawing.Point(6, 72);
-			this.safeNumericUpDown1.Maximum = new decimal(new int[] {
+			this.nudItemModelId.Location = new System.Drawing.Point(6, 72);
+			this.nudItemModelId.Maximum = new decimal(new int[] {
             11,
             0,
             0,
             0});
-			this.safeNumericUpDown1.Name = "safeNumericUpDown1";
-			this.safeNumericUpDown1.Size = new System.Drawing.Size(124, 20);
-			this.safeNumericUpDown1.TabIndex = 7;
-			this.safeNumericUpDown1.Value = new decimal(new int[] {
+			this.nudItemModelId.Name = "nudItemModelId";
+			this.nudItemModelId.Size = new System.Drawing.Size(124, 20);
+			this.nudItemModelId.TabIndex = 7;
+			this.nudItemModelId.Value = new decimal(new int[] {
             0,
             0,
             0,
@@ -1133,29 +1298,6 @@
 			this.comboBoxItemRarity.TabIndex = 14;
 			this.comboBoxItemRarity.SelectedIndexChanged += new System.EventHandler(this.ComboBoxItemRaritySelectedIndexChanged);
 			// 
-			// nudItemCount
-			// 
-			this.nudItemCount.Location = new System.Drawing.Point(595, 6);
-			this.nudItemCount.Maximum = new decimal(new int[] {
-            2147483647,
-            0,
-            0,
-            0});
-			this.nudItemCount.Minimum = new decimal(new int[] {
-            -2147483648,
-            0,
-            0,
-            -2147483648});
-			this.nudItemCount.Name = "nudItemCount";
-			this.nudItemCount.Size = new System.Drawing.Size(98, 20);
-			this.nudItemCount.TabIndex = 13;
-			this.nudItemCount.Value = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-			this.nudItemCount.ValueChanged += new System.EventHandler(this.NudItemCountValueChanged);
-			// 
 			// labelItemRarity
 			// 
 			this.labelItemRarity.AutoSize = true;
@@ -1164,15 +1306,6 @@
 			this.labelItemRarity.Size = new System.Drawing.Size(37, 13);
 			this.labelItemRarity.TabIndex = 10;
 			this.labelItemRarity.Text = "Rarity:";
-			// 
-			// labelItemCount
-			// 
-			this.labelItemCount.AutoSize = true;
-			this.labelItemCount.Location = new System.Drawing.Point(551, 8);
-			this.labelItemCount.Name = "labelItemCount";
-			this.labelItemCount.Size = new System.Drawing.Size(38, 13);
-			this.labelItemCount.TabIndex = 12;
-			this.labelItemCount.Text = "Count:";
 			// 
 			// comboBoxItemMaterial
 			// 
@@ -1263,6 +1396,24 @@
 			this.comboBoxItemType.TabIndex = 0;
 			this.comboBoxItemType.SelectedIndexChanged += new System.EventHandler(this.ComboBoxItemTypeSelectedIndexChanged);
 			// 
+			// nudItemCount
+			// 
+			this.nudItemCount.Location = new System.Drawing.Point(595, 6);
+			this.nudItemCount.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+			this.nudItemCount.Name = "nudItemCount";
+			this.nudItemCount.Size = new System.Drawing.Size(98, 20);
+			this.nudItemCount.TabIndex = 13;
+			this.nudItemCount.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+			this.nudItemCount.ValueChanged += new System.EventHandler(this.NudItemCountValueChanged);
+			// 
 			// tabControlInventory
 			// 
 			this.tabControlInventory.Location = new System.Drawing.Point(6, 6);
@@ -1270,6 +1421,15 @@
 			this.tabControlInventory.SelectedIndex = 0;
 			this.tabControlInventory.Size = new System.Drawing.Size(542, 227);
 			this.tabControlInventory.TabIndex = 10;
+			// 
+			// labelItemCount
+			// 
+			this.labelItemCount.AutoSize = true;
+			this.labelItemCount.Location = new System.Drawing.Point(551, 8);
+			this.labelItemCount.Name = "labelItemCount";
+			this.labelItemCount.Size = new System.Drawing.Size(38, 13);
+			this.labelItemCount.TabIndex = 12;
+			this.labelItemCount.Text = "Count:";
 			// 
 			// tabPageEquipment
 			// 
@@ -1519,144 +1679,6 @@
 			this.imageListInventory.Images.SetKeyName(24, "IconLamp.png");
 			this.imageListInventory.Images.SetKeyName(25, "IconManaCube.png");
 			// 
-			// safeNumericUpDown3
-			// 
-			this.safeNumericUpDown3.Location = new System.Drawing.Point(61, 137);
-			this.safeNumericUpDown3.Name = "safeNumericUpDown3";
-			this.safeNumericUpDown3.Size = new System.Drawing.Size(69, 20);
-			this.safeNumericUpDown3.TabIndex = 10;
-			this.safeNumericUpDown3.Value = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-			// 
-			// safeNumericUpDown4
-			// 
-			this.safeNumericUpDown4.Location = new System.Drawing.Point(61, 163);
-			this.safeNumericUpDown4.Name = "safeNumericUpDown4";
-			this.safeNumericUpDown4.Size = new System.Drawing.Size(69, 20);
-			this.safeNumericUpDown4.TabIndex = 11;
-			this.safeNumericUpDown4.Value = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-			// 
-			// safeNumericUpDown5
-			// 
-			this.safeNumericUpDown5.Location = new System.Drawing.Point(61, 189);
-			this.safeNumericUpDown5.Name = "safeNumericUpDown5";
-			this.safeNumericUpDown5.Size = new System.Drawing.Size(69, 20);
-			this.safeNumericUpDown5.TabIndex = 12;
-			this.safeNumericUpDown5.Value = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-			// 
-			// safeNumericUpDown6
-			// 
-			this.safeNumericUpDown6.Location = new System.Drawing.Point(61, 215);
-			this.safeNumericUpDown6.Name = "safeNumericUpDown6";
-			this.safeNumericUpDown6.Size = new System.Drawing.Size(69, 20);
-			this.safeNumericUpDown6.TabIndex = 13;
-			this.safeNumericUpDown6.Value = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-			// 
-			// safeNumericUpDown7
-			// 
-			this.safeNumericUpDown7.Location = new System.Drawing.Point(61, 241);
-			this.safeNumericUpDown7.Name = "safeNumericUpDown7";
-			this.safeNumericUpDown7.Size = new System.Drawing.Size(69, 20);
-			this.safeNumericUpDown7.TabIndex = 14;
-			this.safeNumericUpDown7.Value = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-			// 
-			// safeNumericUpDown8
-			// 
-			this.safeNumericUpDown8.Location = new System.Drawing.Point(61, 267);
-			this.safeNumericUpDown8.Name = "safeNumericUpDown8";
-			this.safeNumericUpDown8.Size = new System.Drawing.Size(69, 20);
-			this.safeNumericUpDown8.TabIndex = 15;
-			this.safeNumericUpDown8.Value = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-			// 
-			// safeNumericUpDown9
-			// 
-			this.safeNumericUpDown9.Location = new System.Drawing.Point(61, 293);
-			this.safeNumericUpDown9.Name = "safeNumericUpDown9";
-			this.safeNumericUpDown9.Size = new System.Drawing.Size(69, 20);
-			this.safeNumericUpDown9.TabIndex = 16;
-			this.safeNumericUpDown9.Value = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(30, 139);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(25, 13);
-			this.label1.TabIndex = 17;
-			this.label1.Text = "HP:";
-			// 
-			// label6
-			// 
-			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(18, 165);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(37, 13);
-			this.label6.TabIndex = 18;
-			this.label6.Text = "Armor:";
-			// 
-			// label7
-			// 
-			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(24, 191);
-			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(31, 13);
-			this.label7.TabIndex = 19;
-			this.label7.Text = "Resi:";
-			// 
-			// label8
-			// 
-			this.label8.AutoSize = true;
-			this.label8.Location = new System.Drawing.Point(12, 217);
-			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(43, 13);
-			this.label8.TabIndex = 20;
-			this.label8.Text = "Tempo:";
-			// 
-			// label10
-			// 
-			this.label10.AutoSize = true;
-			this.label10.Location = new System.Drawing.Point(30, 243);
-			this.label10.Name = "label10";
-			this.label10.Size = new System.Drawing.Size(25, 13);
-			this.label10.TabIndex = 21;
-			this.label10.Text = "Crit:";
-			// 
-			// label11
-			// 
-			this.label11.AutoSize = true;
-			this.label11.Location = new System.Drawing.Point(25, 269);
-			this.label11.Name = "label11";
-			this.label11.Size = new System.Drawing.Size(30, 13);
-			this.label11.TabIndex = 22;
-			this.label11.Text = "Reg:";
-			// 
 			// Editor
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1709,14 +1731,20 @@
 			this.tabPageInventory.PerformLayout();
 			this.groupBoxItemStats.ResumeLayout(false);
 			this.groupBoxItemStats.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.safeNumericUpDown2)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.safeNumericUpDown1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudItemReg)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudItemCrit)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudItemTempo)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudItemResistance)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudItemArmor)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudItemHP)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudItemEffectId)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudItemModelId)).EndInit();
 			this.groupBoxItemProperties.ResumeLayout(false);
 			this.groupBoxItemProperties.PerformLayout();
 			this.groupBoxItemFlags.ResumeLayout(false);
 			this.groupBoxItemFlags.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.nudItemCount)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudItemLevel)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.nudItemCount)).EndInit();
 			this.tabPageEquipment.ResumeLayout(false);
 			this.groupBoxCoins.ResumeLayout(false);
 			this.groupBoxCoins.PerformLayout();
@@ -1729,13 +1757,6 @@
 			this.tabPageAbout.ResumeLayout(false);
 			this.tabPageAbout.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxX2048)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.safeNumericUpDown3)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.safeNumericUpDown4)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.safeNumericUpDown5)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.safeNumericUpDown6)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.safeNumericUpDown7)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.safeNumericUpDown8)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.safeNumericUpDown9)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -1841,21 +1862,20 @@
 		private System.Windows.Forms.GroupBox groupBoxItemStats;
 		private System.Windows.Forms.GroupBox groupBoxItemFlags;
 		private System.Windows.Forms.Label labelItemModelId;
-		private SafeNumericUpDown safeNumericUpDown2;
+		private SafeNumericUpDown nudItemEffectId;
 		private System.Windows.Forms.Label label5;
-		private SafeNumericUpDown safeNumericUpDown1;
+		private SafeNumericUpDown nudItemModelId;
 		private System.Windows.Forms.Label label11;
 		private System.Windows.Forms.Label label10;
 		private System.Windows.Forms.Label label8;
 		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.Label label1;
-		private SafeNumericUpDown safeNumericUpDown9;
-		private SafeNumericUpDown safeNumericUpDown8;
-		private SafeNumericUpDown safeNumericUpDown7;
-		private SafeNumericUpDown safeNumericUpDown6;
-		private SafeNumericUpDown safeNumericUpDown5;
-		private SafeNumericUpDown safeNumericUpDown4;
-		private SafeNumericUpDown safeNumericUpDown3;
+		private SafeNumericUpDown nudItemReg;
+		private SafeNumericUpDown nudItemCrit;
+		private SafeNumericUpDown nudItemTempo;
+		private SafeNumericUpDown nudItemResistance;
+		private SafeNumericUpDown nudItemArmor;
+		private SafeNumericUpDown nudItemHP;
 	}
 }
